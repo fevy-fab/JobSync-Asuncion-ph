@@ -1,0 +1,7295 @@
+[
+  {
+    "field": "Accountancy (Audit Track)",
+    "sampleCanonical": "Bachelor of Science in Accountancy (Audit Track)",
+    "codes": [
+      "BS_ACCOUNTING_AUDIT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "audit_and_compliance"
+    ]
+  },
+  {
+    "field": "Accounting and Finance",
+    "sampleCanonical": "Bachelor of Science in Accounting and Finance",
+    "codes": [
+      "BS_ACCOUNTING_FINANCE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "accounting_finance"
+    ]
+  },
+  {
+    "field": "Adult Education",
+    "sampleCanonical": "Bachelor in Adult Education",
+    "codes": [
+      "BAE_ADULT_EDUCATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "adult_education"
+    ]
+  },
+  {
+    "field": "Advertising and Marketing Communication",
+    "sampleCanonical": "Bachelor of Arts in Advertising and Marketing Communication",
+    "codes": [
+      "BA_ADVERTISING_MARKETING_COMM"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "advertising_and_marketing_communication"
+    ]
+  },
+  {
+    "field": "Aeronautical Engineering",
+    "sampleCanonical": "Bachelor of Science in Aeronautical Engineering",
+    "codes": [
+      "BS_AERONAUTICAL_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "aeronautical_engineering"
+    ]
+  },
+  {
+    "field": "Agribusiness Management",
+    "sampleCanonical": "Bachelor of Science in Agribusiness Management",
+    "codes": [
+      "BS_AGRIBUSINESS_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "agribusiness_management"
+    ]
+  },
+  {
+    "field": "Agricultural Development",
+    "sampleCanonical": "Bachelor of Science in Agricultural Development",
+    "codes": [
+      "BS_AGRICULTURAL_DEVELOPMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "agricultural_development"
+    ]
+  },
+  {
+    "field": "Agricultural Economics",
+    "sampleCanonical": "Bachelor of Science in Agricultural Economics",
+    "codes": [
+      "BS_AGRICULTURAL_ECONOMICS"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "agricultural_economics"
+    ]
+  },
+  {
+    "field": "Agricultural Education",
+    "sampleCanonical": "Bachelor of Science in Agricultural Education",
+    "codes": [
+      "BS_AGRICULTURAL_EDUCATION",
+      "MS_AGRICULTURAL_EDUCATION"
+    ],
+    "levels": [
+      "bachelor",
+      "master"
+    ],
+    "fieldGroups": [
+      "agricultural_education"
+    ]
+  },
+  {
+    "field": "Agricultural Engineering",
+    "sampleCanonical": "Bachelor of Science in Agricultural Engineering",
+    "codes": [
+      "BS_AGRICULTURAL_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "agricultural_engineering"
+    ]
+  },
+  {
+    "field": "Agricultural Extension",
+    "sampleCanonical": "Bachelor of Science in Agricultural Extension",
+    "codes": [
+      "BS_AGRICULTURAL_EXTENSION",
+      "MS_AGRICULTURAL_EXTENSION"
+    ],
+    "levels": [
+      "bachelor",
+      "master"
+    ],
+    "fieldGroups": [
+      "agricultural_extension"
+    ]
+  },
+  {
+    "field": "Agricultural Policy",
+    "sampleCanonical": "Bachelor in Agricultural Policy",
+    "codes": [
+      "BS_AGRICULTURAL_POLICY",
+      "MS_AGRICULTURAL_POLICY"
+    ],
+    "levels": [
+      "bachelor",
+      "master"
+    ],
+    "fieldGroups": [
+      "agricultural_policy"
+    ]
+  },
+  {
+    "field": "Agricultural Science",
+    "sampleCanonical": "Bachelor of Science in Agricultural Science",
+    "codes": [
+      "BS_AGRICULTURAL_SCIENCE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "agricultural_science"
+    ]
+  },
+  {
+    "field": "Agricultural Technology",
+    "sampleCanonical": "Bachelor of Science in Agricultural Technology",
+    "codes": [
+      "BS_AGRICULTURAL_TECHNOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "agricultural_technology"
+    ]
+  },
+  {
+    "field": "Agriculture",
+    "sampleCanonical": "Bachelor of Science in Agriculture",
+    "codes": [
+      "BS_AGRICULTURE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "agriculture"
+    ]
+  },
+  {
+    "field": "Agritechnology",
+    "sampleCanonical": "Bachelor of Science in Agritechnology",
+    "codes": [
+      "BS_AGRITECH"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "agritechnology"
+    ]
+  },
+  {
+    "field": "Agroforestry",
+    "sampleCanonical": "Bachelor of Science in Agroforestry",
+    "codes": [
+      "BS_AGROFORESTRY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "agroforestry"
+    ]
+  },
+  {
+    "field": "Agronomy",
+    "sampleCanonical": "Bachelor of Science in Agronomy",
+    "codes": [
+      "BS_AGRONOMY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "agronomy"
+    ]
+  },
+  {
+    "field": "Air Traffic Management",
+    "sampleCanonical": "Bachelor of Science in Air Traffic Management",
+    "codes": [
+      "BS_AIR_TRAFFIC_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "air_traffic_management"
+    ]
+  },
+  {
+    "field": "Aircraft Maintenance Technology",
+    "sampleCanonical": "Bachelor of Science in Aircraft Maintenance Technology",
+    "codes": [
+      "BS_AIRCRAFT_MAINTENANCE_TECH"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "aircraft_maintenance_technology"
+    ]
+  },
+  {
+    "field": "Airport Management",
+    "sampleCanonical": "Bachelor of Science in Airport Management",
+    "codes": [
+      "BS_AIRPORT_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "airport_management"
+    ]
+  },
+  {
+    "field": "Allied Health Science",
+    "sampleCanonical": "Bachelor of Science in Allied Health Science",
+    "codes": [
+      "BS_ALLIED_HEALTH_SCIENCE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "allied_health_science"
+    ]
+  },
+  {
+    "field": "Alternative Learning System Facilitation",
+    "sampleCanonical": "Certificate in Alternative Learning System Facilitation",
+    "codes": [
+      "CERT_ALTERNATIVE_LEARNING_SYSTEM"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "alternative_learning_system"
+    ]
+  },
+  {
+    "field": "Animal Husbandry",
+    "sampleCanonical": "Bachelor in Animal Husbandry",
+    "codes": [
+      "BS_ANIMAL_HUSBANDRY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "animal_husbandry"
+    ]
+  },
+  {
+    "field": "Animal Nutrition",
+    "sampleCanonical": "Bachelor in Animal Nutrition",
+    "codes": [
+      "BS_ANIMAL_NUTRITION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "animal_nutrition"
+    ]
+  },
+  {
+    "field": "Animal Science",
+    "sampleCanonical": "Bachelor of Science in Animal Science",
+    "codes": [
+      "BS_ANIMAL_SCIENCE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "animal_science"
+    ]
+  },
+  {
+    "field": "Animation",
+    "sampleCanonical": "Bachelor of Fine Arts major in Animation",
+    "codes": [
+      "BFA_ANIMATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "animation"
+    ]
+  },
+  {
+    "field": "Animation and Game Design",
+    "sampleCanonical": "Certificate in Animation and Game Design",
+    "codes": [
+      "CERT_ANIMATION_GAME_DESIGN"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "animation_and_game_design"
+    ]
+  },
+  {
+    "field": "Anthropology",
+    "sampleCanonical": "Bachelor of Arts in Anthropology",
+    "codes": [
+      "BS_ANTHROPOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "anthropology"
+    ]
+  },
+  {
+    "field": "Applied Biology",
+    "sampleCanonical": "Bachelor of Science in Applied Biology",
+    "codes": [
+      "BS_APPLIED_BIOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "applied_biology"
+    ]
+  },
+  {
+    "field": "Applied Industrial Arts",
+    "sampleCanonical": "Bachelor of Secondary Education major in Applied Industrial Arts",
+    "codes": [
+      "BSE_APPLIED_INDUSTRIAL_ARTS"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "applied_industrial_arts"
+    ]
+  },
+  {
+    "field": "Applied Linguistics",
+    "sampleCanonical": "Master of Arts in Applied Linguistics",
+    "codes": [
+      "MA_APPLIED_LINGUISTICS"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "linguistics_applied"
+    ]
+  },
+  {
+    "field": "Applied Mathematics",
+    "sampleCanonical": "Bachelor of Science in Applied Mathematics",
+    "codes": [
+      "BS_APPLIED_MATHEMATICS"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "applied_mathematics"
+    ]
+  },
+  {
+    "field": "Applied Mechanics",
+    "sampleCanonical": "Bachelor of Science in Applied Mechanics",
+    "codes": [
+      "BS_APPLIED_MECHANICS"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "applied_mechanics"
+    ]
+  },
+  {
+    "field": "Applied Physics",
+    "sampleCanonical": "Bachelor of Science in Applied Physics",
+    "codes": [
+      "BS_APPLIED_PHYSICS"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "applied_physics"
+    ]
+  },
+  {
+    "field": "Applied Sciences and Technology",
+    "sampleCanonical": "Bachelor of Science in Applied Sciences and Technology",
+    "codes": [
+      "BS_APPLIED_SCI_TECH"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "applied_sciences_technology"
+    ]
+  },
+  {
+    "field": "Applied Technology",
+    "sampleCanonical": "Bachelor of Science in Applied Technology",
+    "codes": [
+      "BS_APPLIED_TECHNOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "applied_technology"
+    ]
+  },
+  {
+    "field": "Aquaculture",
+    "sampleCanonical": "Bachelor of Science in Aquaculture",
+    "codes": [
+      "BS_AQUACULTURE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "aquaculture"
+    ]
+  },
+  {
+    "field": "Aquatechnology",
+    "sampleCanonical": "Bachelor of Science in Aquatechnology",
+    "codes": [
+      "BS_AQUATECH"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "aquatechnology"
+    ]
+  },
+  {
+    "field": "Architectural Design",
+    "sampleCanonical": "Bachelor in Architectural Design",
+    "codes": [
+      "BS_ARCHITECTURAL_DESIGN"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "architectural_design"
+    ]
+  },
+  {
+    "field": "Architecture",
+    "sampleCanonical": "Bachelor of Science in Architecture",
+    "codes": [
+      "BS_ARCHITECTURE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "architecture"
+    ]
+  },
+  {
+    "field": "Archival Studies",
+    "sampleCanonical": "Bachelor of Arts in Archival Studies",
+    "codes": [
+      "BA_ARCHIVAL_STUDIES"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "archival_studies"
+    ]
+  },
+  {
+    "field": "Artificial Intelligence",
+    "sampleCanonical": "Bachelor of Science in Artificial Intelligence",
+    "codes": [
+      "BS_ARTIFICIAL_INTELLIGENCE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "artificial_intelligence"
+    ]
+  },
+  {
+    "field": "Artisan Skills Development",
+    "sampleCanonical": "Certificate in Artisan Skills Development",
+    "codes": [
+      "CERT_ARTISAN_SKILLS_DEVELOPMENT"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "artisan_skills_development"
+    ]
+  },
+  {
+    "field": "Arts and Culture Management",
+    "sampleCanonical": "Bachelor of Arts in Arts and Culture Management",
+    "codes": [
+      "BA_ARTS_CULTURE_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "arts_and_culture_management"
+    ]
+  },
+  {
+    "field": "Arts Education",
+    "sampleCanonical": "Bachelor in Arts Education",
+    "codes": [
+      "BA_ARTS_EDUCATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "arts_education"
+    ]
+  },
+  {
+    "field": "Arts Management",
+    "sampleCanonical": "Bachelor of Arts in Arts Management",
+    "codes": [
+      "BA_ARTS_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "arts_management"
+    ]
+  },
+  {
+    "field": "Automation Engineering",
+    "sampleCanonical": "Bachelor of Science in Automation Engineering",
+    "codes": [
+      "BS_AUTOMATION_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "automation_engineering"
+    ]
+  },
+  {
+    "field": "Automotive Engineering",
+    "sampleCanonical": "Bachelor of Science in Automotive Engineering",
+    "codes": [
+      "BS_AUTOMOTIVE_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "automotive_engineering"
+    ]
+  },
+  {
+    "field": "Automotive Servicing",
+    "sampleCanonical": "Certificate in Automotive Servicing",
+    "codes": [
+      "CERT_AUTOMOTIVE_SERVICING"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "automotive_servicing"
+    ]
+  },
+  {
+    "field": "Automotive Technology",
+    "sampleCanonical": "Certificate in Automotive Technology",
+    "codes": [
+      "CERT_AUTOMOTIVE_TECH"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "automotive_technology"
+    ]
+  },
+  {
+    "field": "Aviation Engineering",
+    "sampleCanonical": "Bachelor of Science in Aviation Engineering",
+    "codes": [
+      "BS_AVIATION_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "aviation_engineering"
+    ]
+  },
+  {
+    "field": "Aviation Technology",
+    "sampleCanonical": "Bachelor of Science in Aviation Technology",
+    "codes": [
+      "BS_AVIATION_TECHNOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "aviation_technology"
+    ]
+  },
+  {
+    "field": "Baking and Pastry Arts",
+    "sampleCanonical": "Certificate in Baking and Pastry Arts",
+    "codes": [
+      "CERT_BAKING_PASTRY_ARTS"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "baking_and_pastry_arts"
+    ]
+  },
+  {
+    "field": "Banking and Finance",
+    "sampleCanonical": "Bachelor of Science in Banking and Finance",
+    "codes": [
+      "BS_BANKING_FINANCE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "banking_and_finance"
+    ]
+  },
+  {
+    "field": "Bartending",
+    "sampleCanonical": "Certificate in Bartending",
+    "codes": [
+      "CERT_BARTENDING"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "bartending"
+    ]
+  },
+  {
+    "field": "Basic Electronics",
+    "sampleCanonical": "Certificate in Basic Electronics",
+    "codes": [
+      "CERT_BASIC_ELECTRONICS"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "basic_electronics"
+    ]
+  },
+  {
+    "field": "Beauty Care and Wellness",
+    "sampleCanonical": "Certificate in Beauty Care and Wellness",
+    "codes": [
+      "CERT_BEAUTY_CARE_WELLNESS"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "beauty_care_and_wellness"
+    ]
+  },
+  {
+    "field": "Behavioral Science",
+    "sampleCanonical": "Bachelor of Science in Behavioral Science",
+    "codes": [
+      "BS_BEHAVIORAL_SCIENCE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "behavioral_science"
+    ]
+  },
+  {
+    "field": "Biochemistry",
+    "sampleCanonical": "Bachelor of Science in Biochemistry",
+    "codes": [
+      "BS_BIOCHEMISTRY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "biochemistry"
+    ]
+  },
+  {
+    "field": "Biodiversity Conservation",
+    "sampleCanonical": "Bachelor in Biodiversity Conservation",
+    "codes": [
+      "BS_BIODIVERSITY_CONSERVATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "biodiversity_conservation"
+    ]
+  },
+  {
+    "field": "Bioengineering",
+    "sampleCanonical": "Bachelor of Science in Bioengineering",
+    "codes": [
+      "BS_BIOENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "bioengineering"
+    ]
+  },
+  {
+    "field": "Bioinformatics",
+    "sampleCanonical": "Bachelor of Science in Bioinformatics",
+    "codes": [
+      "BS_BIOINFORMATICS"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "bioinformatics"
+    ]
+  },
+  {
+    "field": "Biomedical Engineering",
+    "sampleCanonical": "Bachelor of Science in Biomedical Engineering",
+    "codes": [
+      "BS_BIOMEDICAL_ENGINEERING",
+      "MS_BIOMEDICAL_ENGINEERING",
+      "PHD_BIOMEDICAL_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor",
+      "master",
+      "doctoral"
+    ],
+    "fieldGroups": [
+      "biomedical_engineering"
+    ]
+  },
+  {
+    "field": "Biomedical Science",
+    "sampleCanonical": "Bachelor of Science in Biomedical Science",
+    "codes": [
+      "BS_BIOMEDICAL_SCIENCE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "biomedical_science"
+    ]
+  },
+  {
+    "field": "Bioprocess Engineering",
+    "sampleCanonical": "Bachelor of Science in Bioprocess Engineering",
+    "codes": [
+      "BS_BIOPROCESS_ENGINEERING",
+      "MS_BIOPROCESS_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor",
+      "master"
+    ],
+    "fieldGroups": [
+      "bioprocess_engineering"
+    ]
+  },
+  {
+    "field": "Biotechnology",
+    "sampleCanonical": "Bachelor of Science in Biotechnology",
+    "codes": [
+      "BS_BIOTECHNOLOGY",
+      "MS_BIOTECHNOLOGY",
+      "PHD_BIOTECHNOLOGY"
+    ],
+    "levels": [
+      "bachelor",
+      "master",
+      "doctoral"
+    ],
+    "fieldGroups": [
+      "biotechnology"
+    ]
+  },
+  {
+    "field": "Biotechnology Applications",
+    "sampleCanonical": "Bachelor of Science in Biotechnology Applications",
+    "codes": [
+      "BS_BIOTECH_APPLICATIONS"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "biotechnology_applications"
+    ]
+  },
+  {
+    "field": "Broadcasting",
+    "sampleCanonical": "Bachelor of Arts in Broadcasting",
+    "codes": [
+      "BA_BROADCASTING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "broadcasting"
+    ]
+  },
+  {
+    "field": "Broadcasting Technology",
+    "sampleCanonical": "Bachelor of Science in Broadcasting Technology",
+    "codes": [
+      "BS_BROADCASTING_TECH"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "broadcasting_technology"
+    ]
+  },
+  {
+    "field": "Building Information Modeling",
+    "sampleCanonical": "Master in Building Information Modeling",
+    "codes": [
+      "MS_BUILDING_INFORMATION_MODELING"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "building_information_modeling"
+    ]
+  },
+  {
+    "field": "Building Maintenance Technology",
+    "sampleCanonical": "Certificate in Building Maintenance Technology",
+    "codes": [
+      "CERT_BUILDING_MAINTENANCE_TECH"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "building_maintenance_technology"
+    ]
+  },
+  {
+    "field": "Building Technology",
+    "sampleCanonical": "Bachelor of Science in Building Technology",
+    "codes": [
+      "BS_BUILDING_TECHNOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "building_technology"
+    ]
+  },
+  {
+    "field": "Business Administration",
+    "sampleCanonical": "Bachelor of Science in Business Administration",
+    "codes": [
+      "BSBA",
+      "MBA_BUSINESS_ADMIN",
+      "PHD_BUSINESS_ADMIN"
+    ],
+    "levels": [
+      "bachelor",
+      "master",
+      "doctoral"
+    ],
+    "fieldGroups": [
+      "business_administration"
+    ]
+  },
+  {
+    "field": "Business Management",
+    "sampleCanonical": "Bachelor of Science in Business Management",
+    "codes": [
+      "BSBM"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "business_management"
+    ]
+  },
+  {
+    "field": "Caregiving",
+    "sampleCanonical": "Certificate in Caregiving",
+    "codes": [
+      "CERT_CAREGIVING"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "caregiving"
+    ]
+  },
+  {
+    "field": "Carpentry and Construction",
+    "sampleCanonical": "Certificate in Carpentry and Construction",
+    "codes": [
+      "CERT_CARPENTRY_CONSTRUCTION"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "carpentry_and_construction"
+    ]
+  },
+  {
+    "field": "Ceramics and Pottery",
+    "sampleCanonical": "Certificate in Ceramics and Pottery",
+    "codes": [
+      "CERT_CERAMICS_POTTERY"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "ceramics_and_pottery"
+    ]
+  },
+  {
+    "field": "Ceramics Engineering",
+    "sampleCanonical": "Bachelor of Science in Ceramics Engineering",
+    "codes": [
+      "BS_CERAMICS_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "ceramics_engineering"
+    ]
+  },
+  {
+    "field": "Chemical Engineering",
+    "sampleCanonical": "Bachelor of Science in Chemical Engineering",
+    "codes": [
+      "BS_CHEMICAL_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "chemical_engineering"
+    ]
+  },
+  {
+    "field": "Chemical Process Technology",
+    "sampleCanonical": "Diploma in Chemical Process Technology",
+    "codes": [
+      "DIP_CHEMICAL_PROCESS_TECHNOLOGY",
+      "BS_CHEMICAL_PROCESS_TECHNOLOGY"
+    ],
+    "levels": [
+      "vocational",
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "chemical_process_technology"
+    ]
+  },
+  {
+    "field": "Cinematography",
+    "sampleCanonical": "Bachelor of Fine Arts major in Cinematography",
+    "codes": [
+      "BS_CINEMATOGRAPHY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "cinematography"
+    ]
+  },
+  {
+    "field": "Civil Engineering",
+    "sampleCanonical": "Bachelor of Science in Civil Engineering",
+    "codes": [
+      "BS_CIVIL_ENGINEERING",
+      "MS_CIVIL_ENGINEERING",
+      "PHD_CIVIL_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor",
+      "master",
+      "doctoral"
+    ],
+    "fieldGroups": [
+      "civil_engineering"
+    ]
+  },
+  {
+    "field": "Climate Change Studies",
+    "sampleCanonical": "Master of Science in Climate Change Studies",
+    "codes": [
+      "MS_CLIMATE_CHANGE_STUDIES"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "climate_change_studies"
+    ]
+  },
+  {
+    "field": "Clinical Administration",
+    "sampleCanonical": "Bachelor in Clinical Administration",
+    "codes": [
+      "BS_CLINICAL_ADMINISTRATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "clinical_administration"
+    ]
+  },
+  {
+    "field": "Clinical Laboratory Science",
+    "sampleCanonical": "Bachelor of Science in Clinical Laboratory Science",
+    "codes": [
+      "BS_CLINICAL_LABORATORY_SCIENCE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "clinical_laboratory_science"
+    ]
+  },
+  {
+    "field": "Clinical Psychology",
+    "sampleCanonical": "Master of Arts in Clinical Psychology",
+    "codes": [
+      "MA_CLINICAL_PSYCHOLOGY"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "clinical_psychology"
+    ]
+  },
+  {
+    "field": "Clinical Research",
+    "sampleCanonical": "Master of Science in Clinical Research",
+    "codes": [
+      "MS_CLINICAL_RESEARCH"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "clinical_research"
+    ]
+  },
+  {
+    "field": "Coastal and Ocean Engineering",
+    "sampleCanonical": "Master of Science in Coastal and Ocean Engineering",
+    "codes": [
+      "MS_COASTAL_OCEAN_ENGINEERING"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "coastal_and_ocean_engineering"
+    ]
+  },
+  {
+    "field": "Coastal Resource Management",
+    "sampleCanonical": "Master in Coastal Resource Management",
+    "codes": [
+      "MS_COASTAL_RESOURCE_MANAGEMENT"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "coastal_resource_management"
+    ]
+  },
+  {
+    "field": "Communication",
+    "sampleCanonical": "Bachelor of Arts in Communication",
+    "codes": [
+      "BA_COMMUNICATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "communication"
+    ]
+  },
+  {
+    "field": "Communication Research",
+    "sampleCanonical": "Bachelor of Arts in Communication Research",
+    "codes": [
+      "BA_COMMUNICATION_RESEARCH"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "communication_research"
+    ]
+  },
+  {
+    "field": "Community Development",
+    "sampleCanonical": "Bachelor of Arts in Community Development",
+    "codes": [
+      "BA_COMMUNITY_DEVELOPMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "community_development"
+    ]
+  },
+  {
+    "field": "Community Development (Agriculture)",
+    "sampleCanonical": "Bachelor in Community Development (Agriculture)",
+    "codes": [
+      "BS_COMMUNITY_DEVELOPMENT_AGRICULTURE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "community_development_agriculture"
+    ]
+  },
+  {
+    "field": "Community Health",
+    "sampleCanonical": "Bachelor in Community Health",
+    "codes": [
+      "BS_COMMUNITY_HEALTH"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "community_health"
+    ]
+  },
+  {
+    "field": "Community Nutrition",
+    "sampleCanonical": "Bachelor in Community Nutrition",
+    "codes": [
+      "BS_COMMUNITY_NUTRITION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "community_nutrition"
+    ]
+  },
+  {
+    "field": "Community Organizing and Development",
+    "sampleCanonical": "Bachelor in Community Organizing and Development",
+    "codes": [
+      "BA_COMMUNITY_ORGANIZING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "community_organizing"
+    ]
+  },
+  {
+    "field": "Community Resilience and Development",
+    "sampleCanonical": "Bachelor in Community Resilience and Development",
+    "codes": [
+      "BS_COMMUNITY_RESILIENCE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "community_resilience"
+    ]
+  },
+  {
+    "field": "Comparative Literature",
+    "sampleCanonical": "Bachelor of Arts in Comparative Literature",
+    "codes": [
+      "BA_COMPARATIVE_LITERATURE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "comparative_literature"
+    ]
+  },
+  {
+    "field": "Computer Aided Design",
+    "sampleCanonical": "Diploma in Computer Aided Design",
+    "codes": [
+      "DIP_COMPUTER_AIDED_DESIGN"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "computer_aided_design"
+    ]
+  },
+  {
+    "field": "Computer Engineering",
+    "sampleCanonical": "Bachelor of Science in Computer Engineering",
+    "codes": [
+      "BS_COMPUTER_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "computer_engineering"
+    ]
+  },
+  {
+    "field": "Computer Graphics and Multimedia",
+    "sampleCanonical": "Bachelor of Science in Computer Graphics and Multimedia",
+    "codes": [
+      "BS_COMPUTER_GRAPHICS_MULTIMEDIA"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "computer_graphics_and_multimedia"
+    ]
+  },
+  {
+    "field": "Computer Hardware Engineering",
+    "sampleCanonical": "Bachelor of Science in Computer Hardware Engineering",
+    "codes": [
+      "BS_COMPUTER_HARDWARE_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "computer_hardware_engineering"
+    ]
+  },
+  {
+    "field": "Computer Hardware Servicing",
+    "sampleCanonical": "Certificate in Computer Hardware Servicing",
+    "codes": [
+      "CERT_COMPUTER_HARDWARE_SERVICING"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "computer_hardware_servicing"
+    ]
+  },
+  {
+    "field": "Computer Networking",
+    "sampleCanonical": "Diploma in Computer Networking",
+    "codes": [
+      "DIPLOMA_COMPUTER_NETWORKING"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "computer_networking"
+    ]
+  },
+  {
+    "field": "Computer Programming",
+    "sampleCanonical": "Diploma in Computer Programming",
+    "codes": [
+      "DIPLOMA_COMPUTER_PROGRAMMING"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "computer_programming"
+    ]
+  },
+  {
+    "field": "Computer Science",
+    "sampleCanonical": "Bachelor of Science in Computer Science",
+    "codes": [
+      "BS_COMPUTER_SCIENCE",
+      "MS_COMPUTER_SCIENCE"
+    ],
+    "levels": [
+      "bachelor",
+      "master"
+    ],
+    "fieldGroups": [
+      "computer_science"
+    ]
+  },
+  {
+    "field": "Computer Systems Servicing",
+    "sampleCanonical": "Certificate in Computer Systems Servicing",
+    "codes": [
+      "CERT_COMPUTER_SYSTEMS_SERVICING"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "computer_systems_servicing"
+    ]
+  },
+  {
+    "field": "Computing and Information Science",
+    "sampleCanonical": "Bachelor of Science in Computing and Information Science",
+    "codes": [
+      "BS_COMPUTING_INFORMATION_SCIENCE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "computing_and_information_science"
+    ]
+  },
+  {
+    "field": "Construction Engineering",
+    "sampleCanonical": "Bachelor of Science in Construction Engineering",
+    "codes": [
+      "BS_CONSTRUCTION_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "construction_engineering"
+    ]
+  },
+  {
+    "field": "Construction Management",
+    "sampleCanonical": "Bachelor of Science in Construction Management",
+    "codes": [
+      "BS_CONSTRUCTION_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "construction_management"
+    ]
+  },
+  {
+    "field": "Construction Safety Management",
+    "sampleCanonical": "Bachelor of Science in Construction Safety Management",
+    "codes": [
+      "BS_CONSTRUCTION_SAFETY_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "construction_safety_management"
+    ]
+  },
+  {
+    "field": "Cooperative Entrepreneurship",
+    "sampleCanonical": "Bachelor of Science in Cooperative Entrepreneurship",
+    "codes": [
+      "BS_COOPERATIVE_ENTREPRENEURSHIP"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "cooperative_entrepreneurship"
+    ]
+  },
+  {
+    "field": "Cooperative Management",
+    "sampleCanonical": "Bachelor in Cooperative Management",
+    "codes": [
+      "BS_COOPERATIVE_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "cooperative_management"
+    ]
+  },
+  {
+    "field": "Corporate Communication",
+    "sampleCanonical": "Bachelor of Arts in Corporate Communication",
+    "codes": [
+      "BA_CORPORATE_COMMUNICATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "corporate_communication"
+    ]
+  },
+  {
+    "field": "Corporate Law",
+    "sampleCanonical": "Master of Laws in Corporate Law",
+    "codes": [
+      "MA_CORPORATE_LAW"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "corporate_law"
+    ]
+  },
+  {
+    "field": "Correctional Administration",
+    "sampleCanonical": "Bachelor of Science in Correctional Administration",
+    "codes": [
+      "BS_CORRECTIONAL_ADMINISTRATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "penology"
+    ]
+  },
+  {
+    "field": "Corrections Management",
+    "sampleCanonical": "Master in Corrections Management",
+    "codes": [
+      "MA_CORRECTIONS_MANAGEMENT"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "corrections_management"
+    ]
+  },
+  {
+    "field": "Cosmetology",
+    "sampleCanonical": "Certificate in Cosmetology",
+    "codes": [
+      "CERT_COSMETOLOGY"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "cosmetology"
+    ]
+  },
+  {
+    "field": "Counseling and Guidance",
+    "sampleCanonical": "Master of Arts in Counseling and Guidance",
+    "codes": [
+      "MA_COUNSELING_AND_GUIDANCE"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "counseling_and_guidance"
+    ]
+  },
+  {
+    "field": "Counseling Psychology",
+    "sampleCanonical": "Master of Arts in Counseling Psychology",
+    "codes": [
+      "MA_COUNSELING_PSYCHOLOGY"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "counseling_psychology"
+    ]
+  },
+  {
+    "field": "Craftsmanship and Design",
+    "sampleCanonical": "Certificate in Craftsmanship and Design",
+    "codes": [
+      "CERT_CRAFTSMANSHIP_DESIGN"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "craftsmanship_and_design"
+    ]
+  },
+  {
+    "field": "Creative Writing",
+    "sampleCanonical": "Bachelor of Arts in Creative Writing",
+    "codes": [
+      "BA_CREATIVE_WRITING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "creative_writing"
+    ]
+  },
+  {
+    "field": "Criminal Justice Technology",
+    "sampleCanonical": "Certificate in Criminal Justice Technology",
+    "codes": [
+      "CERT_CRIMINAL_JUSTICE_TECH"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "criminal_justice_technology"
+    ]
+  },
+  {
+    "field": "Criminological Research",
+    "sampleCanonical": "Master of Arts in Criminological Research",
+    "codes": [
+      "MA_CRIMINOLOGICAL_RESEARCH"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "criminological_research"
+    ]
+  },
+  {
+    "field": "Criminology",
+    "sampleCanonical": "Bachelor of Science in Criminology",
+    "codes": [
+      "BS_CRIMINOLOGY",
+      "MS_CRIMINOLOGY"
+    ],
+    "levels": [
+      "bachelor",
+      "master"
+    ],
+    "fieldGroups": [
+      "criminology"
+    ]
+  },
+  {
+    "field": "Crop Science",
+    "sampleCanonical": "Bachelor of Science in Crop Science",
+    "codes": [
+      "BS_CROP_SCIENCE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "crop_science"
+    ]
+  },
+  {
+    "field": "Culinary Arts",
+    "sampleCanonical": "Bachelor of Science in Culinary Arts",
+    "codes": [
+      "BS_CULINARY_ARTS"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "culinary_arts"
+    ]
+  },
+  {
+    "field": "Culinary Technology",
+    "sampleCanonical": "Certificate in Culinary Technology",
+    "codes": [
+      "CERT_CULINARY_TECH"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "culinary_technology"
+    ]
+  },
+  {
+    "field": "Cultural Heritage Management",
+    "sampleCanonical": "Bachelor of Arts in Cultural Heritage Management",
+    "codes": [
+      "BA_CULTURAL_HERITAGE_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "cultural_heritage_management"
+    ]
+  },
+  {
+    "field": "Cultural Management",
+    "sampleCanonical": "Bachelor of Arts in Cultural Management",
+    "codes": [
+      "BA_CULTURAL_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "cultural_management"
+    ]
+  },
+  {
+    "field": "Cultural Studies",
+    "sampleCanonical": "Bachelor of Arts in Cultural Studies",
+    "codes": [
+      "BA_CULTURAL_STUDIES"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "cultural_studies"
+    ]
+  },
+  {
+    "field": "Curriculum and Instruction",
+    "sampleCanonical": "Master of Arts in Curriculum and Instruction",
+    "codes": [
+      "MAED_CURRICULUM_INSTRUCTION"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "curriculum_and_instruction"
+    ]
+  },
+  {
+    "field": "Customer Service Management",
+    "sampleCanonical": "Bachelor in Customer Service Management",
+    "codes": [
+      "BS_CUSTOMER_SERVICE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "customer_service_management"
+    ]
+  },
+  {
+    "field": "Customs Administration",
+    "sampleCanonical": "Bachelor of Science in Customs Administration",
+    "codes": [
+      "BS_CUSTOMS_ADMINISTRATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "customs_administration"
+    ]
+  },
+  {
+    "field": "Customs and Border Security",
+    "sampleCanonical": "Bachelor of Science in Customs and Border Security",
+    "codes": [
+      "BS_CUSTOMS_BORDER_SECURITY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "customs_and_border_security"
+    ]
+  },
+  {
+    "field": "Cybercrime Investigation",
+    "sampleCanonical": "Bachelor of Science in Cybercrime Investigation",
+    "codes": [
+      "BS_CYBERCRIME_INVESTIGATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "cybercrime_investigation"
+    ]
+  },
+  {
+    "field": "Cybersecurity",
+    "sampleCanonical": "Bachelor of Science in Cybersecurity",
+    "codes": [
+      "BS_CYBERSECURITY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "cybersecurity"
+    ]
+  },
+  {
+    "field": "Data Analytics",
+    "sampleCanonical": "Bachelor of Science in Data Analytics",
+    "codes": [
+      "BS_DATA_ANALYTICS"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "data_analytics"
+    ]
+  },
+  {
+    "field": "Data Science",
+    "sampleCanonical": "Bachelor of Science in Data Science",
+    "codes": [
+      "BS_DATA_SCIENCE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "data_science"
+    ]
+  },
+  {
+    "field": "Database Management",
+    "sampleCanonical": "Bachelor of Science in Database Management",
+    "codes": [
+      "BS_DATABASE_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "database_management"
+    ]
+  },
+  {
+    "field": "Defense and Strategic Studies",
+    "sampleCanonical": "Master of Arts in Defense and Strategic Studies",
+    "codes": [
+      "MA_DEFENSE_STRATEGIC_STUDIES"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "defense_and_strategic_studies"
+    ]
+  },
+  {
+    "field": "Defense Studies",
+    "sampleCanonical": "Master of Arts in Defense Studies",
+    "codes": [
+      "MA_DEFENSE_STUDIES"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "defense_studies"
+    ]
+  },
+  {
+    "field": "Dental Hygiene Technology",
+    "sampleCanonical": "Certificate in Dental Hygiene Technology",
+    "codes": [
+      "CERT_DENTAL_HYGIENE_TECH"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "dental_hygiene_technology"
+    ]
+  },
+  {
+    "field": "Dental Medicine",
+    "sampleCanonical": "Doctor of Dental Medicine",
+    "codes": [
+      "DMD_DENTISTRY"
+    ],
+    "levels": [
+      "doctoral"
+    ],
+    "fieldGroups": [
+      "dentistry"
+    ]
+  },
+  {
+    "field": "Dental Technology",
+    "sampleCanonical": "Bachelor of Science in Dental Technology",
+    "codes": [
+      "BS_DENTAL_TECHNOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "dental_technology"
+    ]
+  },
+  {
+    "field": "Design Management",
+    "sampleCanonical": "Bachelor of Arts in Design Management",
+    "codes": [
+      "BA_DESIGN_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "design_management"
+    ]
+  },
+  {
+    "field": "Development Communication",
+    "sampleCanonical": "Bachelor of Science in Development Communication",
+    "codes": [
+      "BS_DEVELOPMENT_COMMUNICATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "development_communication"
+    ]
+  },
+  {
+    "field": "Development Studies",
+    "sampleCanonical": "Bachelor of Arts in Development Studies",
+    "codes": [
+      "BA_DEVELOPMENT_STUDIES"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "development_studies"
+    ]
+  },
+  {
+    "field": "Diesel Mechanics",
+    "sampleCanonical": "Certificate in Diesel Mechanics",
+    "codes": [
+      "CERT_DIESEL_MECHANICS"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "diesel_mechanics"
+    ]
+  },
+  {
+    "field": "Dietetic Management",
+    "sampleCanonical": "Bachelor in Dietetic Management",
+    "codes": [
+      "BS_DIETETIC_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "dietetic_management"
+    ]
+  },
+  {
+    "field": "Digital Communication",
+    "sampleCanonical": "Bachelor of Arts in Digital Communication",
+    "codes": [
+      "BA_DIGITAL_COMMUNICATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "digital_communication"
+    ]
+  },
+  {
+    "field": "Digital Design and Animation",
+    "sampleCanonical": "Bachelor of Science in Digital Design and Animation",
+    "codes": [
+      "BS_DIGITAL_DESIGN_ANIMATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "digital_design_and_animation"
+    ]
+  },
+  {
+    "field": "Digital Infrastructure Management",
+    "sampleCanonical": "Master in Digital Infrastructure Management",
+    "codes": [
+      "MS_DIGITAL_INFRASTRUCTURE_MANAGEMENT"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "digital_infrastructure_management"
+    ]
+  },
+  {
+    "field": "Digital Multimedia Technology",
+    "sampleCanonical": "Certificate in Digital Multimedia Technology",
+    "codes": [
+      "CERT_DIGITAL_MULTIMEDIA_TECH"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "digital_multimedia_technology"
+    ]
+  },
+  {
+    "field": "Digital Transformation",
+    "sampleCanonical": "Master in Digital Transformation",
+    "codes": [
+      "MS_DIGITAL_TRANSFORMATION"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "digital_transformation"
+    ]
+  },
+  {
+    "field": "Disaster Preparedness and Management",
+    "sampleCanonical": "Bachelor in Disaster Preparedness and Management",
+    "codes": [
+      "BS_DISASTER_PREPAREDNESS"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "disaster_preparedness"
+    ]
+  },
+  {
+    "field": "Disaster Response Education",
+    "sampleCanonical": "Certificate in Disaster Response Education",
+    "codes": [
+      "CERT_DISASTER_RESPONSE_EDUC"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "disaster_response_education"
+    ]
+  },
+  {
+    "field": "Disaster Response Management",
+    "sampleCanonical": "Certificate in Disaster Response Management",
+    "codes": [
+      "CERT_DISASTER_RESPONSE_MGMT"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "disaster_response_management"
+    ]
+  },
+  {
+    "field": "Disaster Risk Management",
+    "sampleCanonical": "Master in Disaster Risk Management",
+    "codes": [
+      "MS_DISASTER_RISK_MANAGEMENT"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "disaster_risk_management"
+    ]
+  },
+  {
+    "field": "Disaster Risk Reduction Planning",
+    "sampleCanonical": "Bachelor in Disaster Risk Reduction Planning",
+    "codes": [
+      "BS_RISK_REDUCTION_PLANNING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "risk_reduction_planning"
+    ]
+  },
+  {
+    "field": "Distance Education",
+    "sampleCanonical": "Bachelor in Distance Education",
+    "codes": [
+      "BS_DISTANCE_EDUCATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "distance_education"
+    ]
+  },
+  {
+    "field": "Documentation Management",
+    "sampleCanonical": "Bachelor in Documentation Management",
+    "codes": [
+      "BA_DOCUMENTATION_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "documentation_management"
+    ]
+  },
+  {
+    "field": "Drafting and Design",
+    "sampleCanonical": "Diploma in Drafting and Design",
+    "codes": [
+      "DIP_DRAFTING_DESIGN"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "drafting_and_design"
+    ]
+  },
+  {
+    "field": "Drafting Technology",
+    "sampleCanonical": "Diploma in Drafting Technology",
+    "codes": [
+      "DIPLOMA_DRAFTING_TECHNOLOGY",
+      "CERT_DRAFTING_TECH"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "drafting_technology"
+    ]
+  },
+  {
+    "field": "E-Governance",
+    "sampleCanonical": "Master in E-Governance",
+    "codes": [
+      "MA_E_GOVERNANCE"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "e_governance"
+    ]
+  },
+  {
+    "field": "E-Learning Development",
+    "sampleCanonical": "Certificate in E-Learning Development",
+    "codes": [
+      "CERT_E_LEARNING_DEV"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "e_learning_development"
+    ]
+  },
+  {
+    "field": "Early Childhood Education",
+    "sampleCanonical": "Bachelor of Early Childhood Education",
+    "codes": [
+      "BECE_EARLY_CHILDHOOD"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "early_childhood_education"
+    ]
+  },
+  {
+    "field": "Ecology",
+    "sampleCanonical": "Bachelor of Science in Ecology",
+    "codes": [
+      "BS_ECOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "ecology"
+    ]
+  },
+  {
+    "field": "Economics",
+    "sampleCanonical": "Bachelor of Arts in Economics",
+    "codes": [
+      "BA_ECONOMICS",
+      "BS_ECONOMICS",
+      "MA_ECONOMICS"
+    ],
+    "levels": [
+      "bachelor",
+      "master"
+    ],
+    "fieldGroups": [
+      "economics"
+    ]
+  },
+  {
+    "field": "Editing and Proofreading",
+    "sampleCanonical": "Certificate in Editing and Proofreading",
+    "codes": [
+      "CERT_EDITING_PROOFREADING"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "editing_and_proofreading"
+    ]
+  },
+  {
+    "field": "Education",
+    "sampleCanonical": "Bachelor of Education",
+    "codes": [
+      "BSED_EDUCATION",
+      "MAED_EDUCATION"
+    ],
+    "levels": [
+      "bachelor",
+      "master"
+    ],
+    "fieldGroups": [
+      "education"
+    ]
+  },
+  {
+    "field": "Education major in Assessment and Evaluation",
+    "sampleCanonical": "Master of Arts in Education major in Assessment and Evaluation",
+    "codes": [
+      "MA_ASSESSMENT_EVALUATION"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "assessment_and_evaluation"
+    ]
+  },
+  {
+    "field": "Education major in Curriculum Development",
+    "sampleCanonical": "Master of Arts in Education major in Curriculum Development",
+    "codes": [
+      "MA_CURRICULUM_DEVELOPMENT"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "curriculum_development"
+    ]
+  },
+  {
+    "field": "Education major in Educational Assessment",
+    "sampleCanonical": "Master of Arts in Education major in Educational Assessment",
+    "codes": [
+      "MA_EDUCATIONAL_ASSESSMENT"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "educational_assessment"
+    ]
+  },
+  {
+    "field": "Education major in Educational Research",
+    "sampleCanonical": "Master of Arts in Education major in Educational Research",
+    "codes": [
+      "MA_EDUCATION_RESEARCH",
+      "PHD_EDUCATION_RESEARCH"
+    ],
+    "levels": [
+      "master",
+      "doctoral"
+    ],
+    "fieldGroups": [
+      "education_research"
+    ]
+  },
+  {
+    "field": "Education major in Guidance and Counseling",
+    "sampleCanonical": "Master of Arts in Education major in Guidance and Counseling",
+    "codes": [
+      "MA_EDUCATIONAL_GUIDANCE"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "educational_guidance"
+    ]
+  },
+  {
+    "field": "Education major in Technical Education",
+    "sampleCanonical": "Bachelor of Science in Education major in Technical Education",
+    "codes": [
+      "BSE_TECHNICAL_TEACHER_ED"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "technical_teacher_education"
+    ]
+  },
+  {
+    "field": "Education major in Vocational Technology",
+    "sampleCanonical": "Bachelor of Science in Education major in Vocational Technology",
+    "codes": [
+      "BSE_VOCATIONAL_TEACHER_ED"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "vocational_teacher_education"
+    ]
+  },
+  {
+    "field": "Educational Leadership",
+    "sampleCanonical": "Master of Arts in Educational Leadership",
+    "codes": [
+      "MAED_EDUCATIONAL_LEADERSHIP"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "educational_leadership"
+    ]
+  },
+  {
+    "field": "Educational Management",
+    "sampleCanonical": "Master of Arts in Educational Management",
+    "codes": [
+      "MAED_EDUCATIONAL_MANAGEMENT"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "educational_management"
+    ]
+  },
+  {
+    "field": "Educational Psychology",
+    "sampleCanonical": "Master of Arts in Educational Psychology",
+    "codes": [
+      "MA_EDUCATIONAL_PSYCHOLOGY"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "educational_psychology"
+    ]
+  },
+  {
+    "field": "Educational Technology",
+    "sampleCanonical": "Bachelor of Science in Educational Technology",
+    "codes": [
+      "BS_EDUCATIONAL_TECHNOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "educational_technology"
+    ]
+  },
+  {
+    "field": "Electrical Engineering",
+    "sampleCanonical": "Bachelor of Science in Electrical Engineering",
+    "codes": [
+      "BS_ELECTRICAL_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "electrical_engineering"
+    ]
+  },
+  {
+    "field": "Electrical Installation and Maintenance Certificate",
+    "sampleCanonical": "Electrical Installation and Maintenance Certificate",
+    "codes": [
+      "NC_ELECTRICAL_INSTALLATION_MAINTENANCE"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "electrical_installation_and_maintenance"
+    ]
+  },
+  {
+    "field": "Electrical Installation Technology",
+    "sampleCanonical": "Certificate in Electrical Installation Technology",
+    "codes": [
+      "CERT_ELECTRICAL_INSTALLATION_TECH"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "electrical_installation_technology"
+    ]
+  },
+  {
+    "field": "Electrical Technology",
+    "sampleCanonical": "Bachelor of Science in Electrical Technology",
+    "codes": [
+      "BS_ELECTRICAL_TECHNOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "electrical_technology"
+    ]
+  },
+  {
+    "field": "Electronics and Communications Engineering",
+    "sampleCanonical": "Bachelor of Science in Electronics and Communications Engineering",
+    "codes": [
+      "BS_ELECTRONICS_COMM_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "electronics_and_communications_engineering"
+    ]
+  },
+  {
+    "field": "Electronics Engineering",
+    "sampleCanonical": "Bachelor of Science in Electronics Engineering",
+    "codes": [
+      "BS_ELECTRONICS_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "electronics_engineering"
+    ]
+  },
+  {
+    "field": "Electronics Technology",
+    "sampleCanonical": "Bachelor of Science in Electronics Technology",
+    "codes": [
+      "BS_ELECTRONICS_TECHNOLOGY",
+      "CERT_ELECTRONICS_TECH"
+    ],
+    "levels": [
+      "bachelor",
+      "vocational"
+    ],
+    "fieldGroups": [
+      "electronics_technology"
+    ]
+  },
+  {
+    "field": "Elementary Education",
+    "sampleCanonical": "Bachelor of Elementary Education",
+    "codes": [
+      "BEED_ELEMENTARY_EDUCATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "elementary_education"
+    ]
+  },
+  {
+    "field": "Embedded Systems Engineering",
+    "sampleCanonical": "Bachelor of Science in Embedded Systems Engineering",
+    "codes": [
+      "BS_EMBEDDED_SYSTEMS_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "embedded_systems_engineering"
+    ]
+  },
+  {
+    "field": "Emergency Management",
+    "sampleCanonical": "Bachelor of Science in Emergency Management",
+    "codes": [
+      "BS_EMERGENCY_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "emergency_management"
+    ]
+  },
+  {
+    "field": "Emergency Medical Services",
+    "sampleCanonical": "Certificate in Emergency Medical Services",
+    "codes": [
+      "CERT_EMERGENCY_MEDICAL_SERVICES"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "emergency_medical_services"
+    ]
+  },
+  {
+    "field": "Emergency Operations Management",
+    "sampleCanonical": "Certificate in Emergency Operations Management",
+    "codes": [
+      "CERT_EMERGENCY_OPERATIONS_MGMT"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "emergency_operations_management"
+    ]
+  },
+  {
+    "field": "Emergency Service Management",
+    "sampleCanonical": "Bachelor of Science in Emergency Service Management",
+    "codes": [
+      "BS_EMERGENCY_SERVICE_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "emergency_service_management"
+    ]
+  },
+  {
+    "field": "Energy Engineering",
+    "sampleCanonical": "Bachelor of Science in Energy Engineering",
+    "codes": [
+      "BS_ENERGY_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "energy_engineering"
+    ]
+  },
+  {
+    "field": "Engineering Management",
+    "sampleCanonical": "Master in Engineering Management",
+    "codes": [
+      "MEM_ENGINEERING_MANAGEMENT"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "engineering_management"
+    ]
+  },
+  {
+    "field": "Engineering Physics",
+    "sampleCanonical": "Bachelor of Science in Engineering Physics",
+    "codes": [
+      "BS_ENGINEERING_PHYSICS"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "engineering_physics"
+    ]
+  },
+  {
+    "field": "Engineering Science",
+    "sampleCanonical": "Bachelor of Science in Engineering Science",
+    "codes": [
+      "BS_ENGINEERING_SCIENCE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "engineering_science"
+    ]
+  },
+  {
+    "field": "Engineering Technology",
+    "sampleCanonical": "Bachelor of Science in Engineering Technology",
+    "codes": [
+      "BS_ENGINEERING_TECHNOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "engineering_technology"
+    ]
+  },
+  {
+    "field": "English Studies",
+    "sampleCanonical": "Bachelor of Arts in English Studies",
+    "codes": [
+      "BA_ENGLISH_STUDIES"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "english_studies"
+    ]
+  },
+  {
+    "field": "Entomology",
+    "sampleCanonical": "Bachelor of Science in Entomology",
+    "codes": [
+      "BS_ENTOMOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "entomology"
+    ]
+  },
+  {
+    "field": "Entrepreneurship",
+    "sampleCanonical": "Bachelor of Science in Entrepreneurship",
+    "codes": [
+      "BS_ENTREPRENEURSHIP"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "entrepreneurship"
+    ]
+  },
+  {
+    "field": "Entrepreneurship Technology",
+    "sampleCanonical": "Bachelor of Science in Entrepreneurship Technology",
+    "codes": [
+      "BS_ENTREPRENEURSHIP_TECH"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "entrepreneurship_technology"
+    ]
+  },
+  {
+    "field": "Environmental Design",
+    "sampleCanonical": "Bachelor of Science in Environmental Design",
+    "codes": [
+      "BS_ENVIRONMENTAL_DESIGN"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "environmental_design"
+    ]
+  },
+  {
+    "field": "Environmental Economics",
+    "sampleCanonical": "Master of Science in Environmental Economics",
+    "codes": [
+      "MS_ENVIRONMENTAL_ECONOMICS"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "environmental_economics"
+    ]
+  },
+  {
+    "field": "Environmental Engineering",
+    "sampleCanonical": "Bachelor of Science in Environmental Engineering",
+    "codes": [
+      "BS_ENVIRONMENTAL_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "environmental_engineering"
+    ]
+  },
+  {
+    "field": "Environmental Health",
+    "sampleCanonical": "Bachelor of Science in Environmental Health",
+    "codes": [
+      "BS_ENVIRONMENTAL_HEALTH"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "environmental_health"
+    ]
+  },
+  {
+    "field": "Environmental Management",
+    "sampleCanonical": "Bachelor of Science in Environmental Management",
+    "codes": [
+      "BS_ENVIRONMENTAL_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "environmental_management"
+    ]
+  },
+  {
+    "field": "Environmental Planning",
+    "sampleCanonical": "Bachelor in Environmental Planning",
+    "codes": [
+      "BS_ENVIRONMENTAL_PLANNING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "environmental_planning"
+    ]
+  },
+  {
+    "field": "Environmental Policy",
+    "sampleCanonical": "Master in Environmental Policy",
+    "codes": [
+      "MS_ENVIRONMENTAL_POLICY"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "environmental_policy"
+    ]
+  },
+  {
+    "field": "Environmental Science",
+    "sampleCanonical": "Bachelor of Science in Environmental Science",
+    "codes": [
+      "BS_ENVIRONMENTAL_SCIENCE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "environmental_science"
+    ]
+  },
+  {
+    "field": "Environmental Technology",
+    "sampleCanonical": "Bachelor of Science in Environmental Technology",
+    "codes": [
+      "BS_ENVIRONMENTAL_TECHNOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "environmental_technology"
+    ]
+  },
+  {
+    "field": "Epidemiology",
+    "sampleCanonical": "Master of Science in Epidemiology",
+    "codes": [
+      "MS_EPIDEMIOLOGY"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "epidemiology"
+    ]
+  },
+  {
+    "field": "Ethics and Values Education",
+    "sampleCanonical": "Bachelor in Ethics and Values Education",
+    "codes": [
+      "BA_ETHICS_VALUES_EDUCATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "ethics_and_values_education"
+    ]
+  },
+  {
+    "field": "Events Management",
+    "sampleCanonical": "Bachelor of Science in Events Management",
+    "codes": [
+      "BS_EVENTS_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "events_management"
+    ]
+  },
+  {
+    "field": "Farm Management",
+    "sampleCanonical": "Bachelor of Science in Farm Management",
+    "codes": [
+      "BS_FARM_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "farm_management"
+    ]
+  },
+  {
+    "field": "Fashion and Apparel Technology",
+    "sampleCanonical": "Certificate in Fashion and Apparel Technology",
+    "codes": [
+      "CERT_FASHION_APPAREL_TECH"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "fashion_and_apparel_technology"
+    ]
+  },
+  {
+    "field": "Fashion Design",
+    "sampleCanonical": "Bachelor of Fine Arts major in Fashion Design",
+    "codes": [
+      "BFA_FASHION_DESIGN"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "fashion_design"
+    ]
+  },
+  {
+    "field": "Filipino Language Studies",
+    "sampleCanonical": "Bachelor of Arts in Filipino Language Studies",
+    "codes": [
+      "BA_FILIPINO_LANGUAGE_STUDIES"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "filipino_language_studies"
+    ]
+  },
+  {
+    "field": "Film and Media",
+    "sampleCanonical": "Bachelor of Arts in Film and Media",
+    "codes": [
+      "BA_FILM_AND_MEDIA"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "film_and_media"
+    ]
+  },
+  {
+    "field": "Film Production",
+    "sampleCanonical": "Bachelor of Arts in Film Production",
+    "codes": [
+      "BA_FILM_PRODUCTION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "film_production"
+    ]
+  },
+  {
+    "field": "Film Production Technology",
+    "sampleCanonical": "Bachelor of Science in Film Production Technology",
+    "codes": [
+      "BS_FILM_PRODUCTION_TECH"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "film_production_technology"
+    ]
+  },
+  {
+    "field": "Fine Arts",
+    "sampleCanonical": "Bachelor of Fine Arts",
+    "codes": [
+      "BFA_FINE_ARTS"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "fine_arts"
+    ]
+  },
+  {
+    "field": "Fine Crafts Design",
+    "sampleCanonical": "Certificate in Fine Crafts Design",
+    "codes": [
+      "CERT_FINE_CRAFTS_DESIGN"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "fine_crafts_design"
+    ]
+  },
+  {
+    "field": "Fire and Safety Management",
+    "sampleCanonical": "Certificate in Fire and Safety Management",
+    "codes": [
+      "CERT_FIRE_SAFETY_MANAGEMENT"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "fire_and_safety_management"
+    ]
+  },
+  {
+    "field": "Fire Protection Services",
+    "sampleCanonical": "Certificate in Fire Protection Services",
+    "codes": [
+      "CERT_FIRE_PROTECTION_SERVICES"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "fire_protection_services"
+    ]
+  },
+  {
+    "field": "Fire Protection Technology",
+    "sampleCanonical": "Bachelor of Science in Fire Protection Technology",
+    "codes": [
+      "BS_FIRE_PROTECTION_TECH",
+      "CERT_FIRE_PROTECTION_TECH"
+    ],
+    "levels": [
+      "bachelor",
+      "vocational"
+    ],
+    "fieldGroups": [
+      "fire_protection_technology"
+    ]
+  },
+  {
+    "field": "Fisheries",
+    "sampleCanonical": "Bachelor of Science in Fisheries",
+    "codes": [
+      "BS_FISHERIES"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "fisheries"
+    ]
+  },
+  {
+    "field": "Fishery Technology",
+    "sampleCanonical": "Bachelor of Science in Fishery Technology",
+    "codes": [
+      "BS_FISHERY_TECHNOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "fishery_technology"
+    ]
+  },
+  {
+    "field": "Flight Operations Management",
+    "sampleCanonical": "Bachelor of Science in Flight Operations Management",
+    "codes": [
+      "BS_FLIGHT_OPERATIONS_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "flight_operations_management"
+    ]
+  },
+  {
+    "field": "Food and Beverage Services",
+    "sampleCanonical": "Certificate in Food and Beverage Services",
+    "codes": [
+      "CERT_FOOD_BEVERAGE_SERVICES"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "food_and_beverage_services"
+    ]
+  },
+  {
+    "field": "Food and Nutrition",
+    "sampleCanonical": "Bachelor of Science in Food and Nutrition",
+    "codes": [
+      "BS_FOOD_AND_NUTRITION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "food_and_nutrition"
+    ]
+  },
+  {
+    "field": "Food Industry Management",
+    "sampleCanonical": "Bachelor of Science in Food Industry Management",
+    "codes": [
+      "BS_FOOD_INDUSTRY_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "food_industry_management"
+    ]
+  },
+  {
+    "field": "Food Safety",
+    "sampleCanonical": "Master of Science in Food Safety",
+    "codes": [
+      "MS_FOOD_SAFETY"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "food_safety_management"
+    ]
+  },
+  {
+    "field": "Food Safety Management",
+    "sampleCanonical": "Bachelor of Science in Food Safety Management",
+    "codes": [
+      "BS_FOOD_SAFETY_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "food_safety_management"
+    ]
+  },
+  {
+    "field": "Food Science",
+    "sampleCanonical": "Bachelor of Science in Food Science",
+    "codes": [
+      "BS_FOOD_SCIENCE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "food_science"
+    ]
+  },
+  {
+    "field": "Food Technology",
+    "sampleCanonical": "Bachelor of Science in Food Technology",
+    "codes": [
+      "BS_FOOD_TECHNOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "food_technology"
+    ]
+  },
+  {
+    "field": "Foreign Languages",
+    "sampleCanonical": "Bachelor of Arts in Foreign Languages",
+    "codes": [
+      "BA_FOREIGN_LANGUAGES"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "foreign_languages"
+    ]
+  },
+  {
+    "field": "Forensic Science",
+    "sampleCanonical": "Bachelor of Science in Forensic Science",
+    "codes": [
+      "BS_FORENSIC_SCIENCE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "forensic_science"
+    ]
+  },
+  {
+    "field": "Forest Management",
+    "sampleCanonical": "Bachelor in Forest Management",
+    "codes": [
+      "BS_FOREST_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "forest_management"
+    ]
+  },
+  {
+    "field": "Forestry",
+    "sampleCanonical": "Bachelor of Science in Forestry",
+    "codes": [
+      "BS_FORESTRY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "forestry"
+    ]
+  },
+  {
+    "field": "Front Office Services",
+    "sampleCanonical": "Certificate in Front Office Services",
+    "codes": [
+      "CERT_FRONT_OFFICE_SERVICES"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "front_office_services"
+    ]
+  },
+  {
+    "field": "Furniture Design and Technology",
+    "sampleCanonical": "Bachelor of Science in Furniture Design and Technology",
+    "codes": [
+      "BS_FURNITURE_DESIGN_TECH"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "furniture_design_and_technology"
+    ]
+  },
+  {
+    "field": "Game Design and Development",
+    "sampleCanonical": "Bachelor of Science in Game Design and Development",
+    "codes": [
+      "BS_GAME_DESIGN"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "game_design"
+    ]
+  },
+  {
+    "field": "Garment Technology",
+    "sampleCanonical": "Certificate in Garment Technology",
+    "codes": [
+      "CERT_GARMENT_TECH"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "garment_technology"
+    ]
+  },
+  {
+    "field": "Gender and Development",
+    "sampleCanonical": "Bachelor in Gender and Development",
+    "codes": [
+      "BA_GENDER_AND_DEVELOPMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "gender_and_development"
+    ]
+  },
+  {
+    "field": "Geodetic Engineering",
+    "sampleCanonical": "Bachelor of Science in Geodetic Engineering",
+    "codes": [
+      "BS_GEODETIC_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "geodetic_engineering"
+    ]
+  },
+  {
+    "field": "Geological Engineering",
+    "sampleCanonical": "Bachelor of Science in Geological Engineering",
+    "codes": [
+      "BS_GEOLOGICAL_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "geological_engineering"
+    ]
+  },
+  {
+    "field": "Geology",
+    "sampleCanonical": "Bachelor of Science in Geology",
+    "codes": [
+      "BS_GEOLOGY",
+      "MS_GEOLOGY",
+      "PHD_GEOLOGY"
+    ],
+    "levels": [
+      "bachelor",
+      "master",
+      "doctoral"
+    ],
+    "fieldGroups": [
+      "geology"
+    ]
+  },
+  {
+    "field": "Geomatics and Land Surveying",
+    "sampleCanonical": "Bachelor of Science in Geomatics and Land Surveying",
+    "codes": [
+      "BS_GEOMATICS_LAND_SURVEYING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "geomatics_and_land_surveying"
+    ]
+  },
+  {
+    "field": "Geomatics Engineering",
+    "sampleCanonical": "Bachelor of Science in Geomatics Engineering",
+    "codes": [
+      "BS_GEOMATICS_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "geomatics_engineering"
+    ]
+  },
+  {
+    "field": "Geoscience",
+    "sampleCanonical": "Bachelor of Science in Geoscience",
+    "codes": [
+      "BS_GEOSCIENCE",
+      "MS_GEOSCIENCE"
+    ],
+    "levels": [
+      "bachelor",
+      "master"
+    ],
+    "fieldGroups": [
+      "geoscience"
+    ]
+  },
+  {
+    "field": "Governance and Leadership",
+    "sampleCanonical": "Bachelor of Arts in Governance and Leadership",
+    "codes": [
+      "BA_GOVERNANCE_LEADERSHIP",
+      "MA_GOVERNANCE_LEADERSHIP"
+    ],
+    "levels": [
+      "bachelor",
+      "master"
+    ],
+    "fieldGroups": [
+      "governance_and_leadership"
+    ]
+  },
+  {
+    "field": "Graphic Arts Technology",
+    "sampleCanonical": "Certificate in Graphic Arts Technology",
+    "codes": [
+      "CERT_GRAPHIC_ARTS_TECH"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "graphic_arts_technology"
+    ]
+  },
+  {
+    "field": "Graphic Design",
+    "sampleCanonical": "Bachelor in Graphic Design",
+    "codes": [
+      "BDES_GRAPHIC_DESIGN"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "graphic_design"
+    ]
+  },
+  {
+    "field": "Graphics Design Technology",
+    "sampleCanonical": "Bachelor of Science in Graphics Design Technology",
+    "codes": [
+      "BS_GRAPHICS_DESIGN_TECHNOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "graphics_design_technology"
+    ]
+  },
+  {
+    "field": "Guidance and Counseling",
+    "sampleCanonical": "Master of Arts in Guidance and Counseling",
+    "codes": [
+      "MA_GUIDANCE_AND_COUNSELING"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "guidance_and_counseling"
+    ]
+  },
+  {
+    "field": "Hairstyling and Makeup",
+    "sampleCanonical": "Certificate in Hairstyling and Makeup",
+    "codes": [
+      "CERT_HAIRSTYLING_MAKEUP"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "hairstyling_and_makeup"
+    ]
+  },
+  {
+    "field": "Handicrafts and Cottage Industry",
+    "sampleCanonical": "Certificate in Handicrafts and Cottage Industry",
+    "codes": [
+      "CERT_HANDICRAFTS_COTTAGE"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "handicrafts_and_cottage_industry"
+    ]
+  },
+  {
+    "field": "Health Administration",
+    "sampleCanonical": "Master in Health Administration",
+    "codes": [
+      "MHA_HEALTH_ADMINISTRATION"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "health_administration"
+    ]
+  },
+  {
+    "field": "Health Care Services",
+    "sampleCanonical": "Certificate in Health Care Services",
+    "codes": [
+      "CERT_HEALTH_CARE_SERVICES"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "health_care_services"
+    ]
+  },
+  {
+    "field": "Health Education",
+    "sampleCanonical": "Bachelor in Health Education",
+    "codes": [
+      "BS_HEALTH_EDUCATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "health_education"
+    ]
+  },
+  {
+    "field": "Health Information Management",
+    "sampleCanonical": "Bachelor of Science in Health Information Management",
+    "codes": [
+      "BS_HEALTH_INFORMATION_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "health_information_management"
+    ]
+  },
+  {
+    "field": "Health Promotion",
+    "sampleCanonical": "Bachelor in Health Promotion",
+    "codes": [
+      "BS_HEALTH_PROMOTION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "health_promotion"
+    ]
+  },
+  {
+    "field": "Health Social Work",
+    "sampleCanonical": "Bachelor of Science in Health Social Work",
+    "codes": [
+      "BS_HEALTH_SOCIAL_WORK"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "health_social_work"
+    ]
+  },
+  {
+    "field": "Healthcare Assistance",
+    "sampleCanonical": "Certificate in Healthcare Assistance",
+    "codes": [
+      "CERT_HEALTHCARE_ASSISTANCE"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "healthcare_assistance"
+    ]
+  },
+  {
+    "field": "Healthcare Management",
+    "sampleCanonical": "Bachelor of Science in Healthcare Management",
+    "codes": [
+      "BS_HEALTHCARE_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "healthcare_management"
+    ]
+  },
+  {
+    "field": "Heritage Conservation",
+    "sampleCanonical": "Bachelor in Heritage Conservation",
+    "codes": [
+      "BA_HERITAGE_CONSERVATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "heritage_conservation"
+    ]
+  },
+  {
+    "field": "Heritage Studies",
+    "sampleCanonical": "Bachelor of Arts in Heritage Studies",
+    "codes": [
+      "BA_HERITAGE_STUDIES"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "heritage_studies"
+    ]
+  },
+  {
+    "field": "Higher Education",
+    "sampleCanonical": "Master in Higher Education",
+    "codes": [
+      "MS_HIGHER_EDUCATION"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "higher_education"
+    ]
+  },
+  {
+    "field": "Higher Education Administration",
+    "sampleCanonical": "Master of Arts in Higher Education Administration",
+    "codes": [
+      "MA_HIGHER_ED_ADMIN"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "higher_education_administration"
+    ]
+  },
+  {
+    "field": "Homeland Security Studies",
+    "sampleCanonical": "Master of Arts in Homeland Security Studies",
+    "codes": [
+      "MA_HOMELAND_SECURITY_STUDIES"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "homeland_security_studies"
+    ]
+  },
+  {
+    "field": "Horticulture",
+    "sampleCanonical": "Bachelor of Science in Horticulture",
+    "codes": [
+      "BS_HORTICULTURE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "horticulture"
+    ]
+  },
+  {
+    "field": "Hospital Administration",
+    "sampleCanonical": "Master in Hospital Administration",
+    "codes": [
+      "MHA_HOSPITAL_ADMINISTRATION"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "hospital_administration"
+    ]
+  },
+  {
+    "field": "Hospital Management",
+    "sampleCanonical": "Bachelor of Science in Hospital Management",
+    "codes": [
+      "BS_HOSPITAL_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "hospital_management"
+    ]
+  },
+  {
+    "field": "Hospitality Management",
+    "sampleCanonical": "Bachelor of Science in Hospitality Management",
+    "codes": [
+      "BS_HOSPITALITY_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "hospitality_management"
+    ]
+  },
+  {
+    "field": "Hotel and Restaurant Management",
+    "sampleCanonical": "Bachelor of Science in Hotel and Restaurant Management",
+    "codes": [
+      "BS_HOTEL_RESTAURANT_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "hotel_and_restaurant_management"
+    ]
+  },
+  {
+    "field": "Housekeeping Management",
+    "sampleCanonical": "Certificate in Housekeeping Management",
+    "codes": [
+      "CERT_HOUSEKEEPING_MANAGEMENT"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "housekeeping_management"
+    ]
+  },
+  {
+    "field": "Human Anatomy and Physiology",
+    "sampleCanonical": "Bachelor in Human Anatomy and Physiology",
+    "codes": [
+      "BS_HUMAN_ANATOMY_PHYSIOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "human_anatomy_and_physiology"
+    ]
+  },
+  {
+    "field": "Human Behavior Studies",
+    "sampleCanonical": "Bachelor of Arts in Human Behavior Studies",
+    "codes": [
+      "BA_HUMAN_BEHAVIOR_STUDIES"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "human_behavior_studies"
+    ]
+  },
+  {
+    "field": "Human Resource Development",
+    "sampleCanonical": "Bachelor of Science in Human Resource Development",
+    "codes": [
+      "BS_HUMAN_RESOURCE_DEVELOPMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "human_resource_development"
+    ]
+  },
+  {
+    "field": "Human Resource Management",
+    "sampleCanonical": "Bachelor of Science in Human Resource Management",
+    "codes": [
+      "BS_HR_MANAGEMENT",
+      "MA_HR_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor",
+      "master"
+    ],
+    "fieldGroups": [
+      "human_resource_management"
+    ]
+  },
+  {
+    "field": "Humanitarian Assistance and Crisis Management",
+    "sampleCanonical": "Bachelor in Humanitarian Assistance and Crisis Management",
+    "codes": [
+      "BS_HUMANITARIAN_ASSISTANCE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "humanitarian_assistance"
+    ]
+  },
+  {
+    "field": "Humanities",
+    "sampleCanonical": "Bachelor of Arts in Humanities",
+    "codes": [
+      "BA_HUMANITIES"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "humanities"
+    ]
+  },
+  {
+    "field": "Hydrology",
+    "sampleCanonical": "Bachelor of Science in Hydrology",
+    "codes": [
+      "BS_HYDROLOGY",
+      "MS_HYDROLOGY"
+    ],
+    "levels": [
+      "bachelor",
+      "master"
+    ],
+    "fieldGroups": [
+      "hydrology"
+    ]
+  },
+  {
+    "field": "Hydrology and Water Resources",
+    "sampleCanonical": "Master of Science in Hydrology and Water Resources",
+    "codes": [
+      "MS_HYDROLOGY_WATER_RESOURCES"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "hydrology_and_water_resources"
+    ]
+  },
+  {
+    "field": "Hygiene and Sanitation",
+    "sampleCanonical": "Bachelor in Hygiene and Sanitation",
+    "codes": [
+      "BS_HYGIENE_SANITATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "hygiene_and_sanitation"
+    ]
+  },
+  {
+    "field": "Inclusive Education",
+    "sampleCanonical": "Master of Arts in Inclusive Education",
+    "codes": [
+      "MA_INCLUSIVE_EDUCATION"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "inclusive_education"
+    ]
+  },
+  {
+    "field": "Industrial Design Technology",
+    "sampleCanonical": "Bachelor of Science in Industrial Design Technology",
+    "codes": [
+      "BS_INDUSTRIAL_DESIGN_TECH"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "industrial_design_technology"
+    ]
+  },
+  {
+    "field": "Industrial Engineering",
+    "sampleCanonical": "Bachelor of Science in Industrial Engineering",
+    "codes": [
+      "BS_INDUSTRIAL_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "industrial_engineering"
+    ]
+  },
+  {
+    "field": "Industrial Hygiene",
+    "sampleCanonical": "Master in Industrial Hygiene",
+    "codes": [
+      "MS_INDUSTRIAL_HYGIENE"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "industrial_hygiene"
+    ]
+  },
+  {
+    "field": "Industrial Relations",
+    "sampleCanonical": "Bachelor of Science in Industrial Relations",
+    "codes": [
+      "BS_INDUSTRIAL_RELATIONS",
+      "MA_INDUSTRIAL_RELATIONS"
+    ],
+    "levels": [
+      "bachelor",
+      "master"
+    ],
+    "fieldGroups": [
+      "industrial_relations"
+    ]
+  },
+  {
+    "field": "Industrial Safety Management",
+    "sampleCanonical": "Bachelor of Science in Industrial Safety Management",
+    "codes": [
+      "BS_INDUSTRIAL_SAFETY_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "industrial_safety_management"
+    ]
+  },
+  {
+    "field": "Industrial Technology",
+    "sampleCanonical": "Bachelor of Science in Industrial Technology",
+    "codes": [
+      "BS_INDUSTRIAL_TECHNOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "industrial_technology"
+    ]
+  },
+  {
+    "field": "Industrial/Organizational Psychology",
+    "sampleCanonical": "Master of Arts in Industrial/Organizational Psychology",
+    "codes": [
+      "MA_INDUSTRIAL_PSYCHOLOGY"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "industrial_psychology"
+    ]
+  },
+  {
+    "field": "Information and Communication Technology",
+    "sampleCanonical": "Bachelor of Science in Information and Communication Technology",
+    "codes": [
+      "BS_ICT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "information_and_communication_technology"
+    ]
+  },
+  {
+    "field": "Information Management",
+    "sampleCanonical": "Bachelor of Science in Information Management",
+    "codes": [
+      "BS_INFORMATION_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "information_management"
+    ]
+  },
+  {
+    "field": "Information Systems",
+    "sampleCanonical": "Bachelor of Science in Information Systems",
+    "codes": [
+      "BS_INFORMATION_SYSTEMS"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "information_systems"
+    ]
+  },
+  {
+    "field": "Information Technology",
+    "sampleCanonical": "Bachelor of Science in Information Technology",
+    "codes": [
+      "BS_INFORMATION_TECHNOLOGY",
+      "MS_INFORMATION_TECHNOLOGY"
+    ],
+    "levels": [
+      "bachelor",
+      "master"
+    ],
+    "fieldGroups": [
+      "information_technology"
+    ]
+  },
+  {
+    "field": "Infrastructure Planning and Management",
+    "sampleCanonical": "Master in Infrastructure Planning and Management",
+    "codes": [
+      "MS_INFRASTRUCTURE_PLANNING"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "infrastructure_planning"
+    ]
+  },
+  {
+    "field": "Instructional Design",
+    "sampleCanonical": "Master in Instructional Design",
+    "codes": [
+      "MS_INSTRUCTIONAL_DESIGN"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "instructional_design"
+    ]
+  },
+  {
+    "field": "Instrumentation and Control",
+    "sampleCanonical": "Bachelor of Science in Instrumentation and Control",
+    "codes": [
+      "BS_INSTRUMENTATION_CONTROL"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "instrumentation_and_control"
+    ]
+  },
+  {
+    "field": "Instrumentation and Control Technology",
+    "sampleCanonical": "Bachelor of Science in Instrumentation and Control Technology",
+    "codes": [
+      "BS_INSTRUMENT_CONTROL_TECH"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "instrumentation_and_control_technology"
+    ]
+  },
+  {
+    "field": "Instrumentation and Measurement",
+    "sampleCanonical": "Certificate in Instrumentation and Measurement",
+    "codes": [
+      "CERT_INSTRUMENT_MEASUREMENT"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "instrumentation_and_measurement"
+    ]
+  },
+  {
+    "field": "Instrumentation Engineering",
+    "sampleCanonical": "Bachelor of Science in Instrumentation Engineering",
+    "codes": [
+      "BS_INSTRUMENTATION_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "instrumentation_engineering"
+    ]
+  },
+  {
+    "field": "Instrumentation Technology",
+    "sampleCanonical": "Certificate in Instrumentation Technology",
+    "codes": [
+      "CERT_INSTRUMENTATION_TECH"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "instrumentation_technology"
+    ]
+  },
+  {
+    "field": "Intelligence and Analysis",
+    "sampleCanonical": "Bachelor of Science in Intelligence and Analysis",
+    "codes": [
+      "BS_INTELLIGENCE_ANALYSIS"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "intelligence_and_analysis"
+    ]
+  },
+  {
+    "field": "Intercultural Communication",
+    "sampleCanonical": "Master of Arts in Intercultural Communication",
+    "codes": [
+      "MA_INTERCULTURAL_COMMUNICATION"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "intercultural_communication"
+    ]
+  },
+  {
+    "field": "Intercultural Studies",
+    "sampleCanonical": "Bachelor of Arts in Intercultural Studies",
+    "codes": [
+      "BA_INTERCULTURAL_STUDIES"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "intercultural_studies"
+    ]
+  },
+  {
+    "field": "Interior Design",
+    "sampleCanonical": "Bachelor of Science in Interior Design",
+    "codes": [
+      "BS_INTERIOR_DESIGN"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "interior_design"
+    ]
+  },
+  {
+    "field": "International Relations",
+    "sampleCanonical": "Bachelor of Arts in International Relations",
+    "codes": [
+      "BA_INTERNATIONAL_RELATIONS"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "international_relations"
+    ]
+  },
+  {
+    "field": "Interpersonal Communication",
+    "sampleCanonical": "Bachelor of Arts in Interpersonal Communication",
+    "codes": [
+      "BA_INTERPERSONAL_COMMUNICATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "interpersonal_communication"
+    ]
+  },
+  {
+    "field": "Investment Management",
+    "sampleCanonical": "Bachelor of Science in Investment Management",
+    "codes": [
+      "BS_INVESTMENT_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "investment_management"
+    ]
+  },
+  {
+    "field": "Irrigation Engineering",
+    "sampleCanonical": "Bachelor of Science in Irrigation Engineering",
+    "codes": [
+      "BS_IRRIGATION_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "irrigation_engineering"
+    ]
+  },
+  {
+    "field": "Jewelry Design and Manufacturing",
+    "sampleCanonical": "Certificate in Jewelry Design and Manufacturing",
+    "codes": [
+      "CERT_JEWELRY_DESIGN_MFG"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "jewelry_design_and_manufacturing"
+    ]
+  },
+  {
+    "field": "Journalism",
+    "sampleCanonical": "Bachelor of Arts in Journalism",
+    "codes": [
+      "BA_JOURNALISM"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "journalism"
+    ]
+  },
+  {
+    "field": "Juris Doctor",
+    "sampleCanonical": "Juris Doctor",
+    "codes": [
+      "JD_LAW"
+    ],
+    "levels": [
+      "doctoral"
+    ],
+    "fieldGroups": [
+      "law"
+    ]
+  },
+  {
+    "field": "Laboratory Technology",
+    "sampleCanonical": "Bachelor of Science in Laboratory Technology",
+    "codes": [
+      "BS_LABORATORY_TECHNOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "laboratory_technology"
+    ]
+  },
+  {
+    "field": "Land Use Management",
+    "sampleCanonical": "Bachelor in Land Use Management",
+    "codes": [
+      "BS_LAND_USE_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "land_use_management"
+    ]
+  },
+  {
+    "field": "Language Studies",
+    "sampleCanonical": "Bachelor of Arts in Language Studies",
+    "codes": [
+      "BA_LANGUAGE_STUDIES"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "language_studies"
+    ]
+  },
+  {
+    "field": "Law Enforcement Administration",
+    "sampleCanonical": "Bachelor of Science in Law Enforcement Administration",
+    "codes": [
+      "BS_LAW_ENFORCEMENT_ADMIN"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "law_enforcement_administration"
+    ]
+  },
+  {
+    "field": "Laws",
+    "sampleCanonical": "Bachelor of Laws",
+    "codes": [
+      "LLB_LAW"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "law"
+    ]
+  },
+  {
+    "field": "Learning and Development",
+    "sampleCanonical": "Bachelor in Learning and Development",
+    "codes": [
+      "BS_LEARNING_AND_DEVELOPMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "learning_and_development"
+    ]
+  },
+  {
+    "field": "Legal Management",
+    "sampleCanonical": "Bachelor of Science in Legal Management",
+    "codes": [
+      "BS_LEGAL_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "legal_management"
+    ]
+  },
+  {
+    "field": "Library and Information Science",
+    "sampleCanonical": "Bachelor of Library and Information Science",
+    "codes": [
+      "BLIS_LIBRARY_INFORMATION_SCIENCE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "library_and_information_science"
+    ]
+  },
+  {
+    "field": "Life Sciences",
+    "sampleCanonical": "Bachelor of Science in Life Sciences",
+    "codes": [
+      "BS_LIFE_SCIENCES"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "life_sciences"
+    ]
+  },
+  {
+    "field": "Linguistics",
+    "sampleCanonical": "Bachelor of Arts in Linguistics",
+    "codes": [
+      "BA_LINGUISTICS"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "linguistics"
+    ]
+  },
+  {
+    "field": "Literacy and Numeracy Education",
+    "sampleCanonical": "Certificate in Literacy and Numeracy Education",
+    "codes": [
+      "CERT_LITERACY_NUMERACY"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "literacy_and_numeracy"
+    ]
+  },
+  {
+    "field": "Literature",
+    "sampleCanonical": "Bachelor of Arts in Literature",
+    "codes": [
+      "BA_LITERATURE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "literature"
+    ]
+  },
+  {
+    "field": "Livelihood Education",
+    "sampleCanonical": "Bachelor of Secondary Education major in Livelihood Education",
+    "codes": [
+      "BSE_LIVELIHOOD_EDUCATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "livelihood_education"
+    ]
+  },
+  {
+    "field": "Livelihood Skills Training",
+    "sampleCanonical": "Certificate in Livelihood Skills Training",
+    "codes": [
+      "CERT_LIVELIHOOD_SKILLS_TRAINING"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "livelihood_skills_training"
+    ]
+  },
+  {
+    "field": "Local Government Administration",
+    "sampleCanonical": "Bachelor in Local Government Administration",
+    "codes": [
+      "BA_LOCAL_GOVERNMENT_ADMIN"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "local_government_management"
+    ]
+  },
+  {
+    "field": "Local Government Management",
+    "sampleCanonical": "Master in Local Government Management",
+    "codes": [
+      "MA_LOCAL_GOVERNMENT"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "local_government_management"
+    ]
+  },
+  {
+    "field": "Logistics and Transportation Management",
+    "sampleCanonical": "Bachelor of Science in Logistics and Transportation Management",
+    "codes": [
+      "BS_LOGISTICS_TRANSPORT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "logistics_and_transportation"
+    ]
+  },
+  {
+    "field": "Logistics Management",
+    "sampleCanonical": "Bachelor of Science in Logistics Management",
+    "codes": [
+      "BS_LOGISTICS_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "logistics_management"
+    ]
+  },
+  {
+    "field": "Machine Shop Technology",
+    "sampleCanonical": "Certificate in Machine Shop Technology",
+    "codes": [
+      "CERT_MACHINE_SHOP_TECH"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "machine_shop_technology"
+    ]
+  },
+  {
+    "field": "Machining Technology",
+    "sampleCanonical": "Certificate in Machining Technology",
+    "codes": [
+      "CERT_MACHINING_TECH"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "machining_technology"
+    ]
+  },
+  {
+    "field": "Management",
+    "sampleCanonical": "Master in Management",
+    "codes": [
+      "MM_BUSINESS_MANAGEMENT"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "business_management"
+    ]
+  },
+  {
+    "field": "Management Accounting",
+    "sampleCanonical": "Bachelor of Science in Management Accounting",
+    "codes": [
+      "BS_MANAGEMENT_ACCOUNTING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "management_accounting"
+    ]
+  },
+  {
+    "field": "Manufacturing Engineering",
+    "sampleCanonical": "Bachelor of Science in Manufacturing Engineering",
+    "codes": [
+      "BS_MANUFACTURING_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "manufacturing_engineering"
+    ]
+  },
+  {
+    "field": "Marine Biology",
+    "sampleCanonical": "Bachelor of Science in Marine Biology",
+    "codes": [
+      "BS_MARINE_BIOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "marine_biology"
+    ]
+  },
+  {
+    "field": "Marine Engineering",
+    "sampleCanonical": "Bachelor of Science in Marine Engineering",
+    "codes": [
+      "BS_MARINE_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "marine_engineering"
+    ]
+  },
+  {
+    "field": "Marine Mechanics",
+    "sampleCanonical": "Certificate in Marine Mechanics",
+    "codes": [
+      "CERT_MARINE_MECHANICS"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "marine_mechanics"
+    ]
+  },
+  {
+    "field": "Marine Navigation",
+    "sampleCanonical": "Certificate in Marine Navigation",
+    "codes": [
+      "CERT_MARINE_NAVIGATION"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "marine_navigation"
+    ]
+  },
+  {
+    "field": "Marine Safety Management",
+    "sampleCanonical": "Bachelor of Science in Marine Safety Management",
+    "codes": [
+      "BS_MARINE_SAFETY_MGMT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "marine_safety_management"
+    ]
+  },
+  {
+    "field": "Marine Science",
+    "sampleCanonical": "Bachelor of Science in Marine Science",
+    "codes": [
+      "BS_MARINE_SCIENCE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "marine_science"
+    ]
+  },
+  {
+    "field": "Marine Technology",
+    "sampleCanonical": "Bachelor of Science in Marine Technology",
+    "codes": [
+      "BS_MARINE_TECHNOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "marine_technology"
+    ]
+  },
+  {
+    "field": "Marine Transportation",
+    "sampleCanonical": "Bachelor of Science in Marine Transportation",
+    "codes": [
+      "BS_MARINE_TRANSPORTATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "marine_transportation"
+    ]
+  },
+  {
+    "field": "Maritime Security Management",
+    "sampleCanonical": "Bachelor of Science in Maritime Security Management",
+    "codes": [
+      "BS_MARITIME_SECURITY_MGMT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "maritime_security_management"
+    ]
+  },
+  {
+    "field": "Maritime Transportation",
+    "sampleCanonical": "Bachelor of Science in Maritime Transportation",
+    "codes": [
+      "BS_MARITIME_TRANSPORTATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "maritime_transportation"
+    ]
+  },
+  {
+    "field": "Marketing Management",
+    "sampleCanonical": "Bachelor of Science in Marketing Management",
+    "codes": [
+      "BS_MARKETING_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "marketing_management"
+    ]
+  },
+  {
+    "field": "Masonry Technology",
+    "sampleCanonical": "Certificate in Masonry Technology",
+    "codes": [
+      "CERT_MASONRY_TECH"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "masonry_technology"
+    ]
+  },
+  {
+    "field": "Mass Communication",
+    "sampleCanonical": "Bachelor of Arts in Mass Communication",
+    "codes": [
+      "BA_MASS_COMMUNICATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "mass_communication"
+    ]
+  },
+  {
+    "field": "Materials Engineering",
+    "sampleCanonical": "Bachelor of Science in Materials Engineering",
+    "codes": [
+      "BS_MATERIALS_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "materials_engineering"
+    ]
+  },
+  {
+    "field": "Mechanical Engineering",
+    "sampleCanonical": "Bachelor of Science in Mechanical Engineering",
+    "codes": [
+      "BS_MECHANICAL_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "mechanical_engineering"
+    ]
+  },
+  {
+    "field": "Mechanical Technology",
+    "sampleCanonical": "Bachelor of Science in Mechanical Technology",
+    "codes": [
+      "BS_MECHANICAL_TECHNOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "mechanical_technology"
+    ]
+  },
+  {
+    "field": "Mechatronics Technology",
+    "sampleCanonical": "Bachelor of Science in Mechatronics Technology",
+    "codes": [
+      "BS_MECHATRONICS_TECHNOLOGY",
+      "CERT_MECHATRONICS_TECH"
+    ],
+    "levels": [
+      "bachelor",
+      "vocational"
+    ],
+    "fieldGroups": [
+      "mechatronics_technology"
+    ]
+  },
+  {
+    "field": "Media Production",
+    "sampleCanonical": "Bachelor of Arts in Media Production",
+    "codes": [
+      "BA_MEDIA_PRODUCTION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "media_production"
+    ]
+  },
+  {
+    "field": "Media Studies",
+    "sampleCanonical": "Bachelor of Arts in Media Studies",
+    "codes": [
+      "BA_MEDIA_STUDIES"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "media_studies"
+    ]
+  },
+  {
+    "field": "Medical Billing and Coding",
+    "sampleCanonical": "Diploma in Medical Billing and Coding",
+    "codes": [
+      "DIP_MEDICAL_BILLING_CODING"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "medical_billing_and_coding"
+    ]
+  },
+  {
+    "field": "Medical Laboratory Science",
+    "sampleCanonical": "Bachelor of Science in Medical Laboratory Science",
+    "codes": [
+      "BS_MEDICAL_LABORATORY_SCIENCE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "medical_laboratory_science"
+    ]
+  },
+  {
+    "field": "Medical Science",
+    "sampleCanonical": "Bachelor of Science in Medical Science",
+    "codes": [
+      "BS_MEDICAL_SCIENCE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "medical_science"
+    ]
+  },
+  {
+    "field": "Medical Technology",
+    "sampleCanonical": "Bachelor of Science in Medical Technology",
+    "codes": [
+      "BS_MEDICAL_TECHNOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "medical_technology"
+    ]
+  },
+  {
+    "field": "Medicine",
+    "sampleCanonical": "Doctor of Medicine",
+    "codes": [
+      "MD_MEDICINE"
+    ],
+    "levels": [
+      "doctoral"
+    ],
+    "fieldGroups": [
+      "medicine"
+    ]
+  },
+  {
+    "field": "Metallurgical Engineering",
+    "sampleCanonical": "Bachelor of Science in Metallurgical Engineering",
+    "codes": [
+      "BS_METALLURGICAL_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "metallurgical_engineering"
+    ]
+  },
+  {
+    "field": "Metalworks and Fabrication",
+    "sampleCanonical": "Certificate in Metalworks and Fabrication",
+    "codes": [
+      "CERT_METALWORKS_FABRICATION"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "metalworks_and_fabrication"
+    ]
+  },
+  {
+    "field": "Meteorological Engineering",
+    "sampleCanonical": "Bachelor of Science in Meteorological Engineering",
+    "codes": [
+      "BS_METEOROLOGICAL_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "meteorological_engineering"
+    ]
+  },
+  {
+    "field": "Meteorological Services",
+    "sampleCanonical": "Certificate in Meteorological Services",
+    "codes": [
+      "CERT_METEOROLOGICAL_SERVICES"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "meteorological_services"
+    ]
+  },
+  {
+    "field": "Meteorological Technology",
+    "sampleCanonical": "Bachelor of Science in Meteorological Technology",
+    "codes": [
+      "BS_METEOROLOGICAL_TECH"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "meteorological_technology"
+    ]
+  },
+  {
+    "field": "Meteorology",
+    "sampleCanonical": "Bachelor of Science in Meteorology",
+    "codes": [
+      "BS_METEOROLOGY",
+      "MS_METEOROLOGY"
+    ],
+    "levels": [
+      "bachelor",
+      "master"
+    ],
+    "fieldGroups": [
+      "meteorology"
+    ]
+  },
+  {
+    "field": "Microbiology",
+    "sampleCanonical": "Bachelor of Science in Microbiology",
+    "codes": [
+      "BS_MICROBIOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "microbiology"
+    ]
+  },
+  {
+    "field": "Midwifery",
+    "sampleCanonical": "Bachelor of Science in Midwifery",
+    "codes": [
+      "BS_MIDWIFERY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "midwifery"
+    ]
+  },
+  {
+    "field": "Military Science",
+    "sampleCanonical": "Bachelor of Science in Military Science",
+    "codes": [
+      "BS_MILITARY_SCIENCE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "military_science"
+    ]
+  },
+  {
+    "field": "Mining Engineering",
+    "sampleCanonical": "Bachelor of Science in Mining Engineering",
+    "codes": [
+      "BS_MINING_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "mining_engineering"
+    ]
+  },
+  {
+    "field": "Mobile Computing and Development",
+    "sampleCanonical": "Diploma in Mobile Computing and Development",
+    "codes": [
+      "DIPLOMA_MOBILE_COMPUTING"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "mobile_computing"
+    ]
+  },
+  {
+    "field": "Molecular Biology",
+    "sampleCanonical": "Bachelor of Science in Molecular Biology",
+    "codes": [
+      "BS_MOLECULAR_BIOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "molecular_biology"
+    ]
+  },
+  {
+    "field": "Moral Education",
+    "sampleCanonical": "Bachelor in Moral Education",
+    "codes": [
+      "BA_MORAL_EDUCATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "moral_education"
+    ]
+  },
+  {
+    "field": "Motorcycle and Small Engine Servicing",
+    "sampleCanonical": "Certificate in Motorcycle and Small Engine Servicing",
+    "codes": [
+      "CERT_MC_SMALL_ENGINE"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "motorcycle_small_engine_servicing"
+    ]
+  },
+  {
+    "field": "Multimedia Arts",
+    "sampleCanonical": "Bachelor of Multimedia Arts",
+    "codes": [
+      "BMA_MULTIMEDIA_ARTS"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "multimedia_arts"
+    ]
+  },
+  {
+    "field": "Museum Studies",
+    "sampleCanonical": "Bachelor of Arts in Museum Studies",
+    "codes": [
+      "BA_MUSEUM_STUDIES"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "museum_studies"
+    ]
+  },
+  {
+    "field": "Music",
+    "sampleCanonical": "Bachelor of Music",
+    "codes": [
+      "BM_MUSIC"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "music"
+    ]
+  },
+  {
+    "field": "Music Education",
+    "sampleCanonical": "Bachelor in Music Education",
+    "codes": [
+      "BME_MUSIC_EDUCATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "music_education"
+    ]
+  },
+  {
+    "field": "Nanotechnology",
+    "sampleCanonical": "Bachelor of Science in Nanotechnology",
+    "codes": [
+      "BS_NANOTECHNOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "nanotechnology"
+    ]
+  },
+  {
+    "field": "Nanotechnology Applications",
+    "sampleCanonical": "Bachelor of Science in Nanotechnology Applications",
+    "codes": [
+      "BS_NANOTECH_APPLICATIONS"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "nanotechnology_applications"
+    ]
+  },
+  {
+    "field": "National Security Administration",
+    "sampleCanonical": "Master in National Security Administration",
+    "codes": [
+      "MA_NATIONAL_SECURITY_ADMIN"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "national_security_administration"
+    ]
+  },
+  {
+    "field": "Natural Resources Management",
+    "sampleCanonical": "Bachelor of Science in Natural Resources Management",
+    "codes": [
+      "BS_NATURAL_RESOURCES_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "natural_resources_management"
+    ]
+  },
+  {
+    "field": "Naval Architecture",
+    "sampleCanonical": "Bachelor of Science in Naval Architecture",
+    "codes": [
+      "BS_NAVAL_ARCHITECTURE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "naval_architecture"
+    ]
+  },
+  {
+    "field": "Naval Engineering",
+    "sampleCanonical": "Bachelor of Science in Naval Engineering",
+    "codes": [
+      "BS_NAVAL_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "naval_engineering"
+    ]
+  },
+  {
+    "field": "Network Engineering",
+    "sampleCanonical": "Bachelor of Science in Network Engineering",
+    "codes": [
+      "BS_NETWORK_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "network_engineering"
+    ]
+  },
+  {
+    "field": "Nuclear Engineering",
+    "sampleCanonical": "Bachelor of Science in Nuclear Engineering",
+    "codes": [
+      "BS_NUCLEAR_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "nuclear_engineering"
+    ]
+  },
+  {
+    "field": "Nursing",
+    "sampleCanonical": "Bachelor of Science in Nursing",
+    "codes": [
+      "BS_NURSING",
+      "MAN_NURSING"
+    ],
+    "levels": [
+      "bachelor",
+      "master"
+    ],
+    "fieldGroups": [
+      "nursing"
+    ]
+  },
+  {
+    "field": "Nursing Administration",
+    "sampleCanonical": "Bachelor in Nursing Administration",
+    "codes": [
+      "BS_NURSING_ADMINISTRATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "nursing_administration"
+    ]
+  },
+  {
+    "field": "Nutrition and Dietetics",
+    "sampleCanonical": "Bachelor of Science in Nutrition and Dietetics",
+    "codes": [
+      "BS_NUTRITION_DIETETICS"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "nutrition_and_dietetics"
+    ]
+  },
+  {
+    "field": "Nutrition Management",
+    "sampleCanonical": "Bachelor in Nutrition Management",
+    "codes": [
+      "BS_NUTRITION_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "nutrition_management"
+    ]
+  },
+  {
+    "field": "Nutrition Science",
+    "sampleCanonical": "Bachelor of Science in Nutrition Science",
+    "codes": [
+      "BS_NUTRITION_SCIENCE",
+      "MS_NUTRITION_SCIENCE"
+    ],
+    "levels": [
+      "bachelor",
+      "master"
+    ],
+    "fieldGroups": [
+      "nutrition_science"
+    ]
+  },
+  {
+    "field": "Occupational Health and Safety",
+    "sampleCanonical": "Bachelor of Science in Occupational Health and Safety",
+    "codes": [
+      "BS_OCCUPATIONAL_HEALTH_SAFETY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "occupational_health_and_safety"
+    ]
+  },
+  {
+    "field": "Occupational Safety and Health",
+    "sampleCanonical": "Bachelor in Occupational Safety and Health",
+    "codes": [
+      "BS_OSH"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "occupational_safety_and_health"
+    ]
+  },
+  {
+    "field": "Occupational Safety Technology",
+    "sampleCanonical": "Certificate in Occupational Safety Technology",
+    "codes": [
+      "CERT_OCC_SAFETY_TECH"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "occupational_safety_technology"
+    ]
+  },
+  {
+    "field": "Occupational Skills Training",
+    "sampleCanonical": "Certificate in Occupational Skills Training",
+    "codes": [
+      "CERT_OCC_SKILLS_TRAINING"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "occupational_skills_training"
+    ]
+  },
+  {
+    "field": "Occupational Therapy",
+    "sampleCanonical": "Bachelor of Science in Occupational Therapy",
+    "codes": [
+      "BS_OCCUPATIONAL_THERAPY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "occupational_therapy"
+    ]
+  },
+  {
+    "field": "Oceanography",
+    "sampleCanonical": "Bachelor of Science in Oceanography",
+    "codes": [
+      "BS_OCEANOGRAPHY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "oceanography"
+    ]
+  },
+  {
+    "field": "Office Administration",
+    "sampleCanonical": "Bachelor of Science in Office Administration",
+    "codes": [
+      "BSOA"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "office_administration"
+    ]
+  },
+  {
+    "field": "Office Management",
+    "sampleCanonical": "Bachelor of Science in Office Management",
+    "codes": [
+      "BS_OFFICE_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "office_management"
+    ]
+  },
+  {
+    "field": "Operations Management",
+    "sampleCanonical": "Bachelor of Science in Operations Management",
+    "codes": [
+      "BS_OPERATIONS_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "operations_management"
+    ]
+  },
+  {
+    "field": "Optics and Photonics",
+    "sampleCanonical": "Bachelor of Science in Optics and Photonics",
+    "codes": [
+      "BS_OPTICS_PHOTONICS"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "optics_and_photonics"
+    ]
+  },
+  {
+    "field": "Optometry",
+    "sampleCanonical": "Doctor of Optometry",
+    "codes": [
+      "OD_OPTOMETRY"
+    ],
+    "levels": [
+      "doctoral"
+    ],
+    "fieldGroups": [
+      "optometry"
+    ]
+  },
+  {
+    "field": "Organizational Communication",
+    "sampleCanonical": "Bachelor of Arts in Organizational Communication",
+    "codes": [
+      "BA_ORGANIZATIONAL_COMMUNICATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "organizational_communication"
+    ]
+  },
+  {
+    "field": "Organizational Development",
+    "sampleCanonical": "Bachelor of Science in Organizational Development",
+    "codes": [
+      "BS_ORGANIZATIONAL_DEVELOPMENT",
+      "MA_ORGANIZATIONAL_DEVELOPMENT"
+    ],
+    "levels": [
+      "bachelor",
+      "master"
+    ],
+    "fieldGroups": [
+      "organizational_development"
+    ]
+  },
+  {
+    "field": "Parasitology",
+    "sampleCanonical": "Bachelor in Parasitology",
+    "codes": [
+      "BS_PARASITOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "parasitology"
+    ]
+  },
+  {
+    "field": "Pathology Science",
+    "sampleCanonical": "Bachelor in Pathology Science",
+    "codes": [
+      "BS_PATHOLOGY_SCIENCE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "pathology"
+    ]
+  },
+  {
+    "field": "Peace and Conflict Studies",
+    "sampleCanonical": "Bachelor of Arts in Peace and Conflict Studies",
+    "codes": [
+      "BA_PEACE_CONFLICT_STUDIES"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "peace_and_conflict_studies"
+    ]
+  },
+  {
+    "field": "Peace and Security Management",
+    "sampleCanonical": "Master in Peace and Security Management",
+    "codes": [
+      "MA_PEACE_SECURITY_MANAGEMENT"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "peace_and_security_management"
+    ]
+  },
+  {
+    "field": "Peace and Security Studies",
+    "sampleCanonical": "Bachelor of Arts in Peace and Security Studies",
+    "codes": [
+      "BA_PEACE_SECURITY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "peace_and_security_studies"
+    ]
+  },
+  {
+    "field": "Peace Education",
+    "sampleCanonical": "Bachelor in Peace Education",
+    "codes": [
+      "BA_PEACE_EDUCATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "peace_education"
+    ]
+  },
+  {
+    "field": "Penology Administration",
+    "sampleCanonical": "Master in Penology Administration",
+    "codes": [
+      "MA_PENOLOGY_ADMIN"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "penology_administration"
+    ]
+  },
+  {
+    "field": "Penology and Correctional Administration",
+    "sampleCanonical": "Master of Arts in Penology and Correctional Administration",
+    "codes": [
+      "MA_PENOLOGY"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "penology"
+    ]
+  },
+  {
+    "field": "Performing Arts",
+    "sampleCanonical": "Bachelor in Performing Arts",
+    "codes": [
+      "BPA_PERFORMING_ARTS"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "performing_arts"
+    ]
+  },
+  {
+    "field": "Performing Arts Management",
+    "sampleCanonical": "Bachelor of Arts in Performing Arts Management",
+    "codes": [
+      "BA_PERFORMING_ARTS_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "performing_arts_management"
+    ]
+  },
+  {
+    "field": "Pest Management",
+    "sampleCanonical": "Bachelor of Science in Pest Management",
+    "codes": [
+      "BS_PEST_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "pest_management"
+    ]
+  },
+  {
+    "field": "Petroleum Engineering",
+    "sampleCanonical": "Bachelor of Science in Petroleum Engineering",
+    "codes": [
+      "BS_PETROLEUM_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "petroleum_engineering"
+    ]
+  },
+  {
+    "field": "Pharmacy",
+    "sampleCanonical": "Bachelor of Science in Pharmacy",
+    "codes": [
+      "BS_PHARMACY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "pharmacy"
+    ]
+  },
+  {
+    "field": "Pharmacy Technician",
+    "sampleCanonical": "Certificate in Pharmacy Technician",
+    "codes": [
+      "CERT_PHARMACY_TECHNICIAN"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "pharmacy_technician"
+    ]
+  },
+  {
+    "field": "Philippine Literature",
+    "sampleCanonical": "Bachelor of Arts in Philippine Literature",
+    "codes": [
+      "BA_PHILIPPINE_LITERATURE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "philippine_literature"
+    ]
+  },
+  {
+    "field": "Philology",
+    "sampleCanonical": "Bachelor of Arts in Philology",
+    "codes": [
+      "BA_PHILOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "philology"
+    ]
+  },
+  {
+    "field": "Philosophy",
+    "sampleCanonical": "Bachelor of Arts in Philosophy",
+    "codes": [
+      "BA_PHILOSOPHY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "philosophy"
+    ]
+  },
+  {
+    "field": "Philosophy of Education",
+    "sampleCanonical": "Master of Arts in Philosophy of Education",
+    "codes": [
+      "MA_PHILOSOPHY_OF_EDUCATION"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "philosophy_of_education"
+    ]
+  },
+  {
+    "field": "Photography",
+    "sampleCanonical": "Bachelor of Fine Arts major in Photography",
+    "codes": [
+      "BFA_PHOTOGRAPHY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "photography"
+    ]
+  },
+  {
+    "field": "Photography Technology",
+    "sampleCanonical": "Bachelor of Science in Photography Technology",
+    "codes": [
+      "BS_PHOTOGRAPHY_TECH"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "photography_technology"
+    ]
+  },
+  {
+    "field": "Physical Education",
+    "sampleCanonical": "Bachelor of Physical Education",
+    "codes": [
+      "BS_PHYSICAL_EDUCATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "physical_education"
+    ]
+  },
+  {
+    "field": "Physical Therapy",
+    "sampleCanonical": "Bachelor of Science in Physical Therapy",
+    "codes": [
+      "BS_PHYSICAL_THERAPY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "physical_therapy"
+    ]
+  },
+  {
+    "field": "Plant Breeding",
+    "sampleCanonical": "Bachelor of Science in Plant Breeding",
+    "codes": [
+      "BS_PLANT_BREEDING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "plant_breeding"
+    ]
+  },
+  {
+    "field": "Plant Protection",
+    "sampleCanonical": "Bachelor of Science in Plant Protection",
+    "codes": [
+      "BS_PLANT_PROTECTION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "plant_protection"
+    ]
+  },
+  {
+    "field": "Plumbing Technology",
+    "sampleCanonical": "Certificate in Plumbing Technology",
+    "codes": [
+      "CERT_PLUMBING_TECH"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "plumbing_technology"
+    ]
+  },
+  {
+    "field": "Police Science Technology",
+    "sampleCanonical": "Certificate in Police Science Technology",
+    "codes": [
+      "CERT_POLICE_SCIENCE_TECH"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "police_science_technology"
+    ]
+  },
+  {
+    "field": "Political Science",
+    "sampleCanonical": "Bachelor of Arts in Political Science",
+    "codes": [
+      "BA_POLITICAL_SCIENCE",
+      "MA_POLITICAL_SCIENCE",
+      "PHD_POLITICAL_SCIENCE"
+    ],
+    "levels": [
+      "bachelor",
+      "master",
+      "doctoral"
+    ],
+    "fieldGroups": [
+      "political_science"
+    ]
+  },
+  {
+    "field": "Population Education",
+    "sampleCanonical": "Bachelor in Population Education",
+    "codes": [
+      "BA_POPULATION_EDUCATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "population_education"
+    ]
+  },
+  {
+    "field": "Population Health",
+    "sampleCanonical": "Master of Science in Population Health",
+    "codes": [
+      "MS_POPULATION_HEALTH"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "population_health"
+    ]
+  },
+  {
+    "field": "Port and Shipping Management",
+    "sampleCanonical": "Bachelor of Science in Port and Shipping Management",
+    "codes": [
+      "BS_PORT_SHIPPING_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "port_and_shipping_management"
+    ]
+  },
+  {
+    "field": "Power Engineering",
+    "sampleCanonical": "Bachelor of Science in Power Engineering",
+    "codes": [
+      "BS_POWER_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "power_engineering"
+    ]
+  },
+  {
+    "field": "Primary Health Care",
+    "sampleCanonical": "Bachelor in Primary Health Care",
+    "codes": [
+      "BS_PRIMARY_HEALTH_CARE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "primary_health_care"
+    ]
+  },
+  {
+    "field": "Printing Technology",
+    "sampleCanonical": "Certificate in Printing Technology",
+    "codes": [
+      "CERT_PRINTING_TECH"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "printing_technology"
+    ]
+  },
+  {
+    "field": "Production",
+    "sampleCanonical": "Bachelor of Performing Arts major in Production",
+    "codes": [
+      "BS_PERFORMING_ARTS_PRODUCTION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "performing_arts_production"
+    ]
+  },
+  {
+    "field": "Production Engineering",
+    "sampleCanonical": "Bachelor of Science in Production Engineering",
+    "codes": [
+      "BS_PRODUCTION_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "production_engineering"
+    ]
+  },
+  {
+    "field": "Project Engineering",
+    "sampleCanonical": "Bachelor of Science in Project Engineering",
+    "codes": [
+      "BS_PROJECT_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "project_engineering"
+    ]
+  },
+  {
+    "field": "Project Management",
+    "sampleCanonical": "Bachelor of Science in Project Management",
+    "codes": [
+      "BS_PROJECT_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "project_management"
+    ]
+  },
+  {
+    "field": "Prosthodontics Technology",
+    "sampleCanonical": "Bachelor in Prosthodontics Technology",
+    "codes": [
+      "BS_PROSTHODONTICS_TECHNOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "prosthodontics_technology"
+    ]
+  },
+  {
+    "field": "Protective Services",
+    "sampleCanonical": "Certificate in Protective Services",
+    "codes": [
+      "CERT_PROTECTIVE_SERVICES"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "protective_services"
+    ]
+  },
+  {
+    "field": "Psychology",
+    "sampleCanonical": "Bachelor of Science in Psychology",
+    "codes": [
+      "BS_PSYCHOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "psychology"
+    ]
+  },
+  {
+    "field": "Public Administration",
+    "sampleCanonical": "Bachelor of Public Administration",
+    "codes": [
+      "BPA_PUBLIC_ADMIN",
+      "MPA_PUBLIC_ADMIN",
+      "DPA_PUBLIC_ADMIN"
+    ],
+    "levels": [
+      "bachelor",
+      "master",
+      "doctoral"
+    ],
+    "fieldGroups": [
+      "public_administration"
+    ]
+  },
+  {
+    "field": "Public Financial Management",
+    "sampleCanonical": "Bachelor of Science in Public Financial Management",
+    "codes": [
+      "BS_PUBLIC_FINANCIAL_MANAGEMENT",
+      "MA_PUBLIC_FINANCIAL_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor",
+      "master"
+    ],
+    "fieldGroups": [
+      "public_finance_management"
+    ]
+  },
+  {
+    "field": "Public Health",
+    "sampleCanonical": "Bachelor of Science in Public Health",
+    "codes": [
+      "BS_PUBLIC_HEALTH",
+      "MPH_PUBLIC_HEALTH"
+    ],
+    "levels": [
+      "bachelor",
+      "master"
+    ],
+    "fieldGroups": [
+      "public_health"
+    ]
+  },
+  {
+    "field": "Public Law",
+    "sampleCanonical": "Master of Laws in Public Law",
+    "codes": [
+      "MA_PUBLIC_LAW"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "public_law"
+    ]
+  },
+  {
+    "field": "Public Policy",
+    "sampleCanonical": "Bachelor of Arts in Public Policy",
+    "codes": [
+      "BA_PUBLIC_POLICY",
+      "MPP_PUBLIC_POLICY",
+      "PHD_PUBLIC_POLICY"
+    ],
+    "levels": [
+      "bachelor",
+      "master",
+      "doctoral"
+    ],
+    "fieldGroups": [
+      "public_policy"
+    ]
+  },
+  {
+    "field": "Public Relations",
+    "sampleCanonical": "Bachelor of Arts in Public Relations",
+    "codes": [
+      "BA_PUBLIC_RELATIONS"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "public_relations"
+    ]
+  },
+  {
+    "field": "Public Relations Management",
+    "sampleCanonical": "Bachelor of Arts in Public Relations Management",
+    "codes": [
+      "BA_PUBLIC_RELATIONS_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "public_relations_management"
+    ]
+  },
+  {
+    "field": "Public Safety",
+    "sampleCanonical": "Bachelor of Science in Public Safety",
+    "codes": [
+      "BS_PUBLIC_SAFETY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "public_safety"
+    ]
+  },
+  {
+    "field": "Public Safety Management",
+    "sampleCanonical": "Bachelor of Science in Public Safety Management",
+    "codes": [
+      "BS_PUBLIC_SAFETY_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "public_safety_management"
+    ]
+  },
+  {
+    "field": "Publishing",
+    "sampleCanonical": "Bachelor of Arts in Publishing",
+    "codes": [
+      "BA_PUBLISHING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "publishing"
+    ]
+  },
+  {
+    "field": "Quality Control Engineering",
+    "sampleCanonical": "Bachelor of Science in Quality Control Engineering",
+    "codes": [
+      "BS_QUALITY_CONTROL_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "quality_control_engineering"
+    ]
+  },
+  {
+    "field": "Quality Management",
+    "sampleCanonical": "Bachelor of Science in Quality Management",
+    "codes": [
+      "BS_QUALITY_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "quality_management"
+    ]
+  },
+  {
+    "field": "Quantity Surveying",
+    "sampleCanonical": "Bachelor of Science in Quantity Surveying",
+    "codes": [
+      "BS_QUANTITY_SURVEYING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "quantity_surveying"
+    ]
+  },
+  {
+    "field": "Radiologic Technology",
+    "sampleCanonical": "Bachelor of Science in Radiologic Technology",
+    "codes": [
+      "BS_RADIOLOGIC_TECHNOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "radiologic_technology"
+    ]
+  },
+  {
+    "field": "Rail Transport Engineering",
+    "sampleCanonical": "Master of Science in Rail Transport Engineering",
+    "codes": [
+      "MS_RAIL_TRANSPORT_ENGINEERING"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "rail_transport_engineering"
+    ]
+  },
+  {
+    "field": "Records Digitization and Digital Archiving",
+    "sampleCanonical": "Certificate in Records Digitization and Digital Archiving",
+    "codes": [
+      "CERT_RECORDS_DIGITAL_ARCHIVING"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "records_digitization_and_digital_archiving"
+    ]
+  },
+  {
+    "field": "Records Management",
+    "sampleCanonical": "Bachelor in Records Management",
+    "codes": [
+      "BS_RECORDS_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "records_management"
+    ]
+  },
+  {
+    "field": "Refrigeration and Aircon Servicing",
+    "sampleCanonical": "Certificate in Refrigeration and Aircon Servicing",
+    "codes": [
+      "CERT_RAC_SERVICING"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "refrigeration_and_aircon_servicing"
+    ]
+  },
+  {
+    "field": "Refrigeration and Airconditioning",
+    "sampleCanonical": "Diploma in Refrigeration and Airconditioning",
+    "codes": [
+      "DIP_REFRIGERATION_AIRCON"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "refrigeration_and_airconditioning"
+    ]
+  },
+  {
+    "field": "Refrigeration and Airconditioning Technology",
+    "sampleCanonical": "Bachelor of Science in Refrigeration and Airconditioning Technology",
+    "codes": [
+      "BS_REFRIGERATION_AIRCON_TECH",
+      "CERT_RAC_TECHNOLOGY"
+    ],
+    "levels": [
+      "bachelor",
+      "vocational"
+    ],
+    "fieldGroups": [
+      "refrigeration_and_airconditioning",
+      "refrigeration_and_airconditioning_technology"
+    ]
+  },
+  {
+    "field": "Refrigeration Technology",
+    "sampleCanonical": "Diploma in Refrigeration Technology",
+    "codes": [
+      "DIP_REFRIGERATION_TECHNOLOGY"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "refrigeration_technology"
+    ]
+  },
+  {
+    "field": "Regional Planning",
+    "sampleCanonical": "Master of Science in Regional Planning",
+    "codes": [
+      "MS_REGIONAL_PLANNING"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "regional_planning"
+    ]
+  },
+  {
+    "field": "Registered Environmental Planner (Planning Degree)",
+    "sampleCanonical": "Registered Environmental Planner (Planning Degree)",
+    "codes": [
+      "RENVPLAN_ENVIRONMENTAL_PLANNING"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "environmental_planning"
+    ]
+  },
+  {
+    "field": "Religious Education",
+    "sampleCanonical": "Bachelor in Religious Education",
+    "codes": [
+      "BA_RELIGIOUS_EDUCATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "religious_education"
+    ]
+  },
+  {
+    "field": "Religious Studies",
+    "sampleCanonical": "Bachelor of Arts in Religious Studies",
+    "codes": [
+      "BA_RELIGIOUS_STUDIES"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "religious_studies"
+    ]
+  },
+  {
+    "field": "Renewable Energy Engineering",
+    "sampleCanonical": "Bachelor of Science in Renewable Energy Engineering",
+    "codes": [
+      "BS_RENEWABLE_ENERGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "renewable_energy"
+    ]
+  },
+  {
+    "field": "Renewable Energy Technology",
+    "sampleCanonical": "Bachelor of Science in Renewable Energy Technology",
+    "codes": [
+      "BS_RENEWABLE_ENERGY_TECH"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "renewable_energy_technology"
+    ]
+  },
+  {
+    "field": "Resource Economics",
+    "sampleCanonical": "Bachelor of Science in Resource Economics",
+    "codes": [
+      "BS_RESOURCE_ECONOMICS"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "resource_economics"
+    ]
+  },
+  {
+    "field": "Risk Management",
+    "sampleCanonical": "Bachelor of Science in Risk Management",
+    "codes": [
+      "BS_RISK_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "risk_management"
+    ]
+  },
+  {
+    "field": "Robotics Engineering",
+    "sampleCanonical": "Bachelor of Science in Robotics Engineering",
+    "codes": [
+      "BS_ROBOTICS_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "robotics_engineering"
+    ]
+  },
+  {
+    "field": "Rural Health Development",
+    "sampleCanonical": "Bachelor in Rural Health Development",
+    "codes": [
+      "BS_RURAL_HEALTH_DEVELOPMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "rural_health_development"
+    ]
+  },
+  {
+    "field": "Safety Engineering",
+    "sampleCanonical": "Bachelor of Science in Safety Engineering",
+    "codes": [
+      "BS_SAFETY_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "safety_engineering"
+    ]
+  },
+  {
+    "field": "Sanitary Engineering",
+    "sampleCanonical": "Bachelor of Science in Sanitary Engineering",
+    "codes": [
+      "BS_SANITARY_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "sanitary_engineering"
+    ]
+  },
+  {
+    "field": "Sanitary Science",
+    "sampleCanonical": "Bachelor of Science in Sanitary Science",
+    "codes": [
+      "BS_SANITARY_SCIENCE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "sanitary_science"
+    ]
+  },
+  {
+    "field": "Sanitation Management",
+    "sampleCanonical": "Bachelor in Sanitation Management",
+    "codes": [
+      "BS_SANITATION_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "sanitation_management"
+    ]
+  },
+  {
+    "field": "Satellite Communication",
+    "sampleCanonical": "Master of Science in Satellite Communication",
+    "codes": [
+      "MS_SATELLITE_COMMUNICATION"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "satellite_communication"
+    ]
+  },
+  {
+    "field": "Seafaring",
+    "sampleCanonical": "Certificate in Seafaring",
+    "codes": [
+      "CERT_SEAFARING"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "seafaring"
+    ]
+  },
+  {
+    "field": "Secondary Education",
+    "sampleCanonical": "Bachelor of Secondary Education",
+    "codes": [
+      "BSED_SECONDARY_EDUCATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "secondary_education"
+    ]
+  },
+  {
+    "field": "Secondary Education (Teacher Education)",
+    "sampleCanonical": "Bachelor of Secondary Education (Teacher Education)",
+    "codes": [
+      "BSED_TEACHER_EDUCATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "teacher_education"
+    ]
+  },
+  {
+    "field": "Security Studies",
+    "sampleCanonical": "Master of Arts in Security Studies",
+    "codes": [
+      "MA_SECURITY_STUDIES"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "security_studies"
+    ]
+  },
+  {
+    "field": "Semantics and Pragmatics",
+    "sampleCanonical": "Master of Arts in Semantics and Pragmatics",
+    "codes": [
+      "MA_SEMANTICS_PRAGMATICS"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "semantics_and_pragmatics"
+    ]
+  },
+  {
+    "field": "Ship Engineering Technology",
+    "sampleCanonical": "Bachelor of Science in Ship Engineering Technology",
+    "codes": [
+      "BS_SHIP_ENGINEERING_TECH"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "ship_engineering_technology"
+    ]
+  },
+  {
+    "field": "Shipbuilding Technology",
+    "sampleCanonical": "Bachelor of Science in Shipbuilding Technology",
+    "codes": [
+      "BS_SHIPBUILDING_TECHNOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "shipbuilding_technology"
+    ]
+  },
+  {
+    "field": "Social Psychology",
+    "sampleCanonical": "Master of Arts in Social Psychology",
+    "codes": [
+      "MA_SOCIAL_PSYCHOLOGY"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "social_psychology"
+    ]
+  },
+  {
+    "field": "Social Science",
+    "sampleCanonical": "Bachelor of Arts in Social Science",
+    "codes": [
+      "BA_SOCIAL_SCIENCE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "social_science"
+    ]
+  },
+  {
+    "field": "Social Welfare and Development",
+    "sampleCanonical": "Bachelor of Science in Social Welfare and Development",
+    "codes": [
+      "BS_SOCIAL_WELFARE_DEVELOPMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "social_welfare_development"
+    ]
+  },
+  {
+    "field": "Social Work",
+    "sampleCanonical": "Bachelor of Science in Social Work",
+    "codes": [
+      "BS_SOCIAL_WORK"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "social_work"
+    ]
+  },
+  {
+    "field": "Sociology",
+    "sampleCanonical": "Bachelor of Arts in Sociology",
+    "codes": [
+      "BS_SOCIOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "sociology"
+    ]
+  },
+  {
+    "field": "Sociology major in Urban Sociology",
+    "sampleCanonical": "Master of Arts in Sociology major in Urban Sociology",
+    "codes": [
+      "MA_URBAN_SOCIOLOGY"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "urban_sociology"
+    ]
+  },
+  {
+    "field": "Software Engineering",
+    "sampleCanonical": "Bachelor of Science in Software Engineering",
+    "codes": [
+      "BS_SOFTWARE_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "software_engineering"
+    ]
+  },
+  {
+    "field": "Soil Science",
+    "sampleCanonical": "Bachelor of Science in Soil Science",
+    "codes": [
+      "BS_SOIL_SCIENCE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "soil_science"
+    ]
+  },
+  {
+    "field": "Sound and Light Technology",
+    "sampleCanonical": "Certificate in Sound and Light Technology",
+    "codes": [
+      "CERT_SOUND_LIGHT_TECH"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "sound_and_light_technology"
+    ]
+  },
+  {
+    "field": "Sound Engineering",
+    "sampleCanonical": "Bachelor of Science in Sound Engineering",
+    "codes": [
+      "BS_SOUND_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "sound_engineering"
+    ]
+  },
+  {
+    "field": "Special Education",
+    "sampleCanonical": "Bachelor of Special Education",
+    "codes": [
+      "BSED_SPECIAL_EDUCATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "special_education"
+    ]
+  },
+  {
+    "field": "Speech and Language Studies",
+    "sampleCanonical": "Bachelor of Arts in Speech and Language Studies",
+    "codes": [
+      "BA_SPEECH_LANGUAGE_STUDIES"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "speech_language_studies"
+    ]
+  },
+  {
+    "field": "Speech Communication",
+    "sampleCanonical": "Bachelor of Arts in Speech Communication",
+    "codes": [
+      "BA_SPEECH_COMMUNICATION"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "speech_communication"
+    ]
+  },
+  {
+    "field": "Speech-Language Pathology",
+    "sampleCanonical": "Bachelor of Science in Speech-Language Pathology",
+    "codes": [
+      "BS_SPEECH_LANGUAGE_PATHOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "speech_language_pathology"
+    ]
+  },
+  {
+    "field": "Sports Science",
+    "sampleCanonical": "Bachelor of Science in Sports Science",
+    "codes": [
+      "BS_SPORTS_SCIENCE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "sports_science"
+    ]
+  },
+  {
+    "field": "Stage Design and Management",
+    "sampleCanonical": "Bachelor of Arts in Stage Design and Management",
+    "codes": [
+      "BS_STAGE_DESIGN_MGMT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "stage_design_and_management"
+    ]
+  },
+  {
+    "field": "Statistics and Mathematics",
+    "sampleCanonical": "Bachelor of Science in Statistics and Mathematics",
+    "codes": [
+      "BS_STATISTICS_MATH"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "statistics_mathematics"
+    ]
+  },
+  {
+    "field": "Supply Chain Management",
+    "sampleCanonical": "Bachelor of Science in Supply Chain Management",
+    "codes": [
+      "BS_SUPPLY_CHAIN_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "procurement_and_supply_chain"
+    ]
+  },
+  {
+    "field": "Supply Chain Technology",
+    "sampleCanonical": "Bachelor of Science in Supply Chain Technology",
+    "codes": [
+      "BS_SUPPLY_CHAIN_TECH"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "supply_chain_technology"
+    ]
+  },
+  {
+    "field": "Surveying and Mapping",
+    "sampleCanonical": "Bachelor of Science in Surveying and Mapping",
+    "codes": [
+      "BS_SURVEYING_MAPPING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "surveying_and_mapping"
+    ]
+  },
+  {
+    "field": "Sustainability Management",
+    "sampleCanonical": "Master in Sustainability Management",
+    "codes": [
+      "MS_SUSTAINABILITY_MANAGEMENT"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "sustainability_management"
+    ]
+  },
+  {
+    "field": "Sustainable Agriculture",
+    "sampleCanonical": "Bachelor of Science in Sustainable Agriculture",
+    "codes": [
+      "BS_SUSTAINABLE_AGRICULTURE"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "sustainable_agriculture"
+    ]
+  },
+  {
+    "field": "Systems Analysis and Design",
+    "sampleCanonical": "Diploma in Systems Analysis and Design",
+    "codes": [
+      "DIPLOMA_SYSTEMS_ANALYSIS_DESIGN"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "systems_analysis_and_design"
+    ]
+  },
+  {
+    "field": "Systems Engineering",
+    "sampleCanonical": "Master of Science in Systems Engineering",
+    "codes": [
+      "MS_SYSTEMS_ENGINEERING"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "systems_engineering"
+    ]
+  },
+  {
+    "field": "Taxation",
+    "sampleCanonical": "Bachelor in Taxation",
+    "codes": [
+      "BS_TAXATION",
+      "MA_TAXATION"
+    ],
+    "levels": [
+      "bachelor",
+      "master"
+    ],
+    "fieldGroups": [
+      "taxation"
+    ]
+  },
+  {
+    "field": "Technical Drafting",
+    "sampleCanonical": "Certificate in Technical Drafting",
+    "codes": [
+      "CERT_TECHNICAL_DRAFTING"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "technical_drafting"
+    ]
+  },
+  {
+    "field": "Technical Vocational Education and Training",
+    "sampleCanonical": "Certificate in Technical Vocational Education and Training",
+    "codes": [
+      "CERT_TECH_VOC_ED"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "technical_vocational_education"
+    ]
+  },
+  {
+    "field": "Technology Management",
+    "sampleCanonical": "Master in Technology Management",
+    "codes": [
+      "MS_TECHNOLOGY_MANAGEMENT"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "technology_management"
+    ]
+  },
+  {
+    "field": "Telecommunication Engineering",
+    "sampleCanonical": "Bachelor of Science in Telecommunication Engineering",
+    "codes": [
+      "BS_TELECOMMUNICATION_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "telecommunication_engineering"
+    ]
+  },
+  {
+    "field": "Telecommunications Technology",
+    "sampleCanonical": "Certificate in Telecommunications Technology",
+    "codes": [
+      "CERT_TELECOMMUNICATIONS_TECH"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "telecommunications_technology"
+    ]
+  },
+  {
+    "field": "Textile and Fabric Technology",
+    "sampleCanonical": "Bachelor of Science in Textile and Fabric Technology",
+    "codes": [
+      "BS_TEXTILE_FABRIC_TECH"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "textile_and_fabric_technology"
+    ]
+  },
+  {
+    "field": "Textile Design",
+    "sampleCanonical": "Bachelor in Textile Design",
+    "codes": [
+      "BDES_TEXTILE_DESIGN"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "textile_design"
+    ]
+  },
+  {
+    "field": "Textile Engineering",
+    "sampleCanonical": "Bachelor of Science in Textile Engineering",
+    "codes": [
+      "BS_TEXTILE_ENGINEERING",
+      "MS_TEXTILE_ENGINEERING"
+    ],
+    "levels": [
+      "bachelor",
+      "master"
+    ],
+    "fieldGroups": [
+      "textile_engineering"
+    ]
+  },
+  {
+    "field": "Theater Arts",
+    "sampleCanonical": "Bachelor of Arts in Theater Arts",
+    "codes": [
+      "BA_THEATER_ARTS"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "theater_arts"
+    ]
+  },
+  {
+    "field": "Theology",
+    "sampleCanonical": "Bachelor of Arts in Theology",
+    "codes": [
+      "BA_THEOLOGY"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "theology"
+    ]
+  },
+  {
+    "field": "Tourism Management",
+    "sampleCanonical": "Bachelor of Science in Tourism Management",
+    "codes": [
+      "BS_TOURISM_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "tourism_management"
+    ]
+  },
+  {
+    "field": "Tourism Services",
+    "sampleCanonical": "Certificate in Tourism Services",
+    "codes": [
+      "CERT_TOURISM_SERVICES"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "tourism_services"
+    ]
+  },
+  {
+    "field": "Toxicology",
+    "sampleCanonical": "Master of Science in Toxicology",
+    "codes": [
+      "MS_TOXICOLOGY"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "toxicology"
+    ]
+  },
+  {
+    "field": "Training and Development",
+    "sampleCanonical": "Bachelor in Training and Development",
+    "codes": [
+      "BS_TRAINING_AND_DEVELOPMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "training_and_development"
+    ]
+  },
+  {
+    "field": "Training Communication",
+    "sampleCanonical": "Certificate in Training Communication",
+    "codes": [
+      "CERT_TRAINING_COMMUNICATION"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "training_communication"
+    ]
+  },
+  {
+    "field": "Translation Studies",
+    "sampleCanonical": "Master of Arts in Translation Studies",
+    "codes": [
+      "MA_TRANSLATION_STUDIES"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "translation_studies"
+    ]
+  },
+  {
+    "field": "Transportation Engineering",
+    "sampleCanonical": "Master of Science in Transportation Engineering",
+    "codes": [
+      "MS_TRANSPORTATION_ENGINEERING"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "transportation_engineering"
+    ]
+  },
+  {
+    "field": "Travel and Tourism Services",
+    "sampleCanonical": "Certificate in Travel and Tourism Services",
+    "codes": [
+      "CERT_TRAVEL_TOURISM_SERVICES"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "travel_and_tourism_services"
+    ]
+  },
+  {
+    "field": "Travel Management",
+    "sampleCanonical": "Bachelor of Science in Travel Management",
+    "codes": [
+      "BS_TRAVEL_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "travel_management"
+    ]
+  },
+  {
+    "field": "Tunnel and Bridge Engineering",
+    "sampleCanonical": "Master of Science in Tunnel and Bridge Engineering",
+    "codes": [
+      "MS_TUNNEL_BRIDGE_ENGINEERING"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "tunnel_and_bridge_engineering"
+    ]
+  },
+  {
+    "field": "Urban and Regional Planning",
+    "sampleCanonical": "Master in Urban and Regional Planning",
+    "codes": [
+      "MURP_URBAN_PLANNING"
+    ],
+    "levels": [
+      "master"
+    ],
+    "fieldGroups": [
+      "urban_planning"
+    ]
+  },
+  {
+    "field": "Veterinary Medicine",
+    "sampleCanonical": "Doctor of Veterinary Medicine",
+    "codes": [
+      "DVM_VETERINARY_MEDICINE"
+    ],
+    "levels": [
+      "doctoral"
+    ],
+    "fieldGroups": [
+      "veterinary_medicine"
+    ]
+  },
+  {
+    "field": "Visual Arts",
+    "sampleCanonical": "Bachelor of Fine Arts major in Visual Arts",
+    "codes": [
+      "BFA_VISUAL_ARTS"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "visual_arts"
+    ]
+  },
+  {
+    "field": "Visual Communication Design",
+    "sampleCanonical": "Bachelor in Visual Communication Design",
+    "codes": [
+      "BDES_VISUAL_COMMUNICATION_DESIGN"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "visual_communication_design"
+    ]
+  },
+  {
+    "field": "Visual Communication Technology",
+    "sampleCanonical": "Bachelor of Science in Visual Communication Technology",
+    "codes": [
+      "BS_VISUAL_COMM_TECH"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "visual_communication_technology"
+    ]
+  },
+  {
+    "field": "Vocational Skills Training",
+    "sampleCanonical": "Certificate in Vocational Skills Training",
+    "codes": [
+      "CERT_VOCATIONAL_SKILLS_TRAINING"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "vocational_skills_training"
+    ]
+  },
+  {
+    "field": "Vocational Technical Skills",
+    "sampleCanonical": "Certificate in Vocational Technical Skills",
+    "codes": [
+      "CERT_VOCATIONAL_TECHNICAL"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "vocational_technical"
+    ]
+  },
+  {
+    "field": "Waste Management",
+    "sampleCanonical": "Bachelor of Science in Waste Management",
+    "codes": [
+      "BS_WASTE_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "waste_management"
+    ]
+  },
+  {
+    "field": "Water Resource Management",
+    "sampleCanonical": "Bachelor of Science in Water Resource Management",
+    "codes": [
+      "BS_WATER_RESOURCE_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "water_resource_management"
+    ]
+  },
+  {
+    "field": "Web Development",
+    "sampleCanonical": "Diploma in Web Development",
+    "codes": [
+      "DIPLOMA_WEB_DEVELOPMENT"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "web_development"
+    ]
+  },
+  {
+    "field": "Welding and Fabrication Technology",
+    "sampleCanonical": "Certificate in Welding and Fabrication Technology",
+    "codes": [
+      "CERT_WELDING_FABRICATION_TECH"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "welding_and_fabrication_technology"
+    ]
+  },
+  {
+    "field": "Welding Technology",
+    "sampleCanonical": "Diploma in Welding Technology",
+    "codes": [
+      "DIP_WELDING_TECHNOLOGY"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "welding_technology"
+    ]
+  },
+  {
+    "field": "Wildlife Management",
+    "sampleCanonical": "Bachelor of Science in Wildlife Management",
+    "codes": [
+      "BS_WILDLIFE_MANAGEMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "wildlife_management"
+    ]
+  },
+  {
+    "field": "Women and Children Studies",
+    "sampleCanonical": "Bachelor in Women and Children Studies",
+    "codes": [
+      "BA_WOMEN_CHILDREN_STUDIES"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "women_and_children_studies"
+    ]
+  },
+  {
+    "field": "Woodworking Technology",
+    "sampleCanonical": "Certificate in Woodworking Technology",
+    "codes": [
+      "CERT_WOODWORKING_TECH"
+    ],
+    "levels": [
+      "vocational"
+    ],
+    "fieldGroups": [
+      "woodworking_technology"
+    ]
+  },
+  {
+    "field": "Youth Development",
+    "sampleCanonical": "Bachelor in Youth Development",
+    "codes": [
+      "BA_YOUTH_DEVELOPMENT"
+    ],
+    "levels": [
+      "bachelor"
+    ],
+    "fieldGroups": [
+      "youth_development"
+    ]
+  }
+]

@@ -1,0 +1,3329 @@
+======================================
+ Unique degree fields from degrees.yaml
+======================================
+
+Total unique fields: 554
+
+Field: Accountancy (Audit Track)
+  Sample canonical: Bachelor of Science in Accountancy (Audit Track)
+  Codes: BS_ACCOUNTING_AUDIT
+  Levels: bachelor
+  Existing field_group(s): audit_and_compliance
+
+Field: Accounting and Finance
+  Sample canonical: Bachelor of Science in Accounting and Finance
+  Codes: BS_ACCOUNTING_FINANCE
+  Levels: bachelor
+  Existing field_group(s): accounting_finance
+
+Field: Adult Education
+  Sample canonical: Bachelor in Adult Education
+  Codes: BAE_ADULT_EDUCATION
+  Levels: bachelor
+  Existing field_group(s): adult_education
+
+Field: Advertising and Marketing Communication
+  Sample canonical: Bachelor of Arts in Advertising and Marketing Communication
+  Codes: BA_ADVERTISING_MARKETING_COMM
+  Levels: bachelor
+  Existing field_group(s): advertising_and_marketing_communication
+
+Field: Aeronautical Engineering
+  Sample canonical: Bachelor of Science in Aeronautical Engineering
+  Codes: BS_AERONAUTICAL_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): aeronautical_engineering
+
+Field: Agribusiness Management
+  Sample canonical: Bachelor of Science in Agribusiness Management
+  Codes: BS_AGRIBUSINESS_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): agribusiness_management
+
+Field: Agricultural Development
+  Sample canonical: Bachelor of Science in Agricultural Development
+  Codes: BS_AGRICULTURAL_DEVELOPMENT
+  Levels: bachelor
+  Existing field_group(s): agricultural_development
+
+Field: Agricultural Economics
+  Sample canonical: Bachelor of Science in Agricultural Economics
+  Codes: BS_AGRICULTURAL_ECONOMICS
+  Levels: bachelor
+  Existing field_group(s): agricultural_economics
+
+Field: Agricultural Education
+  Sample canonical: Bachelor of Science in Agricultural Education
+  Codes: BS_AGRICULTURAL_EDUCATION, MS_AGRICULTURAL_EDUCATION
+  Levels: bachelor, master
+  Existing field_group(s): agricultural_education
+
+Field: Agricultural Engineering
+  Sample canonical: Bachelor of Science in Agricultural Engineering
+  Codes: BS_AGRICULTURAL_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): agricultural_engineering
+
+Field: Agricultural Extension
+  Sample canonical: Bachelor of Science in Agricultural Extension
+  Codes: BS_AGRICULTURAL_EXTENSION, MS_AGRICULTURAL_EXTENSION
+  Levels: bachelor, master
+  Existing field_group(s): agricultural_extension
+
+Field: Agricultural Policy
+  Sample canonical: Bachelor in Agricultural Policy
+  Codes: BS_AGRICULTURAL_POLICY, MS_AGRICULTURAL_POLICY
+  Levels: bachelor, master
+  Existing field_group(s): agricultural_policy
+
+Field: Agricultural Science
+  Sample canonical: Bachelor of Science in Agricultural Science
+  Codes: BS_AGRICULTURAL_SCIENCE
+  Levels: bachelor
+  Existing field_group(s): agricultural_science
+
+Field: Agricultural Technology
+  Sample canonical: Bachelor of Science in Agricultural Technology
+  Codes: BS_AGRICULTURAL_TECHNOLOGY
+  Levels: bachelor
+  Existing field_group(s): agricultural_technology
+
+Field: Agriculture
+  Sample canonical: Bachelor of Science in Agriculture
+  Codes: BS_AGRICULTURE
+  Levels: bachelor
+  Existing field_group(s): agriculture
+
+Field: Agritechnology
+  Sample canonical: Bachelor of Science in Agritechnology
+  Codes: BS_AGRITECH
+  Levels: bachelor
+  Existing field_group(s): agritechnology
+
+Field: Agroforestry
+  Sample canonical: Bachelor of Science in Agroforestry
+  Codes: BS_AGROFORESTRY
+  Levels: bachelor
+  Existing field_group(s): agroforestry
+
+Field: Agronomy
+  Sample canonical: Bachelor of Science in Agronomy
+  Codes: BS_AGRONOMY
+  Levels: bachelor
+  Existing field_group(s): agronomy
+
+Field: Air Traffic Management
+  Sample canonical: Bachelor of Science in Air Traffic Management
+  Codes: BS_AIR_TRAFFIC_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): air_traffic_management
+
+Field: Aircraft Maintenance Technology
+  Sample canonical: Bachelor of Science in Aircraft Maintenance Technology
+  Codes: BS_AIRCRAFT_MAINTENANCE_TECH
+  Levels: bachelor
+  Existing field_group(s): aircraft_maintenance_technology
+
+Field: Airport Management
+  Sample canonical: Bachelor of Science in Airport Management
+  Codes: BS_AIRPORT_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): airport_management
+
+Field: Allied Health Science
+  Sample canonical: Bachelor of Science in Allied Health Science
+  Codes: BS_ALLIED_HEALTH_SCIENCE
+  Levels: bachelor
+  Existing field_group(s): allied_health_science
+
+Field: Alternative Learning System Facilitation
+  Sample canonical: Certificate in Alternative Learning System Facilitation
+  Codes: CERT_ALTERNATIVE_LEARNING_SYSTEM
+  Levels: vocational
+  Existing field_group(s): alternative_learning_system
+
+Field: Animal Husbandry
+  Sample canonical: Bachelor in Animal Husbandry
+  Codes: BS_ANIMAL_HUSBANDRY
+  Levels: bachelor
+  Existing field_group(s): animal_husbandry
+
+Field: Animal Nutrition
+  Sample canonical: Bachelor in Animal Nutrition
+  Codes: BS_ANIMAL_NUTRITION
+  Levels: bachelor
+  Existing field_group(s): animal_nutrition
+
+Field: Animal Science
+  Sample canonical: Bachelor of Science in Animal Science
+  Codes: BS_ANIMAL_SCIENCE
+  Levels: bachelor
+  Existing field_group(s): animal_science
+
+Field: Animation
+  Sample canonical: Bachelor of Fine Arts major in Animation
+  Codes: BFA_ANIMATION
+  Levels: bachelor
+  Existing field_group(s): animation
+
+Field: Animation and Game Design
+  Sample canonical: Certificate in Animation and Game Design
+  Codes: CERT_ANIMATION_GAME_DESIGN
+  Levels: vocational
+  Existing field_group(s): animation_and_game_design
+
+Field: Anthropology
+  Sample canonical: Bachelor of Arts in Anthropology
+  Codes: BS_ANTHROPOLOGY
+  Levels: bachelor
+  Existing field_group(s): anthropology
+
+Field: Applied Biology
+  Sample canonical: Bachelor of Science in Applied Biology
+  Codes: BS_APPLIED_BIOLOGY
+  Levels: bachelor
+  Existing field_group(s): applied_biology
+
+Field: Applied Industrial Arts
+  Sample canonical: Bachelor of Secondary Education major in Applied Industrial Arts
+  Codes: BSE_APPLIED_INDUSTRIAL_ARTS
+  Levels: bachelor
+  Existing field_group(s): applied_industrial_arts
+
+Field: Applied Linguistics
+  Sample canonical: Master of Arts in Applied Linguistics
+  Codes: MA_APPLIED_LINGUISTICS
+  Levels: master
+  Existing field_group(s): linguistics_applied
+
+Field: Applied Mathematics
+  Sample canonical: Bachelor of Science in Applied Mathematics
+  Codes: BS_APPLIED_MATHEMATICS
+  Levels: bachelor
+  Existing field_group(s): applied_mathematics
+
+Field: Applied Mechanics
+  Sample canonical: Bachelor of Science in Applied Mechanics
+  Codes: BS_APPLIED_MECHANICS
+  Levels: bachelor
+  Existing field_group(s): applied_mechanics
+
+Field: Applied Physics
+  Sample canonical: Bachelor of Science in Applied Physics
+  Codes: BS_APPLIED_PHYSICS
+  Levels: bachelor
+  Existing field_group(s): applied_physics
+
+Field: Applied Sciences and Technology
+  Sample canonical: Bachelor of Science in Applied Sciences and Technology
+  Codes: BS_APPLIED_SCI_TECH
+  Levels: bachelor
+  Existing field_group(s): applied_sciences_technology
+
+Field: Applied Technology
+  Sample canonical: Bachelor of Science in Applied Technology
+  Codes: BS_APPLIED_TECHNOLOGY
+  Levels: bachelor
+  Existing field_group(s): applied_technology
+
+Field: Aquaculture
+  Sample canonical: Bachelor of Science in Aquaculture
+  Codes: BS_AQUACULTURE
+  Levels: bachelor
+  Existing field_group(s): aquaculture
+
+Field: Aquatechnology
+  Sample canonical: Bachelor of Science in Aquatechnology
+  Codes: BS_AQUATECH
+  Levels: bachelor
+  Existing field_group(s): aquatechnology
+
+Field: Architectural Design
+  Sample canonical: Bachelor in Architectural Design
+  Codes: BS_ARCHITECTURAL_DESIGN
+  Levels: bachelor
+  Existing field_group(s): architectural_design
+
+Field: Architecture
+  Sample canonical: Bachelor of Science in Architecture
+  Codes: BS_ARCHITECTURE
+  Levels: bachelor
+  Existing field_group(s): architecture
+
+Field: Archival Studies
+  Sample canonical: Bachelor of Arts in Archival Studies
+  Codes: BA_ARCHIVAL_STUDIES
+  Levels: bachelor
+  Existing field_group(s): archival_studies
+
+Field: Artificial Intelligence
+  Sample canonical: Bachelor of Science in Artificial Intelligence
+  Codes: BS_ARTIFICIAL_INTELLIGENCE
+  Levels: bachelor
+  Existing field_group(s): artificial_intelligence
+
+Field: Artisan Skills Development
+  Sample canonical: Certificate in Artisan Skills Development
+  Codes: CERT_ARTISAN_SKILLS_DEVELOPMENT
+  Levels: vocational
+  Existing field_group(s): artisan_skills_development
+
+Field: Arts and Culture Management
+  Sample canonical: Bachelor of Arts in Arts and Culture Management
+  Codes: BA_ARTS_CULTURE_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): arts_and_culture_management
+
+Field: Arts Education
+  Sample canonical: Bachelor in Arts Education
+  Codes: BA_ARTS_EDUCATION
+  Levels: bachelor
+  Existing field_group(s): arts_education
+
+Field: Arts Management
+  Sample canonical: Bachelor of Arts in Arts Management
+  Codes: BA_ARTS_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): arts_management
+
+Field: Automation Engineering
+  Sample canonical: Bachelor of Science in Automation Engineering
+  Codes: BS_AUTOMATION_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): automation_engineering
+
+Field: Automotive Engineering
+  Sample canonical: Bachelor of Science in Automotive Engineering
+  Codes: BS_AUTOMOTIVE_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): automotive_engineering
+
+Field: Automotive Servicing
+  Sample canonical: Certificate in Automotive Servicing
+  Codes: CERT_AUTOMOTIVE_SERVICING
+  Levels: vocational
+  Existing field_group(s): automotive_servicing
+
+Field: Automotive Technology
+  Sample canonical: Certificate in Automotive Technology
+  Codes: CERT_AUTOMOTIVE_TECH
+  Levels: vocational
+  Existing field_group(s): automotive_technology
+
+Field: Aviation Engineering
+  Sample canonical: Bachelor of Science in Aviation Engineering
+  Codes: BS_AVIATION_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): aviation_engineering
+
+Field: Aviation Technology
+  Sample canonical: Bachelor of Science in Aviation Technology
+  Codes: BS_AVIATION_TECHNOLOGY
+  Levels: bachelor
+  Existing field_group(s): aviation_technology
+
+Field: Baking and Pastry Arts
+  Sample canonical: Certificate in Baking and Pastry Arts
+  Codes: CERT_BAKING_PASTRY_ARTS
+  Levels: vocational
+  Existing field_group(s): baking_and_pastry_arts
+
+Field: Banking and Finance
+  Sample canonical: Bachelor of Science in Banking and Finance
+  Codes: BS_BANKING_FINANCE
+  Levels: bachelor
+  Existing field_group(s): banking_and_finance
+
+Field: Bartending
+  Sample canonical: Certificate in Bartending
+  Codes: CERT_BARTENDING
+  Levels: vocational
+  Existing field_group(s): bartending
+
+Field: Basic Electronics
+  Sample canonical: Certificate in Basic Electronics
+  Codes: CERT_BASIC_ELECTRONICS
+  Levels: vocational
+  Existing field_group(s): basic_electronics
+
+Field: Beauty Care and Wellness
+  Sample canonical: Certificate in Beauty Care and Wellness
+  Codes: CERT_BEAUTY_CARE_WELLNESS
+  Levels: vocational
+  Existing field_group(s): beauty_care_and_wellness
+
+Field: Behavioral Science
+  Sample canonical: Bachelor of Science in Behavioral Science
+  Codes: BS_BEHAVIORAL_SCIENCE
+  Levels: bachelor
+  Existing field_group(s): behavioral_science
+
+Field: Biochemistry
+  Sample canonical: Bachelor of Science in Biochemistry
+  Codes: BS_BIOCHEMISTRY
+  Levels: bachelor
+  Existing field_group(s): biochemistry
+
+Field: Biodiversity Conservation
+  Sample canonical: Bachelor in Biodiversity Conservation
+  Codes: BS_BIODIVERSITY_CONSERVATION
+  Levels: bachelor
+  Existing field_group(s): biodiversity_conservation
+
+Field: Bioengineering
+  Sample canonical: Bachelor of Science in Bioengineering
+  Codes: BS_BIOENGINEERING
+  Levels: bachelor
+  Existing field_group(s): bioengineering
+
+Field: Bioinformatics
+  Sample canonical: Bachelor of Science in Bioinformatics
+  Codes: BS_BIOINFORMATICS
+  Levels: bachelor
+  Existing field_group(s): bioinformatics
+
+Field: Biomedical Engineering
+  Sample canonical: Bachelor of Science in Biomedical Engineering
+  Codes: BS_BIOMEDICAL_ENGINEERING, MS_BIOMEDICAL_ENGINEERING, PHD_BIOMEDICAL_ENGINEERING
+  Levels: bachelor, master, doctoral
+  Existing field_group(s): biomedical_engineering
+
+Field: Biomedical Science
+  Sample canonical: Bachelor of Science in Biomedical Science
+  Codes: BS_BIOMEDICAL_SCIENCE
+  Levels: bachelor
+  Existing field_group(s): biomedical_science
+
+Field: Bioprocess Engineering
+  Sample canonical: Bachelor of Science in Bioprocess Engineering
+  Codes: BS_BIOPROCESS_ENGINEERING, MS_BIOPROCESS_ENGINEERING
+  Levels: bachelor, master
+  Existing field_group(s): bioprocess_engineering
+
+Field: Biotechnology
+  Sample canonical: Bachelor of Science in Biotechnology
+  Codes: BS_BIOTECHNOLOGY, MS_BIOTECHNOLOGY, PHD_BIOTECHNOLOGY
+  Levels: bachelor, master, doctoral
+  Existing field_group(s): biotechnology
+
+Field: Biotechnology Applications
+  Sample canonical: Bachelor of Science in Biotechnology Applications
+  Codes: BS_BIOTECH_APPLICATIONS
+  Levels: bachelor
+  Existing field_group(s): biotechnology_applications
+
+Field: Broadcasting
+  Sample canonical: Bachelor of Arts in Broadcasting
+  Codes: BA_BROADCASTING
+  Levels: bachelor
+  Existing field_group(s): broadcasting
+
+Field: Broadcasting Technology
+  Sample canonical: Bachelor of Science in Broadcasting Technology
+  Codes: BS_BROADCASTING_TECH
+  Levels: bachelor
+  Existing field_group(s): broadcasting_technology
+
+Field: Building Information Modeling
+  Sample canonical: Master in Building Information Modeling
+  Codes: MS_BUILDING_INFORMATION_MODELING
+  Levels: master
+  Existing field_group(s): building_information_modeling
+
+Field: Building Maintenance Technology
+  Sample canonical: Certificate in Building Maintenance Technology
+  Codes: CERT_BUILDING_MAINTENANCE_TECH
+  Levels: vocational
+  Existing field_group(s): building_maintenance_technology
+
+Field: Building Technology
+  Sample canonical: Bachelor of Science in Building Technology
+  Codes: BS_BUILDING_TECHNOLOGY
+  Levels: bachelor
+  Existing field_group(s): building_technology
+
+Field: Business Administration
+  Sample canonical: Bachelor of Science in Business Administration
+  Codes: BSBA, MBA_BUSINESS_ADMIN, PHD_BUSINESS_ADMIN
+  Levels: bachelor, master, doctoral
+  Existing field_group(s): business_administration
+
+Field: Business Management
+  Sample canonical: Bachelor of Science in Business Management
+  Codes: BSBM
+  Levels: bachelor
+  Existing field_group(s): business_management
+
+Field: Caregiving
+  Sample canonical: Certificate in Caregiving
+  Codes: CERT_CAREGIVING
+  Levels: vocational
+  Existing field_group(s): caregiving
+
+Field: Carpentry and Construction
+  Sample canonical: Certificate in Carpentry and Construction
+  Codes: CERT_CARPENTRY_CONSTRUCTION
+  Levels: vocational
+  Existing field_group(s): carpentry_and_construction
+
+Field: Ceramics and Pottery
+  Sample canonical: Certificate in Ceramics and Pottery
+  Codes: CERT_CERAMICS_POTTERY
+  Levels: vocational
+  Existing field_group(s): ceramics_and_pottery
+
+Field: Ceramics Engineering
+  Sample canonical: Bachelor of Science in Ceramics Engineering
+  Codes: BS_CERAMICS_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): ceramics_engineering
+
+Field: Chemical Engineering
+  Sample canonical: Bachelor of Science in Chemical Engineering
+  Codes: BS_CHEMICAL_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): chemical_engineering
+
+Field: Chemical Process Technology
+  Sample canonical: Diploma in Chemical Process Technology
+  Codes: DIP_CHEMICAL_PROCESS_TECHNOLOGY, BS_CHEMICAL_PROCESS_TECHNOLOGY
+  Levels: vocational, bachelor
+  Existing field_group(s): chemical_process_technology
+
+Field: Cinematography
+  Sample canonical: Bachelor of Fine Arts major in Cinematography
+  Codes: BS_CINEMATOGRAPHY
+  Levels: bachelor
+  Existing field_group(s): cinematography
+
+Field: Civil Engineering
+  Sample canonical: Bachelor of Science in Civil Engineering
+  Codes: BS_CIVIL_ENGINEERING, MS_CIVIL_ENGINEERING, PHD_CIVIL_ENGINEERING
+  Levels: bachelor, master, doctoral
+  Existing field_group(s): civil_engineering
+
+Field: Climate Change Studies
+  Sample canonical: Master of Science in Climate Change Studies
+  Codes: MS_CLIMATE_CHANGE_STUDIES
+  Levels: master
+  Existing field_group(s): climate_change_studies
+
+Field: Clinical Administration
+  Sample canonical: Bachelor in Clinical Administration
+  Codes: BS_CLINICAL_ADMINISTRATION
+  Levels: bachelor
+  Existing field_group(s): clinical_administration
+
+Field: Clinical Laboratory Science
+  Sample canonical: Bachelor of Science in Clinical Laboratory Science
+  Codes: BS_CLINICAL_LABORATORY_SCIENCE
+  Levels: bachelor
+  Existing field_group(s): clinical_laboratory_science
+
+Field: Clinical Psychology
+  Sample canonical: Master of Arts in Clinical Psychology
+  Codes: MA_CLINICAL_PSYCHOLOGY
+  Levels: master
+  Existing field_group(s): clinical_psychology
+
+Field: Clinical Research
+  Sample canonical: Master of Science in Clinical Research
+  Codes: MS_CLINICAL_RESEARCH
+  Levels: master
+  Existing field_group(s): clinical_research
+
+Field: Coastal and Ocean Engineering
+  Sample canonical: Master of Science in Coastal and Ocean Engineering
+  Codes: MS_COASTAL_OCEAN_ENGINEERING
+  Levels: master
+  Existing field_group(s): coastal_and_ocean_engineering
+
+Field: Coastal Resource Management
+  Sample canonical: Master in Coastal Resource Management
+  Codes: MS_COASTAL_RESOURCE_MANAGEMENT
+  Levels: master
+  Existing field_group(s): coastal_resource_management
+
+Field: Communication
+  Sample canonical: Bachelor of Arts in Communication
+  Codes: BA_COMMUNICATION
+  Levels: bachelor
+  Existing field_group(s): communication
+
+Field: Communication Research
+  Sample canonical: Bachelor of Arts in Communication Research
+  Codes: BA_COMMUNICATION_RESEARCH
+  Levels: bachelor
+  Existing field_group(s): communication_research
+
+Field: Community Development
+  Sample canonical: Bachelor of Arts in Community Development
+  Codes: BA_COMMUNITY_DEVELOPMENT
+  Levels: bachelor
+  Existing field_group(s): community_development
+
+Field: Community Development (Agriculture)
+  Sample canonical: Bachelor in Community Development (Agriculture)
+  Codes: BS_COMMUNITY_DEVELOPMENT_AGRICULTURE
+  Levels: bachelor
+  Existing field_group(s): community_development_agriculture
+
+Field: Community Health
+  Sample canonical: Bachelor in Community Health
+  Codes: BS_COMMUNITY_HEALTH
+  Levels: bachelor
+  Existing field_group(s): community_health
+
+Field: Community Nutrition
+  Sample canonical: Bachelor in Community Nutrition
+  Codes: BS_COMMUNITY_NUTRITION
+  Levels: bachelor
+  Existing field_group(s): community_nutrition
+
+Field: Community Organizing and Development
+  Sample canonical: Bachelor in Community Organizing and Development
+  Codes: BA_COMMUNITY_ORGANIZING
+  Levels: bachelor
+  Existing field_group(s): community_organizing
+
+Field: Community Resilience and Development
+  Sample canonical: Bachelor in Community Resilience and Development
+  Codes: BS_COMMUNITY_RESILIENCE
+  Levels: bachelor
+  Existing field_group(s): community_resilience
+
+Field: Comparative Literature
+  Sample canonical: Bachelor of Arts in Comparative Literature
+  Codes: BA_COMPARATIVE_LITERATURE
+  Levels: bachelor
+  Existing field_group(s): comparative_literature
+
+Field: Computer Aided Design
+  Sample canonical: Diploma in Computer Aided Design
+  Codes: DIP_COMPUTER_AIDED_DESIGN
+  Levels: vocational
+  Existing field_group(s): computer_aided_design
+
+Field: Computer Engineering
+  Sample canonical: Bachelor of Science in Computer Engineering
+  Codes: BS_COMPUTER_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): computer_engineering
+
+Field: Computer Graphics and Multimedia
+  Sample canonical: Bachelor of Science in Computer Graphics and Multimedia
+  Codes: BS_COMPUTER_GRAPHICS_MULTIMEDIA
+  Levels: bachelor
+  Existing field_group(s): computer_graphics_and_multimedia
+
+Field: Computer Hardware Engineering
+  Sample canonical: Bachelor of Science in Computer Hardware Engineering
+  Codes: BS_COMPUTER_HARDWARE_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): computer_hardware_engineering
+
+Field: Computer Hardware Servicing
+  Sample canonical: Certificate in Computer Hardware Servicing
+  Codes: CERT_COMPUTER_HARDWARE_SERVICING
+  Levels: vocational
+  Existing field_group(s): computer_hardware_servicing
+
+Field: Computer Networking
+  Sample canonical: Diploma in Computer Networking
+  Codes: DIPLOMA_COMPUTER_NETWORKING
+  Levels: vocational
+  Existing field_group(s): computer_networking
+
+Field: Computer Programming
+  Sample canonical: Diploma in Computer Programming
+  Codes: DIPLOMA_COMPUTER_PROGRAMMING
+  Levels: vocational
+  Existing field_group(s): computer_programming
+
+Field: Computer Science
+  Sample canonical: Bachelor of Science in Computer Science
+  Codes: BS_COMPUTER_SCIENCE, MS_COMPUTER_SCIENCE
+  Levels: bachelor, master
+  Existing field_group(s): computer_science
+
+Field: Computer Systems Servicing
+  Sample canonical: Certificate in Computer Systems Servicing
+  Codes: CERT_COMPUTER_SYSTEMS_SERVICING
+  Levels: vocational
+  Existing field_group(s): computer_systems_servicing
+
+Field: Computing and Information Science
+  Sample canonical: Bachelor of Science in Computing and Information Science
+  Codes: BS_COMPUTING_INFORMATION_SCIENCE
+  Levels: bachelor
+  Existing field_group(s): computing_and_information_science
+
+Field: Construction Engineering
+  Sample canonical: Bachelor of Science in Construction Engineering
+  Codes: BS_CONSTRUCTION_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): construction_engineering
+
+Field: Construction Management
+  Sample canonical: Bachelor of Science in Construction Management
+  Codes: BS_CONSTRUCTION_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): construction_management
+
+Field: Construction Safety Management
+  Sample canonical: Bachelor of Science in Construction Safety Management
+  Codes: BS_CONSTRUCTION_SAFETY_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): construction_safety_management
+
+Field: Cooperative Entrepreneurship
+  Sample canonical: Bachelor of Science in Cooperative Entrepreneurship
+  Codes: BS_COOPERATIVE_ENTREPRENEURSHIP
+  Levels: bachelor
+  Existing field_group(s): cooperative_entrepreneurship
+
+Field: Cooperative Management
+  Sample canonical: Bachelor in Cooperative Management
+  Codes: BS_COOPERATIVE_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): cooperative_management
+
+Field: Corporate Communication
+  Sample canonical: Bachelor of Arts in Corporate Communication
+  Codes: BA_CORPORATE_COMMUNICATION
+  Levels: bachelor
+  Existing field_group(s): corporate_communication
+
+Field: Corporate Law
+  Sample canonical: Master of Laws in Corporate Law
+  Codes: MA_CORPORATE_LAW
+  Levels: master
+  Existing field_group(s): corporate_law
+
+Field: Correctional Administration
+  Sample canonical: Bachelor of Science in Correctional Administration
+  Codes: BS_CORRECTIONAL_ADMINISTRATION
+  Levels: bachelor
+  Existing field_group(s): penology
+
+Field: Corrections Management
+  Sample canonical: Master in Corrections Management
+  Codes: MA_CORRECTIONS_MANAGEMENT
+  Levels: master
+  Existing field_group(s): corrections_management
+
+Field: Cosmetology
+  Sample canonical: Certificate in Cosmetology
+  Codes: CERT_COSMETOLOGY
+  Levels: vocational
+  Existing field_group(s): cosmetology
+
+Field: Counseling and Guidance
+  Sample canonical: Master of Arts in Counseling and Guidance
+  Codes: MA_COUNSELING_AND_GUIDANCE
+  Levels: master
+  Existing field_group(s): counseling_and_guidance
+
+Field: Counseling Psychology
+  Sample canonical: Master of Arts in Counseling Psychology
+  Codes: MA_COUNSELING_PSYCHOLOGY
+  Levels: master
+  Existing field_group(s): counseling_psychology
+
+Field: Craftsmanship and Design
+  Sample canonical: Certificate in Craftsmanship and Design
+  Codes: CERT_CRAFTSMANSHIP_DESIGN
+  Levels: vocational
+  Existing field_group(s): craftsmanship_and_design
+
+Field: Creative Writing
+  Sample canonical: Bachelor of Arts in Creative Writing
+  Codes: BA_CREATIVE_WRITING
+  Levels: bachelor
+  Existing field_group(s): creative_writing
+
+Field: Criminal Justice Technology
+  Sample canonical: Certificate in Criminal Justice Technology
+  Codes: CERT_CRIMINAL_JUSTICE_TECH
+  Levels: vocational
+  Existing field_group(s): criminal_justice_technology
+
+Field: Criminological Research
+  Sample canonical: Master of Arts in Criminological Research
+  Codes: MA_CRIMINOLOGICAL_RESEARCH
+  Levels: master
+  Existing field_group(s): criminological_research
+
+Field: Criminology
+  Sample canonical: Bachelor of Science in Criminology
+  Codes: BS_CRIMINOLOGY, MS_CRIMINOLOGY
+  Levels: bachelor, master
+  Existing field_group(s): criminology
+
+Field: Crop Science
+  Sample canonical: Bachelor of Science in Crop Science
+  Codes: BS_CROP_SCIENCE
+  Levels: bachelor
+  Existing field_group(s): crop_science
+
+Field: Culinary Arts
+  Sample canonical: Bachelor of Science in Culinary Arts
+  Codes: BS_CULINARY_ARTS
+  Levels: bachelor
+  Existing field_group(s): culinary_arts
+
+Field: Culinary Technology
+  Sample canonical: Certificate in Culinary Technology
+  Codes: CERT_CULINARY_TECH
+  Levels: vocational
+  Existing field_group(s): culinary_technology
+
+Field: Cultural Heritage Management
+  Sample canonical: Bachelor of Arts in Cultural Heritage Management
+  Codes: BA_CULTURAL_HERITAGE_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): cultural_heritage_management
+
+Field: Cultural Management
+  Sample canonical: Bachelor of Arts in Cultural Management
+  Codes: BA_CULTURAL_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): cultural_management
+
+Field: Cultural Studies
+  Sample canonical: Bachelor of Arts in Cultural Studies
+  Codes: BA_CULTURAL_STUDIES
+  Levels: bachelor
+  Existing field_group(s): cultural_studies
+
+Field: Curriculum and Instruction
+  Sample canonical: Master of Arts in Curriculum and Instruction
+  Codes: MAED_CURRICULUM_INSTRUCTION
+  Levels: master
+  Existing field_group(s): curriculum_and_instruction
+
+Field: Customer Service Management
+  Sample canonical: Bachelor in Customer Service Management
+  Codes: BS_CUSTOMER_SERVICE
+  Levels: bachelor
+  Existing field_group(s): customer_service_management
+
+Field: Customs Administration
+  Sample canonical: Bachelor of Science in Customs Administration
+  Codes: BS_CUSTOMS_ADMINISTRATION
+  Levels: bachelor
+  Existing field_group(s): customs_administration
+
+Field: Customs and Border Security
+  Sample canonical: Bachelor of Science in Customs and Border Security
+  Codes: BS_CUSTOMS_BORDER_SECURITY
+  Levels: bachelor
+  Existing field_group(s): customs_and_border_security
+
+Field: Cybercrime Investigation
+  Sample canonical: Bachelor of Science in Cybercrime Investigation
+  Codes: BS_CYBERCRIME_INVESTIGATION
+  Levels: bachelor
+  Existing field_group(s): cybercrime_investigation
+
+Field: Cybersecurity
+  Sample canonical: Bachelor of Science in Cybersecurity
+  Codes: BS_CYBERSECURITY
+  Levels: bachelor
+  Existing field_group(s): cybersecurity
+
+Field: Data Analytics
+  Sample canonical: Bachelor of Science in Data Analytics
+  Codes: BS_DATA_ANALYTICS
+  Levels: bachelor
+  Existing field_group(s): data_analytics
+
+Field: Data Science
+  Sample canonical: Bachelor of Science in Data Science
+  Codes: BS_DATA_SCIENCE
+  Levels: bachelor
+  Existing field_group(s): data_science
+
+Field: Database Management
+  Sample canonical: Bachelor of Science in Database Management
+  Codes: BS_DATABASE_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): database_management
+
+Field: Defense and Strategic Studies
+  Sample canonical: Master of Arts in Defense and Strategic Studies
+  Codes: MA_DEFENSE_STRATEGIC_STUDIES
+  Levels: master
+  Existing field_group(s): defense_and_strategic_studies
+
+Field: Defense Studies
+  Sample canonical: Master of Arts in Defense Studies
+  Codes: MA_DEFENSE_STUDIES
+  Levels: master
+  Existing field_group(s): defense_studies
+
+Field: Dental Hygiene Technology
+  Sample canonical: Certificate in Dental Hygiene Technology
+  Codes: CERT_DENTAL_HYGIENE_TECH
+  Levels: vocational
+  Existing field_group(s): dental_hygiene_technology
+
+Field: Dental Medicine
+  Sample canonical: Doctor of Dental Medicine
+  Codes: DMD_DENTISTRY
+  Levels: doctoral
+  Existing field_group(s): dentistry
+
+Field: Dental Technology
+  Sample canonical: Bachelor of Science in Dental Technology
+  Codes: BS_DENTAL_TECHNOLOGY
+  Levels: bachelor
+  Existing field_group(s): dental_technology
+
+Field: Design Management
+  Sample canonical: Bachelor of Arts in Design Management
+  Codes: BA_DESIGN_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): design_management
+
+Field: Development Communication
+  Sample canonical: Bachelor of Science in Development Communication
+  Codes: BS_DEVELOPMENT_COMMUNICATION
+  Levels: bachelor
+  Existing field_group(s): development_communication
+
+Field: Development Studies
+  Sample canonical: Bachelor of Arts in Development Studies
+  Codes: BA_DEVELOPMENT_STUDIES
+  Levels: bachelor
+  Existing field_group(s): development_studies
+
+Field: Diesel Mechanics
+  Sample canonical: Certificate in Diesel Mechanics
+  Codes: CERT_DIESEL_MECHANICS
+  Levels: vocational
+  Existing field_group(s): diesel_mechanics
+
+Field: Dietetic Management
+  Sample canonical: Bachelor in Dietetic Management
+  Codes: BS_DIETETIC_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): dietetic_management
+
+Field: Digital Communication
+  Sample canonical: Bachelor of Arts in Digital Communication
+  Codes: BA_DIGITAL_COMMUNICATION
+  Levels: bachelor
+  Existing field_group(s): digital_communication
+
+Field: Digital Design and Animation
+  Sample canonical: Bachelor of Science in Digital Design and Animation
+  Codes: BS_DIGITAL_DESIGN_ANIMATION
+  Levels: bachelor
+  Existing field_group(s): digital_design_and_animation
+
+Field: Digital Infrastructure Management
+  Sample canonical: Master in Digital Infrastructure Management
+  Codes: MS_DIGITAL_INFRASTRUCTURE_MANAGEMENT
+  Levels: master
+  Existing field_group(s): digital_infrastructure_management
+
+Field: Digital Multimedia Technology
+  Sample canonical: Certificate in Digital Multimedia Technology
+  Codes: CERT_DIGITAL_MULTIMEDIA_TECH
+  Levels: vocational
+  Existing field_group(s): digital_multimedia_technology
+
+Field: Digital Transformation
+  Sample canonical: Master in Digital Transformation
+  Codes: MS_DIGITAL_TRANSFORMATION
+  Levels: master
+  Existing field_group(s): digital_transformation
+
+Field: Disaster Preparedness and Management
+  Sample canonical: Bachelor in Disaster Preparedness and Management
+  Codes: BS_DISASTER_PREPAREDNESS
+  Levels: bachelor
+  Existing field_group(s): disaster_preparedness
+
+Field: Disaster Response Education
+  Sample canonical: Certificate in Disaster Response Education
+  Codes: CERT_DISASTER_RESPONSE_EDUC
+  Levels: vocational
+  Existing field_group(s): disaster_response_education
+
+Field: Disaster Response Management
+  Sample canonical: Certificate in Disaster Response Management
+  Codes: CERT_DISASTER_RESPONSE_MGMT
+  Levels: vocational
+  Existing field_group(s): disaster_response_management
+
+Field: Disaster Risk Management
+  Sample canonical: Master in Disaster Risk Management
+  Codes: MS_DISASTER_RISK_MANAGEMENT
+  Levels: master
+  Existing field_group(s): disaster_risk_management
+
+Field: Disaster Risk Reduction Planning
+  Sample canonical: Bachelor in Disaster Risk Reduction Planning
+  Codes: BS_RISK_REDUCTION_PLANNING
+  Levels: bachelor
+  Existing field_group(s): risk_reduction_planning
+
+Field: Distance Education
+  Sample canonical: Bachelor in Distance Education
+  Codes: BS_DISTANCE_EDUCATION
+  Levels: bachelor
+  Existing field_group(s): distance_education
+
+Field: Documentation Management
+  Sample canonical: Bachelor in Documentation Management
+  Codes: BA_DOCUMENTATION_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): documentation_management
+
+Field: Drafting and Design
+  Sample canonical: Diploma in Drafting and Design
+  Codes: DIP_DRAFTING_DESIGN
+  Levels: vocational
+  Existing field_group(s): drafting_and_design
+
+Field: Drafting Technology
+  Sample canonical: Diploma in Drafting Technology
+  Codes: DIPLOMA_DRAFTING_TECHNOLOGY, CERT_DRAFTING_TECH
+  Levels: vocational
+  Existing field_group(s): drafting_technology
+
+Field: E-Governance
+  Sample canonical: Master in E-Governance
+  Codes: MA_E_GOVERNANCE
+  Levels: master
+  Existing field_group(s): e_governance
+
+Field: E-Learning Development
+  Sample canonical: Certificate in E-Learning Development
+  Codes: CERT_E_LEARNING_DEV
+  Levels: vocational
+  Existing field_group(s): e_learning_development
+
+Field: Early Childhood Education
+  Sample canonical: Bachelor of Early Childhood Education
+  Codes: BECE_EARLY_CHILDHOOD
+  Levels: bachelor
+  Existing field_group(s): early_childhood_education
+
+Field: Ecology
+  Sample canonical: Bachelor of Science in Ecology
+  Codes: BS_ECOLOGY
+  Levels: bachelor
+  Existing field_group(s): ecology
+
+Field: Economics
+  Sample canonical: Bachelor of Arts in Economics
+  Codes: BA_ECONOMICS, BS_ECONOMICS, MA_ECONOMICS
+  Levels: bachelor, master
+  Existing field_group(s): economics
+
+Field: Editing and Proofreading
+  Sample canonical: Certificate in Editing and Proofreading
+  Codes: CERT_EDITING_PROOFREADING
+  Levels: vocational
+  Existing field_group(s): editing_and_proofreading
+
+Field: Education
+  Sample canonical: Bachelor of Education
+  Codes: BSED_EDUCATION, MAED_EDUCATION
+  Levels: bachelor, master
+  Existing field_group(s): education
+
+Field: Education major in Assessment and Evaluation
+  Sample canonical: Master of Arts in Education major in Assessment and Evaluation
+  Codes: MA_ASSESSMENT_EVALUATION
+  Levels: master
+  Existing field_group(s): assessment_and_evaluation
+
+Field: Education major in Curriculum Development
+  Sample canonical: Master of Arts in Education major in Curriculum Development
+  Codes: MA_CURRICULUM_DEVELOPMENT
+  Levels: master
+  Existing field_group(s): curriculum_development
+
+Field: Education major in Educational Assessment
+  Sample canonical: Master of Arts in Education major in Educational Assessment
+  Codes: MA_EDUCATIONAL_ASSESSMENT
+  Levels: master
+  Existing field_group(s): educational_assessment
+
+Field: Education major in Educational Research
+  Sample canonical: Master of Arts in Education major in Educational Research
+  Codes: MA_EDUCATION_RESEARCH, PHD_EDUCATION_RESEARCH
+  Levels: master, doctoral
+  Existing field_group(s): education_research
+
+Field: Education major in Guidance and Counseling
+  Sample canonical: Master of Arts in Education major in Guidance and Counseling
+  Codes: MA_EDUCATIONAL_GUIDANCE
+  Levels: master
+  Existing field_group(s): educational_guidance
+
+Field: Education major in Technical Education
+  Sample canonical: Bachelor of Science in Education major in Technical Education
+  Codes: BSE_TECHNICAL_TEACHER_ED
+  Levels: bachelor
+  Existing field_group(s): technical_teacher_education
+
+Field: Education major in Vocational Technology
+  Sample canonical: Bachelor of Science in Education major in Vocational Technology
+  Codes: BSE_VOCATIONAL_TEACHER_ED
+  Levels: bachelor
+  Existing field_group(s): vocational_teacher_education
+
+Field: Educational Leadership
+  Sample canonical: Master of Arts in Educational Leadership
+  Codes: MAED_EDUCATIONAL_LEADERSHIP
+  Levels: master
+  Existing field_group(s): educational_leadership
+
+Field: Educational Management
+  Sample canonical: Master of Arts in Educational Management
+  Codes: MAED_EDUCATIONAL_MANAGEMENT
+  Levels: master
+  Existing field_group(s): educational_management
+
+Field: Educational Psychology
+  Sample canonical: Master of Arts in Educational Psychology
+  Codes: MA_EDUCATIONAL_PSYCHOLOGY
+  Levels: master
+  Existing field_group(s): educational_psychology
+
+Field: Educational Technology
+  Sample canonical: Bachelor of Science in Educational Technology
+  Codes: BS_EDUCATIONAL_TECHNOLOGY
+  Levels: bachelor
+  Existing field_group(s): educational_technology
+
+Field: Electrical Engineering
+  Sample canonical: Bachelor of Science in Electrical Engineering
+  Codes: BS_ELECTRICAL_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): electrical_engineering
+
+Field: Electrical Installation and Maintenance Certificate
+  Sample canonical: Electrical Installation and Maintenance Certificate
+  Codes: NC_ELECTRICAL_INSTALLATION_MAINTENANCE
+  Levels: vocational
+  Existing field_group(s): electrical_installation_and_maintenance
+
+Field: Electrical Installation Technology
+  Sample canonical: Certificate in Electrical Installation Technology
+  Codes: CERT_ELECTRICAL_INSTALLATION_TECH
+  Levels: vocational
+  Existing field_group(s): electrical_installation_technology
+
+Field: Electrical Technology
+  Sample canonical: Bachelor of Science in Electrical Technology
+  Codes: BS_ELECTRICAL_TECHNOLOGY
+  Levels: bachelor
+  Existing field_group(s): electrical_technology
+
+Field: Electronics and Communications Engineering
+  Sample canonical: Bachelor of Science in Electronics and Communications Engineering
+  Codes: BS_ELECTRONICS_COMM_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): electronics_and_communications_engineering
+
+Field: Electronics Engineering
+  Sample canonical: Bachelor of Science in Electronics Engineering
+  Codes: BS_ELECTRONICS_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): electronics_engineering
+
+Field: Electronics Technology
+  Sample canonical: Bachelor of Science in Electronics Technology
+  Codes: BS_ELECTRONICS_TECHNOLOGY, CERT_ELECTRONICS_TECH
+  Levels: bachelor, vocational
+  Existing field_group(s): electronics_technology
+
+Field: Elementary Education
+  Sample canonical: Bachelor of Elementary Education
+  Codes: BEED_ELEMENTARY_EDUCATION
+  Levels: bachelor
+  Existing field_group(s): elementary_education
+
+Field: Embedded Systems Engineering
+  Sample canonical: Bachelor of Science in Embedded Systems Engineering
+  Codes: BS_EMBEDDED_SYSTEMS_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): embedded_systems_engineering
+
+Field: Emergency Management
+  Sample canonical: Bachelor of Science in Emergency Management
+  Codes: BS_EMERGENCY_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): emergency_management
+
+Field: Emergency Medical Services
+  Sample canonical: Certificate in Emergency Medical Services
+  Codes: CERT_EMERGENCY_MEDICAL_SERVICES
+  Levels: vocational
+  Existing field_group(s): emergency_medical_services
+
+Field: Emergency Operations Management
+  Sample canonical: Certificate in Emergency Operations Management
+  Codes: CERT_EMERGENCY_OPERATIONS_MGMT
+  Levels: vocational
+  Existing field_group(s): emergency_operations_management
+
+Field: Emergency Service Management
+  Sample canonical: Bachelor of Science in Emergency Service Management
+  Codes: BS_EMERGENCY_SERVICE_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): emergency_service_management
+
+Field: Energy Engineering
+  Sample canonical: Bachelor of Science in Energy Engineering
+  Codes: BS_ENERGY_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): energy_engineering
+
+Field: Engineering Management
+  Sample canonical: Master in Engineering Management
+  Codes: MEM_ENGINEERING_MANAGEMENT
+  Levels: master
+  Existing field_group(s): engineering_management
+
+Field: Engineering Physics
+  Sample canonical: Bachelor of Science in Engineering Physics
+  Codes: BS_ENGINEERING_PHYSICS
+  Levels: bachelor
+  Existing field_group(s): engineering_physics
+
+Field: Engineering Science
+  Sample canonical: Bachelor of Science in Engineering Science
+  Codes: BS_ENGINEERING_SCIENCE
+  Levels: bachelor
+  Existing field_group(s): engineering_science
+
+Field: Engineering Technology
+  Sample canonical: Bachelor of Science in Engineering Technology
+  Codes: BS_ENGINEERING_TECHNOLOGY
+  Levels: bachelor
+  Existing field_group(s): engineering_technology
+
+Field: English Studies
+  Sample canonical: Bachelor of Arts in English Studies
+  Codes: BA_ENGLISH_STUDIES
+  Levels: bachelor
+  Existing field_group(s): english_studies
+
+Field: Entomology
+  Sample canonical: Bachelor of Science in Entomology
+  Codes: BS_ENTOMOLOGY
+  Levels: bachelor
+  Existing field_group(s): entomology
+
+Field: Entrepreneurship
+  Sample canonical: Bachelor of Science in Entrepreneurship
+  Codes: BS_ENTREPRENEURSHIP
+  Levels: bachelor
+  Existing field_group(s): entrepreneurship
+
+Field: Entrepreneurship Technology
+  Sample canonical: Bachelor of Science in Entrepreneurship Technology
+  Codes: BS_ENTREPRENEURSHIP_TECH
+  Levels: bachelor
+  Existing field_group(s): entrepreneurship_technology
+
+Field: Environmental Design
+  Sample canonical: Bachelor of Science in Environmental Design
+  Codes: BS_ENVIRONMENTAL_DESIGN
+  Levels: bachelor
+  Existing field_group(s): environmental_design
+
+Field: Environmental Economics
+  Sample canonical: Master of Science in Environmental Economics
+  Codes: MS_ENVIRONMENTAL_ECONOMICS
+  Levels: master
+  Existing field_group(s): environmental_economics
+
+Field: Environmental Engineering
+  Sample canonical: Bachelor of Science in Environmental Engineering
+  Codes: BS_ENVIRONMENTAL_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): environmental_engineering
+
+Field: Environmental Health
+  Sample canonical: Bachelor of Science in Environmental Health
+  Codes: BS_ENVIRONMENTAL_HEALTH
+  Levels: bachelor
+  Existing field_group(s): environmental_health
+
+Field: Environmental Management
+  Sample canonical: Bachelor of Science in Environmental Management
+  Codes: BS_ENVIRONMENTAL_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): environmental_management
+
+Field: Environmental Planning
+  Sample canonical: Bachelor in Environmental Planning
+  Codes: BS_ENVIRONMENTAL_PLANNING
+  Levels: bachelor
+  Existing field_group(s): environmental_planning
+
+Field: Environmental Policy
+  Sample canonical: Master in Environmental Policy
+  Codes: MS_ENVIRONMENTAL_POLICY
+  Levels: master
+  Existing field_group(s): environmental_policy
+
+Field: Environmental Science
+  Sample canonical: Bachelor of Science in Environmental Science
+  Codes: BS_ENVIRONMENTAL_SCIENCE
+  Levels: bachelor
+  Existing field_group(s): environmental_science
+
+Field: Environmental Technology
+  Sample canonical: Bachelor of Science in Environmental Technology
+  Codes: BS_ENVIRONMENTAL_TECHNOLOGY
+  Levels: bachelor
+  Existing field_group(s): environmental_technology
+
+Field: Epidemiology
+  Sample canonical: Master of Science in Epidemiology
+  Codes: MS_EPIDEMIOLOGY
+  Levels: master
+  Existing field_group(s): epidemiology
+
+Field: Ethics and Values Education
+  Sample canonical: Bachelor in Ethics and Values Education
+  Codes: BA_ETHICS_VALUES_EDUCATION
+  Levels: bachelor
+  Existing field_group(s): ethics_and_values_education
+
+Field: Events Management
+  Sample canonical: Bachelor of Science in Events Management
+  Codes: BS_EVENTS_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): events_management
+
+Field: Farm Management
+  Sample canonical: Bachelor of Science in Farm Management
+  Codes: BS_FARM_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): farm_management
+
+Field: Fashion and Apparel Technology
+  Sample canonical: Certificate in Fashion and Apparel Technology
+  Codes: CERT_FASHION_APPAREL_TECH
+  Levels: vocational
+  Existing field_group(s): fashion_and_apparel_technology
+
+Field: Fashion Design
+  Sample canonical: Bachelor of Fine Arts major in Fashion Design
+  Codes: BFA_FASHION_DESIGN
+  Levels: bachelor
+  Existing field_group(s): fashion_design
+
+Field: Filipino Language Studies
+  Sample canonical: Bachelor of Arts in Filipino Language Studies
+  Codes: BA_FILIPINO_LANGUAGE_STUDIES
+  Levels: bachelor
+  Existing field_group(s): filipino_language_studies
+
+Field: Film and Media
+  Sample canonical: Bachelor of Arts in Film and Media
+  Codes: BA_FILM_AND_MEDIA
+  Levels: bachelor
+  Existing field_group(s): film_and_media
+
+Field: Film Production
+  Sample canonical: Bachelor of Arts in Film Production
+  Codes: BA_FILM_PRODUCTION
+  Levels: bachelor
+  Existing field_group(s): film_production
+
+Field: Film Production Technology
+  Sample canonical: Bachelor of Science in Film Production Technology
+  Codes: BS_FILM_PRODUCTION_TECH
+  Levels: bachelor
+  Existing field_group(s): film_production_technology
+
+Field: Fine Arts
+  Sample canonical: Bachelor of Fine Arts
+  Codes: BFA_FINE_ARTS
+  Levels: bachelor
+  Existing field_group(s): fine_arts
+
+Field: Fine Crafts Design
+  Sample canonical: Certificate in Fine Crafts Design
+  Codes: CERT_FINE_CRAFTS_DESIGN
+  Levels: vocational
+  Existing field_group(s): fine_crafts_design
+
+Field: Fire and Safety Management
+  Sample canonical: Certificate in Fire and Safety Management
+  Codes: CERT_FIRE_SAFETY_MANAGEMENT
+  Levels: vocational
+  Existing field_group(s): fire_and_safety_management
+
+Field: Fire Protection Services
+  Sample canonical: Certificate in Fire Protection Services
+  Codes: CERT_FIRE_PROTECTION_SERVICES
+  Levels: vocational
+  Existing field_group(s): fire_protection_services
+
+Field: Fire Protection Technology
+  Sample canonical: Bachelor of Science in Fire Protection Technology
+  Codes: BS_FIRE_PROTECTION_TECH, CERT_FIRE_PROTECTION_TECH
+  Levels: bachelor, vocational
+  Existing field_group(s): fire_protection_technology
+
+Field: Fisheries
+  Sample canonical: Bachelor of Science in Fisheries
+  Codes: BS_FISHERIES
+  Levels: bachelor
+  Existing field_group(s): fisheries
+
+Field: Fishery Technology
+  Sample canonical: Bachelor of Science in Fishery Technology
+  Codes: BS_FISHERY_TECHNOLOGY
+  Levels: bachelor
+  Existing field_group(s): fishery_technology
+
+Field: Flight Operations Management
+  Sample canonical: Bachelor of Science in Flight Operations Management
+  Codes: BS_FLIGHT_OPERATIONS_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): flight_operations_management
+
+Field: Food and Beverage Services
+  Sample canonical: Certificate in Food and Beverage Services
+  Codes: CERT_FOOD_BEVERAGE_SERVICES
+  Levels: vocational
+  Existing field_group(s): food_and_beverage_services
+
+Field: Food and Nutrition
+  Sample canonical: Bachelor of Science in Food and Nutrition
+  Codes: BS_FOOD_AND_NUTRITION
+  Levels: bachelor
+  Existing field_group(s): food_and_nutrition
+
+Field: Food Industry Management
+  Sample canonical: Bachelor of Science in Food Industry Management
+  Codes: BS_FOOD_INDUSTRY_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): food_industry_management
+
+Field: Food Safety
+  Sample canonical: Master of Science in Food Safety
+  Codes: MS_FOOD_SAFETY
+  Levels: master
+  Existing field_group(s): food_safety_management
+
+Field: Food Safety Management
+  Sample canonical: Bachelor of Science in Food Safety Management
+  Codes: BS_FOOD_SAFETY_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): food_safety_management
+
+Field: Food Science
+  Sample canonical: Bachelor of Science in Food Science
+  Codes: BS_FOOD_SCIENCE
+  Levels: bachelor
+  Existing field_group(s): food_science
+
+Field: Food Technology
+  Sample canonical: Bachelor of Science in Food Technology
+  Codes: BS_FOOD_TECHNOLOGY
+  Levels: bachelor
+  Existing field_group(s): food_technology
+
+Field: Foreign Languages
+  Sample canonical: Bachelor of Arts in Foreign Languages
+  Codes: BA_FOREIGN_LANGUAGES
+  Levels: bachelor
+  Existing field_group(s): foreign_languages
+
+Field: Forensic Science
+  Sample canonical: Bachelor of Science in Forensic Science
+  Codes: BS_FORENSIC_SCIENCE
+  Levels: bachelor
+  Existing field_group(s): forensic_science
+
+Field: Forest Management
+  Sample canonical: Bachelor in Forest Management
+  Codes: BS_FOREST_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): forest_management
+
+Field: Forestry
+  Sample canonical: Bachelor of Science in Forestry
+  Codes: BS_FORESTRY
+  Levels: bachelor
+  Existing field_group(s): forestry
+
+Field: Front Office Services
+  Sample canonical: Certificate in Front Office Services
+  Codes: CERT_FRONT_OFFICE_SERVICES
+  Levels: vocational
+  Existing field_group(s): front_office_services
+
+Field: Furniture Design and Technology
+  Sample canonical: Bachelor of Science in Furniture Design and Technology
+  Codes: BS_FURNITURE_DESIGN_TECH
+  Levels: bachelor
+  Existing field_group(s): furniture_design_and_technology
+
+Field: Game Design and Development
+  Sample canonical: Bachelor of Science in Game Design and Development
+  Codes: BS_GAME_DESIGN
+  Levels: bachelor
+  Existing field_group(s): game_design
+
+Field: Garment Technology
+  Sample canonical: Certificate in Garment Technology
+  Codes: CERT_GARMENT_TECH
+  Levels: vocational
+  Existing field_group(s): garment_technology
+
+Field: Gender and Development
+  Sample canonical: Bachelor in Gender and Development
+  Codes: BA_GENDER_AND_DEVELOPMENT
+  Levels: bachelor
+  Existing field_group(s): gender_and_development
+
+Field: Geodetic Engineering
+  Sample canonical: Bachelor of Science in Geodetic Engineering
+  Codes: BS_GEODETIC_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): geodetic_engineering
+
+Field: Geological Engineering
+  Sample canonical: Bachelor of Science in Geological Engineering
+  Codes: BS_GEOLOGICAL_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): geological_engineering
+
+Field: Geology
+  Sample canonical: Bachelor of Science in Geology
+  Codes: BS_GEOLOGY, MS_GEOLOGY, PHD_GEOLOGY
+  Levels: bachelor, master, doctoral
+  Existing field_group(s): geology
+
+Field: Geomatics and Land Surveying
+  Sample canonical: Bachelor of Science in Geomatics and Land Surveying
+  Codes: BS_GEOMATICS_LAND_SURVEYING
+  Levels: bachelor
+  Existing field_group(s): geomatics_and_land_surveying
+
+Field: Geomatics Engineering
+  Sample canonical: Bachelor of Science in Geomatics Engineering
+  Codes: BS_GEOMATICS_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): geomatics_engineering
+
+Field: Geoscience
+  Sample canonical: Bachelor of Science in Geoscience
+  Codes: BS_GEOSCIENCE, MS_GEOSCIENCE
+  Levels: bachelor, master
+  Existing field_group(s): geoscience
+
+Field: Governance and Leadership
+  Sample canonical: Bachelor of Arts in Governance and Leadership
+  Codes: BA_GOVERNANCE_LEADERSHIP, MA_GOVERNANCE_LEADERSHIP
+  Levels: bachelor, master
+  Existing field_group(s): governance_and_leadership
+
+Field: Graphic Arts Technology
+  Sample canonical: Certificate in Graphic Arts Technology
+  Codes: CERT_GRAPHIC_ARTS_TECH
+  Levels: vocational
+  Existing field_group(s): graphic_arts_technology
+
+Field: Graphic Design
+  Sample canonical: Bachelor in Graphic Design
+  Codes: BDES_GRAPHIC_DESIGN
+  Levels: bachelor
+  Existing field_group(s): graphic_design
+
+Field: Graphics Design Technology
+  Sample canonical: Bachelor of Science in Graphics Design Technology
+  Codes: BS_GRAPHICS_DESIGN_TECHNOLOGY
+  Levels: bachelor
+  Existing field_group(s): graphics_design_technology
+
+Field: Guidance and Counseling
+  Sample canonical: Master of Arts in Guidance and Counseling
+  Codes: MA_GUIDANCE_AND_COUNSELING
+  Levels: master
+  Existing field_group(s): guidance_and_counseling
+
+Field: Hairstyling and Makeup
+  Sample canonical: Certificate in Hairstyling and Makeup
+  Codes: CERT_HAIRSTYLING_MAKEUP
+  Levels: vocational
+  Existing field_group(s): hairstyling_and_makeup
+
+Field: Handicrafts and Cottage Industry
+  Sample canonical: Certificate in Handicrafts and Cottage Industry
+  Codes: CERT_HANDICRAFTS_COTTAGE
+  Levels: vocational
+  Existing field_group(s): handicrafts_and_cottage_industry
+
+Field: Health Administration
+  Sample canonical: Master in Health Administration
+  Codes: MHA_HEALTH_ADMINISTRATION
+  Levels: master
+  Existing field_group(s): health_administration
+
+Field: Health Care Services
+  Sample canonical: Certificate in Health Care Services
+  Codes: CERT_HEALTH_CARE_SERVICES
+  Levels: vocational
+  Existing field_group(s): health_care_services
+
+Field: Health Education
+  Sample canonical: Bachelor in Health Education
+  Codes: BS_HEALTH_EDUCATION
+  Levels: bachelor
+  Existing field_group(s): health_education
+
+Field: Health Information Management
+  Sample canonical: Bachelor of Science in Health Information Management
+  Codes: BS_HEALTH_INFORMATION_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): health_information_management
+
+Field: Health Promotion
+  Sample canonical: Bachelor in Health Promotion
+  Codes: BS_HEALTH_PROMOTION
+  Levels: bachelor
+  Existing field_group(s): health_promotion
+
+Field: Health Social Work
+  Sample canonical: Bachelor of Science in Health Social Work
+  Codes: BS_HEALTH_SOCIAL_WORK
+  Levels: bachelor
+  Existing field_group(s): health_social_work
+
+Field: Healthcare Assistance
+  Sample canonical: Certificate in Healthcare Assistance
+  Codes: CERT_HEALTHCARE_ASSISTANCE
+  Levels: vocational
+  Existing field_group(s): healthcare_assistance
+
+Field: Healthcare Management
+  Sample canonical: Bachelor of Science in Healthcare Management
+  Codes: BS_HEALTHCARE_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): healthcare_management
+
+Field: Heritage Conservation
+  Sample canonical: Bachelor in Heritage Conservation
+  Codes: BA_HERITAGE_CONSERVATION
+  Levels: bachelor
+  Existing field_group(s): heritage_conservation
+
+Field: Heritage Studies
+  Sample canonical: Bachelor of Arts in Heritage Studies
+  Codes: BA_HERITAGE_STUDIES
+  Levels: bachelor
+  Existing field_group(s): heritage_studies
+
+Field: Higher Education
+  Sample canonical: Master in Higher Education
+  Codes: MS_HIGHER_EDUCATION
+  Levels: master
+  Existing field_group(s): higher_education
+
+Field: Higher Education Administration
+  Sample canonical: Master of Arts in Higher Education Administration
+  Codes: MA_HIGHER_ED_ADMIN
+  Levels: master
+  Existing field_group(s): higher_education_administration
+
+Field: Homeland Security Studies
+  Sample canonical: Master of Arts in Homeland Security Studies
+  Codes: MA_HOMELAND_SECURITY_STUDIES
+  Levels: master
+  Existing field_group(s): homeland_security_studies
+
+Field: Horticulture
+  Sample canonical: Bachelor of Science in Horticulture
+  Codes: BS_HORTICULTURE
+  Levels: bachelor
+  Existing field_group(s): horticulture
+
+Field: Hospital Administration
+  Sample canonical: Master in Hospital Administration
+  Codes: MHA_HOSPITAL_ADMINISTRATION
+  Levels: master
+  Existing field_group(s): hospital_administration
+
+Field: Hospital Management
+  Sample canonical: Bachelor of Science in Hospital Management
+  Codes: BS_HOSPITAL_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): hospital_management
+
+Field: Hospitality Management
+  Sample canonical: Bachelor of Science in Hospitality Management
+  Codes: BS_HOSPITALITY_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): hospitality_management
+
+Field: Hotel and Restaurant Management
+  Sample canonical: Bachelor of Science in Hotel and Restaurant Management
+  Codes: BS_HOTEL_RESTAURANT_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): hotel_and_restaurant_management
+
+Field: Housekeeping Management
+  Sample canonical: Certificate in Housekeeping Management
+  Codes: CERT_HOUSEKEEPING_MANAGEMENT
+  Levels: vocational
+  Existing field_group(s): housekeeping_management
+
+Field: Human Anatomy and Physiology
+  Sample canonical: Bachelor in Human Anatomy and Physiology
+  Codes: BS_HUMAN_ANATOMY_PHYSIOLOGY
+  Levels: bachelor
+  Existing field_group(s): human_anatomy_and_physiology
+
+Field: Human Behavior Studies
+  Sample canonical: Bachelor of Arts in Human Behavior Studies
+  Codes: BA_HUMAN_BEHAVIOR_STUDIES
+  Levels: bachelor
+  Existing field_group(s): human_behavior_studies
+
+Field: Human Resource Development
+  Sample canonical: Bachelor of Science in Human Resource Development
+  Codes: BS_HUMAN_RESOURCE_DEVELOPMENT
+  Levels: bachelor
+  Existing field_group(s): human_resource_development
+
+Field: Human Resource Management
+  Sample canonical: Bachelor of Science in Human Resource Management
+  Codes: BS_HR_MANAGEMENT, MA_HR_MANAGEMENT
+  Levels: bachelor, master
+  Existing field_group(s): human_resource_management
+
+Field: Humanitarian Assistance and Crisis Management
+  Sample canonical: Bachelor in Humanitarian Assistance and Crisis Management
+  Codes: BS_HUMANITARIAN_ASSISTANCE
+  Levels: bachelor
+  Existing field_group(s): humanitarian_assistance
+
+Field: Humanities
+  Sample canonical: Bachelor of Arts in Humanities
+  Codes: BA_HUMANITIES
+  Levels: bachelor
+  Existing field_group(s): humanities
+
+Field: Hydrology
+  Sample canonical: Bachelor of Science in Hydrology
+  Codes: BS_HYDROLOGY, MS_HYDROLOGY
+  Levels: bachelor, master
+  Existing field_group(s): hydrology
+
+Field: Hydrology and Water Resources
+  Sample canonical: Master of Science in Hydrology and Water Resources
+  Codes: MS_HYDROLOGY_WATER_RESOURCES
+  Levels: master
+  Existing field_group(s): hydrology_and_water_resources
+
+Field: Hygiene and Sanitation
+  Sample canonical: Bachelor in Hygiene and Sanitation
+  Codes: BS_HYGIENE_SANITATION
+  Levels: bachelor
+  Existing field_group(s): hygiene_and_sanitation
+
+Field: Inclusive Education
+  Sample canonical: Master of Arts in Inclusive Education
+  Codes: MA_INCLUSIVE_EDUCATION
+  Levels: master
+  Existing field_group(s): inclusive_education
+
+Field: Industrial Design Technology
+  Sample canonical: Bachelor of Science in Industrial Design Technology
+  Codes: BS_INDUSTRIAL_DESIGN_TECH
+  Levels: bachelor
+  Existing field_group(s): industrial_design_technology
+
+Field: Industrial Engineering
+  Sample canonical: Bachelor of Science in Industrial Engineering
+  Codes: BS_INDUSTRIAL_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): industrial_engineering
+
+Field: Industrial Hygiene
+  Sample canonical: Master in Industrial Hygiene
+  Codes: MS_INDUSTRIAL_HYGIENE
+  Levels: master
+  Existing field_group(s): industrial_hygiene
+
+Field: Industrial Relations
+  Sample canonical: Bachelor of Science in Industrial Relations
+  Codes: BS_INDUSTRIAL_RELATIONS, MA_INDUSTRIAL_RELATIONS
+  Levels: bachelor, master
+  Existing field_group(s): industrial_relations
+
+Field: Industrial Safety Management
+  Sample canonical: Bachelor of Science in Industrial Safety Management
+  Codes: BS_INDUSTRIAL_SAFETY_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): industrial_safety_management
+
+Field: Industrial Technology
+  Sample canonical: Bachelor of Science in Industrial Technology
+  Codes: BS_INDUSTRIAL_TECHNOLOGY
+  Levels: bachelor
+  Existing field_group(s): industrial_technology
+
+Field: Industrial/Organizational Psychology
+  Sample canonical: Master of Arts in Industrial/Organizational Psychology
+  Codes: MA_INDUSTRIAL_PSYCHOLOGY
+  Levels: master
+  Existing field_group(s): industrial_psychology
+
+Field: Information and Communication Technology
+  Sample canonical: Bachelor of Science in Information and Communication Technology
+  Codes: BS_ICT
+  Levels: bachelor
+  Existing field_group(s): information_and_communication_technology
+
+Field: Information Management
+  Sample canonical: Bachelor of Science in Information Management
+  Codes: BS_INFORMATION_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): information_management
+
+Field: Information Systems
+  Sample canonical: Bachelor of Science in Information Systems
+  Codes: BS_INFORMATION_SYSTEMS
+  Levels: bachelor
+  Existing field_group(s): information_systems
+
+Field: Information Technology
+  Sample canonical: Bachelor of Science in Information Technology
+  Codes: BS_INFORMATION_TECHNOLOGY, MS_INFORMATION_TECHNOLOGY
+  Levels: bachelor, master
+  Existing field_group(s): information_technology
+
+Field: Infrastructure Planning and Management
+  Sample canonical: Master in Infrastructure Planning and Management
+  Codes: MS_INFRASTRUCTURE_PLANNING
+  Levels: master
+  Existing field_group(s): infrastructure_planning
+
+Field: Instructional Design
+  Sample canonical: Master in Instructional Design
+  Codes: MS_INSTRUCTIONAL_DESIGN
+  Levels: master
+  Existing field_group(s): instructional_design
+
+Field: Instrumentation and Control
+  Sample canonical: Bachelor of Science in Instrumentation and Control
+  Codes: BS_INSTRUMENTATION_CONTROL
+  Levels: bachelor
+  Existing field_group(s): instrumentation_and_control
+
+Field: Instrumentation and Control Technology
+  Sample canonical: Bachelor of Science in Instrumentation and Control Technology
+  Codes: BS_INSTRUMENT_CONTROL_TECH
+  Levels: bachelor
+  Existing field_group(s): instrumentation_and_control_technology
+
+Field: Instrumentation and Measurement
+  Sample canonical: Certificate in Instrumentation and Measurement
+  Codes: CERT_INSTRUMENT_MEASUREMENT
+  Levels: vocational
+  Existing field_group(s): instrumentation_and_measurement
+
+Field: Instrumentation Engineering
+  Sample canonical: Bachelor of Science in Instrumentation Engineering
+  Codes: BS_INSTRUMENTATION_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): instrumentation_engineering
+
+Field: Instrumentation Technology
+  Sample canonical: Certificate in Instrumentation Technology
+  Codes: CERT_INSTRUMENTATION_TECH
+  Levels: vocational
+  Existing field_group(s): instrumentation_technology
+
+Field: Intelligence and Analysis
+  Sample canonical: Bachelor of Science in Intelligence and Analysis
+  Codes: BS_INTELLIGENCE_ANALYSIS
+  Levels: bachelor
+  Existing field_group(s): intelligence_and_analysis
+
+Field: Intercultural Communication
+  Sample canonical: Master of Arts in Intercultural Communication
+  Codes: MA_INTERCULTURAL_COMMUNICATION
+  Levels: master
+  Existing field_group(s): intercultural_communication
+
+Field: Intercultural Studies
+  Sample canonical: Bachelor of Arts in Intercultural Studies
+  Codes: BA_INTERCULTURAL_STUDIES
+  Levels: bachelor
+  Existing field_group(s): intercultural_studies
+
+Field: Interior Design
+  Sample canonical: Bachelor of Science in Interior Design
+  Codes: BS_INTERIOR_DESIGN
+  Levels: bachelor
+  Existing field_group(s): interior_design
+
+Field: International Relations
+  Sample canonical: Bachelor of Arts in International Relations
+  Codes: BA_INTERNATIONAL_RELATIONS
+  Levels: bachelor
+  Existing field_group(s): international_relations
+
+Field: Interpersonal Communication
+  Sample canonical: Bachelor of Arts in Interpersonal Communication
+  Codes: BA_INTERPERSONAL_COMMUNICATION
+  Levels: bachelor
+  Existing field_group(s): interpersonal_communication
+
+Field: Investment Management
+  Sample canonical: Bachelor of Science in Investment Management
+  Codes: BS_INVESTMENT_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): investment_management
+
+Field: Irrigation Engineering
+  Sample canonical: Bachelor of Science in Irrigation Engineering
+  Codes: BS_IRRIGATION_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): irrigation_engineering
+
+Field: Jewelry Design and Manufacturing
+  Sample canonical: Certificate in Jewelry Design and Manufacturing
+  Codes: CERT_JEWELRY_DESIGN_MFG
+  Levels: vocational
+  Existing field_group(s): jewelry_design_and_manufacturing
+
+Field: Journalism
+  Sample canonical: Bachelor of Arts in Journalism
+  Codes: BA_JOURNALISM
+  Levels: bachelor
+  Existing field_group(s): journalism
+
+Field: Juris Doctor
+  Sample canonical: Juris Doctor
+  Codes: JD_LAW
+  Levels: doctoral
+  Existing field_group(s): law
+
+Field: Laboratory Technology
+  Sample canonical: Bachelor of Science in Laboratory Technology
+  Codes: BS_LABORATORY_TECHNOLOGY
+  Levels: bachelor
+  Existing field_group(s): laboratory_technology
+
+Field: Land Use Management
+  Sample canonical: Bachelor in Land Use Management
+  Codes: BS_LAND_USE_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): land_use_management
+
+Field: Language Studies
+  Sample canonical: Bachelor of Arts in Language Studies
+  Codes: BA_LANGUAGE_STUDIES
+  Levels: bachelor
+  Existing field_group(s): language_studies
+
+Field: Law Enforcement Administration
+  Sample canonical: Bachelor of Science in Law Enforcement Administration
+  Codes: BS_LAW_ENFORCEMENT_ADMIN
+  Levels: bachelor
+  Existing field_group(s): law_enforcement_administration
+
+Field: Laws
+  Sample canonical: Bachelor of Laws
+  Codes: LLB_LAW
+  Levels: bachelor
+  Existing field_group(s): law
+
+Field: Learning and Development
+  Sample canonical: Bachelor in Learning and Development
+  Codes: BS_LEARNING_AND_DEVELOPMENT
+  Levels: bachelor
+  Existing field_group(s): learning_and_development
+
+Field: Legal Management
+  Sample canonical: Bachelor of Science in Legal Management
+  Codes: BS_LEGAL_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): legal_management
+
+Field: Library and Information Science
+  Sample canonical: Bachelor of Library and Information Science
+  Codes: BLIS_LIBRARY_INFORMATION_SCIENCE
+  Levels: bachelor
+  Existing field_group(s): library_and_information_science
+
+Field: Life Sciences
+  Sample canonical: Bachelor of Science in Life Sciences
+  Codes: BS_LIFE_SCIENCES
+  Levels: bachelor
+  Existing field_group(s): life_sciences
+
+Field: Linguistics
+  Sample canonical: Bachelor of Arts in Linguistics
+  Codes: BA_LINGUISTICS
+  Levels: bachelor
+  Existing field_group(s): linguistics
+
+Field: Literacy and Numeracy Education
+  Sample canonical: Certificate in Literacy and Numeracy Education
+  Codes: CERT_LITERACY_NUMERACY
+  Levels: vocational
+  Existing field_group(s): literacy_and_numeracy
+
+Field: Literature
+  Sample canonical: Bachelor of Arts in Literature
+  Codes: BA_LITERATURE
+  Levels: bachelor
+  Existing field_group(s): literature
+
+Field: Livelihood Education
+  Sample canonical: Bachelor of Secondary Education major in Livelihood Education
+  Codes: BSE_LIVELIHOOD_EDUCATION
+  Levels: bachelor
+  Existing field_group(s): livelihood_education
+
+Field: Livelihood Skills Training
+  Sample canonical: Certificate in Livelihood Skills Training
+  Codes: CERT_LIVELIHOOD_SKILLS_TRAINING
+  Levels: vocational
+  Existing field_group(s): livelihood_skills_training
+
+Field: Local Government Administration
+  Sample canonical: Bachelor in Local Government Administration
+  Codes: BA_LOCAL_GOVERNMENT_ADMIN
+  Levels: bachelor
+  Existing field_group(s): local_government_management
+
+Field: Local Government Management
+  Sample canonical: Master in Local Government Management
+  Codes: MA_LOCAL_GOVERNMENT
+  Levels: master
+  Existing field_group(s): local_government_management
+
+Field: Logistics and Transportation Management
+  Sample canonical: Bachelor of Science in Logistics and Transportation Management
+  Codes: BS_LOGISTICS_TRANSPORT
+  Levels: bachelor
+  Existing field_group(s): logistics_and_transportation
+
+Field: Logistics Management
+  Sample canonical: Bachelor of Science in Logistics Management
+  Codes: BS_LOGISTICS_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): logistics_management
+
+Field: Machine Shop Technology
+  Sample canonical: Certificate in Machine Shop Technology
+  Codes: CERT_MACHINE_SHOP_TECH
+  Levels: vocational
+  Existing field_group(s): machine_shop_technology
+
+Field: Machining Technology
+  Sample canonical: Certificate in Machining Technology
+  Codes: CERT_MACHINING_TECH
+  Levels: vocational
+  Existing field_group(s): machining_technology
+
+Field: Management
+  Sample canonical: Master in Management
+  Codes: MM_BUSINESS_MANAGEMENT
+  Levels: master
+  Existing field_group(s): business_management
+
+Field: Management Accounting
+  Sample canonical: Bachelor of Science in Management Accounting
+  Codes: BS_MANAGEMENT_ACCOUNTING
+  Levels: bachelor
+  Existing field_group(s): management_accounting
+
+Field: Manufacturing Engineering
+  Sample canonical: Bachelor of Science in Manufacturing Engineering
+  Codes: BS_MANUFACTURING_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): manufacturing_engineering
+
+Field: Marine Biology
+  Sample canonical: Bachelor of Science in Marine Biology
+  Codes: BS_MARINE_BIOLOGY
+  Levels: bachelor
+  Existing field_group(s): marine_biology
+
+Field: Marine Engineering
+  Sample canonical: Bachelor of Science in Marine Engineering
+  Codes: BS_MARINE_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): marine_engineering
+
+Field: Marine Mechanics
+  Sample canonical: Certificate in Marine Mechanics
+  Codes: CERT_MARINE_MECHANICS
+  Levels: vocational
+  Existing field_group(s): marine_mechanics
+
+Field: Marine Navigation
+  Sample canonical: Certificate in Marine Navigation
+  Codes: CERT_MARINE_NAVIGATION
+  Levels: vocational
+  Existing field_group(s): marine_navigation
+
+Field: Marine Safety Management
+  Sample canonical: Bachelor of Science in Marine Safety Management
+  Codes: BS_MARINE_SAFETY_MGMT
+  Levels: bachelor
+  Existing field_group(s): marine_safety_management
+
+Field: Marine Science
+  Sample canonical: Bachelor of Science in Marine Science
+  Codes: BS_MARINE_SCIENCE
+  Levels: bachelor
+  Existing field_group(s): marine_science
+
+Field: Marine Technology
+  Sample canonical: Bachelor of Science in Marine Technology
+  Codes: BS_MARINE_TECHNOLOGY
+  Levels: bachelor
+  Existing field_group(s): marine_technology
+
+Field: Marine Transportation
+  Sample canonical: Bachelor of Science in Marine Transportation
+  Codes: BS_MARINE_TRANSPORTATION
+  Levels: bachelor
+  Existing field_group(s): marine_transportation
+
+Field: Maritime Security Management
+  Sample canonical: Bachelor of Science in Maritime Security Management
+  Codes: BS_MARITIME_SECURITY_MGMT
+  Levels: bachelor
+  Existing field_group(s): maritime_security_management
+
+Field: Maritime Transportation
+  Sample canonical: Bachelor of Science in Maritime Transportation
+  Codes: BS_MARITIME_TRANSPORTATION
+  Levels: bachelor
+  Existing field_group(s): maritime_transportation
+
+Field: Marketing Management
+  Sample canonical: Bachelor of Science in Marketing Management
+  Codes: BS_MARKETING_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): marketing_management
+
+Field: Masonry Technology
+  Sample canonical: Certificate in Masonry Technology
+  Codes: CERT_MASONRY_TECH
+  Levels: vocational
+  Existing field_group(s): masonry_technology
+
+Field: Mass Communication
+  Sample canonical: Bachelor of Arts in Mass Communication
+  Codes: BA_MASS_COMMUNICATION
+  Levels: bachelor
+  Existing field_group(s): mass_communication
+
+Field: Materials Engineering
+  Sample canonical: Bachelor of Science in Materials Engineering
+  Codes: BS_MATERIALS_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): materials_engineering
+
+Field: Mechanical Engineering
+  Sample canonical: Bachelor of Science in Mechanical Engineering
+  Codes: BS_MECHANICAL_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): mechanical_engineering
+
+Field: Mechanical Technology
+  Sample canonical: Bachelor of Science in Mechanical Technology
+  Codes: BS_MECHANICAL_TECHNOLOGY
+  Levels: bachelor
+  Existing field_group(s): mechanical_technology
+
+Field: Mechatronics Technology
+  Sample canonical: Bachelor of Science in Mechatronics Technology
+  Codes: BS_MECHATRONICS_TECHNOLOGY, CERT_MECHATRONICS_TECH
+  Levels: bachelor, vocational
+  Existing field_group(s): mechatronics_technology
+
+Field: Media Production
+  Sample canonical: Bachelor of Arts in Media Production
+  Codes: BA_MEDIA_PRODUCTION
+  Levels: bachelor
+  Existing field_group(s): media_production
+
+Field: Media Studies
+  Sample canonical: Bachelor of Arts in Media Studies
+  Codes: BA_MEDIA_STUDIES
+  Levels: bachelor
+  Existing field_group(s): media_studies
+
+Field: Medical Billing and Coding
+  Sample canonical: Diploma in Medical Billing and Coding
+  Codes: DIP_MEDICAL_BILLING_CODING
+  Levels: vocational
+  Existing field_group(s): medical_billing_and_coding
+
+Field: Medical Laboratory Science
+  Sample canonical: Bachelor of Science in Medical Laboratory Science
+  Codes: BS_MEDICAL_LABORATORY_SCIENCE
+  Levels: bachelor
+  Existing field_group(s): medical_laboratory_science
+
+Field: Medical Science
+  Sample canonical: Bachelor of Science in Medical Science
+  Codes: BS_MEDICAL_SCIENCE
+  Levels: bachelor
+  Existing field_group(s): medical_science
+
+Field: Medical Technology
+  Sample canonical: Bachelor of Science in Medical Technology
+  Codes: BS_MEDICAL_TECHNOLOGY
+  Levels: bachelor
+  Existing field_group(s): medical_technology
+
+Field: Medicine
+  Sample canonical: Doctor of Medicine
+  Codes: MD_MEDICINE
+  Levels: doctoral
+  Existing field_group(s): medicine
+
+Field: Metallurgical Engineering
+  Sample canonical: Bachelor of Science in Metallurgical Engineering
+  Codes: BS_METALLURGICAL_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): metallurgical_engineering
+
+Field: Metalworks and Fabrication
+  Sample canonical: Certificate in Metalworks and Fabrication
+  Codes: CERT_METALWORKS_FABRICATION
+  Levels: vocational
+  Existing field_group(s): metalworks_and_fabrication
+
+Field: Meteorological Engineering
+  Sample canonical: Bachelor of Science in Meteorological Engineering
+  Codes: BS_METEOROLOGICAL_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): meteorological_engineering
+
+Field: Meteorological Services
+  Sample canonical: Certificate in Meteorological Services
+  Codes: CERT_METEOROLOGICAL_SERVICES
+  Levels: vocational
+  Existing field_group(s): meteorological_services
+
+Field: Meteorological Technology
+  Sample canonical: Bachelor of Science in Meteorological Technology
+  Codes: BS_METEOROLOGICAL_TECH
+  Levels: bachelor
+  Existing field_group(s): meteorological_technology
+
+Field: Meteorology
+  Sample canonical: Bachelor of Science in Meteorology
+  Codes: BS_METEOROLOGY, MS_METEOROLOGY
+  Levels: bachelor, master
+  Existing field_group(s): meteorology
+
+Field: Microbiology
+  Sample canonical: Bachelor of Science in Microbiology
+  Codes: BS_MICROBIOLOGY
+  Levels: bachelor
+  Existing field_group(s): microbiology
+
+Field: Midwifery
+  Sample canonical: Bachelor of Science in Midwifery
+  Codes: BS_MIDWIFERY
+  Levels: bachelor
+  Existing field_group(s): midwifery
+
+Field: Military Science
+  Sample canonical: Bachelor of Science in Military Science
+  Codes: BS_MILITARY_SCIENCE
+  Levels: bachelor
+  Existing field_group(s): military_science
+
+Field: Mining Engineering
+  Sample canonical: Bachelor of Science in Mining Engineering
+  Codes: BS_MINING_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): mining_engineering
+
+Field: Mobile Computing and Development
+  Sample canonical: Diploma in Mobile Computing and Development
+  Codes: DIPLOMA_MOBILE_COMPUTING
+  Levels: vocational
+  Existing field_group(s): mobile_computing
+
+Field: Molecular Biology
+  Sample canonical: Bachelor of Science in Molecular Biology
+  Codes: BS_MOLECULAR_BIOLOGY
+  Levels: bachelor
+  Existing field_group(s): molecular_biology
+
+Field: Moral Education
+  Sample canonical: Bachelor in Moral Education
+  Codes: BA_MORAL_EDUCATION
+  Levels: bachelor
+  Existing field_group(s): moral_education
+
+Field: Motorcycle and Small Engine Servicing
+  Sample canonical: Certificate in Motorcycle and Small Engine Servicing
+  Codes: CERT_MC_SMALL_ENGINE
+  Levels: vocational
+  Existing field_group(s): motorcycle_small_engine_servicing
+
+Field: Multimedia Arts
+  Sample canonical: Bachelor of Multimedia Arts
+  Codes: BMA_MULTIMEDIA_ARTS
+  Levels: bachelor
+  Existing field_group(s): multimedia_arts
+
+Field: Museum Studies
+  Sample canonical: Bachelor of Arts in Museum Studies
+  Codes: BA_MUSEUM_STUDIES
+  Levels: bachelor
+  Existing field_group(s): museum_studies
+
+Field: Music
+  Sample canonical: Bachelor of Music
+  Codes: BM_MUSIC
+  Levels: bachelor
+  Existing field_group(s): music
+
+Field: Music Education
+  Sample canonical: Bachelor in Music Education
+  Codes: BME_MUSIC_EDUCATION
+  Levels: bachelor
+  Existing field_group(s): music_education
+
+Field: Nanotechnology
+  Sample canonical: Bachelor of Science in Nanotechnology
+  Codes: BS_NANOTECHNOLOGY
+  Levels: bachelor
+  Existing field_group(s): nanotechnology
+
+Field: Nanotechnology Applications
+  Sample canonical: Bachelor of Science in Nanotechnology Applications
+  Codes: BS_NANOTECH_APPLICATIONS
+  Levels: bachelor
+  Existing field_group(s): nanotechnology_applications
+
+Field: National Security Administration
+  Sample canonical: Master in National Security Administration
+  Codes: MA_NATIONAL_SECURITY_ADMIN
+  Levels: master
+  Existing field_group(s): national_security_administration
+
+Field: Natural Resources Management
+  Sample canonical: Bachelor of Science in Natural Resources Management
+  Codes: BS_NATURAL_RESOURCES_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): natural_resources_management
+
+Field: Naval Architecture
+  Sample canonical: Bachelor of Science in Naval Architecture
+  Codes: BS_NAVAL_ARCHITECTURE
+  Levels: bachelor
+  Existing field_group(s): naval_architecture
+
+Field: Naval Engineering
+  Sample canonical: Bachelor of Science in Naval Engineering
+  Codes: BS_NAVAL_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): naval_engineering
+
+Field: Network Engineering
+  Sample canonical: Bachelor of Science in Network Engineering
+  Codes: BS_NETWORK_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): network_engineering
+
+Field: Nuclear Engineering
+  Sample canonical: Bachelor of Science in Nuclear Engineering
+  Codes: BS_NUCLEAR_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): nuclear_engineering
+
+Field: Nursing
+  Sample canonical: Bachelor of Science in Nursing
+  Codes: BS_NURSING, MAN_NURSING
+  Levels: bachelor, master
+  Existing field_group(s): nursing
+
+Field: Nursing Administration
+  Sample canonical: Bachelor in Nursing Administration
+  Codes: BS_NURSING_ADMINISTRATION
+  Levels: bachelor
+  Existing field_group(s): nursing_administration
+
+Field: Nutrition and Dietetics
+  Sample canonical: Bachelor of Science in Nutrition and Dietetics
+  Codes: BS_NUTRITION_DIETETICS
+  Levels: bachelor
+  Existing field_group(s): nutrition_and_dietetics
+
+Field: Nutrition Management
+  Sample canonical: Bachelor in Nutrition Management
+  Codes: BS_NUTRITION_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): nutrition_management
+
+Field: Nutrition Science
+  Sample canonical: Bachelor of Science in Nutrition Science
+  Codes: BS_NUTRITION_SCIENCE, MS_NUTRITION_SCIENCE
+  Levels: bachelor, master
+  Existing field_group(s): nutrition_science
+
+Field: Occupational Health and Safety
+  Sample canonical: Bachelor of Science in Occupational Health and Safety
+  Codes: BS_OCCUPATIONAL_HEALTH_SAFETY
+  Levels: bachelor
+  Existing field_group(s): occupational_health_and_safety
+
+Field: Occupational Safety and Health
+  Sample canonical: Bachelor in Occupational Safety and Health
+  Codes: BS_OSH
+  Levels: bachelor
+  Existing field_group(s): occupational_safety_and_health
+
+Field: Occupational Safety Technology
+  Sample canonical: Certificate in Occupational Safety Technology
+  Codes: CERT_OCC_SAFETY_TECH
+  Levels: vocational
+  Existing field_group(s): occupational_safety_technology
+
+Field: Occupational Skills Training
+  Sample canonical: Certificate in Occupational Skills Training
+  Codes: CERT_OCC_SKILLS_TRAINING
+  Levels: vocational
+  Existing field_group(s): occupational_skills_training
+
+Field: Occupational Therapy
+  Sample canonical: Bachelor of Science in Occupational Therapy
+  Codes: BS_OCCUPATIONAL_THERAPY
+  Levels: bachelor
+  Existing field_group(s): occupational_therapy
+
+Field: Oceanography
+  Sample canonical: Bachelor of Science in Oceanography
+  Codes: BS_OCEANOGRAPHY
+  Levels: bachelor
+  Existing field_group(s): oceanography
+
+Field: Office Administration
+  Sample canonical: Bachelor of Science in Office Administration
+  Codes: BSOA
+  Levels: bachelor
+  Existing field_group(s): office_administration
+
+Field: Office Management
+  Sample canonical: Bachelor of Science in Office Management
+  Codes: BS_OFFICE_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): office_management
+
+Field: Operations Management
+  Sample canonical: Bachelor of Science in Operations Management
+  Codes: BS_OPERATIONS_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): operations_management
+
+Field: Optics and Photonics
+  Sample canonical: Bachelor of Science in Optics and Photonics
+  Codes: BS_OPTICS_PHOTONICS
+  Levels: bachelor
+  Existing field_group(s): optics_and_photonics
+
+Field: Optometry
+  Sample canonical: Doctor of Optometry
+  Codes: OD_OPTOMETRY
+  Levels: doctoral
+  Existing field_group(s): optometry
+
+Field: Organizational Communication
+  Sample canonical: Bachelor of Arts in Organizational Communication
+  Codes: BA_ORGANIZATIONAL_COMMUNICATION
+  Levels: bachelor
+  Existing field_group(s): organizational_communication
+
+Field: Organizational Development
+  Sample canonical: Bachelor of Science in Organizational Development
+  Codes: BS_ORGANIZATIONAL_DEVELOPMENT, MA_ORGANIZATIONAL_DEVELOPMENT
+  Levels: bachelor, master
+  Existing field_group(s): organizational_development
+
+Field: Parasitology
+  Sample canonical: Bachelor in Parasitology
+  Codes: BS_PARASITOLOGY
+  Levels: bachelor
+  Existing field_group(s): parasitology
+
+Field: Pathology Science
+  Sample canonical: Bachelor in Pathology Science
+  Codes: BS_PATHOLOGY_SCIENCE
+  Levels: bachelor
+  Existing field_group(s): pathology
+
+Field: Peace and Conflict Studies
+  Sample canonical: Bachelor of Arts in Peace and Conflict Studies
+  Codes: BA_PEACE_CONFLICT_STUDIES
+  Levels: bachelor
+  Existing field_group(s): peace_and_conflict_studies
+
+Field: Peace and Security Management
+  Sample canonical: Master in Peace and Security Management
+  Codes: MA_PEACE_SECURITY_MANAGEMENT
+  Levels: master
+  Existing field_group(s): peace_and_security_management
+
+Field: Peace and Security Studies
+  Sample canonical: Bachelor of Arts in Peace and Security Studies
+  Codes: BA_PEACE_SECURITY
+  Levels: bachelor
+  Existing field_group(s): peace_and_security_studies
+
+Field: Peace Education
+  Sample canonical: Bachelor in Peace Education
+  Codes: BA_PEACE_EDUCATION
+  Levels: bachelor
+  Existing field_group(s): peace_education
+
+Field: Penology Administration
+  Sample canonical: Master in Penology Administration
+  Codes: MA_PENOLOGY_ADMIN
+  Levels: master
+  Existing field_group(s): penology_administration
+
+Field: Penology and Correctional Administration
+  Sample canonical: Master of Arts in Penology and Correctional Administration
+  Codes: MA_PENOLOGY
+  Levels: master
+  Existing field_group(s): penology
+
+Field: Performing Arts
+  Sample canonical: Bachelor in Performing Arts
+  Codes: BPA_PERFORMING_ARTS
+  Levels: bachelor
+  Existing field_group(s): performing_arts
+
+Field: Performing Arts Management
+  Sample canonical: Bachelor of Arts in Performing Arts Management
+  Codes: BA_PERFORMING_ARTS_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): performing_arts_management
+
+Field: Pest Management
+  Sample canonical: Bachelor of Science in Pest Management
+  Codes: BS_PEST_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): pest_management
+
+Field: Petroleum Engineering
+  Sample canonical: Bachelor of Science in Petroleum Engineering
+  Codes: BS_PETROLEUM_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): petroleum_engineering
+
+Field: Pharmacy
+  Sample canonical: Bachelor of Science in Pharmacy
+  Codes: BS_PHARMACY
+  Levels: bachelor
+  Existing field_group(s): pharmacy
+
+Field: Pharmacy Technician
+  Sample canonical: Certificate in Pharmacy Technician
+  Codes: CERT_PHARMACY_TECHNICIAN
+  Levels: vocational
+  Existing field_group(s): pharmacy_technician
+
+Field: Philippine Literature
+  Sample canonical: Bachelor of Arts in Philippine Literature
+  Codes: BA_PHILIPPINE_LITERATURE
+  Levels: bachelor
+  Existing field_group(s): philippine_literature
+
+Field: Philology
+  Sample canonical: Bachelor of Arts in Philology
+  Codes: BA_PHILOLOGY
+  Levels: bachelor
+  Existing field_group(s): philology
+
+Field: Philosophy
+  Sample canonical: Bachelor of Arts in Philosophy
+  Codes: BA_PHILOSOPHY
+  Levels: bachelor
+  Existing field_group(s): philosophy
+
+Field: Philosophy of Education
+  Sample canonical: Master of Arts in Philosophy of Education
+  Codes: MA_PHILOSOPHY_OF_EDUCATION
+  Levels: master
+  Existing field_group(s): philosophy_of_education
+
+Field: Photography
+  Sample canonical: Bachelor of Fine Arts major in Photography
+  Codes: BFA_PHOTOGRAPHY
+  Levels: bachelor
+  Existing field_group(s): photography
+
+Field: Photography Technology
+  Sample canonical: Bachelor of Science in Photography Technology
+  Codes: BS_PHOTOGRAPHY_TECH
+  Levels: bachelor
+  Existing field_group(s): photography_technology
+
+Field: Physical Education
+  Sample canonical: Bachelor of Physical Education
+  Codes: BS_PHYSICAL_EDUCATION
+  Levels: bachelor
+  Existing field_group(s): physical_education
+
+Field: Physical Therapy
+  Sample canonical: Bachelor of Science in Physical Therapy
+  Codes: BS_PHYSICAL_THERAPY
+  Levels: bachelor
+  Existing field_group(s): physical_therapy
+
+Field: Plant Breeding
+  Sample canonical: Bachelor of Science in Plant Breeding
+  Codes: BS_PLANT_BREEDING
+  Levels: bachelor
+  Existing field_group(s): plant_breeding
+
+Field: Plant Protection
+  Sample canonical: Bachelor of Science in Plant Protection
+  Codes: BS_PLANT_PROTECTION
+  Levels: bachelor
+  Existing field_group(s): plant_protection
+
+Field: Plumbing Technology
+  Sample canonical: Certificate in Plumbing Technology
+  Codes: CERT_PLUMBING_TECH
+  Levels: vocational
+  Existing field_group(s): plumbing_technology
+
+Field: Police Science Technology
+  Sample canonical: Certificate in Police Science Technology
+  Codes: CERT_POLICE_SCIENCE_TECH
+  Levels: vocational
+  Existing field_group(s): police_science_technology
+
+Field: Political Science
+  Sample canonical: Bachelor of Arts in Political Science
+  Codes: BA_POLITICAL_SCIENCE, MA_POLITICAL_SCIENCE, PHD_POLITICAL_SCIENCE
+  Levels: bachelor, master, doctoral
+  Existing field_group(s): political_science
+
+Field: Population Education
+  Sample canonical: Bachelor in Population Education
+  Codes: BA_POPULATION_EDUCATION
+  Levels: bachelor
+  Existing field_group(s): population_education
+
+Field: Population Health
+  Sample canonical: Master of Science in Population Health
+  Codes: MS_POPULATION_HEALTH
+  Levels: master
+  Existing field_group(s): population_health
+
+Field: Port and Shipping Management
+  Sample canonical: Bachelor of Science in Port and Shipping Management
+  Codes: BS_PORT_SHIPPING_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): port_and_shipping_management
+
+Field: Power Engineering
+  Sample canonical: Bachelor of Science in Power Engineering
+  Codes: BS_POWER_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): power_engineering
+
+Field: Primary Health Care
+  Sample canonical: Bachelor in Primary Health Care
+  Codes: BS_PRIMARY_HEALTH_CARE
+  Levels: bachelor
+  Existing field_group(s): primary_health_care
+
+Field: Printing Technology
+  Sample canonical: Certificate in Printing Technology
+  Codes: CERT_PRINTING_TECH
+  Levels: vocational
+  Existing field_group(s): printing_technology
+
+Field: Production
+  Sample canonical: Bachelor of Performing Arts major in Production
+  Codes: BS_PERFORMING_ARTS_PRODUCTION
+  Levels: bachelor
+  Existing field_group(s): performing_arts_production
+
+Field: Production Engineering
+  Sample canonical: Bachelor of Science in Production Engineering
+  Codes: BS_PRODUCTION_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): production_engineering
+
+Field: Project Engineering
+  Sample canonical: Bachelor of Science in Project Engineering
+  Codes: BS_PROJECT_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): project_engineering
+
+Field: Project Management
+  Sample canonical: Bachelor of Science in Project Management
+  Codes: BS_PROJECT_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): project_management
+
+Field: Prosthodontics Technology
+  Sample canonical: Bachelor in Prosthodontics Technology
+  Codes: BS_PROSTHODONTICS_TECHNOLOGY
+  Levels: bachelor
+  Existing field_group(s): prosthodontics_technology
+
+Field: Protective Services
+  Sample canonical: Certificate in Protective Services
+  Codes: CERT_PROTECTIVE_SERVICES
+  Levels: vocational
+  Existing field_group(s): protective_services
+
+Field: Psychology
+  Sample canonical: Bachelor of Science in Psychology
+  Codes: BS_PSYCHOLOGY
+  Levels: bachelor
+  Existing field_group(s): psychology
+
+Field: Public Administration
+  Sample canonical: Bachelor of Public Administration
+  Codes: BPA_PUBLIC_ADMIN, MPA_PUBLIC_ADMIN, DPA_PUBLIC_ADMIN
+  Levels: bachelor, master, doctoral
+  Existing field_group(s): public_administration
+
+Field: Public Financial Management
+  Sample canonical: Bachelor of Science in Public Financial Management
+  Codes: BS_PUBLIC_FINANCIAL_MANAGEMENT, MA_PUBLIC_FINANCIAL_MANAGEMENT
+  Levels: bachelor, master
+  Existing field_group(s): public_finance_management
+
+Field: Public Health
+  Sample canonical: Bachelor of Science in Public Health
+  Codes: BS_PUBLIC_HEALTH, MPH_PUBLIC_HEALTH
+  Levels: bachelor, master
+  Existing field_group(s): public_health
+
+Field: Public Law
+  Sample canonical: Master of Laws in Public Law
+  Codes: MA_PUBLIC_LAW
+  Levels: master
+  Existing field_group(s): public_law
+
+Field: Public Policy
+  Sample canonical: Bachelor of Arts in Public Policy
+  Codes: BA_PUBLIC_POLICY, MPP_PUBLIC_POLICY, PHD_PUBLIC_POLICY
+  Levels: bachelor, master, doctoral
+  Existing field_group(s): public_policy
+
+Field: Public Relations
+  Sample canonical: Bachelor of Arts in Public Relations
+  Codes: BA_PUBLIC_RELATIONS
+  Levels: bachelor
+  Existing field_group(s): public_relations
+
+Field: Public Relations Management
+  Sample canonical: Bachelor of Arts in Public Relations Management
+  Codes: BA_PUBLIC_RELATIONS_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): public_relations_management
+
+Field: Public Safety
+  Sample canonical: Bachelor of Science in Public Safety
+  Codes: BS_PUBLIC_SAFETY
+  Levels: bachelor
+  Existing field_group(s): public_safety
+
+Field: Public Safety Management
+  Sample canonical: Bachelor of Science in Public Safety Management
+  Codes: BS_PUBLIC_SAFETY_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): public_safety_management
+
+Field: Publishing
+  Sample canonical: Bachelor of Arts in Publishing
+  Codes: BA_PUBLISHING
+  Levels: bachelor
+  Existing field_group(s): publishing
+
+Field: Quality Control Engineering
+  Sample canonical: Bachelor of Science in Quality Control Engineering
+  Codes: BS_QUALITY_CONTROL_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): quality_control_engineering
+
+Field: Quality Management
+  Sample canonical: Bachelor of Science in Quality Management
+  Codes: BS_QUALITY_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): quality_management
+
+Field: Quantity Surveying
+  Sample canonical: Bachelor of Science in Quantity Surveying
+  Codes: BS_QUANTITY_SURVEYING
+  Levels: bachelor
+  Existing field_group(s): quantity_surveying
+
+Field: Radiologic Technology
+  Sample canonical: Bachelor of Science in Radiologic Technology
+  Codes: BS_RADIOLOGIC_TECHNOLOGY
+  Levels: bachelor
+  Existing field_group(s): radiologic_technology
+
+Field: Rail Transport Engineering
+  Sample canonical: Master of Science in Rail Transport Engineering
+  Codes: MS_RAIL_TRANSPORT_ENGINEERING
+  Levels: master
+  Existing field_group(s): rail_transport_engineering
+
+Field: Records Digitization and Digital Archiving
+  Sample canonical: Certificate in Records Digitization and Digital Archiving
+  Codes: CERT_RECORDS_DIGITAL_ARCHIVING
+  Levels: vocational
+  Existing field_group(s): records_digitization_and_digital_archiving
+
+Field: Records Management
+  Sample canonical: Bachelor in Records Management
+  Codes: BS_RECORDS_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): records_management
+
+Field: Refrigeration and Aircon Servicing
+  Sample canonical: Certificate in Refrigeration and Aircon Servicing
+  Codes: CERT_RAC_SERVICING
+  Levels: vocational
+  Existing field_group(s): refrigeration_and_aircon_servicing
+
+Field: Refrigeration and Airconditioning
+  Sample canonical: Diploma in Refrigeration and Airconditioning
+  Codes: DIP_REFRIGERATION_AIRCON
+  Levels: vocational
+  Existing field_group(s): refrigeration_and_airconditioning
+
+Field: Refrigeration and Airconditioning Technology
+  Sample canonical: Bachelor of Science in Refrigeration and Airconditioning Technology
+  Codes: BS_REFRIGERATION_AIRCON_TECH, CERT_RAC_TECHNOLOGY
+  Levels: bachelor, vocational
+  Existing field_group(s): refrigeration_and_airconditioning, refrigeration_and_airconditioning_technology
+
+Field: Refrigeration Technology
+  Sample canonical: Diploma in Refrigeration Technology
+  Codes: DIP_REFRIGERATION_TECHNOLOGY
+  Levels: vocational
+  Existing field_group(s): refrigeration_technology
+
+Field: Regional Planning
+  Sample canonical: Master of Science in Regional Planning
+  Codes: MS_REGIONAL_PLANNING
+  Levels: master
+  Existing field_group(s): regional_planning
+
+Field: Registered Environmental Planner (Planning Degree)
+  Sample canonical: Registered Environmental Planner (Planning Degree)
+  Codes: RENVPLAN_ENVIRONMENTAL_PLANNING
+  Levels: master
+  Existing field_group(s): environmental_planning
+
+Field: Religious Education
+  Sample canonical: Bachelor in Religious Education
+  Codes: BA_RELIGIOUS_EDUCATION
+  Levels: bachelor
+  Existing field_group(s): religious_education
+
+Field: Religious Studies
+  Sample canonical: Bachelor of Arts in Religious Studies
+  Codes: BA_RELIGIOUS_STUDIES
+  Levels: bachelor
+  Existing field_group(s): religious_studies
+
+Field: Renewable Energy Engineering
+  Sample canonical: Bachelor of Science in Renewable Energy Engineering
+  Codes: BS_RENEWABLE_ENERGY
+  Levels: bachelor
+  Existing field_group(s): renewable_energy
+
+Field: Renewable Energy Technology
+  Sample canonical: Bachelor of Science in Renewable Energy Technology
+  Codes: BS_RENEWABLE_ENERGY_TECH
+  Levels: bachelor
+  Existing field_group(s): renewable_energy_technology
+
+Field: Resource Economics
+  Sample canonical: Bachelor of Science in Resource Economics
+  Codes: BS_RESOURCE_ECONOMICS
+  Levels: bachelor
+  Existing field_group(s): resource_economics
+
+Field: Risk Management
+  Sample canonical: Bachelor of Science in Risk Management
+  Codes: BS_RISK_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): risk_management
+
+Field: Robotics Engineering
+  Sample canonical: Bachelor of Science in Robotics Engineering
+  Codes: BS_ROBOTICS_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): robotics_engineering
+
+Field: Rural Health Development
+  Sample canonical: Bachelor in Rural Health Development
+  Codes: BS_RURAL_HEALTH_DEVELOPMENT
+  Levels: bachelor
+  Existing field_group(s): rural_health_development
+
+Field: Safety Engineering
+  Sample canonical: Bachelor of Science in Safety Engineering
+  Codes: BS_SAFETY_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): safety_engineering
+
+Field: Sanitary Engineering
+  Sample canonical: Bachelor of Science in Sanitary Engineering
+  Codes: BS_SANITARY_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): sanitary_engineering
+
+Field: Sanitary Science
+  Sample canonical: Bachelor of Science in Sanitary Science
+  Codes: BS_SANITARY_SCIENCE
+  Levels: bachelor
+  Existing field_group(s): sanitary_science
+
+Field: Sanitation Management
+  Sample canonical: Bachelor in Sanitation Management
+  Codes: BS_SANITATION_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): sanitation_management
+
+Field: Satellite Communication
+  Sample canonical: Master of Science in Satellite Communication
+  Codes: MS_SATELLITE_COMMUNICATION
+  Levels: master
+  Existing field_group(s): satellite_communication
+
+Field: Seafaring
+  Sample canonical: Certificate in Seafaring
+  Codes: CERT_SEAFARING
+  Levels: vocational
+  Existing field_group(s): seafaring
+
+Field: Secondary Education
+  Sample canonical: Bachelor of Secondary Education
+  Codes: BSED_SECONDARY_EDUCATION
+  Levels: bachelor
+  Existing field_group(s): secondary_education
+
+Field: Secondary Education (Teacher Education)
+  Sample canonical: Bachelor of Secondary Education (Teacher Education)
+  Codes: BSED_TEACHER_EDUCATION
+  Levels: bachelor
+  Existing field_group(s): teacher_education
+
+Field: Security Studies
+  Sample canonical: Master of Arts in Security Studies
+  Codes: MA_SECURITY_STUDIES
+  Levels: master
+  Existing field_group(s): security_studies
+
+Field: Semantics and Pragmatics
+  Sample canonical: Master of Arts in Semantics and Pragmatics
+  Codes: MA_SEMANTICS_PRAGMATICS
+  Levels: master
+  Existing field_group(s): semantics_and_pragmatics
+
+Field: Ship Engineering Technology
+  Sample canonical: Bachelor of Science in Ship Engineering Technology
+  Codes: BS_SHIP_ENGINEERING_TECH
+  Levels: bachelor
+  Existing field_group(s): ship_engineering_technology
+
+Field: Shipbuilding Technology
+  Sample canonical: Bachelor of Science in Shipbuilding Technology
+  Codes: BS_SHIPBUILDING_TECHNOLOGY
+  Levels: bachelor
+  Existing field_group(s): shipbuilding_technology
+
+Field: Social Psychology
+  Sample canonical: Master of Arts in Social Psychology
+  Codes: MA_SOCIAL_PSYCHOLOGY
+  Levels: master
+  Existing field_group(s): social_psychology
+
+Field: Social Science
+  Sample canonical: Bachelor of Arts in Social Science
+  Codes: BA_SOCIAL_SCIENCE
+  Levels: bachelor
+  Existing field_group(s): social_science
+
+Field: Social Welfare and Development
+  Sample canonical: Bachelor of Science in Social Welfare and Development
+  Codes: BS_SOCIAL_WELFARE_DEVELOPMENT
+  Levels: bachelor
+  Existing field_group(s): social_welfare_development
+
+Field: Social Work
+  Sample canonical: Bachelor of Science in Social Work
+  Codes: BS_SOCIAL_WORK
+  Levels: bachelor
+  Existing field_group(s): social_work
+
+Field: Sociology
+  Sample canonical: Bachelor of Arts in Sociology
+  Codes: BS_SOCIOLOGY
+  Levels: bachelor
+  Existing field_group(s): sociology
+
+Field: Sociology major in Urban Sociology
+  Sample canonical: Master of Arts in Sociology major in Urban Sociology
+  Codes: MA_URBAN_SOCIOLOGY
+  Levels: master
+  Existing field_group(s): urban_sociology
+
+Field: Software Engineering
+  Sample canonical: Bachelor of Science in Software Engineering
+  Codes: BS_SOFTWARE_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): software_engineering
+
+Field: Soil Science
+  Sample canonical: Bachelor of Science in Soil Science
+  Codes: BS_SOIL_SCIENCE
+  Levels: bachelor
+  Existing field_group(s): soil_science
+
+Field: Sound and Light Technology
+  Sample canonical: Certificate in Sound and Light Technology
+  Codes: CERT_SOUND_LIGHT_TECH
+  Levels: vocational
+  Existing field_group(s): sound_and_light_technology
+
+Field: Sound Engineering
+  Sample canonical: Bachelor of Science in Sound Engineering
+  Codes: BS_SOUND_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): sound_engineering
+
+Field: Special Education
+  Sample canonical: Bachelor of Special Education
+  Codes: BSED_SPECIAL_EDUCATION
+  Levels: bachelor
+  Existing field_group(s): special_education
+
+Field: Speech and Language Studies
+  Sample canonical: Bachelor of Arts in Speech and Language Studies
+  Codes: BA_SPEECH_LANGUAGE_STUDIES
+  Levels: bachelor
+  Existing field_group(s): speech_language_studies
+
+Field: Speech Communication
+  Sample canonical: Bachelor of Arts in Speech Communication
+  Codes: BA_SPEECH_COMMUNICATION
+  Levels: bachelor
+  Existing field_group(s): speech_communication
+
+Field: Speech-Language Pathology
+  Sample canonical: Bachelor of Science in Speech-Language Pathology
+  Codes: BS_SPEECH_LANGUAGE_PATHOLOGY
+  Levels: bachelor
+  Existing field_group(s): speech_language_pathology
+
+Field: Sports Science
+  Sample canonical: Bachelor of Science in Sports Science
+  Codes: BS_SPORTS_SCIENCE
+  Levels: bachelor
+  Existing field_group(s): sports_science
+
+Field: Stage Design and Management
+  Sample canonical: Bachelor of Arts in Stage Design and Management
+  Codes: BS_STAGE_DESIGN_MGMT
+  Levels: bachelor
+  Existing field_group(s): stage_design_and_management
+
+Field: Statistics and Mathematics
+  Sample canonical: Bachelor of Science in Statistics and Mathematics
+  Codes: BS_STATISTICS_MATH
+  Levels: bachelor
+  Existing field_group(s): statistics_mathematics
+
+Field: Supply Chain Management
+  Sample canonical: Bachelor of Science in Supply Chain Management
+  Codes: BS_SUPPLY_CHAIN_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): procurement_and_supply_chain
+
+Field: Supply Chain Technology
+  Sample canonical: Bachelor of Science in Supply Chain Technology
+  Codes: BS_SUPPLY_CHAIN_TECH
+  Levels: bachelor
+  Existing field_group(s): supply_chain_technology
+
+Field: Surveying and Mapping
+  Sample canonical: Bachelor of Science in Surveying and Mapping
+  Codes: BS_SURVEYING_MAPPING
+  Levels: bachelor
+  Existing field_group(s): surveying_and_mapping
+
+Field: Sustainability Management
+  Sample canonical: Master in Sustainability Management
+  Codes: MS_SUSTAINABILITY_MANAGEMENT
+  Levels: master
+  Existing field_group(s): sustainability_management
+
+Field: Sustainable Agriculture
+  Sample canonical: Bachelor of Science in Sustainable Agriculture
+  Codes: BS_SUSTAINABLE_AGRICULTURE
+  Levels: bachelor
+  Existing field_group(s): sustainable_agriculture
+
+Field: Systems Analysis and Design
+  Sample canonical: Diploma in Systems Analysis and Design
+  Codes: DIPLOMA_SYSTEMS_ANALYSIS_DESIGN
+  Levels: vocational
+  Existing field_group(s): systems_analysis_and_design
+
+Field: Systems Engineering
+  Sample canonical: Master of Science in Systems Engineering
+  Codes: MS_SYSTEMS_ENGINEERING
+  Levels: master
+  Existing field_group(s): systems_engineering
+
+Field: Taxation
+  Sample canonical: Bachelor in Taxation
+  Codes: BS_TAXATION, MA_TAXATION
+  Levels: bachelor, master
+  Existing field_group(s): taxation
+
+Field: Technical Drafting
+  Sample canonical: Certificate in Technical Drafting
+  Codes: CERT_TECHNICAL_DRAFTING
+  Levels: vocational
+  Existing field_group(s): technical_drafting
+
+Field: Technical Vocational Education and Training
+  Sample canonical: Certificate in Technical Vocational Education and Training
+  Codes: CERT_TECH_VOC_ED
+  Levels: vocational
+  Existing field_group(s): technical_vocational_education
+
+Field: Technology Management
+  Sample canonical: Master in Technology Management
+  Codes: MS_TECHNOLOGY_MANAGEMENT
+  Levels: master
+  Existing field_group(s): technology_management
+
+Field: Telecommunication Engineering
+  Sample canonical: Bachelor of Science in Telecommunication Engineering
+  Codes: BS_TELECOMMUNICATION_ENGINEERING
+  Levels: bachelor
+  Existing field_group(s): telecommunication_engineering
+
+Field: Telecommunications Technology
+  Sample canonical: Certificate in Telecommunications Technology
+  Codes: CERT_TELECOMMUNICATIONS_TECH
+  Levels: vocational
+  Existing field_group(s): telecommunications_technology
+
+Field: Textile and Fabric Technology
+  Sample canonical: Bachelor of Science in Textile and Fabric Technology
+  Codes: BS_TEXTILE_FABRIC_TECH
+  Levels: bachelor
+  Existing field_group(s): textile_and_fabric_technology
+
+Field: Textile Design
+  Sample canonical: Bachelor in Textile Design
+  Codes: BDES_TEXTILE_DESIGN
+  Levels: bachelor
+  Existing field_group(s): textile_design
+
+Field: Textile Engineering
+  Sample canonical: Bachelor of Science in Textile Engineering
+  Codes: BS_TEXTILE_ENGINEERING, MS_TEXTILE_ENGINEERING
+  Levels: bachelor, master
+  Existing field_group(s): textile_engineering
+
+Field: Theater Arts
+  Sample canonical: Bachelor of Arts in Theater Arts
+  Codes: BA_THEATER_ARTS
+  Levels: bachelor
+  Existing field_group(s): theater_arts
+
+Field: Theology
+  Sample canonical: Bachelor of Arts in Theology
+  Codes: BA_THEOLOGY
+  Levels: bachelor
+  Existing field_group(s): theology
+
+Field: Tourism Management
+  Sample canonical: Bachelor of Science in Tourism Management
+  Codes: BS_TOURISM_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): tourism_management
+
+Field: Tourism Services
+  Sample canonical: Certificate in Tourism Services
+  Codes: CERT_TOURISM_SERVICES
+  Levels: vocational
+  Existing field_group(s): tourism_services
+
+Field: Toxicology
+  Sample canonical: Master of Science in Toxicology
+  Codes: MS_TOXICOLOGY
+  Levels: master
+  Existing field_group(s): toxicology
+
+Field: Training and Development
+  Sample canonical: Bachelor in Training and Development
+  Codes: BS_TRAINING_AND_DEVELOPMENT
+  Levels: bachelor
+  Existing field_group(s): training_and_development
+
+Field: Training Communication
+  Sample canonical: Certificate in Training Communication
+  Codes: CERT_TRAINING_COMMUNICATION
+  Levels: vocational
+  Existing field_group(s): training_communication
+
+Field: Translation Studies
+  Sample canonical: Master of Arts in Translation Studies
+  Codes: MA_TRANSLATION_STUDIES
+  Levels: master
+  Existing field_group(s): translation_studies
+
+Field: Transportation Engineering
+  Sample canonical: Master of Science in Transportation Engineering
+  Codes: MS_TRANSPORTATION_ENGINEERING
+  Levels: master
+  Existing field_group(s): transportation_engineering
+
+Field: Travel and Tourism Services
+  Sample canonical: Certificate in Travel and Tourism Services
+  Codes: CERT_TRAVEL_TOURISM_SERVICES
+  Levels: vocational
+  Existing field_group(s): travel_and_tourism_services
+
+Field: Travel Management
+  Sample canonical: Bachelor of Science in Travel Management
+  Codes: BS_TRAVEL_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): travel_management
+
+Field: Tunnel and Bridge Engineering
+  Sample canonical: Master of Science in Tunnel and Bridge Engineering
+  Codes: MS_TUNNEL_BRIDGE_ENGINEERING
+  Levels: master
+  Existing field_group(s): tunnel_and_bridge_engineering
+
+Field: Urban and Regional Planning
+  Sample canonical: Master in Urban and Regional Planning
+  Codes: MURP_URBAN_PLANNING
+  Levels: master
+  Existing field_group(s): urban_planning
+
+Field: Veterinary Medicine
+  Sample canonical: Doctor of Veterinary Medicine
+  Codes: DVM_VETERINARY_MEDICINE
+  Levels: doctoral
+  Existing field_group(s): veterinary_medicine
+
+Field: Visual Arts
+  Sample canonical: Bachelor of Fine Arts major in Visual Arts
+  Codes: BFA_VISUAL_ARTS
+  Levels: bachelor
+  Existing field_group(s): visual_arts
+
+Field: Visual Communication Design
+  Sample canonical: Bachelor in Visual Communication Design
+  Codes: BDES_VISUAL_COMMUNICATION_DESIGN
+  Levels: bachelor
+  Existing field_group(s): visual_communication_design
+
+Field: Visual Communication Technology
+  Sample canonical: Bachelor of Science in Visual Communication Technology
+  Codes: BS_VISUAL_COMM_TECH
+  Levels: bachelor
+  Existing field_group(s): visual_communication_technology
+
+Field: Vocational Skills Training
+  Sample canonical: Certificate in Vocational Skills Training
+  Codes: CERT_VOCATIONAL_SKILLS_TRAINING
+  Levels: vocational
+  Existing field_group(s): vocational_skills_training
+
+Field: Vocational Technical Skills
+  Sample canonical: Certificate in Vocational Technical Skills
+  Codes: CERT_VOCATIONAL_TECHNICAL
+  Levels: vocational
+  Existing field_group(s): vocational_technical
+
+Field: Waste Management
+  Sample canonical: Bachelor of Science in Waste Management
+  Codes: BS_WASTE_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): waste_management
+
+Field: Water Resource Management
+  Sample canonical: Bachelor of Science in Water Resource Management
+  Codes: BS_WATER_RESOURCE_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): water_resource_management
+
+Field: Web Development
+  Sample canonical: Diploma in Web Development
+  Codes: DIPLOMA_WEB_DEVELOPMENT
+  Levels: vocational
+  Existing field_group(s): web_development
+
+Field: Welding and Fabrication Technology
+  Sample canonical: Certificate in Welding and Fabrication Technology
+  Codes: CERT_WELDING_FABRICATION_TECH
+  Levels: vocational
+  Existing field_group(s): welding_and_fabrication_technology
+
+Field: Welding Technology
+  Sample canonical: Diploma in Welding Technology
+  Codes: DIP_WELDING_TECHNOLOGY
+  Levels: vocational
+  Existing field_group(s): welding_technology
+
+Field: Wildlife Management
+  Sample canonical: Bachelor of Science in Wildlife Management
+  Codes: BS_WILDLIFE_MANAGEMENT
+  Levels: bachelor
+  Existing field_group(s): wildlife_management
+
+Field: Women and Children Studies
+  Sample canonical: Bachelor in Women and Children Studies
+  Codes: BA_WOMEN_CHILDREN_STUDIES
+  Levels: bachelor
+  Existing field_group(s): women_and_children_studies
+
+Field: Woodworking Technology
+  Sample canonical: Certificate in Woodworking Technology
+  Codes: CERT_WOODWORKING_TECH
+  Levels: vocational
+  Existing field_group(s): woodworking_technology
+
+Field: Youth Development
+  Sample canonical: Bachelor in Youth Development
+  Codes: BA_YOUTH_DEVELOPMENT
+  Levels: bachelor
+  Existing field_group(s): youth_development

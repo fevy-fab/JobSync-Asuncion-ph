@@ -1,0 +1,1511 @@
+eligibilities:
+  CSC_PROF:
+    canonical: "Career Service Professional Eligibility (Second Level)"
+    category: "CSC"
+    aliases:
+      - career service professional
+      - career service professional eligibility
+      - career service professional eligible
+      - career service professional level
+      - career service professional level eligibility
+      - civil service exam professional
+      - civil service exam professional level
+      - civil service exam passer professional
+      - civil service exam passer professional level
+      - civil service professional
+      - civil service professional eligible
+      - civil service professional eligibility
+      - civil service professional level
+      - civil service professional exam passer
+      - civil service professional exam
+      - civil service professional test passer
+      - civil service professional examination passer
+      - civil service professional examination
+      - civil service professional eligibility requirement
+      - civil service professional license equivalent
+      - civil service eligibility professional
+      - civil service eligibility professional level
+      - civil service eligibility for professional level
+      - cs professional
+      - cs professional eligibility
+      - cs pro
+      - cs-pro
+      - cse professional
+      - cse professional eligible
+      - cse professional eligibility
+      - cse-professional
+      - cse-professional eligibility
+      - cse prof
+      - cse-prof
+      - cse-ppt professional
+      - cse-ppt prof
+      - cse-ppt pro
+      - cse ppt professional
+      - cse ppt pro
+      - comex professional
+      - comex prof
+      - comex pro
+      - comex-professional
+      - comex-prof
+      - comex-pro
+      - professional eligibility under civil service
+      - professional civil service eligibility
+      - professional level civil service eligibility
+      - eligibility for professional level civil service
+      - holder of civil service professional eligibility
+      - passed civil service professional exam
+      - passed the civil service professional examination
+      - eligible for professional level civil service
+      - second level
+      - second level eligibility
+      - second level eligible
+      - second-level eligibility
+      - second-level eligible
+      - career service second level eligibility
+      - holder of career service professional eligibility
+      - passed career service professional exam
+      - qualified for civil service professional
+      - professional eligibility granted by csc
+      - csc professional eligibility
+      - csc pro eligibility
+      - csc professional eligible
+      - csc professional level
+      - csc prof eligible
+      - csc prof level
+      - csc professional exam passer
+      - cse prof
+      - cse pro
+      - cse prof eligibility
+
+  CSC_SUBPROF:
+    canonical: "Career Service Subprofessional Eligibility (First Level)"
+    category: "CSC"
+    aliases:
+      - career service sub-professional
+      - career service subprofessional
+      - career service sub-professional eligibility
+      - career service subprofessional eligibility
+      - career service subprofessional eligible
+      - civil service exam subprofessional
+      - civil service exam subprofessional level
+      - civil service exam passer subprofessional
+      - civil service subprofessional
+      - civil service subprofessional eligible
+      - civil service subprofessional eligibility
+      - civil service subprofessional exam passer
+      - civil service subprofessional exam
+      - civil service subprofessional test passer
+      - civil service subprofessional examination
+      - civil service subprofessional examination passer
+      - civil service eligibility subprofessional
+      - civil service eligibility subprofessional level
+      - civil service eligibility for subprofessional level
+      - cs subprofessional
+      - cs subpro
+      - cse subprofessional
+      - cse sub professional
+      - cse subprof
+      - cse sub-pro
+      - cse-subprofessional
+      - cse-sub professional
+      - cse ppt subprofessional
+      - cse-ppt subprofessional
+      - cse-ppt sub pro
+      - comex subprofessional
+      - comex subpro
+      - comex-sub
+      - comex-subpro
+      - comex sub-professional
+      - professional eligibility for first level positions
+      - first level
+      - first level eligibility
+      - first level eligible
+      - first-level eligibility
+      - first-level eligible
+      - career service first level eligibility
+      - holder of civil service subprofessional eligibility
+      - passed civil service subprofessional exam
+      - passed the civil service subprofessional examination
+      - eligible for subprofessional level civil service
+      - csc subprofessional eligibility
+      - csc subprofessional eligible
+      - csc sub pro eligibility
+      - csc subpro eligibility
+      - subprofessional civil service eligibility
+      - sub professional eligibility
+      - sub-professional eligibility
+      - sub professional level eligibility
+      - sub-professional level eligibility
+
+  CSC_PREF_RATING:
+    canonical: "Career Service Eligibility – Preference Rating / Supplemental Register"
+    category: "CSC"
+    aliases:
+      - career service preference rating
+      - career service preference rating eligibility
+      - career service preference rating eligible
+      - preference rating
+      - preference rating eligibility
+      - preference rating eligible
+      - cse preference rating
+      - cse pref rating
+      - csr pr
+      - csr-pr
+      - supplemental register
+      - supplemental register eligibility
+      - supplemental register eligible
+      - supplemental register of eligibles
+      - sroe
+      - sroe eligible
+      - sroe eligibility
+      - career service supplemental register
+      - career service supplemental register eligibility
+      - preference points eligibility
+      - preference-based eligibility
+      - eligibility based on preference rating
+      - csc preference rating eligibility
+      - civil service preference rating eligibility
+      - preference rating civil service eligibility
+
+  CSC_CES:
+    canonical: "Career Service Executive Eligibility"
+    category: "CSC"
+    aliases:
+      - career service executive
+      - career service executive eligibility
+      - career service executive eligible
+      - career executive service
+      - career executive service eligibility
+      - career executive service eligible
+      - career executive service board eligibility
+      - career executive service board eligible
+      - ces eligibility
+      - ces eligible
+      - cesb eligibility
+      - cesb eligible
+      - executive eligibility
+      - executive eligible
+      - csc executive eligibility
+      - csc executive eligible
+      - csee
+      - csee eligibility
+      - career service executive examination passer
+      - passed career service executive exam
+      - eligibility for executive level positions
+      - executive career service eligibility
+      - executive level civil service eligibility
+
+  CSC_STSE:
+    canonical: "Scientific and Technological Specialist Eligibility"
+    category: "CSC"
+    aliases:
+      - scientific and technological specialist eligibility
+      - scientific and technological specialist eligible
+      - stse
+      - stse eligibility
+      - stse eligible
+      - scientific specialist eligibility
+      - technological specialist eligibility
+      - science and technology specialist eligibility
+      - science and technology specialist eligible
+      - scientist eligibility
+      - scientist eligible
+      - eligibility for scientific and technological specialist
+      - csc scientific specialist eligibility
+
+  CSC_EDP:
+    canonical: "Electronic Data Processing Specialist Eligibility"
+    category: "CSC"
+    aliases:
+      - electronic data processing specialist eligibility
+      - electronic data processing specialist eligible
+      - edp specialist eligible
+      - edp eligibility
+      - edp eligible
+      - information technology specialist eligibility
+      - information systems analyst eligibility
+      - computer programmer eligibility
+      - it professional eligibility
+      - csc electronic data processing eligibility
+      - electronic data processing exam passer
+      - passed electronic data processing exam
+      - eligibility for electronic data processing
+      - data processing specialist eligibility
+      - data processing eligible
+      - information technology eligibility
+      - information technology eligible
+
+  CSC_SKILLS_CAT_II:
+    canonical: "Skills Eligibility Category II"
+    category: "CSC"
+    aliases:
+      - skills eligibility category ii
+      - skills eligibility category 2
+      - skills category ii eligibility
+      - skills category 2 eligibility
+      - category ii eligibility
+      - category 2 eligibility
+      - category ii eligible
+      - category 2 eligible
+      - skills category ii eligible
+      - skills category 2 eligible
+      - csc skills category ii eligibility
+      - csc skills eligibility
+      - category ii civil service eligibility
+      - eligibility under category ii
+      - granted under skills eligibility category ii
+      - skilled worker eligibility
+      - craftsman eligibility
+      - technician eligibility
+      - trade skills eligibility
+      - technical skills eligibility
+      - technical worker eligibility
+      - eligibility for skilled workers
+
+  CSC_BARANGAY_OFFICIAL:
+    canonical: "Barangay Official Eligibility"
+    category: "CSC"
+    aliases:
+      - barangay official eligibility
+      - barangay official eligible
+      - barangay eligibility
+      - barangay eligible
+      - barangay officials eligibility
+      - barangay officials eligible
+      - barangay service eligibility
+      - barangay service eligible
+      - barangay leadership eligibility
+      - barangay leadership eligible
+      - barangay official civil service eligibility
+      - csc barangay eligibility
+      - csc barangay eligible
+      - boe
+      - boe eligibility
+      - boe eligible
+      - brgy official eligibility
+      - brgy official eligible
+      - brgy eligibility
+      - brgy eligible
+      - barangay captain eligibility
+      - barangay chairman eligibility
+      - barangay kagawad eligibility
+      - barangay councilor eligibility
+      - barangay official exam passer
+      - barangay official exam
+      - passed barangay official exam
+      - barangay official service eligibility
+      - granted under barangay official eligibility
+      - holder of barangay official eligibility
+      - eligibility for barangay officials
+      - local government barangay eligibility
+      - barangay experience eligibility
+      - community service eligibility
+      - barangay leader eligibility
+      - barangay head eligibility
+      - csc boe eligibility
+      - csc boe eligible
+      - barangay public service eligibility
+      - barangay public official eligibility
+
+  CSC_BARANGAY_HEALTH_WORKER:
+    canonical: "Barangay Health Worker Eligibility"
+    category: "CSC"
+    aliases:
+      - barangay health worker eligibility
+      - barangay health worker eligible
+      - bhw eligibility
+      - bhw eligible
+      - bhwe eligibility
+      - bhwe eligible
+      - barangay health service eligibility
+      - barangay health aide eligibility
+      - barangay medical aide eligibility
+      - barangay nurse aide eligibility
+      - barangay clinic aide eligibility
+      - community health worker eligibility
+      - community health worker eligible
+      - health worker eligibility
+      - health worker eligible
+      - local health worker eligibility
+      - local health worker eligible
+      - barangay health volunteer eligibility
+      - barangay health volunteer eligible
+      - holder of barangay health worker eligibility
+      - granted under barangay health worker eligibility
+      - csc bhw eligibility
+      - csc bhw eligible
+      - eligibility for barangay health workers
+      - public health worker eligibility
+      - public health aide eligibility
+      - community health eligibility
+      - primary health care eligibility
+      - barangay wellness eligibility
+      - barangay health post eligibility
+
+  CSC_BARANGAY_NUTRITION_SCHOLAR:
+    canonical: "Barangay Nutrition Scholar Eligibility"
+    category: "CSC"
+    aliases:
+      - barangay nutrition scholar eligibility
+      - barangay nutrition scholar eligible
+      - bns eligibility
+      - bns eligible
+      - bnse eligibility
+      - bnse eligible
+      - barangay nutrition eligibility
+      - barangay nutrition eligible
+      - community nutrition eligibility
+      - community nutrition scholar eligibility
+      - nutrition worker eligibility
+      - nutrition aide eligibility
+      - nutrition aide eligible
+      - nutrition program worker eligibility
+      - barangay nutrition program eligibility
+      - barangay nutrition program eligible
+      - local nutrition worker eligibility
+      - local nutrition worker eligible
+      - holder of barangay nutrition scholar eligibility
+      - granted under barangay nutrition scholar eligibility
+      - eligibility for barangay nutrition scholars
+      - csc bns eligibility
+      - csc bns eligible
+      - community feeding program eligibility
+      - barangay feeding program eligibility
+      - nutrition service eligibility
+      - barangay nutrition staff eligibility
+      - nutrition program aide eligibility
+
+  PRC_LPT:
+    canonical: "Licensed Professional Teacher Eligibility (LET, RA 1080)"
+    category: "PRC"
+    aliases:
+      - licensed professional teacher
+      - licensed professional teacher eligibility
+      - licensed professional teacher eligible
+      - licensed pro teacher
+      - licensed pro teacher eligibility
+      - licensed pro teacher eligible
+      - professional teacher
+      - professional teacher eligibility
+      - professional teacher eligible
+      - professional teacher license
+      - professional teacher licensure
+      - professional teacher examination passer
+      - professional teacher exam passer
+      - let
+      - let passer
+      - let eligible
+      - let eligibility
+      - let exam passer
+      - let examination passer
+      - licensure exam for teachers
+      - licensure examination for teachers
+      - licensure exam for teacher passer
+      - licensure exam for teacher eligibility
+      - licensure examination for teacher eligible
+      - licensure examination for teacher eligibility
+      - ra 1080 let
+      - ra 1080 let eligible
+      - ra 1080 let eligibility
+      - ra1080 let
+      - teacher board passer
+      - teacher licensure passer
+      - teacher licensure exam passer
+      - teacher licensure examination passer
+      - teacher license holder
+      - holder of teacher license
+      - teacher board exam passer
+      - teacher eligibility under ra 1080
+      - teacher professional eligibility
+      - civil service teacher eligibility
+      - passed licensure examination for teachers
+      - passed licensure exam for teachers
+      - qualified professional teacher
+      - registered professional teacher
+      - prc teacher
+      - prc teacher license
+      - prc teacher eligibility
+      - prc licensed teacher
+
+  PRC_GENERAL_RA1080:
+    canonical: "Professional Regulation Commission (PRC) License Eligibility (RA 1080)"
+    category: "PRC"
+    aliases:
+      - professional regulation commission license
+      - professional regulation commission eligibility
+      - prc eligibility
+      - prc eligible
+      - prc license
+      - prc license holder
+      - prc license eligibility
+      - prc licensed
+      - prc licensed professional
+      - prc registered professional
+      - prc professional
+      - ra 1080 prc
+      - ra 1080 prc eligible
+      - ra 1080 prc eligibility
+      - ra 1080 prc passer
+      - ra1080 prc
+      - prc board passer
+      - prc board exam passer
+      - professional license
+      - professional license holder
+      - professional license eligibility
+      - professional license eligible
+      - professional license under ra 1080
+      - licensed by prc
+      - registered with prc
+      - holder of prc license
+      - holder of prc eligibility
+      - passed prc licensure examination
+      - passed prc board examination
+      - prc board eligibility
+      - prc board eligible
+      - prc board examination passer
+      - eligibility granted under ra 1080
+
+  SC_BAR:
+    canonical: "Philippine Bar Eligibility (Lawyer, RA 1080)"
+    category: "SC"
+    aliases:
+      - bar passer
+      - bar exam passer
+      - bar examination passer
+      - bar examination eligibility
+      - bar eligibility
+      - philippine bar passer
+      - philippine bar examination passer
+      - passed the philippine bar
+      - passed the bar examination
+      - passed the bar exam
+      - lawyer eligibility
+      - law eligibility
+      - legal eligibility
+      - attorney eligibility
+      - attorney eligible
+      - attorney at law
+      - attorney-at-law
+      - member of the bar
+      - member of the philippine bar
+      - licensed lawyer
+      - licensed attorney
+      - ra 1080 bar
+      - ra 1080 bar eligible
+      - ra 1080 bar eligibility
+      - holder of bar eligibility
+      - holder of bar license
+      - eligibility under ra 1080 for bar
+      - eligibility granted through bar examination
+      - csc bar eligibility
+
+  PRC_MD:
+    canonical: "Physician / Doctor of Medicine Eligibility (RA 1080)"
+    category: "PRC"
+    aliases:
+      - physician eligibility
+      - physician eligible
+      - medical doctor eligibility
+      - doctor of medicine eligibility
+      - licensed physician
+      - licensed doctor
+      - medical board passer
+      - medical board exam passer
+      - medical board examination passer
+      - medical licensure exam passer
+      - medical licensure examination passer
+      - medical license holder
+      - physician license holder
+      - registered physician
+      - registered medical doctor
+      - ra 1080 physician
+      - ra 1080 medical doctor
+      - ra 1080 med
+      - prc physician
+      - prc doctor
+      - prc medical doctor
+      - holder of medical license
+      - eligibility for physician
+      - eligibility under ra 1080 physician
+      - prc medicine
+      - prc medicine eligibility
+
+  PRC_ENGINEER:
+    canonical: "Registered Engineer Eligibility (RA 1080)"
+    category: "PRC"
+    aliases:
+      - registered engineer
+      - licensed engineer
+      - professional engineer
+      - prc engineer
+      - prc engineer eligibility
+      - prc engineer license
+      - ra 1080 engineer
+      - ra 1080 engineering eligibility
+      - engineering license holder
+      - holder of engineer eligibility
+      - board exam passer for engineers
+      - board examination passer engineer
+      - licensed by prc as engineer
+      - eligible engineer
+      - civil engineer
+      - licensed civil engineer
+      - registered civil engineer
+      - mechanical engineer
+      - licensed mechanical engineer
+      - registered mechanical engineer
+      - electrical engineer
+      - licensed electrical engineer
+      - registered electrical engineer
+      - electronics engineer
+      - electronics and communications engineer
+      - licensed electronics engineer
+      - geodetic engineer
+      - licensed geodetic engineer
+      - sanitary engineer
+      - licensed sanitary engineer
+      - agricultural engineer
+      - licensed agricultural engineer
+      - chemical engineer
+      - licensed chemical engineer
+      - industrial engineer
+      - licensed industrial engineer
+      - mining engineer
+      - licensed mining engineer
+      - metallurgical engineer
+      - licensed metallurgical engineer
+      - marine engineer
+      - licensed marine engineer
+      - naval architect
+      - licensed naval architect
+      - holder of engineering license
+      - engineering board passer
+      - engineering eligibility under ra 1080
+      - prc registered engineer
+      - engineering eligibility
+      - registered professional engineer
+      - engineer eligibility
+      - prc engineer eligible
+
+  PRC_RN:
+    canonical: "Registered Nurse License"
+    category: "PRC"
+    aliases:
+      - registered nurse
+      - licensed nurse
+      - professional nurse
+      - prc nurse
+      - prc nurse eligibility
+      - prc nurse license
+      - prc nursing license
+      - prc nursing eligibility
+      - nurse board passer
+      - nurse board exam passer
+      - nurse board examination passer
+      - nursing licensure exam passer
+      - nursing licensure examination passer
+      - nursing eligibility
+      - eligibility for nurse
+      - nurse license holder
+      - holder of nurse license
+      - ra 1080 nurse
+      - ra 1080 nursing
+      - ra1080 nurse
+      - registered professional nurse
+      - board examination passer for nurses
+
+  PRC_CRIMINOLOGIST:
+    canonical: "Registered Criminologist Eligibility (RA 1080)"
+    category: "PRC"
+    aliases:
+      - registered criminologist
+      - licensed criminologist
+      - criminologist eligibility
+      - criminology board passer
+      - criminology board exam passer
+      - criminology board examination passer
+      - criminology licensure exam passer
+      - criminology licensure examination passer
+      - ra 1080 criminologist
+      - ra 1080 criminologist eligibility
+      - prc criminologist
+      - prc criminology license
+      - holder of criminologist license
+      - professional criminologist eligibility
+      - eligible criminologist
+
+  PRC_AGRICULTURIST:
+    canonical: "Registered Agriculturist Eligibility (RA 1080)"
+    category: "PRC"
+    aliases:
+      - registered agriculturist
+      - licensed agriculturist
+      - agriculturist eligibility
+      - agriculture board passer
+      - agriculture board exam passer
+      - agriculturist board examination passer
+      - agriculture licensure exam passer
+      - agriculture licensure examination passer
+      - prc agriculturist
+      - prc agriculture license
+      - prc agriculture eligibility
+      - ra 1080 agriculturist
+      - holder of agriculturist license
+      - professional agriculturist eligibility
+
+  PRC_ARCHITECT:
+    canonical: "Registered Architect Eligibility (RA 1080)"
+    category: "PRC"
+    aliases:
+      - registered architect
+      - licensed architect
+      - architect eligibility
+      - architecture board passer
+      - architecture board exam passer
+      - architecture licensure exam passer
+      - prc architect
+      - prc architecture license
+      - prc architecture eligibility
+      - ra 1080 architect
+      - holder of architecture license
+      - professional architect eligibility
+
+  PRC_SOCIAL_WORKER:
+    canonical: "Registered Social Worker Eligibility (RA 1080)"
+    category: "PRC"
+    aliases:
+      - registered social worker
+      - licensed social worker
+      - social worker eligibility
+      - social work board passer
+      - social work board exam passer
+      - social work licensure exam passer
+      - prc social worker
+      - prc social work license
+      - ra 1080 social worker
+      - holder of social worker license
+      - professional social worker eligibility
+
+  PRC_CPA:
+    canonical: "Certified Public Accountant License"
+    category: "PRC"
+    aliases:
+      - certified public accountant
+      - licensed accountant
+      - registered accountant
+      - accountant eligibility
+      - cpa board passer
+      - cpa board exam passer
+      - accountancy board examination passer
+      - accountancy licensure exam passer
+      - prc accountant
+      - prc cpa license
+      - ra 1080 accountant
+      - ra 1080 cpa
+      - holder of accountant license
+      - professional accountant eligibility
+      - eligibility for certified public accountant
+
+  PRC_ENV_PLANNER:
+    canonical: "Registered Environmental Planner Eligibility (RA 1080)"
+    category: "PRC"
+    aliases:
+      - registered environmental planner
+      - licensed environmental planner
+      - environmental planner eligibility
+      - environmental planning eligibility
+      - enp eligibility
+      - enp eligible
+      - environmental planner board passer
+      - environmental planning board passer
+      - prc environmental planner
+      - prc enp
+      - ra 1080 environmental planner
+      - holder of environmental planner license
+      - licensed enp
+      - registered enp
+      - environmental planning license
+      - environmental planning eligibility under ra 1080
+
+  PRC_PSYCHOLOGIST:
+    canonical: "Registered Psychologist / Psychometrician Eligibility (RA 1080)"
+    category: "PRC"
+    aliases:
+      - registered psychologist
+      - licensed psychologist
+      - registered psychometrician
+      - licensed psychometrician
+      - psychologist eligibility
+      - psychometrician eligibility
+      - psychology board passer
+      - psychometrician board passer
+      - psychology board exam passer
+      - psychometrician board exam passer
+      - prc psychologist
+      - prc psychometrician
+      - ra 1080 psychologist
+      - ra 1080 psychometrician
+      - holder of psychology license
+      - holder of psychometrician license
+      - professional psychologist eligibility
+      - professional psychometrician eligibility
+
+  PRC_MIDWIFE:
+    canonical: "Registered Midwife Eligibility (RA 1080)"
+    category: "PRC"
+    aliases:
+      - registered midwife
+      - licensed midwife
+      - midwife eligibility
+      - midwifery board passer
+      - midwifery board exam passer
+      - midwifery licensure exam passer
+      - prc midwife
+      - prc midwifery license
+      - ra 1080 midwife
+      - holder of midwife license
+      - professional midwife eligibility
+
+  PRC_VETERINARIAN:
+    canonical: "Registered Veterinarian Eligibility (RA 1080)"
+    category: "PRC"
+    aliases:
+      - registered veterinarian
+      - licensed veterinarian
+      - veterinarian eligibility
+      - veterinary medicine board passer
+      - veterinary medicine board exam passer
+      - veterinary licensure exam passer
+      - prc veterinarian
+      - prc veterinary license
+      - ra 1080 veterinarian
+      - holder of veterinarian license
+      - professional veterinarian eligibility
+
+  PRC_PHARMACIST:
+    canonical: "Registered Pharmacist Eligibility (RA 1080)"
+    category: "PRC"
+    aliases:
+      - registered pharmacist
+      - licensed pharmacist
+      - pharmacist eligibility
+      - pharmacy board passer
+      - pharmacy board exam passer
+      - pharmacy licensure exam passer
+      - prc pharmacist
+      - prc pharmacy license
+      - ra 1080 pharmacist
+      - holder of pharmacist license
+      - professional pharmacist eligibility
+
+  PRC_DENTIST:
+    canonical: "Registered Dentist Eligibility (RA 1080)"
+    category: "PRC"
+    aliases:
+      - registered dentist
+      - licensed dentist
+      - dentist eligibility
+      - dentistry board passer
+      - dentistry board exam passer
+      - dentistry licensure exam passer
+      - prc dentist
+      - prc dentistry license
+      - ra 1080 dentist
+      - holder of dentist license
+      - professional dentist eligibility
+
+  PRC_MEDTECH:
+    canonical: "Registered Medical Technologist Eligibility (RA 1080)"
+    category: "PRC"
+    aliases:
+      - registered medical technologist
+      - licensed medical technologist
+      - medtech eligibility
+      - medical technology eligibility
+      - medical technologist eligibility
+      - medtech board passer
+      - medtech board exam passer
+      - medical technology licensure exam passer
+      - prc medtech
+      - prc med tech license
+      - ra 1080 medtech
+      - holder of medical technologist license
+
+  PRC_PT:
+    canonical: "Registered Physical Therapist Eligibility (RA 1080)"
+    category: "PRC"
+    aliases:
+      - registered physical therapist
+      - licensed physical therapist
+      - physical therapist eligibility
+      - physical therapy board passer
+      - physical therapy board exam passer
+      - physical therapy licensure exam passer
+      - prc physical therapist
+      - prc physical therapy license
+      - ra 1080 physical therapist
+      - holder of physical therapy license
+
+  PRC_OT:
+    canonical: "Registered Occupational Therapist Eligibility (RA 1080)"
+    category: "PRC"
+    aliases:
+      - registered occupational therapist
+      - licensed occupational therapist
+      - occupational therapist eligibility
+      - occupational therapy board passer
+      - occupational therapy board exam passer
+      - occupational therapy licensure exam passer
+      - prc occupational therapist
+      - prc occupational therapy license
+      - ra 1080 occupational therapist
+      - holder of occupational therapy license
+
+  PRC_ND:
+    canonical: "Registered Nutritionist-Dietitian Eligibility (RA 1080)"
+    category: "PRC"
+    aliases:
+      - registered nutritionist dietitian
+      - licensed nutritionist dietitian
+      - nutritionist dietitian eligibility
+      - nutritionist eligibility
+      - dietitian eligibility
+      - nutrition and dietetics board passer
+      - nutrition and dietetics board exam passer
+      - nutrition and dietetics licensure exam passer
+      - prc nutritionist dietitian
+      - prc nutrition dietetics license
+      - ra 1080 nutritionist dietitian
+      - holder of nutritionist dietitian license
+
+  PRC_FORESTER:
+    canonical: "Registered Forester Eligibility (RA 1080)"
+    category: "PRC"
+    aliases:
+      - registered forester
+      - licensed forester
+      - forester eligibility
+      - forestry board passer
+      - forestry board exam passer
+      - forestry licensure exam passer
+      - prc forester
+      - prc forestry license
+      - ra 1080 forester
+      - holder of forester license
+
+  PRC_MASTER_PLUMBER:
+    canonical: "Registered Master Plumber Eligibility (RA 1080)"
+    category: "PRC"
+    aliases:
+      - registered master plumber
+      - licensed master plumber
+      - master plumber eligibility
+      - plumbing board passer
+      - plumbing board exam passer
+      - plumbing licensure exam passer
+      - prc master plumber
+      - prc plumbing license
+      - ra 1080 master plumber
+      - holder of master plumber license
+
+  PRC_GEOLOGIST:
+    canonical: "Registered Geologist Eligibility (RA 1080)"
+    category: "PRC"
+    aliases:
+      - registered geologist
+      - licensed geologist
+      - geologist eligibility
+      - geology board passer
+      - geology board exam passer
+      - geology licensure exam passer
+      - prc geologist
+      - prc geology license
+      - ra 1080 geologist
+      - holder of geologist license
+
+  PRC_LIBRARIAN:
+    canonical: "Registered Librarian Eligibility (RA 1080)"
+    category: "PRC"
+    aliases:
+      - registered librarian
+      - licensed librarian
+      - librarian eligibility
+      - library science board passer
+      - library science board exam passer
+      - library science licensure exam passer
+      - prc librarian
+      - prc librarian license
+      - ra 1080 librarian
+      - holder of librarian license
+
+  PRC_GUIDANCE_COUNSELOR:
+    canonical: "Registered Guidance Counselor Eligibility (RA 1080)"
+    category: "PRC"
+    aliases:
+      - registered guidance counselor
+      - licensed guidance counselor
+      - guidance counselor eligibility
+      - guidance and counseling board passer
+      - guidance and counseling board exam passer
+      - guidance and counseling licensure exam passer
+      - prc guidance counselor
+      - prc guidance and counseling license
+      - ra 1080 guidance counselor
+      - holder of guidance counselor license
+
+  PRC_CUSTOMS_BROKER:
+    canonical: "Registered Customs Broker Eligibility (RA 1080)"
+    category: "PRC"
+    aliases:
+      - registered customs broker
+      - licensed customs broker
+      - customs broker eligibility
+      - customs board passer
+      - customs board exam passer
+      - customs licensure exam passer
+      - prc customs broker
+      - prc customs license
+      - ra 1080 customs broker
+      - holder of customs broker license
+
+  PRC_ELECTRONICS_TECH:
+    canonical: "Registered Electronics Technician Eligibility (RA 1080)"
+    category: "PRC"
+    aliases:
+      - registered electronics technician
+      - licensed electronics technician
+      - electronics technician eligibility
+      - electronics technology board passer
+      - electronics technology board exam passer
+      - electronics technology licensure exam passer
+      - prc electronics technician
+      - prc ect license
+      - ra 1080 electronics technician
+      - holder of electronics technician license
+
+  PRC_CIVIL_SECURITY_PROF:
+    canonical: "Civil Security Professional Eligibility (RA 1080)"
+    category: "PRC"
+    aliases:
+      - registered civil security professional
+      - licensed civil security professional
+      - civil security professional eligibility
+      - security management eligibility
+      - security officer eligibility
+      - prc civil security professional
+      - ra 1080 civil security professional
+      - holder of civil security license
+
+  PRC_SANITARY_ENGINEER:
+    canonical: "Registered Sanitary Engineer Eligibility (RA 1080)"
+    category: "PRC"
+    aliases:
+      - registered sanitary engineer
+      - licensed sanitary engineer
+      - sanitary engineer eligibility
+      - sanitary engineering board passer
+      - sanitary engineering licensure exam passer
+      - prc sanitary engineer
+      - ra 1080 sanitary engineer
+      - holder of sanitary engineer license
+
+  PRC_MARINE_ENGINEER:
+    canonical: "Registered Marine Engineer Eligibility (RA 1080)"
+    category: "PRC"
+    aliases:
+      - registered marine engineer
+      - licensed marine engineer
+      - marine engineer eligibility
+      - marine engineering board passer
+      - marine engineering licensure exam passer
+      - prc marine engineer
+      - ra 1080 marine engineer
+      - holder of marine engineer license
+
+  PRC_NAVAL_ARCHITECT:
+    canonical: "Registered Naval Architect Eligibility (RA 1080)"
+    category: "PRC"
+    aliases:
+      - registered naval architect
+      - licensed naval architect
+      - naval architect eligibility
+      - naval architecture board passer
+      - naval architecture licensure exam passer
+      - prc naval architect
+      - ra 1080 naval architect
+      - holder of naval architect license
+
+  CSC_FIRE_OFFICER:
+    canonical: "Fire Officer Eligibility"
+    category: "CSC"
+    aliases:
+      - fire officer eligibility
+      - fire officer eligible
+      - fire officer examination
+      - fire officer exam
+      - fire officer exam passer
+      - fire officer examination passer
+      - fire officer exam eligibility
+      - fire service eligibility
+      - bureau of fire protection eligibility
+      - bureau of fire protection eligible
+      - bfp eligibility
+      - bfp eligible
+      - foe
+      - foe eligibility
+      - foe eligible
+      - foe passer
+      - fire service exam passer
+      - eligibility for fire officer
+      - eligibility granted under fire officer examination
+      - csc fire officer eligibility
+      - civil service fire officer eligibility
+      - holder of fire officer eligibility
+      - public safety fire officer eligibility
+      - firefighting eligibility
+      - fire prevention officer eligibility
+
+  CSC_PENOLOGY_OFFICER:
+    canonical: "Penology Officer Eligibility"
+    category: "CSC"
+    aliases:
+      - penology officer eligibility
+      - penology officer eligible
+      - penology officer examination
+      - penology officer exam
+      - penology officer exam passer
+      - penology officer examination passer
+      - bureau of jail management and penology eligibility
+      - bjmp eligibility
+      - bjmp eligible
+      - penology service eligibility
+      - corrections officer eligibility
+      - correctional officer eligibility
+      - jail officer eligibility
+      - jail management eligibility
+      - poe
+      - poe eligibility
+      - poe eligible
+      - poe passer
+      - csc penology officer eligibility
+      - civil service penology officer eligibility
+      - holder of penology officer eligibility
+      - public safety penology officer eligibility
+      - correction service eligibility
+      - eligibility for jail officers
+      - eligibility for penology officers
+
+  CSC_LOCAL_TREASURER:
+    canonical: "Local Treasurer Eligibility"
+    category: "CSC"
+    aliases:
+      - local treasurer eligibility
+      - local treasurer eligible
+      - local treasury eligibility
+      - treasury eligibility
+      - treasury exam passer
+      - local treasury exam passer
+      - local treasury examination passer
+      - local treasurer examination passer
+      - treasury examination passer
+      - lte
+      - lte eligibility
+      - lte eligible
+      - lte passer
+      - csc treasury eligibility
+      - csc local treasurer eligibility
+      - civil service local treasurer eligibility
+      - holder of local treasurer eligibility
+      - financial management eligibility
+      - fiscal eligibility
+      - local finance eligibility
+      - eligibility for local treasurer positions
+      - treasury officer eligibility
+      - revenue collection eligibility
+      - eligibility under local treasurer examination
+
+  RA10587_ENV_PLANNER:
+    canonical: "Environmental Planner Eligibility (RA 10587)"
+    category: "PRC"
+    aliases:
+      - ra 10587 environmental planner eligibility
+      - ra 10587 environmental planner eligible
+      - environmental planner eligibility under ra 10587
+      - environmental planning eligibility ra 10587
+      - enp eligibility under ra 10587
+      - enp eligible under ra 10587
+      - licensed environmental planner ra 10587
+      - registered environmental planner ra 10587
+      - environmental planning board passer ra 10587
+      - environmental planning board examination passer ra 10587
+      - environmental planning license ra 10587
+      - holder of environmental planner eligibility ra 10587
+      - csc environmental planner eligibility
+      - environmental management planning eligibility
+      - sustainability planning eligibility
+      - land use planning eligibility
+      - urban planning eligibility
+      - zoning officer eligibility
+      - planning and development eligibility
+
+  CSC_HLURB:
+    canonical: "Housing and Land Use Regulatory Eligibility"
+    category: "CSC"
+    aliases:
+      - housing and land use regulatory eligibility
+      - housing and land use regulatory board eligibility
+      - hlurb eligibility
+      - hlurb eligible
+      - housing regulation eligibility
+      - land use regulation eligibility
+      - real estate regulatory eligibility
+      - real property development eligibility
+      - housing examiner eligibility
+      - housing compliance eligibility
+      - eligibility for housing and land use officers
+      - eligibility for urban development officers
+      - housing policy eligibility
+      - urban housing eligibility
+      - residential regulation eligibility
+      - civil service housing and land use eligibility
+
+  CSC_PAROLE_PROBATION_OFFICER:
+    canonical: "Parole and Probation Officer Eligibility"
+    category: "CSC"
+    aliases:
+      - parole and probation officer eligibility
+      - parole and probation eligibility
+      - probation officer eligibility
+      - probation service eligibility
+      - corrections service eligibility
+      - community corrections eligibility
+      - rehabilitation officer eligibility
+      - reformation officer eligibility
+      - reintegration officer eligibility
+      - eligibility for parole officers
+      - eligibility for probation officers
+      - csc parole and probation eligibility
+      - csc probation eligibility
+      - parole officer exam passer
+      - probation officer exam passer
+      - probation examination passer
+      - probation exam eligibility
+      - community rehabilitation eligibility
+      - social correction eligibility
+
+  CSC_ENV_MGT_OFFICER:
+    canonical: "Environmental Management Officer Eligibility"
+    category: "CSC"
+    aliases:
+      - environmental management officer eligibility
+      - environmental management eligibility
+      - environment officer eligibility
+      - environmental compliance eligibility
+      - environmental protection eligibility
+      - waste management eligibility
+      - pollution control officer eligibility
+      - ecological officer eligibility
+      - ecological management eligibility
+      - climate change mitigation eligibility
+      - sustainability officer eligibility
+      - environmental program officer eligibility
+      - environmental planning and management eligibility
+      - environmental compliance examination passer
+      - holder of environmental management eligibility
+      - environmental governance eligibility
+      - environmental regulatory eligibility
+      - natural resources management eligibility
+      - conservation officer eligibility
+      - civil service environmental management eligibility
+
+  PD907_FOREIGN_HONOR_GRAD:
+    canonical: "Foreign School Honor Graduate Eligibility (PD 907)"
+    category: "CSC"
+    aliases:
+      - foreign school honor graduate eligibility
+      - foreign school honor graduate eligible
+      - foreign honor graduate eligibility
+      - foreign honor graduate eligible
+      - foreign pd 907 eligibility
+      - foreign pd 907 eligible
+      - overseas honor graduate eligibility
+      - overseas honor graduate eligible
+      - international honor graduate eligibility
+      - international honor graduate eligible
+      - graduate with honors abroad eligibility
+      - graduate with honors foreign eligibility
+      - cum laude abroad eligibility
+      - summa cum laude abroad eligibility
+      - magna cum laude abroad eligibility
+      - honor graduate from foreign school eligibility
+      - honor graduate from foreign university eligibility
+      - honor graduate outside philippines eligibility
+      - foreign degree honor graduate eligibility
+      - holder of foreign school honor graduate eligibility
+      - eligibility for foreign school honor graduates
+      - eligibility granted under foreign pd 907
+      - foreign pd907 eligibility
+      - csc foreign honor graduate eligibility
+
+  CSC_STSE_EXTENSION:
+    canonical: "Scientific and Technological Specialist Eligibility (Extension)"
+    category: "CSC"
+    aliases:
+      - science specialist eligibility
+      - technology specialist eligibility
+      - research and development specialist eligibility
+      - innovation specialist eligibility
+      - applied science eligibility
+      - engineering research eligibility
+      - laboratory research eligibility
+      - laboratory analyst eligibility
+      - research officer eligibility
+      - research professional eligibility
+      - experimental scientist eligibility
+      - technologist eligibility
+      - applied technology eligibility
+      - science and research eligibility
+      - eligibility for scientific research staff
+      - eligibility for technologists
+      - scientific technical eligibility
+      - technical specialist eligibility
+      - scientific professional eligibility
+
+  CSC_EDP_EXTENSION:
+    canonical: "Electronic Data Processing Specialist Eligibility (Extension)"
+    category: "CSC"
+    aliases:
+      - it eligibility
+      - information technology eligibility
+      - information systems eligibility
+      - data processing eligibility
+      - data analyst eligibility
+      - data programmer eligibility
+      - systems analyst eligibility
+      - computer programmer eligibility
+      - software developer eligibility
+      - database administrator eligibility
+      - information technology professional eligibility
+      - information communication technology eligibility
+      - ict eligibility
+      - ict specialist eligibility
+      - digital systems eligibility
+      - computer systems eligibility
+      - csc it eligibility
+      - civil service it eligibility
+      - civil service data processing eligibility
+      - technology officer eligibility
+      - technology specialist eligibility
+      - edp professional eligibility
+      - electronic data processing professional eligibility
+      - eligibility for it professionals
+
+  CSC_SKILLS_CAT_II_EXT:
+    canonical: "Skills Eligibility Category II (Extension)"
+    category: "CSC"
+    aliases:
+      - trade skill eligibility
+      - trade test eligibility
+      - skills examination eligibility
+      - craftsman eligibility
+      - artisan eligibility
+      - technician eligibility
+      - automotive technician eligibility
+      - electrical technician eligibility
+      - mechanical technician eligibility
+      - electronics technician eligibility
+      - computer hardware technician eligibility
+      - computer systems technician eligibility
+      - machinist eligibility
+      - welder eligibility
+      - plumber eligibility
+      - electrician eligibility
+      - carpenter eligibility
+      - mason eligibility
+      - painter eligibility
+      - driver eligibility
+      - heavy equipment operator eligibility
+      - heavy vehicle operator eligibility
+      - machine operator eligibility
+      - refrigeration technician eligibility
+      - air-conditioning technician eligibility
+      - refrigeration and air-conditioning technician eligibility
+      - automotive mechanic eligibility
+      - diesel mechanic eligibility
+      - motorcycle mechanic eligibility
+      - vehicle technician eligibility
+      - building maintenance technician eligibility
+      - electronics repair technician eligibility
+      - technical skills eligibility
+      - vocational skills eligibility
+      - vocational trade eligibility
+      - craftsman skills eligibility
+      - trade worker eligibility
+      - skilled worker eligibility
+      - skilled trades eligibility
+      - trade craftsmanship eligibility
+      - construction worker eligibility
+      - construction technician eligibility
+      - construction trades eligibility
+      - metal works eligibility
+      - welding trades eligibility
+      - automotive services eligibility
+      - electrical installation eligibility
+      - mechanical repair eligibility
+      - civil works eligibility
+      - technical occupation eligibility
+      - job skill eligibility
+      - eligibility for skilled workers
+      - eligibility for technicians
+      - eligibility for craftsmen
+      - csc skills eligibility
+      - category ii eligibility
+      - category 2 eligibility
+      - category ii skills eligibility
+      - category ii civil service eligibility
+
+  CSC_ICT_SPECIALIST:
+    canonical: "Information and Communication Technology Specialist Eligibility"
+    category: "CSC"
+    aliases:
+      - information and communication technology eligibility
+      - ict eligibility
+      - ict specialist eligibility
+      - communications technology eligibility
+      - digital technology eligibility
+      - network specialist eligibility
+      - network administrator eligibility
+      - systems network eligibility
+      - systems engineering eligibility
+      - information infrastructure eligibility
+      - telecommunication specialist eligibility
+      - computer network eligibility
+      - systems integrator eligibility
+      - data network eligibility
+      - digital communication eligibility
+      - information engineer eligibility
+      - information officer eligibility
+      - csc ict eligibility
+      - civil service ict eligibility
+      - eligibility for information and communication technology officers
+
+  CSC_ARCHIVIST_RECORDS_OFFICER:
+    canonical: "Archivist and Records Officer Eligibility"
+    category: "CSC"
+    aliases:
+      - archivist eligibility
+      - records officer eligibility
+      - records management eligibility
+      - records management officer eligibility
+      - archives management eligibility
+      - library and information services eligibility
+      - documentation officer eligibility
+      - information management eligibility
+      - data management eligibility
+      - data records eligibility
+      - documentation specialist eligibility
+      - records custodian eligibility
+      - eligibility for archivists
+      - eligibility for records officers
+      - eligibility for records management staff
+
+  CSC_CULTURAL_HERITAGE_SPECIALIST:
+    canonical: "Cultural and Heritage Specialist Eligibility"
+    category: "CSC"
+    aliases:
+      - cultural heritage specialist eligibility
+      - cultural heritage eligibility
+      - heritage conservation eligibility
+      - museum officer eligibility
+      - museum curator eligibility
+      - arts and culture officer eligibility
+      - cultural affairs eligibility
+      - cultural officer eligibility
+      - heritage researcher eligibility
+      - heritage officer eligibility
+      - heritage management eligibility
+      - historical research eligibility
+      - historical preservation eligibility
+      - cultural studies eligibility
+      - eligibility for culture and arts officers
+      - eligibility for heritage officers
+
+  CSC_SOCIAL_SCIENCE_SPECIALIST:
+    canonical: "Social Science Specialist Eligibility"
+    category: "CSC"
+    aliases:
+      - social science specialist eligibility
+      - social research eligibility
+      - community development eligibility
+      - social planning eligibility
+      - sociology research eligibility
+      - anthropology research eligibility
+      - economics research eligibility
+      - governance research eligibility
+      - policy research eligibility
+      - development research eligibility
+      - social work research eligibility
+      - social research officer eligibility
+      - eligibility for social science researchers
+      - eligibility for development planners
+
+  CSC_TOURISM_ARTS_OFFICER:
+    canonical: "Tourism and Arts Officer Eligibility"
+    category: "CSC"
+    aliases:
+      - tourism officer eligibility
+      - tourism services eligibility
+      - tourism management eligibility
+      - travel and tourism eligibility
+      - cultural tourism eligibility
+      - ecotourism eligibility
+      - tourism development eligibility
+      - tourism promotion eligibility
+      - events management eligibility
+      - events organizer eligibility
+      - performing arts officer eligibility
+      - arts program eligibility
+      - arts management eligibility
+      - eligibility for tourism officers
+      - eligibility for arts officers
+      - eligibility for cultural tourism staff
+
+  CSC_EDU_TRAINING_OFFICER:
+    canonical: "Education and Training Officer Eligibility"
+    category: "CSC"
+    aliases:
+      - education officer eligibility
+      - training officer eligibility
+      - learning and development officer eligibility
+      - capacity building officer eligibility
+      - instructional design eligibility
+      - education and development eligibility
+      - educational planning eligibility
+      - training management eligibility
+      - learning facilitator eligibility
+      - human resource development eligibility
+      - development trainer eligibility
+      - staff development eligibility
+      - organizational training eligibility
+      - eligibility for education and training officers
+      - eligibility for learning and development specialists
+
+  DFA_FSO:
+    canonical: "Foreign Service Officer Eligibility"
+    category: "DFA"
+    aliases:
+      - foreign service officer eligibility
+      - fso eligibility
+      - fso eligible
+      - diplomatic service eligibility
+      - diplomatic corps eligibility
+      - foreign affairs eligibility
+      - international relations officer eligibility
+      - international service eligibility
+      - foreign relations eligibility
+      - embassy officer eligibility
+      - consular officer eligibility
+      - csc foreign service eligibility
+      - holder of foreign service officer eligibility
+      - passed foreign service officer exam
+      - eligibility for diplomatic positions

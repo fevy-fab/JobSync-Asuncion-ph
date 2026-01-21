@@ -1,0 +1,1654 @@
+eligibilities:
+  CSC_PROF:
+    canonical: "Career Service Professional Eligibility (Second Level)"
+    category: "CSC"
+    aliases:
+      - career service professional
+      - career service professional eligibility
+      - career service professional eligible
+      - career service professional level
+      - career service professional exam passer
+      - civil service professional
+      - civil service professional eligibility
+      - civil service professional eligible
+      - civil service professional passer
+      - civil service professional exam passer
+      - civil service professional second level
+      - civil service professional second level eligibility
+      - civil service exam professional
+      - civil service exam professional passer
+      - cse professional
+      - cse professional passer
+      - cse professional eligibility
+      - cse prof
+      - cse prof passer
+      - cs professional
+      - cs professional eligibility
+      - cs prof
+      - cs prof passer
+      - cse pass professional
+      - cse passer professional level
+
+  CSC_SUBPROF:
+    canonical: "Career Service Subprofessional Eligibility (First Level)"
+    category: "CSC"
+    aliases:
+      - career service subprofessional
+      - career service subprofessional eligibility
+      - career service subprofessional eligibility first level
+      - career service (subprofessional) eligibility
+      - career service sub-professional eligibility
+      - career service sub-prof eligibility
+      - civil service subprofessional eligibility
+      - civil service (subprofessional) eligibility
+      - civil service sub-professional eligibility
+      - civil service sub-prof eligibility
+      - civil service first level eligibility
+      - subprofessional civil service eligibility
+      - sub-professional civil service eligibility
+      - subprofessional level eligibility
+      - first level eligibility (subprofessional)
+      - career service subprofessional
+      - career service sub-professional
+      - civil service subprofessional
+      - civil service sub-professional
+      - subprofessional civil service
+      - sub-professional civil service
+      - subprofessional level
+      - first level civil service
+      - first level career service
+      - cs subprofessional
+      - cs sub-professional
+      - cs sub-prof
+      - cs subprof
+      - cse subprofessional
+      - cse sub-professional
+      - cse sub-prof
+      - cse subprof
+      - sub-prof passer
+      - subprofessional passer
+      - civil service sub-prof passer
+      - civil service subprofessional passer
+      - career service subprofessional eligible
+      - civil service subprofessional eligible
+      - cs subprofessional eligible
+
+  CSC_PREF_RATING:
+    canonical: "Career Service Eligibility – Preference Rating (CSE-PR)"
+    category: "CSC"
+    aliases:
+      - career service eligibility - preference rating
+      - career service eligibility - preference rating (cse-pr)
+      - career service eligibility preference rating
+      - career service (cse) eligibility - preference rating
+      - csc career service eligibility - preference rating
+      - civil service eligibility - preference rating
+      - civil service eligibility preference rating
+      - civil service exam preference rating eligibility
+      - cse preference rating eligibility
+      - cse-pr eligibility
+      - cse pr preference rating eligibility
+      - cse-pr career service eligibility
+      - career service preference rating eligibility
+      - cs preference rating eligibility
+      - career service preference rating eligibility for casual and contractual
+      - cse-pr eligibility for casual and contractual employees
+      - preference rating eligibility for civil service
+      - preference rating eligibility for government workers
+      - career service preference rating
+      - career service preference rating (cse-pr)
+      - civil service preference rating
+      - civil service exam preference rating
+      - cse preference rating
+      - cse-pr
+      - cse pr
+      - cse-pr rating
+      - cse pr rating
+      - cse-pr passer
+      - cse pr passer
+      - preference rating passer
+      - career service preference rating passer
+      - cse-pr holder
+      - cse pr holder
+      - cse-pr eligible
+      - cse pr eligible
+      - cs preference rating
+      - preference rating for civil service exam
+      - preference rating for cse      
+
+  CSC_PREF_RATING_MUP:
+    canonical: "Career Service Eligibility – Preference Rating for Military and Uniformed Personnel (CSE-PR MUP)"
+    category: "CSC"
+    aliases:
+      - career service eligibility – military and uniformed personnel
+      - career service eligibility – preference rating for military and uniformed personnel
+      - career service eligibility - preference rating for military and uniformed personnel
+      - career service eligibility preference rating for military and uniformed personnel
+      - career service eligibility – preference rating (cse-pr) for military and uniformed personnel
+      - career service eligibility preference rating (cse-pr) for military and uniformed personnel
+      - career service eligibility – preference rating for mup
+      - career service eligibility preference rating for mup
+      - career service eligibility – preference rating (cse-pr) for mup
+      - civil service eligibility – preference rating for military and uniformed personnel
+      - civil service eligibility preference rating for military and uniformed personnel
+      - civil service eligibility preference rating for mup
+      - preference rating eligibility for military and uniformed personnel
+      - preference rating eligibility for mup
+      - career service preference rating for military and uniformed personnel
+      - career service preference rating for mup
+      - civil service preference rating for military and uniformed personnel
+      - civil service preference rating for mup
+      - cse preference rating for military and uniformed personnel
+      - cse preference rating for mup
+      - cse-pr for military and uniformed personnel
+      - cse-pr for mup
+      - cse-pr military and uniformed personnel
+      - cse-pr mup
+      - cse pr mup
+      - cse-pr (mup)
+      - preference rating for military and uniformed personnel
+      - preference rating for mup
+      - mup career service eligibility preference rating
+      - mup civil service preference rating
+      - mup cse preference rating
+      - military and uniformed personnel preference rating
+      - military and uniformed personnel cse-pr
+      - mup cse-pr
+      - mup cse pr
+      - cse-pr bonus points for mup
+      - mup bonus points in civil service exam
+
+  CSC_FSO:
+    canonical: "Career Foreign Service Officer Eligibility (from CSE-FSO)"
+    category: "CSC"
+    aliases:
+      - career foreign service officer
+      - career foreign service officer eligibility
+      - career foreign service officer eligibility (cse-fso)
+      - career foreign service officer eligibility from cse-fso
+      - career foreign service eligibility
+      - career service foreign service officer eligibility
+      - career service foreign service eligibility
+      - civil service foreign service officer eligibility
+      - civil service foreign service eligibility
+      - foreign service officer eligibility
+      - foreign service eligibility
+      - cse-fso eligibility
+      - cse fso eligibility
+      - career foreign service officer eligible
+      - career foreign service eligible
+      - foreign service officer eligible
+      - foreign service eligible
+      - career foreign service officer
+      - foreign service officer (career service)
+      - career foreign service
+      - career service foreign service officer
+      - foreign service officer csc
+      - cse-fso passer
+      - cse fso passer
+      - cse-fso passer eligibility
+      - cse fso passer eligibility
+      - career foreign service officer exam passer
+      - foreign service officer exam passer
+      - fso eligibility
+      - fso elig
+      - fso csc eligibility
+      - fso csc elig
+      - fso career eligibility
+      - fso career elig
+
+  RA1080_BARBOARD:
+    canonical: "Bar/Board Eligibility (RA 1080)"
+    category: "RA1080"
+    aliases:
+      - bar/board eligibility (ra 1080)
+      - bar and board eligibility (ra 1080)
+      - bar or board eligibility (ra 1080)
+      - ra 1080 bar/board eligibility
+      - ra 1080 bar and board eligibility
+      - ra 1080 bar or board eligibility
+      - civil service bar/board eligibility
+      - civil service bar and board eligibility
+      - civil service ra 1080 eligibility
+      - bar/board eligibility
+      - bar and board eligibility
+      - bar or board eligibility
+      - ra 1080 eligibility
+      - ra1080 eligibility
+      - ra 1080 bar eligibility
+      - ra 1080 board eligibility
+      - ra1080 bar/board eligibility
+      - ra1080 bar and board eligibility
+      - ra1080 bar or board eligibility
+      - civil service ra 1080
+      - civil service ra1080
+      - civil service bar/board
+      - civil service bar and board
+      - civil service bar or board
+      - bar/board cs eligibility
+      - bar and board cs eligibility
+      - bar or board cs eligibility
+      - ra 1080 bar/board
+      - ra 1080 bar and board
+      - ra 1080 bar or board
+      - ra1080 bar/board
+      - ra1080 bar and board
+      - ra1080 bar or board
+      - bar/board ra 1080
+      - bar and board ra 1080
+      - bar or board ra 1080
+      - bar/board ra1080
+      - bar and board ra1080
+      - bar or board ra1080
+
+  RA1080_LAWYER:
+    canonical: "Lawyer – Philippine Bar Examination (RA 1080)"
+    category: "RA1080"
+    aliases:
+      - lawyer eligibility (ra 1080)
+      - lawyer - eligibility (ra 1080)
+      - philippine bar eligibility (ra 1080)
+      - bar passer eligibility (ra 1080)
+      - bar examination eligibility (ra 1080)
+      - philippine bar examination eligibility
+      - bar and board eligibility (lawyer)
+      - ra 1080 lawyer eligibility
+      - ra1080 lawyer eligibility
+      - civil service lawyer eligibility
+      - bar passer civil service eligibility
+      - philippine bar passer eligibility
+      - lawyer bar passer eligibility
+      - lawyer (ra 1080)
+      - lawyer – philippine bar examination
+      - lawyer – philippine bar exam
+      - lawyer – bar passer
+      - philippine bar passer
+      - philippine bar exam passer
+      - philippine bar examination passer
+      - bar exam passer
+      - bar passer
+      - admitted to the philippine bar
+      - member of the philippine bar
+      - roll of attorneys member
+      - roll of attorneys
+      - licensed lawyer
+      - licensed attorney
+      - practicing lawyer
+      - practicing attorney
+      - philippine lawyer
+      - philippine attorney
+      - atty
+      - atty.
+      - atty (philippines)
+      - atty. (philippines)
+      - atty bar passer
+      - atty ra 1080
+      - ra1080 lawyer
+      - ra 1080 bar passer
+      - ra1080 bar passer
+
+  RA1080_PROF_TEACHER:
+    canonical: "Professional Teacher – Licensure Examination for Teachers (RA 1080)"
+    category: "RA1080"
+    aliases:
+      - professional teacher civil service eligibility (ra 1080)
+      - professional teacher eligibility (ra 1080)
+      - professional teacher eligibility
+      - licensed professional teacher eligibility
+      - licensure examination for teachers eligibility
+      - teacher licensure examination eligibility
+      - prc professional teacher eligibility
+      - prc licensed professional teacher eligibility
+      - bar board eligibility (ra 1080 teacher)
+      - ra 1080 professional teacher eligibility
+      - ra1080 professional teacher eligibility
+      - ra 1080 teacher eligibility
+      - ra1080 teacher eligibility
+      - civil service eligibility professional teacher
+      - civil service eligibility teacher (ra 1080)
+      - civil service eligibility for professional teacher
+      - professional teacher (ra 1080)
+      - professional teacher license
+      - professional teacher licensure
+      - prc professional teacher
+      - prc licensed professional teacher
+      - prc licensed teacher
+      - licensed professional teacher
+      - ra 1080 teacher
+      - ra1080 teacher
+      - ra 1080 (teacher)
+      - civil service professional teacher
+      - civil service teacher (ra 1080)
+      - let passer
+      - let board passer
+      - let passer professional teacher
+      - board passer teacher
+      - teacher board passer
+      - professional teacher board passer
+      - lpt
+      - lpt (licensed professional teacher)
+
+  RA1080_PHYSICIAN:
+    canonical: "Physician – Physician Licensure Examination (RA 1080)"
+    category: "RA1080"
+    aliases:
+      - physician eligibility (ra 1080)
+      - physician board eligibility (ra 1080)
+      - physician licensure examination eligibility (ra 1080)
+      - physician board passer eligibility (ra 1080)
+      - physician prc license eligibility
+      - licensed physician eligibility (ra 1080)
+      - licensed medical doctor eligibility (ra 1080)
+      - medical doctor eligibility (ra 1080)
+      - doctor of medicine eligibility (ra 1080)
+      - ra 1080 physician eligibility
+      - ra1080 physician eligibility
+      - ra 1080 medical doctor eligibility
+      - ra1080 medical doctor eligibility
+      - ra 1080 doctor of medicine eligibility
+      - ra1080 doctor of medicine eligibility
+      - prc physician license eligibility
+      - prc-licensed physician eligibility
+      - prc licensed medical doctor eligibility
+      - physician licensure examination (ra 1080)
+      - physician licensure examination passer (ra 1080)
+      - physician licensure exam passer (ra 1080)
+      - physician board passer (ra 1080)
+      - physician board exam passer
+      - physician board examination passer
+      - licensed physician (ra 1080)
+      - licensed medical doctor (ra 1080)
+      - medical doctor (ra 1080)
+      - doctor of medicine (ra 1080)
+      - prc licensed physician
+      - prc-licensed physician
+      - prc licensed medical doctor
+      - prc-licensed medical doctor
+      - philippine physician license
+      - philippine medical doctor license
+      - philippine doctor of medicine license
+      - physician board exam
+      - physician board
+      - physician board passer
+      - md board passer
+      - doctor board passer
+      - licensed physician
+      - licensed md
+      - licensed medical doctor
+      - licensed doctor of medicine
+      - md (ra 1080)
+      - md ra 1080
+      - ra 1080 physician
+      - ra1080 physician
+      - ra 1080 md
+      - ra1080 md
+      - md board
+      - md board exam
+      - doctor of medicine board
+      - doctor of medicine board exam
+      - philippine physician
+      - philippine md
+      - philippine medical doctor
+
+  RA1080_NURSE:
+    canonical: "Nurse – Nursing Licensure Examination (RA 1080)"
+    category: "RA1080"
+    aliases:
+      - nurse nursing licensure examination (ra 1080) eligibility
+      - nursing licensure examination (nle) eligibility for nurse
+      - nursing licensure exam eligibility for nurse
+      - nursing board examination eligibility
+      - nursing board exam eligibility
+      - nurse ra 1080 eligibility
+      - ra 1080 nurse eligibility
+      - prc nurse eligibility
+      - prc nursing licensure eligibility
+      - licensed nurse civil service eligibility
+      - registered nurse civil service eligibility
+      - nursing licensure examination (nle)
+      - nursing licensure exam
+      - nurse nursing licensure examination
+      - nursing board examination
+      - nursing board exam
+      - nursing board
+      - registered nurse
+      - licensed nurse
+      - prc registered nurse
+      - prc licensed nurse
+      - prc nurse
+      - prc rn
+      - rn
+      - nle passer
+      - nursing licensure exam passer
+      - nursing licensure examination passer
+      - nursing board passer
+      - nurse board passer
+      - board passer nurse
+
+  RA1080_MIDWIFE:
+    canonical: "Midwife – Midwifery Licensure Examination (RA 1080)"
+    category: "RA1080"
+    aliases:
+      - midwifery licensure examination eligibility
+      - midwifery licensure examination eligibility ra 1080
+      - midwife midwifery licensure examination eligibility
+      - midwife ra 1080 eligibility
+      - midwifery ra 1080 eligibility
+      - ra 1080 midwife eligibility
+      - ra 1080 midwifery eligibility
+      - midwife civil service eligibility ra 1080
+      - midwifery civil service eligibility ra 1080
+      - midwifery licensure examination
+      - midwife midwifery licensure examination
+      - midwife licensure examination
+      - midwifery board licensure examination
+      - midwife board licensure examination
+      - midwife board exam
+      - midwifery board exam
+      - midwife board exam passer
+      - midwifery board exam passer
+      - midwife board passer
+      - midwifery board passer
+      - licensed midwife
+      - licensed midwife ra 1080
+      - registered midwife
+      - registered midwife ra 1080
+      - prc midwife license
+      - prc licensed midwife
+      - midwife license
+      - midwifery license
+      - ra 1080 midwife
+      - ra1080 midwife
+      - ra 1080 midwifery
+      - ra1080 midwifery
+      - midwife ra 1080
+      - midwifery ra 1080
+      - rm licensed midwife
+      - rm license
+      - rm prc license
+      - rm board passer
+      - rm board exam passer
+      - rm ra 1080
+
+  RA1080_DENTIST:
+    canonical: "Dentist – Dentistry Licensure Examination (RA 1080)"
+    category: "RA1080"
+    aliases:
+      - dentist eligibility (ra 1080)
+      - dentistry licensure examination eligibility (ra 1080)
+      - dentistry licensure exam eligibility (ra 1080)
+      - dentistry board examination eligibility
+      - dentistry board exam eligibility
+      - dentist board examination eligibility
+      - dentist board exam eligibility
+      - prc dentist eligibility
+      - prc-licensed dentist eligibility
+      - licensed dentist eligibility
+      - licensed professional dentist eligibility
+      - registered dentist eligibility
+      - dentist civil service eligibility
+      - bar/board eligibility for dentist (ra 1080)
+      - ra 1080 dentist eligibility
+      - ra1080 dentist eligibility
+      - dentistry licensure examination
+      - dentistry licensure exam
+      - dentistry board examination
+      - dentistry board exam
+      - dentist board examination
+      - dentist board exam
+      - dentistry board passer
+      - dentist board passer
+      - dentistry board exam passer
+      - prc licensed dentist
+      - prc-licensed dentist
+      - prc dentist
+      - licensed dentist
+      - licensed professional dentist
+      - registered dentist
+      - ra 1080 dentist
+      - ra1080 dentist
+      - dentist ra 1080
+      - dentist (prc)
+
+  RA1080_MEDTECH:
+    canonical: "Medical Technologist – Medical Technology Licensure Examination (RA 1080)"
+    category: "RA1080"
+    aliases:
+      - medical technologist eligibility
+      - medical technologist civil service eligibility
+      - medical technologist ra 1080 eligibility
+      - medical technology licensure examination eligibility
+      - medical technologist board eligibility
+      - medical technologist board passer eligibility
+      - ra 1080 medical technologist eligibility
+      - ra 1080 med tech eligibility
+      - ra 1080 medical technology eligibility
+      - bar board eligibility medical technologist
+      - bar board eligibility med tech
+      - medical technologist (ra 1080)
+      - med tech (ra 1080)
+      - ra 1080 medical technologist
+      - ra 1080 medtech
+      - medical technologist
+      - registered medical technologist
+      - licensed medical technologist
+      - medical technologist board passer
+      - medical technology licensure examination passer
+      - medical technologist board exam passer
+      - med tech
+      - medtech
+      - registered med tech
+      - licensed med tech
+      - medtech board passer
+      - rmt
+
+  RA1080_PHARMACIST:
+    canonical: "Pharmacist – Pharmacy Licensure Examination (RA 1080)"
+    category: "RA1080"
+    aliases:
+      - pharmacist eligibility
+      - pharmacist civil service eligibility
+      - pharmacist ra 1080 eligibility
+      - pharmacy licensure examination eligibility
+      - pharmacy board eligibility
+      - pharmacist board eligibility
+      - pharmacist board passer eligibility
+      - ra 1080 pharmacist eligibility
+      - ra 1080 pharmacy eligibility
+      - bar board eligibility pharmacist
+      - bar board eligibility pharmacy
+      - pharmacist (ra 1080)
+      - pharmacy (ra 1080)
+      - ra 1080 pharmacist
+      - ra 1080 pharmacy
+      - pharmacist
+      - registered pharmacist
+      - licensed pharmacist
+      - pharmacist board passer
+      - pharmacy board passer
+      - pharmacist licensure examination passer
+      - pharmacy board exam passer
+      - registered pharmacist (rph)
+      - rph
+      - pharm board passer
+      - pharm licensure passer
+
+  RA1080_NUTRITIONIST_DIETITIAN:
+    canonical: "Nutritionist-Dietitian – Nutritionist-Dietitian Licensure Examination (RA 1080)"
+    category: "RA1080"
+    aliases:
+      - nutritionist-dietitian licensure examination eligibility (ra 1080)
+      - nutritionist dietitian licensure examination eligibility (ra 1080)
+      - nutritionist-dietitian eligibility (ra 1080)
+      - nutritionist dietitian eligibility (ra 1080)
+      - licensed nutritionist-dietitian eligibility
+      - licensed nutritionist dietitian eligibility
+      - registered nutritionist-dietitian eligibility
+      - registered nutritionist dietitian eligibility
+      - nutritionist-dietitian board exam eligibility
+      - nutritionist dietitian board exam eligibility
+      - nutritionist-dietitian licensure examination
+      - nutritionist dietitian licensure examination
+      - nutritionist-dietitian board exam
+      - nutritionist dietitian board exam
+      - licensed nutritionist-dietitian
+      - licensed nutritionist dietitian
+      - registered nutritionist-dietitian
+      - registered nutritionist dietitian
+      - prc licensed nutritionist-dietitian
+      - prc licensed nutritionist dietitian
+      - nutritionist-dietitian board passer
+      - nutritionist dietitian board passer
+      - rnd
+      - registered nutritionist-dietitian
+
+  RA1080_VETERINARIAN:
+    canonical: "Veterinarian – Veterinary Medicine Licensure Examination (RA 1080)"
+    category: "RA1080"
+    aliases:
+      - veterinary medicine licensure examination eligibility (ra 1080)
+      - veterinarian licensure examination eligibility (ra 1080)
+      - veterinary medicine eligibility (ra 1080)
+      - veterinarian eligibility (ra 1080)
+      - licensed veterinarian eligibility
+      - registered veterinarian eligibility
+      - veterinarian board exam eligibility
+      - veterinary medicine board exam eligibility
+      - vet med board exam eligibility
+      - veterinary medicine licensure examination
+      - veterinarian licensure examination
+      - veterinary medicine board exam
+      - veterinarian board exam
+      - vet med licensure exam
+      - vet med board exam
+      - licensed veterinarian
+      - registered veterinarian
+      - prc licensed veterinarian
+      - veterinarian board passer
+      - veterinary medicine board passer
+      - vet med board passer
+      - vet board passer
+      - vet med
+      - dvm board passer
+
+  RA1080_SOCIAL_WORKER:
+    canonical: "Social Worker – Social Worker Licensure Examination (RA 1080)"
+    category: "RA1080"
+    aliases:
+      - social worker licensure examination eligibility (ra 1080)
+      - social work licensure examination eligibility (ra 1080)
+      - social worker eligibility (ra 1080)
+      - licensed social worker eligibility
+      - registered social worker eligibility
+      - social worker board exam eligibility
+      - social work board exam eligibility
+      - social worker licensure examination
+      - social work licensure examination
+      - social worker board exam
+      - social work board exam
+      - licensed social worker
+      - registered social worker
+      - prc licensed social worker
+      - social worker board passer
+      - social work board passer
+      - social worker board exam passer
+      - social work board exam passer
+      - rsw
+      - rsw board passer
+
+  RA1080_CRIMINOLOGIST:
+    canonical: "Criminologist – Criminologist Licensure Examination (RA 1080)"
+    category: "RA1080"
+    aliases:
+      - criminologist eligibility (ra 1080)
+      - criminologist eligibility ra 1080
+      - criminologist civil service eligibility (ra 1080)
+      - ra 1080 criminologist eligibility
+      - ra1080 criminologist eligibility
+      - registered criminologist eligibility (ra 1080)
+      - registered criminologist civil service eligibility
+      - criminology board exam eligibility (ra 1080)
+      - criminologist – ra 1080
+      - ra 1080 – criminologist
+      - ra1080 – criminologist
+      - registered criminologist (ra 1080)
+      - registered criminologist
+      - criminologist board passer
+      - criminologist board exam passer
+      - criminologist licensure exam passer
+      - criminologist board
+      - criminology board passer
+      - criminology board exam passer
+      - criminologist ra 1080
+      - ra1080 criminologist
+      - ra 1080 crim
+      - ra1080 crim
+      - reg criminologist
+      - rcrim
+
+  RA1080_CPA:
+    canonical: "Certified Public Accountant – CPA Licensure Examination (RA 1080)"
+    category: "RA1080"
+    aliases:
+      - certified public accountant eligibility (ra 1080)
+      - certified public accountant eligibility ra 1080
+      - cpa eligibility (ra 1080)
+      - cpa civil service eligibility (ra 1080)
+      - ra 1080 certified public accountant eligibility
+      - ra1080 certified public accountant eligibility
+      - ra 1080 cpa eligibility
+      - ra1080 cpa eligibility
+      - accountant eligibility (ra 1080)
+      - cpa board exam eligibility (ra 1080)
+      - certified public accountant – ra 1080
+      - ra 1080 – certified public accountant
+      - ra 1080 – cpa
+      - ra1080 – cpa
+      - certified public accountant (ra 1080)
+      - cpa (ra 1080)
+      - registered cpa (ra 1080)
+      - certified public accountant
+      - cpa board passer
+      - cpa licensure exam passer
+      - cpa board exam passer
+      - cpa board
+      - accountancy board passer
+      - ra 1080 cpa
+      - ra1080 cpa
+      - ra 1080 accountant
+      - ra1080 accountant
+      - reg cpa
+      - licensed cpa
+      - cpa
+
+  RA1080_CIVIL_ENGINEER:
+    canonical: "Civil Engineer – Civil Engineering Licensure Examination (RA 1080)"
+    category: "RA1080"
+    aliases:
+      - civil engineer eligibility (ra 1080)
+      - civil engineer eligibility ra 1080
+      - civil engineering board eligibility (ra 1080)
+      - civil engineer civil service eligibility (ra 1080)
+      - ra 1080 civil engineer eligibility
+      - ra1080 civil engineer eligibility
+      - ra 1080 civil engineering eligibility
+      - civil engineering licensure eligibility (ra 1080)
+      - civil engineer – ra 1080
+      - ra 1080 – civil engineer
+      - ra1080 – civil engineer
+      - registered civil engineer eligibility (ra 1080)
+      - registered civil engineer (ra 1080)
+      - registered civil engineer
+      - civil engineer (ra 1080)
+      - civil engineering board passer eligibility
+      - civil engineering board passer
+      - civil engineer board exam passer
+      - civil engineer licensure exam passer
+      - civil engineering board
+      - ra 1080 civil engineer
+      - ra1080 civil engineer
+      - ra 1080 rce
+      - ra1080 rce
+      - reg civil engineer
+      - rce
+
+  RA1080_ELECTRICAL_ENGINEER:
+    canonical: "Electrical Engineer – Registered Electrical Engineer Licensure Examination (RA 1080)"
+    category: "RA1080"
+    aliases:
+      - electrical engineer eligibility (ra 1080)
+      - registered electrical engineer eligibility (ra 1080)
+      - electrical engineering board eligibility (ra 1080)
+      - bar/board eligibility – registered electrical engineer (ra 1080)
+      - electrical engineer civil service eligibility
+      - registered electrical engineer civil service eligibility
+      - registered electrical engineer license
+      - electrical engineer license
+      - prc registered electrical engineer
+      - prc electrical engineer
+      - registered electrical engineer
+      - electrical engineer board passer
+      - electrical engineering board passer
+      - registered electrical engineer board passer
+      - electrical engineer board exam passer
+      - ree board passer
+      - ree license
+      - prc ree
+      - ree
+      - elec engr
+      - electrical engr
+
+  RA1080_MECHANICAL_ENGINEER:
+    canonical: "Mechanical Engineer – Mechanical Engineering Licensure Examination (RA 1080)"
+    category: "RA1080"
+    aliases:
+      - mechanical engineer eligibility (ra 1080)
+      - registered mechanical engineer eligibility (ra 1080)
+      - mechanical engineering board eligibility (ra 1080)
+      - bar/board eligibility – mechanical engineer (ra 1080)
+      - mechanical engineer civil service eligibility
+      - registered mechanical engineer civil service eligibility
+      - registered mechanical engineer license
+      - mechanical engineer license
+      - prc registered mechanical engineer
+      - prc mechanical engineer
+      - registered mechanical engineer
+      - mechanical engineer board passer
+      - mechanical engineering board passer
+      - registered mechanical engineer board passer
+      - mechanical engineer board exam passer
+      - rme board passer
+      - rme license
+      - prc rme
+      - rme
+      - mech engr
+      - mechanical engr
+
+  RA1080_SANITARY_ENGINEER:
+    canonical: "Sanitary Engineer – Sanitary Engineering Licensure Examination (RA 1080)"
+    category: "RA1080"
+    aliases:
+      - sanitary engineer eligibility (ra 1080)
+      - registered sanitary engineer eligibility (ra 1080)
+      - sanitary engineering board eligibility (ra 1080)
+      - bar/board eligibility – sanitary engineer (ra 1080)
+      - sanitary engineer civil service eligibility
+      - registered sanitary engineer civil service eligibility
+      - registered sanitary engineer license
+      - sanitary engineer license
+      - prc registered sanitary engineer
+      - prc sanitary engineer
+      - registered sanitary engineer
+      - sanitary engineer board passer
+      - sanitary engineering board passer
+      - registered sanitary engineer board passer
+      - sanitary engineer board exam passer
+      - sanitary engineer ra 1080
+      - sanitary engr
+      - sanitary engineer prc passer
+
+  RA1080_GEODETIC_ENGINEER:
+    canonical: "Geodetic Engineer – Geodetic Engineering Licensure Examination (RA 1080)"
+    category: "RA1080"
+    aliases:
+      - geodetic engineer eligibility
+      - geodetic engineering eligibility
+      - geodetic engineer eligibility ra 1080
+      - ra 1080 geodetic engineer eligibility
+      - civil service eligibility geodetic engineer
+      - civil service eligibility for geodetic engineer
+      - bar board eligibility geodetic engineer
+      - geodetic engineering board eligibility
+      - geodetic engineering board passer eligibility
+      - geodetic engineer civil service eligibility
+      - geodetic engineer
+      - geodetic engineering
+      - licensed geodetic engineer
+      - registered geodetic engineer
+      - prc licensed geodetic engineer
+      - geodetic engineering board passer
+      - geodetic engineer board passer
+      - geodetic engineering prc license
+      - ra 1080 geodetic engineer
+      - geodetic engineer ra 1080
+      - reg geodetic engineer
+      - geodetic engr
+      - reg geodetic engr
+      - rge
+
+  RA1080_GEOLOGIST:
+    canonical: "Geologist – Geology Licensure Examination (RA 1080)"
+    category: "RA1080"
+    aliases:
+      - geologist eligibility
+      - geology eligibility
+      - geologist eligibility ra 1080
+      - ra 1080 geologist eligibility
+      - civil service eligibility geologist
+      - civil service eligibility for geologist
+      - bar board eligibility geologist
+      - geology board eligibility
+      - geologist civil service eligibility
+      - geologist
+      - geology professional
+      - licensed geologist
+      - registered geologist
+      - prc licensed geologist
+      - geology board passer
+      - geologist board passer
+      - geology prc license
+      - ra 1080 geologist
+      - geologist ra 1080
+      - reg geologist
+      - geo professional
+      - geol board passer
+
+  RA1080_MASTER_PLUMBER:
+    canonical: "Master Plumber – Master Plumber Licensure Examination (RA 1080)"
+    category: "RA1080"
+    aliases:
+      - master plumber eligibility
+      - master plumbing eligibility
+      - master plumber eligibility ra 1080
+      - ra 1080 master plumber eligibility
+      - civil service eligibility master plumber
+      - civil service eligibility for master plumber
+      - bar board eligibility master plumber
+      - master plumber board eligibility
+      - master plumber civil service eligibility
+      - master plumber
+      - master plumbing professional
+      - licensed master plumber
+      - registered master plumber
+      - prc licensed master plumber
+      - master plumber board passer
+      - master plumbing board passer
+      - master plumber prc license
+      - ra 1080 master plumber
+      - master plumber ra 1080
+      - reg master plumber
+      - master plumber ph
+      - rmp
+
+  RA1080_ARCHITECT:
+    canonical: "Architect – Architecture Licensure Examination (RA 1080)"
+    category: "RA1080"
+    aliases:
+      - architect eligibility (ra 1080)
+      - architecture licensure examination eligibility (ra 1080)
+      - architecture board examination eligibility (ra 1080)
+      - architecture board exam eligibility
+      - registered architect eligibility
+      - licensed architect eligibility
+      - prc architect eligibility
+      - prc licensed architect eligibility
+      - civil service eligibility for architect
+      - architecture licensure examination passer
+      - architecture board examination passer
+      - architecture board exam passer
+      - architect board exam passer
+      - architecture board passer
+      - registered architect
+      - licensed architect
+      - prc architect
+      - prc licensed architect
+      - ra 1080 architect
+      - arch board passer
+      - arch licensure exam passer
+      - arch licensure passer
+      - arch board exam passer
+
+  RA1080_ENVIRONMENTAL_PLANNER:
+    canonical: "Environmental Planner – Environmental Planning Licensure Examination (RA 10587, RA 1080)"
+    category: "RA1080"
+    aliases:
+      - environmental planner eligibility (ra 10587, ra 1080)
+      - environmental planning licensure examination eligibility
+      - environmental planning board examination eligibility
+      - registered environmental planner eligibility
+      - licensed environmental planner eligibility
+      - prc environmental planner eligibility
+      - ra 10587 environmental planner eligibility
+      - ra 1080 environmental planner eligibility
+      - civil service eligibility for environmental planner
+      - environmental planning licensure examination passer
+      - environmental planner licensure examination passer
+      - environmental planner board examination passer
+      - environmental planner board passer
+      - registered environmental planner
+      - licensed environmental planner
+      - prc environmental planner
+      - ra 10587 environmental planner
+      - enp board passer
+      - enp licensure examination passer
+      - enp license
+      - enp (registered environmental planner)
+      - enp
+
+  RA1080_FORESTER:
+    canonical: "Forester – Forestry Licensure Examination (RA 1080)"
+    category: "RA1080"
+    aliases:
+      - forester eligibility (ra 1080)
+      - forestry licensure examination eligibility
+      - forestry board examination eligibility
+      - registered forester eligibility
+      - licensed forester eligibility
+      - prc forester eligibility
+      - ra 1080 forester eligibility
+      - civil service eligibility for forester
+      - forestry licensure examination passer
+      - forester licensure examination passer
+      - forester board examination passer
+      - forester board passer
+      - forestry board exam passer
+      - forester board exam passer
+      - registered forester
+      - licensed forester
+      - prc forester
+      - ra 1080 forester
+
+  RA1080_LIBRARIAN:
+    canonical: "Librarian – Librarian Licensure Examination (RA 1080)"
+    category: "RA1080"
+    aliases:
+      - librarian civil service eligibility (ra 1080)
+      - librarian eligibility (ra 1080)
+      - librarian bar/board eligibility (ra 1080)
+      - librarian board eligibility (ra 1080)
+      - ra 1080 librarian eligibility
+      - civil service eligibility for librarian
+      - professional librarian eligibility
+      - librarian licensure examination passer
+      - librarian licensure exam passer
+      - librarian board exam passer
+      - librarian board passer
+      - librarian licensure exam board passer
+      - lle passer (librarian)
+      - licensed librarian
+      - registered librarian
+      - prc licensed librarian
+      - prc board passer librarian
+      - prc librarian
+
+  RA1080_GUIDANCE_COUNSELOR:
+    canonical: "Guidance Counselor – Guidance and Counseling Licensure Examination (RA 1080)"
+    category: "RA1080"
+    aliases:
+      - guidance counselor civil service eligibility (ra 1080)
+      - guidance counselor eligibility (ra 1080)
+      - guidance and counseling board eligibility (ra 1080)
+      - guidance counselor board eligibility (ra 1080)
+      - ra 1080 guidance counselor eligibility
+      - civil service eligibility for guidance counselor
+      - professional guidance counselor eligibility
+      - guidance counselor licensure examination passer
+      - guidance counselor licensure exam passer
+      - guidance counselor board exam passer
+      - guidance counselor board passer
+      - guidance counselors licensure exam passer
+      - gcle passer
+      - gc board passer
+      - licensed guidance counselor
+      - registered guidance counselor
+      - prc licensed guidance counselor
+      - prc guidance counselor
+
+  RA1080_PSYCHOLOGIST:
+    canonical: "Psychologist – Psychology Licensure Examination (RA 1080)"
+    category: "RA1080"
+    aliases:
+      - psychologist civil service eligibility (ra 1080)
+      - psychologist eligibility (ra 1080)
+      - psychologist bar/board eligibility (ra 1080)
+      - psychologist board eligibility (ra 1080)
+      - psychology board eligibility (ra 1080)
+      - ra 1080 psychologist eligibility
+      - civil service eligibility for psychologist
+      - professional psychologist eligibility
+      - psychologist licensure examination passer
+      - psychologist licensure exam passer
+      - psychologist board exam passer
+      - psychologist board passer
+      - psychology licensure exam passer
+      - psychology board passer
+      - lepp psychologist passer
+      - licensed psychologist
+      - registered psychologist
+      - prc licensed psychologist
+      - prc psychologist
+
+  RA1080_PSYCHOMETRICIAN:
+    canonical: "Psychometrician – Psychometrician Licensure Examination (RA 1080)"
+    category: "RA1080"
+    aliases:
+      - psychometrician licensure examination eligibility
+      - psychometrician board examination eligibility
+      - psychometrician board exam eligibility
+      - psychometrician board passer eligibility
+      - psychometrician license eligibility
+      - prc psychometrician eligibility
+      - ra 1080 psychometrician eligibility
+      - psychometrician licensure exam passer eligibility
+      - psychometrician board passer
+      - psychometrician licensure exam passer
+      - psychometrician board exam passer
+      - psychometrician license holder
+      - licensed psychometrician
+      - prc licensed psychometrician
+      - registered psychometrician
+      - registered psychometrician (prc)
+      - psychometrician board passer ra 1080
+      - psychometrician licensure passer
+      - psychometrician board exam
+      - psychometrician board
+      - psychometrician license
+      - psychometrician prc license
+      - psychometrician prc
+      - psychometrician ra 1080
+      - psychometrician ra1080
+      - psychometrician board passer ph
+      - rpsy (psychometrician)
+      - psychometrician
+
+  RA1080_CUSTOMS_BROKER:
+    canonical: "Customs Broker – Customs Broker Licensure Examination (RA 1080)"
+    category: "RA1080"
+    aliases:
+      - customs broker licensure examination eligibility
+      - customs broker board examination eligibility
+      - customs broker board exam eligibility
+      - customs broker board passer eligibility
+      - customs broker license eligibility
+      - prc customs broker eligibility
+      - ra 1080 customs broker eligibility
+      - customs broker licensure exam passer eligibility
+      - customs broker board passer
+      - customs broker licensure exam passer
+      - customs broker board exam passer
+      - customs broker license holder
+      - licensed customs broker
+      - prc licensed customs broker
+      - registered customs broker
+      - registered customs broker (prc)
+      - customs broker board passer ra 1080
+      - customs broker licensure passer
+      - customs broker board exam
+      - customs broker board
+      - customs broker license
+      - customs broker prc license
+      - customs broker prc
+      - customs broker ra 1080
+      - customs broker ra1080
+      - customs broker board passer ph
+      - rcb (customs broker)
+      - customs broker
+
+  RA1080_ELECTRONICS_ENGINEER:
+    canonical: "Electronics Engineer – Electronics Engineering Licensure Examination (RA 1080)"
+    category: "RA1080"
+    aliases:
+      - electronics engineer licensure examination eligibility
+      - electronics engineering licensure examination eligibility
+      - electronics engineer board examination eligibility
+      - electronics engineering board examination eligibility
+      - electronics engineer board exam eligibility
+      - electronics engineering board exam eligibility
+      - electronics engineer board passer eligibility
+      - electronics engineering board passer eligibility
+      - electronics engineer license eligibility
+      - electronics engineering license eligibility
+      - prc electronics engineer eligibility
+      - prc electronics engineering eligibility
+      - ra 1080 electronics engineer eligibility
+      - ra 1080 electronics engineering eligibility
+      - ece board passer eligibility
+      - ece licensure examination eligibility
+      - electronics engineer licensure exam passer eligibility
+      - electronics engineering licensure exam passer eligibility
+      - electronics engineer board passer
+      - electronics engineering board passer
+      - electronics engineer licensure exam passer
+      - electronics engineering licensure exam passer
+      - electronics engineer license holder
+      - electronics engineering license holder
+      - licensed electronics engineer
+      - licensed electronics engineering professional
+      - prc licensed electronics engineer
+      - registered electronics engineer
+      - registered electronics engineer (prc)
+      - electronics engineer board passer ra 1080
+      - ece board passer ra 1080
+      - electronics engineer licensure passer
+      - ece licensure passer
+      - electronics engineer board exam
+      - electronics engineering board exam
+      - ece board exam
+      - ece board
+      - electronics engineer license
+      - ece license
+      - electronics engineer prc license
+      - ece prc license
+      - electronics engineer prc
+      - ece prc
+      - electronics engineer ra 1080
+      - ece ra 1080
+      - electronics engineer ra1080
+      - ece ra1080
+      - electronics engineer board passer ph
+      - ece board passer ph
+      - ece
+      - electronics engineer
+
+  RA1080_ELECTRONICS_TECHNICIAN:
+    canonical: "Electronics Technician – Electronics Technician Licensure Examination (RA 1080)"
+    category: "RA1080"
+    aliases:
+      - electronics technician eligibility
+      - electronics technician eligibility ra 1080
+      - electronics technician licensure eligibility
+      - electronics technician board eligibility
+      - electronics technician board exam eligibility
+      - ra 1080 electronics technician eligibility
+      - ra 1080 electronics technician
+      - prc electronics technician eligibility
+      - prc electronics technician license
+      - prc electronics technician licensure
+      - civil service electronics technician eligibility
+      - bar board eligibility electronics technician
+      - electronics technician cs eligibility
+      - licensed electronics technician eligibility
+      - registered electronics technician eligibility
+      - licensed electronics technician
+      - licensed electronics technician ph
+      - registered electronics technician
+      - registered electronics technician ph
+      - registered electronics tech
+      - electronics technician board passer
+      - electronics technician licensure passer
+      - electronics technician passer
+      - electronics tech license
+      - electronics tech board passer
+      - ect eligibility
+      - ect board eligibility
+      - ect board exam eligibility
+      - ra 1080 ect
+      - prc ect eligibility
+      - prc ect license
+      - registered ect
+      - licensed ect
+      - ect board passer
+      - ect passer
+      - electronics technician ect
+
+  RA1080_AGRICULTURIST:
+    canonical: "Agriculturist – Licensure Examination for Agriculturists (RA 1080)"
+    category: "RA1080"
+    aliases:
+      - agriculturist eligibility
+      - agriculturist eligibility ra 1080
+      - agriculturist licensure eligibility
+      - agriculturist board eligibility
+      - agriculturist board exam eligibility
+      - licensure examination for agriculturists eligibility
+      - ra 1080 agriculturist eligibility
+      - ra 1080 agriculturist
+      - prc agriculturist eligibility
+      - prc agriculturist license
+      - prc agriculturist licensure
+      - civil service agriculturist eligibility
+      - bar board eligibility agriculturist
+      - agriculturist cs eligibility
+      - licensed agriculturist eligibility
+      - registered agriculturist eligibility
+      - licensed agriculturist
+      - licensed agriculturist ph
+      - registered agriculturist
+      - registered agriculturist ph
+      - agriculturist board passer
+      - agriculturist licensure passer
+      - agriculturist board exam passer
+      - agriculturist license
+      - agriculturist prc license
+      - lea eligibility
+      - lea agriculturist eligibility
+      - lea board eligibility
+      - lea board exam eligibility
+      - ra 1080 lea
+      - prc lea eligibility
+      - lea passer
+      - lea board passer
+      - lea agriculturist
+
+  BOE_BARANGAY_OFFICIAL:
+    canonical: "Barangay Official Eligibility (RA 7160)"
+    category: "SPECIAL"
+    aliases:
+      - barangay official eligibility
+      - barangay official eligibility ra 7160
+      - barangay official eligibility boe
+      - barangay official eligibility (boe)
+      - csc barangay official eligibility
+      - civil service barangay official eligibility
+      - barangay official civil service eligibility
+      - barangay elective official eligibility
+      - barangay appointive official eligibility
+      - punong barangay eligibility
+      - barangay captain eligibility
+      - barangay kagawad eligibility
+      - barangay councilor eligibility
+      - barangay council eligibility
+      - boe eligibility
+      - csc boe eligibility
+      - cs boe eligibility
+      - barangay official cs eligibility
+      - barangay official
+      - barangay official boe
+      - barangay official cs
+      - barangay official civil service
+      - punong barangay cs eligibility
+      - barangay captain cs eligibility
+      - barangay kagawad cs eligibility
+      - boe
+      - boe cs
+      - cs boe
+      - csc boe
+      - barangay official ra 7160
+      - boe barangay official
+
+  BHWE:
+    canonical: "Barangay Health Worker Eligibility (RA 7883)"
+    category: "SPECIAL"
+    aliases:
+      - barangay health worker eligibility
+      - barangay health worker eligibility ra 7883
+      - barangay health worker civil service eligibility
+      - barangay health worker cs eligibility
+      - barangay health worker special eligibility
+      - civil service barangay health worker eligibility
+      - cs barangay health worker eligibility
+      - bhw civil service eligibility
+      - bhw cs eligibility
+      - bhw special eligibility
+      - bhw eligibility
+      - barangay health worker civil service
+      - barangay health worker cs
+      - civil service barangay health worker
+      - cs barangay health worker
+      - bhw civil service
+      - bhw cs
+
+  BNSE:
+    canonical: "Barangay Nutrition Scholar Eligibility (PD 1569)"
+    category: "SPECIAL"
+    aliases:
+      - barangay nutrition scholar eligibility
+      - barangay nutrition scholar eligibility pd 1569
+      - barangay nutrition scholar civil service eligibility
+      - barangay nutrition scholar cs eligibility
+      - barangay nutrition scholar special eligibility
+      - civil service barangay nutrition scholar eligibility
+      - cs barangay nutrition scholar eligibility
+      - bnse eligibility
+      - bnse civil service eligibility
+      - bnse cs eligibility
+      - bns eligibility
+      - bns civil service eligibility
+      - bns cs eligibility
+      - barangay nutrition scholar civil service
+      - barangay nutrition scholar cs
+      - civil service barangay nutrition scholar
+      - cs barangay nutrition scholar
+      - bnse civil service
+      - bnse cs
+      - bns civil service
+      - bns cs
+
+  SKILLS_CAT_II:
+    canonical: "Skills Eligibility – Category II (CSC MC No. 11, s. 1996, as amended)"
+    category: "SPECIAL"
+    aliases:
+      - skills eligibility category ii
+      - skills eligibility category ii csc mc 11 s 1996
+      - skills eligibility category ii csc
+      - skills eligibility category ii skilled workers
+      - skills eligibility category ii skilled trades
+      - skills eligibility cat ii
+      - skills eligibility category 2
+      - civil service skills eligibility category ii
+      - cs skills eligibility category ii
+      - skills category ii
+      - skills cat ii
+      - skills category 2
+      - category ii skills
+      - category 2 skills
+      - cs skills category ii
+      - civil service skills category ii
+
+  HGE_PD907:
+    canonical: "Honor Graduate Eligibility (PD 907)"
+    category: "SPECIAL"
+    aliases:
+      - honor graduate eligibility (pd 907)
+      - honor graduate eligibility pd 907
+      - civil service honor graduate eligibility
+      - csc honor graduate eligibility
+      - honor graduate civil service eligibility
+      - college honor graduate eligibility
+      - college honor graduate eligibility (pd 907)
+      - latin honor graduate eligibility
+      - latin honor graduate eligibility (pd 907)
+      - civil service college honor graduate eligibility
+      - pd 907 honor graduate eligibility
+      - honor graduate eligibility philippines
+      - pd 907 college honor graduate eligibility
+      - honor graduate (pd 907)
+      - pd 907 honor graduate
+      - civil service honor graduate
+      - csc honor graduate
+      - college honor graduate
+      - latin honor graduate
+      - pd 907
+      - pd907
+      - hge (pd 907)
+      - hge pd 907
+      - hge
+      - pd 907 passer
+      - hge passer
+      - honor grad (pd 907)
+      - honor grad
+      - honor grad passer
+
+  FSHGE:
+    canonical: "Foreign School Honor Graduate Eligibility (CSC Resolution No. 1302714)"
+    category: "SPECIAL"
+    aliases:
+      - foreign school honor graduate eligibility (csc resolution no. 1302714)
+      - foreign school honor graduate eligibility
+      - csc foreign school honor graduate eligibility
+      - foreign school honor graduate civil service eligibility
+      - foreign honor graduate eligibility
+      - foreign school latin honor graduate eligibility
+      - foreign latin honor graduate eligibility
+      - foreign school honor graduate eligibility philippines
+      - foreign school honor graduate (csc resolution no. 1302714)
+      - foreign school honor graduate
+      - foreign honor graduate
+      - foreign latin honor graduate
+      - foreign honor grad eligibility
+      - foreign school honor grad eligibility
+      - fshge (foreign school honor graduate eligibility)
+      - fshge
+      - fshge passer
+      - foreign school honor grad
+      - foreign honor grad
+      - foreign honor grad passer
+
+  STSE_PD997:
+    canonical: "Scientific and Technological Specialist Eligibility (PD 997)"
+    category: "SPECIAL"
+    aliases:
+      - scientific and technological specialist eligibility (pd 997)
+      - scientific and technological specialist eligibility
+      - scientific & technological specialist eligibility
+      - csc scientific and technological specialist eligibility
+      - civil service scientific and technological specialist eligibility
+      - scientific and technological specialist eligibility philippines
+      - pd 997 scientific and technological specialist eligibility
+      - scientific and technological specialist (pd 997)
+      - scientific and technological specialist
+      - pd 997 scientific and technological specialist
+      - scientific & technological specialist (pd 997)
+      - pd 997 specialist eligibility
+      - scientific specialist eligibility (pd 997)
+      - technological specialist eligibility (pd 997)
+      - pd 997 specialist
+      - stse (scientific and technological specialist eligibility)
+      - stse (pd 997)
+      - stse pd 997
+      - pd 997 stse
+      - stse
+      - pd 997 passer
+      - stse passer
+      - pd 997 eligible
+      - stse eligible
+
+  EDPSE:
+    canonical: "Electronic Data Processing Specialist Eligibility (CSC Resolution No. 90-083)"
+    category: "SPECIAL"
+    aliases:
+      - electronic data processing specialist eligibility
+      - electronic data processing specialist eligibility csc resolution 90-083
+      - electronic data processing specialist eligibility csc res 90-083
+      - electronic data processing specialist eligibility edpse
+      - csc electronic data processing specialist eligibility
+      - civil service electronic data processing specialist eligibility
+      - electronic data processing eligibility
+      - edp specialist eligibility
+      - edp specialist civil service eligibility
+      - edpse eligibility
+      - electronic data processing specialist
+      - edp specialist
+      - edpse civil service
+      - edpse passer
+      - edpse eligible
+      - edpse holder
+
+  SME_FIRST_LEVEL:
+    canonical: "Sanggunian Member Eligibility – First Level (RA 10156)"
+    category: "SPECIAL"
+    aliases:
+      - sanggunian member eligibility first level
+      - sanggunian member first level eligibility
+      - sanggunian member eligibility - first level
+      - sanggunian member first level civil service eligibility
+      - sanggunian member first level csc eligibility
+      - sanggunian member first level eligibility ra 10156
+      - sme first level eligibility
+      - sme first level
+      - sme 1st level eligibility
+      - sme 1st level
+      - sme-i eligibility
+      - sme-i
+      - sanggunian member first level
+      - sanggunian first level eligibility
+      - sanggunian member cs first level
+      - sanggunian member first level cs passer
+      - sanggunian member first level eligible
+      - sme first level passer
+
+  SME_SECOND_LEVEL:
+    canonical: "Sanggunian Member Eligibility – Second Level (RA 10156)"
+    category: "SPECIAL"
+    aliases:
+      - sanggunian member eligibility second level
+      - sanggunian member second level eligibility
+      - sanggunian member eligibility - second level
+      - sanggunian member second level civil service eligibility
+      - sanggunian member second level csc eligibility
+      - sanggunian member second level eligibility ra 10156
+      - sme second level eligibility
+      - sme second level
+      - sme 2nd level eligibility
+      - sme 2nd level
+      - sme-ii eligibility
+      - sme-ii
+      - sanggunian member second level
+      - sanggunian second level eligibility
+      - sanggunian member cs second level
+      - sanggunian member second level cs passer
+      - sanggunian member second level eligible
+      - sme second level passer
+
+  SKOE:
+    canonical: "Sangguniang Kabataan Official Eligibility (RA 11768 / CSC Resolution No. 2500752)"
+    category: "SPECIAL"
+    aliases:
+      - sangguniang kabataan official eligibility
+      - sangguniang kabataan official eligibility (ra 11768)
+      - sangguniang kabataan official eligibility (ra 11768 / csc resolution no. 2500752)
+      - sk official eligibility
+      - civil service eligibility for sangguniang kabataan officials
+      - civil service eligibility for sk officials
+      - sangguniang kabataan civil service eligibility
+      - sk civil service eligibility
+      - sanggunian kabataan official eligibility
+      - sangguniang kabataan official
+      - sangguniang kabataan officials
+      - sk official
+      - sk officials
+      - sk eligibility
+      - sk civil service eligible
+      - sanggunian kabataan official
+      - sanggunian kabataan officials
+      - sangguniang kabataan
+      - sangguniang kabataan sk
+      - skoe
+      - csc skoe
+      - skoe eligibility
+      - skoe passer
+
+  FOE:
+    canonical: "Fire Officer Eligibility (from Fire Officer Examination)"
+    category: "SPECIAL"
+    aliases:
+      - fire officer eligibility
+      - fire officer eligibility (from fire officer examination)
+      - fire officer eligibility (csc)
+      - csc fire officer eligibility
+      - civil service fire officer eligibility
+      - fire officer examination eligibility
+      - foe eligibility
+      - fire officer cs eligibility
+      - fire officer exam passer eligibility
+      - fire officer
+      - fire officer exam passer
+      - csc fire officer
+      - foe
+      - csc foe
+      - foe passer
+      - fo exam passer
+
+  POE:
+    canonical: "Penology Officer Eligibility (from Penology Officer Examination)"
+    category: "SPECIAL"
+    aliases:
+      - penology officer eligibility
+      - penology officer eligibility (from penology officer examination)
+      - penology officer eligibility (csc)
+      - csc penology officer eligibility
+      - civil service penology officer eligibility
+      - penology officer examination eligibility
+      - poe eligibility
+      - penology officer cs eligibility
+      - penology officer exam passer eligibility
+      - penology officer
+      - penology officer exam passer
+      - csc penology officer
+      - poe
+      - csc poe
+      - poe passer
+      - po exam passer
+
+  LOCAL_TREASURY_ELIG:
+    canonical: "Local Treasury Eligibility (from Basic Competency on Local Treasury Examination – BCLTE)"
+    category: "SPECIAL"
+    aliases:
+      - local treasury eligibility
+      - local treasury eligibility from basic competency on local treasury examination
+      - local treasury eligibility from basic competency on local treasury exam
+      - local treasury eligibility (bclte)
+      - local treasury eligibility (lte)
+      - civil service local treasury eligibility
+      - local treasurer eligibility
+      - local treasurer eligibility (bclte)
+      - local treasurer eligibility (lte)
+      - basic competency on local treasury examination eligibility
+      - basic competency on local treasury exam eligibility
+      - bclte eligibility
+      - local treasury second level eligibility
+      - local treasury cs eligibility
+      - local treasury civil service eligibility
+      - local treasury
+      - local treasury exam
+      - local treasury cs
+      - local treasurer
+      - local treasurer exam
+      - basic competency on local treasury examination
+      - basic competency on local treasury exam
+      - bclte local treasury
+      - bclte local treasurer
+      - local treasury (bclte)
+      - local treasurer (bclte)
+      - bclte passer
+      - local treasury passer
+      - local treasurer passer
+      - lte local treasury
+      - lte passer
+
+  VPRE:
+    canonical: "Veteran Preference Rating Eligibility (EO 132 / EO 790)"
+    category: "SPECIAL"
+    aliases:
+      - veteran preference rating eligibility
+      - veteran preference rating eligibility (eo 132/790)
+      - veteran preference rating eligibility (eo 132 and eo 790)
+      - veteran preference rating eligibility (vpre)
+      - civil service veteran preference rating eligibility
+      - civil service exam veteran preference rating eligibility
+      - cs veteran preference rating eligibility
+      - veteran preference rating
+      - veteran preference rating (eo 132/790)
+      - veteran preference rating (eo 132 and eo 790)
+      - veteran's preference rating
+      - veterans preference rating
+      - civil service veteran preference rating
+      - civil service exam veteran preference rating
+      - cs veteran preference rating
+      - vpre veteran preference rating
+      - vpre
+      - vpre cs
+      - vpre passer
+      - veteran preference rating points
+      - veteran preference rating bonus points
+      - veteran preference cs rating

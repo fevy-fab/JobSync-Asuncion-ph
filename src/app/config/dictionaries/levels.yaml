@@ -1,0 +1,1122 @@
+canonical:
+  - id: elementary
+    aliases:
+      - elem
+      - elem.
+      - elementary
+      - elementary level
+      - elementary graduate
+      - elementary school
+      - elementary school graduate
+      - grade school
+      - grade school graduate
+      - primary
+      - primary school
+      - primary school graduate
+      - basic elementary
+      - basic education
+      - basic education (elementary)
+      - completed elementary
+      - finished elementary
+
+  - id: secondary
+    aliases:
+      - hs
+      - hs in
+      - hs of
+      - hs.
+      - hs. in
+      - hs. of
+      - h.s.
+      - h.s. in
+      - h.s. of
+      - high school
+      - high school
+      - high school in
+      - high school of
+      - highschool
+      - highschool in
+      - highschool of
+      - high school graduate
+      - high school graduate in
+      - high school graduate of
+      - highschool graduate
+      - highschool graduate in
+      - highschool graduate of
+      - secondary
+      - secondary in
+      - secondary of
+      - secondary school
+      - secondary school in
+      - secondary school of
+      - secondary graduate
+      - secondary graduate in
+      - secondary graduate of
+      - secondary school graduate
+      - secondary school graduate in
+      - secondary school graduate of
+      - high school diploma
+      - high school diploma in
+      - high school diploma of
+      - highschool diploma
+      - highschool diploma in
+      - highschool diploma of
+      - senior high
+      - senior high in
+      - senior high of
+      - senior high school
+      - senior high school in
+      - senior high school of
+      - senior high grad
+      - senior high grad in
+      - senior high grad of
+      - senior high graduate
+      - senior high graduate in
+      - senior high graduate of
+      - senior high school graduate
+      - senior high school graduate in
+      - senior high school graduate of
+      - junior high
+      - junior high in
+      - junior high of
+      - junior high school
+      - junior high school in
+      - junior high school of
+      - junior high graduate
+      - junior high graduate in
+      - junior high graduate of
+      - junior high school graduate
+      - junior high school graduate in
+      - junior high school graduate of
+      - junior secondary
+      - junior secondary in
+      - junior secondary of
+      - senior secondary
+      - senior secondary in
+      - senior secondary of
+      - completed high school
+      - completed high school in
+      - completed high school of
+      - finished high school
+      - finished high school in
+      - finished high school of
+      - holder of high school diploma
+      - holder of high school diploma in
+      - holder of high school diploma of
+      - secondary level
+      - secondary level in
+      - secondary level of
+      - secondary education
+      - secondary education in
+      - secondary education of
+      - high school level
+      - high school level in
+      - high school level of
+      - highschool level
+      - highschool level in
+      - highschool level of
+      - secondary education graduate
+      - secondary education graduate in
+      - secondary education graduate of
+      - high school credential
+      - high school credential in
+      - high school credential of
+      - secondary credential
+      - secondary credential in
+      - secondary credential of
+      - secondary education certificate
+      - secondary education certificate in
+      - secondary education certificate of
+      - upper secondary
+      - upper secondary in
+      - upper secondary of
+      - lower secondary
+      - lower secondary in
+      - lower secondary of
+      - high school studies
+      - high school studies in
+      - high school studies of
+      - secondary studies
+      - secondary studies in
+      - secondary studies of
+      - basic education graduate
+      - basic education graduate in
+      - basic education graduate of
+      - k-12 graduate
+      - k-12 graduate in
+      - k-12 graduate of
+      - k12 graduate
+      - k12 graduate in
+      - k12 graduate of
+      - k to 12 graduate
+      - k to 12 graduate in
+      - k to 12 graduate of
+      - k–12 graduate
+      - k–12 graduate in
+      - k–12 graduate of
+      - k to twelve graduate
+      - k to twelve graduate in
+      - k to twelve graduate of
+      - shs graduate
+      - shs graduate in
+      - shs graduate of
+      - jhs graduate
+      - jhs graduate in
+      - jhs graduate of
+      - high school level qualification
+      - high school level qualification in
+      - high school level qualification of
+      - secondary level qualification
+      - secondary level qualification in
+      - secondary level qualification of
+      - high school completion
+      - high school completion in
+      - high school completion of
+      - secondary completion
+      - secondary completion in
+      - secondary completion of
+      - high school qualification
+      - high school qualification in
+      - high school qualification of
+      - completed secondary school
+      - completed secondary school in
+      - completed secondary school of
+      - completed senior high
+      - completed senior high in
+      - completed senior high of
+      - completed junior high
+      - completed junior high in
+      - completed junior high of
+
+  - id: vocational
+    aliases:
+      - voc
+      - voc in
+      - voc of
+      - voc.
+      - voc. in
+      - voc. of
+      - vocational
+      - vocational in
+      - vocational of
+      - vocational course
+      - vocational course in
+      - vocational course of
+      - vocational course graduate
+      - vocational course graduate in
+      - vocational course graduate of
+      - vocational graduate
+      - vocational graduate in
+      - vocational graduate of
+      - vocational diploma
+      - vocational diploma in
+      - vocational diploma of
+      - vocational training
+      - vocational training in
+      - vocational training of
+      - vocational certificate
+      - vocational certificate in
+      - vocational certificate of
+      - vocational program
+      - vocational program in
+      - vocational program of
+      - vocational qualification
+      - vocational qualification in
+      - vocational qualification of
+      - vocational studies
+      - vocational studies in
+      - vocational studies of
+      - vocational school graduate
+      - vocational school graduate in
+      - vocational school graduate of
+      - technical-vocational
+      - technical-vocational in
+      - technical-vocational of
+      - technical vocational
+      - technical vocational in
+      - technical vocational of
+      - tech-voc
+      - tech-voc in
+      - tech-voc of
+      - techvoc
+      - techvoc in
+      - techvoc of
+      - tech-vocational in
+      - tech-vocational of
+      - tech-vocational course
+      - tech-vocational course in
+      - tech-vocational course of
+      - tech-vocational program
+      - tech-vocational program in
+      - tech-vocational program of
+      - tesda course
+      - tesda course in
+      - tesda course of
+      - tesda certificate
+      - tesda certificate in
+      - tesda certificate of
+      - tesda certification
+      - tesda certification in
+      - tesda certification of
+      - tesda graduate
+      - tesda graduate in
+      - tesda graduate of
+      - tesda program
+      - tesda program in
+      - tesda program of
+      - tesda vocational
+      - tesda vocational in
+      - tesda vocational of
+      - tesda-accredited course
+      - tesda-accredited course in
+      - tesda-accredited course of
+      - tesda-accredited program
+      - tesda-accredited program in
+      - tesda-accredited program of
+      - tesda training
+      - tesda training in
+      - tesda training of
+      - tesda qualification
+      - tesda qualification in
+      - tesda qualification of
+      - tesda accredited
+      - tesda accredited in
+      - tesda accredited of
+      - technical course
+      - technical course in
+      - technical course of
+      - technical training
+      - technical training in
+      - technical training of
+      - technical program
+      - technical program in
+      - technical program of
+      - technical diploma
+      - technical diploma in
+      - technical diploma of
+      - technical certificate
+      - technical certificate in
+      - technical certificate of
+      - skills training
+      - skills training in
+      - skills training of
+      - skills development course
+      - skills development course in
+      - skills development course of
+      - skills development program
+      - skills development program in
+      - skills development program of
+      - skills training certificate
+      - skills training certificate in
+      - skills training certificate of
+      - skilled trade course
+      - skilled trade course in
+      - skilled trade course of
+      - trade course
+      - trade course in
+      - trade course of
+      - trade program
+      - trade program in
+      - trade program of
+      - nc certificate
+      - nc certificate in
+      - nc certificate of
+      - national certificate
+      - national certificate in
+      - national certificate of
+      - national certification
+      - national certification in
+      - national certification of
+      - ncii certificate
+      - ncii certificate in
+      - ncii certificate of
+      - ncii certification
+      - ncii certification in
+      - ncii certification of
+      - nc2 certificate
+      - nc2 certificate in
+      - nc2 certificate of
+      - nc2 certification
+      - nc2 certification in
+      - nc2 certification of
+      - short course
+      - short course in
+      - short course of
+      - short program
+      - short program in
+      - short program of
+      - short-term training
+      - short-term training in
+      - short-term training of
+      - skills program
+      - skills program in
+      - skills program of
+      - skills qualification
+      - skills qualification in
+      - skills qualification of
+      - technical education graduate
+      - technical education graduate in
+      - technical education graduate of
+      - technical education certificate
+      - technical education certificate in
+      - technical education certificate of
+      - tvet graduate
+      - tvet graduate in
+      - tvet graduate of
+      - tvet program
+      - tvet program in
+      - tvet program of
+      - tvet certificate
+      - tvet certificate in
+      - tvet certificate of
+      - job skills training
+      - job skills training in
+      - job skills training of
+      - work skills training
+      - work skills training in
+      - work skills training of
+      - occupational course
+      - occupational course in
+      - occupational course of
+      - occupational training
+      - occupational training in
+      - occupational training of
+      - trade school graduate
+      - trade school graduate in
+      - trade school graduate of
+      - training certificate
+      - training certificate in
+      - training certificate of
+      - training program graduate
+      - training program graduate in
+      - training program graduate of
+      - technical skills graduate
+      - technical skills graduate in
+      - technical skills graduate of
+      - vocational skill certificate
+      - vocational skill certificate in
+      - vocational skill certificate of
+      - skill-based program
+      - skill-based program in
+      - skill-based program of
+      - practical skills course
+      - practical skills course in
+      - practical skills course of
+      - applied skills program
+      - applied skills program in
+      - applied skills program of
+      - tesda skills graduate
+      - tesda skills graduate in
+      - tesda skills graduate of
+      - tesda vocational graduate
+      - tesda vocational graduate in
+      - tesda vocational graduate of
+      - tesda training graduate
+      - tesda training graduate in
+      - tesda training graduate of
+      - tvet skills graduate
+      - tvet skills graduate in
+      - tvet skills graduate of
+      - tvet vocational
+      - tvet vocational in
+      - tvet vocational of
+      - accredited tesda course
+      - accredited tesda course in
+      - accredited tesda course of
+      - accredited tesda training
+      - accredited tesda training in
+      - accredited tesda training of
+      - short vocational course
+      - short vocational course in
+      - short vocational course of
+      - short technical course
+      - short technical course in
+      - short technical course of
+      - technical trade course
+      - technical trade course in
+      - technical trade course of
+      - certificate of competency
+      - certificate of competency in
+      - certificate of competency of
+      - competency certificate
+      - competency certificate in
+      - competency certificate of
+      - competency-based training
+      - competency-based training in
+      - competency-based training of
+      - vocational competency
+      - vocational competency in
+      - vocational competency of
+      - technical competency
+      - technical competency in
+      - technical competency of
+      - certificate training
+      - certificate training in
+      - certificate training of
+      - technical workshop
+      - technical workshop in
+      - technical workshop of
+      - trade skills course
+      - trade skills course in
+      - trade skills course of
+      - occupational skills course
+      - occupational skills course in
+      - occupational skills course of
+      - skills training graduate
+      - skills training graduate in
+      - skills training graduate of
+      - holder of vocational certificate
+      - holder of vocational certificate in
+      - holder of vocational certificate of
+      - holder of tesda certificate
+      - holder of tesda certificate in
+      - holder of tesda certificate of
+
+  - id: college
+    aliases:
+      - b
+      - b in
+      - b of
+      - b.
+      - b. in
+      - b. of
+      - bs
+      - bs in
+      - bs of
+      - b.s.
+      - b.s. in
+      - b.s. of
+      - bachelor
+      - bachelor in
+      - bachelor of
+      - bachelors
+      - bachelors in
+      - bachelors of
+      - bachelor's
+      - bachelor's in
+      - bachelor's of
+      - bachelor's degree
+      - bachelor’s degree in
+      - bachelor’s degree of
+      - bachelor degree
+      - bachelor degree in
+      - bachelor degree of
+      - bachelor degree holder
+      - bachelor degree holder in
+      - bachelor degree holder of
+      - bachelor’s degree holder
+      - bachelor’s degree holder in
+      - bachelor’s degree holder of
+      - bachelor’s graduate
+      - bachelor’s graduate in
+      - bachelor’s graduate of
+      - bachelor's graduate
+      - bachelor's graduate in
+      - bachelor's graduate of
+      - bachelor's program
+      - bachelor's program in
+      - bachelor's program of
+      - college degree
+      - college degree in
+      - college degree of
+      - college graduate
+      - college graduate in
+      - college graduate of
+      - college grad
+      - college grad in
+      - college grad of
+      - finished college
+      - finished college in
+      - finished college of
+      - college diploma
+      - college diploma in
+      - college diploma of
+      - undergraduate degree
+      - undergraduate degree in
+      - undergraduate degree of
+      - undergrad degree
+      - undergrad degree in
+      - undergrad degree of
+      - completed bachelor's
+      - completed bachelor's in
+      - completed bachelor's of
+      - completed bachelor’s
+      - completed bachelor’s in
+      - completed bachelor’s of
+      - finished bachelor's
+      - finished bachelor's in
+      - finished bachelor's of
+      - finished bachelor’s
+      - finished bachelor’s in
+      - finished bachelor’s of
+      - earned bachelor's
+      - earned bachelor’s
+      - earned bachelor’s in
+      - earned bachelor’s of
+      - graduate of bachelor’s
+      - graduate of bachelor’s in
+      - graduate of bachelor’s of
+      - graduate of bachelor's
+      - graduate of bachelor's in
+      - graduate of bachelor's of
+      - graduate of college
+      - graduate of college in
+      - graduate of college of
+      - four-year course
+      - four-year course in
+      - four-year course of
+      - four year degree
+      - four year degree in
+      - four year degree of
+      - four-year degree holder
+      - four-year degree holder in
+      - four-year degree holder of
+      - four-year graduate
+      - four-year graduate in
+      - four-year graduate of
+      - degree holder
+      - degree holder in
+      - degree holder of
+      - baccalaureate degree
+      - baccalaureate degree in
+      - baccalaureate degree of
+      - baccalaureate
+      - baccalaureate in
+      - baccalaureate of
+      - tertiary degree
+      - tertiary degree in
+      - tertiary degree of
+      - tertiary education
+      - tertiary education in
+      - tertiary education of
+      - bachelor's qualification
+      - bachelor's qualification in
+      - bachelor's qualification of
+      - bachelor’s qualification
+      - bachelor’s qualification in
+      - bachelor’s qualification of
+      - bachelor’s credential
+      - bachelor’s credential in
+      - bachelor’s credential of
+      - college-level qualification
+      - college-level qualification in
+      - college-level qualification of
+      - college-level graduate
+      - college-level graduate in
+      - college-level graduate of
+      - bachelor graduate
+      - bachelor graduate in
+      - bachelor graduate of
+      - bachelor's course
+      - bachelor's course in
+      - bachelor's course of
+      - bachelor's studies
+      - bachelor's studies in
+      - bachelor's studies of
+      - university graduate
+      - university graduate in
+      - university graduate of
+      - university degree
+      - university degree in
+      - university degree of
+      - university level
+      - university level in
+      - university level of
+      - university degree holder
+      - university degree holder in
+      - university degree holder of
+      - bachelor of science
+      - bachelor of science in
+      - bachelor of science of
+      - bachelor of arts
+      - bachelor of arts in
+      - bachelor of arts of
+      - bachelor’s program
+      - bachelor’s program in
+      - bachelor’s program of
+      - baccalaureate program
+      - baccalaureate program in
+      - baccalaureate program of
+      - tertiary graduate
+      - tertiary graduate in
+      - tertiary graduate of
+      - tertiary program
+      - tertiary program in
+      - tertiary program of
+      - completed college degree
+      - completed college degree in
+      - completed college degree of
+      - holder of bachelor’s degree
+      - holder of bachelor’s degree in
+      - holder of bachelor’s degree of
+      - finished four-year course
+      - finished four-year course in
+      - finished four-year course of
+      - holder of college degree
+      - holder of college degree in
+      - holder of college degree of
+      - university graduate
+      - university graduate in
+      - university graduate of
+      - college-level degree
+      - college-level degree in
+      - college-level degree of
+      - college-level course
+      - college-level course in
+      - college-level course of
+      - undergraduate program
+      - undergraduate program in
+      - undergraduate program of
+      - undergraduate course
+      - undergraduate course in
+      - undergraduate course of
+      - undergraduate graduate
+      - undergraduate graduate in
+      - undergraduate graduate of
+      - college-level studies
+      - college-level studies in
+      - college-level studies of
+      - assoc
+      - assoc in
+      - assoc of
+      - assoc.
+      - assoc. in
+      - assoc. of
+      - associate
+      - associate in
+      - associate of
+      - associate degree
+      - associate degree in
+      - associate degree of
+      - associate graduate
+      - associate graduate in
+      - associate graduate of
+      - associate course
+      - associate course in
+      - associate course of
+      - associate diploma
+      - associate diploma in
+      - associate diploma of
+      - associate degree holder
+      - associate degree holder in
+      - associate degree holder of
+      - holder of associate degree
+      - holder of associate degree in
+      - holder of associate degree of
+      - completed associate
+      - completed associate in
+      - completed associate of
+      - finished associate
+      - finished associate in
+      - finished associate of
+      - earned associate
+      - earned associate in
+      - earned associate of
+      - two-year course
+      - two-year course in
+      - two-year course of
+      - two-year diploma
+      - two-year diploma in
+      - two-year diploma of
+      - two-year degree
+      - two-year degree in
+      - two-year degree of
+      - two-year graduate
+      - two-year graduate in
+      - two-year graduate of
+      - short degree program
+      - short degree program in
+      - short degree program of
+      - short-term degree
+      - short-term degree in
+      - short-term degree of
+      - mid-level degree
+      - mid-level degree in
+      - mid-level degree of
+      - post-secondary degree
+      - post-secondary degree in
+      - post-secondary degree of
+      - college diploma
+      - college diploma in
+      - college diploma of
+      - college-level diploma
+      - college-level diploma in
+      - college-level diploma of
+      - college-level course
+      - college-level course in
+      - college-level course of
+      - college-level certificate
+      - college-level certificate in
+      - college-level certificate of
+      - sub-degree program
+      - sub-degree program in
+      - sub-degree program of
+      - undergraduate diploma
+      - undergraduate diploma in
+      - undergraduate diploma of
+      - technical associate
+      - technical associate in
+      - technical associate of
+      - para-professional degree
+      - para-professional degree in
+      - para-professional degree of
+      - para-professional course
+      - para-professional course in
+      - para-professional course of
+      - diploma course
+      - diploma course in
+      - diploma course of
+      - diploma program
+      - diploma program in
+      - diploma program of
+      - diploma holder
+      - diploma holder in
+      - diploma holder of
+      - associate program
+      - associate program in
+      - associate program of
+      - associate-level qualification
+      - associate-level qualification in
+      - associate-level qualification of
+      - associate qualification
+      - associate qualification in
+      - associate qualification of
+      - associate-level
+      - associate-level in
+      - associate-level of
+      - associate program holder
+      - associate program holder in
+      - associate program holder of
+      - associate credential
+      - associate credential in
+      - associate credential of
+      - community college degree
+      - community college degree in
+      - community college degree of
+      - community college graduate
+      - community college graduate in
+      - community college graduate of
+      - two-year college program
+      - two-year college program in
+      - two-year college program of
+      - junior college degree
+      - junior college degree in
+      - junior college degree of
+      - junior college graduate
+      - junior college graduate in
+      - junior college graduate of
+      - undergraduate-level diploma
+      - undergraduate-level diploma in
+      - undergraduate-level diploma of
+      - post-secondary program
+      - post-secondary program in
+      - post-secondary program of
+      - post-secondary diploma
+      - post-secondary diploma in
+      - post-secondary diploma of
+
+  - id: graduate studies
+    aliases:
+      - mt
+      - mt in
+      - mt of
+      - m.t.
+      - m.t. in
+      - m.t. of
+      - master
+      - master in
+      - master of
+      - master's
+      - master's in
+      - master's of
+      - masters
+      - masters in
+      - masters of
+      - masters degree
+      - masters degree in
+      - masters degree of
+      - master’s degree
+      - master’s degree in
+      - master’s degree of
+      - masteral
+      - masteral in
+      - masteral of
+      - masteral degree
+      - masteral degree in
+      - masteral degree of
+      - masteral program
+      - masteral program in
+      - masteral program of
+      - master program
+      - master program in
+      - master program of
+      - master's program
+      - master's program in
+      - master's program of
+      - masters program
+      - masters program in
+      - masters program of
+      - master degree
+      - master degree in
+      - master degree of
+      - master graduate
+      - master graduate in
+      - master graduate of
+      - master's graduate
+      - master's graduate in
+      - master's graduate of
+      - master’s graduate
+      - master’s graduate in
+      - master’s graduate of
+      - master’s degree holder
+      - master’s degree holder in
+      - master’s degree holder of
+      - master’s degree graduate
+      - master’s degree graduate in
+      - master’s degree graduate of
+      - masteral graduate
+      - masteral graduate in
+      - masteral graduate of
+      - masteral holder
+      - masteral holder in
+      - masteral holder of
+      - postgraduate degree
+      - postgraduate degree in
+      - postgraduate degree of
+      - post graduate degree
+      - post graduate degree in
+      - post graduate degree of
+      - post-graduate degree
+      - post-graduate degree in
+      - post-graduate degree of
+      - post graduate studies
+      - post graduate studies in
+      - post graduate studies of
+      - postgraduate studies
+      - postgraduate studies in
+      - postgraduate studies of
+      - graduate school
+      - graduate school in
+      - graduate school of
+      - graduate studies
+      - graduate studies in
+      - graduate studies of
+      - master level
+      - master level in
+      - master level of
+      - master's level
+      - master's level in
+      - master's level of
+      - graduate-level
+      - graduate-level in
+      - graduate-level of
+      - post-graduate program
+      - post-graduate program in
+      - post-graduate program of
+      - postgraduate program
+      - postgraduate program in
+      - postgraduate program of
+      - completed master's degree
+      - completed master's degree in
+      - completed master's degree of
+      - finished master's degree
+      - finished master's degree in
+      - finished master's degree of
+      - earned master's degree
+      - earned master's degree in
+      - earned master's degree of
+      - holder of master's degree
+      - holder of master's degree in
+      - holder of master's degree of
+      - holder of masters
+      - holder of masters in
+      - holder of masters of
+      - graduate of master’s
+      - graduate of master’s in
+      - graduate of master’s of
+      - graduate of masteral
+      - graduate of masteral in
+      - graduate of masteral of
+      - master’s course
+      - master’s course in
+      - master’s course of
+      - master course
+      - master course in
+      - master course of
+      - master’s program
+      - master’s program in
+      - master’s program of
+      - master's qualification
+      - master's qualification in
+      - master's qualification of
+      - master's credential
+      - master's credential in
+      - master's credential of
+      - master credential
+      - master credential in
+      - master credential of
+      - graduate-level qualification
+      - graduate-level qualification in
+      - graduate-level qualification of
+      - graduate-level studies
+      - graduate-level studies in
+      - graduate-level studies of
+      - postgraduate-level
+      - postgraduate-level in
+      - postgraduate-level of
+      - postgraduate qualification
+      - postgraduate qualification in
+      - postgraduate qualification of
+      - postgrad degree
+      - postgrad degree in
+      - postgrad degree of
+      - postgrad program
+      - postgrad program in
+      - postgrad program of
+      - postgrad studies
+      - postgrad studies in
+      - postgrad studies of
+      - phd
+      - phd in
+      - phd of
+      - ph.d
+      - ph.d in
+      - ph.d of
+      - ph.d.
+      - ph.d. in
+      - ph.d. of
+      - phd degree
+      - phd degree in
+      - phd degree of
+      - phd program
+      - phd program in
+      - phd program of
+      - phd holder
+      - phd holder in
+      - phd holder of
+      - phd graduate
+      - phd graduate in
+      - phd graduate of
+      - ph.d holder
+      - ph.d holder in
+      - ph.d holder of
+      - ph.d graduate
+      - ph.d graduate in
+      - ph.d graduate of
+      - dr
+      - dr in
+      - dr of
+      - dr.
+      - dr. in
+      - dr. of
+      - doctor
+      - doctor in
+      - doctor of
+      - doctor of philosophy
+      - doctor of philosophy in
+      - doctor of philosophy of
+      - doctor of education
+      - doctor of education in
+      - doctor of education of
+      - doctor of public administration
+      - doctor of public administration in
+      - doctor of public administration of
+      - doctor of business administration
+      - doctor of business administration in
+      - doctor of business administration of
+      - doctor of management
+      - doctor of management in
+      - doctor of management of
+      - doctorate
+      - doctorate in
+      - doctorate of
+      - doctorate degree
+      - doctorate degree in
+      - doctorate degree of
+      - doctorate holder
+      - doctorate holder in
+      - doctorate holder of
+      - doctorate graduate
+      - doctorate graduate in
+      - doctorate graduate of
+      - doctor degree
+      - doctor degree in
+      - doctor degree of
+      - doctoral degree
+      - doctoral degree in
+      - doctoral degree of
+      - doctoral program
+      - doctoral program in
+      - doctoral program of
+      - doctoral studies
+      - doctoral studies in
+      - doctoral studies of
+      - doctoral graduate
+      - doctoral graduate in
+      - doctoral graduate of
+      - doctor level
+      - doctor level in
+      - doctor level of
+      - post-graduate doctorate
+      - post-graduate doctorate in
+      - post-graduate doctorate of
+      - postdoctoral
+      - postdoctoral in
+      - postdoctoral of
+      - post-doctorate
+      - post-doctorate in
+      - post-doctorate of
+      - post-doctoral studies
+      - post-doctoral studies in
+      - post-doctoral studies of
+      - holder of doctorate
+      - holder of doctorate in
+      - holder of doctorate of
+      - earned doctorate
+      - earned doctorate in
+      - earned doctorate of
+      - completed doctorate
+      - completed doctorate in
+      - completed doctorate of
+      - finished doctorate
+      - finished doctorate in
+      - finished doctorate of
+      - graduate of doctorate
+      - graduate of doctorate in
+      - graduate of doctorate of
+      - doctor’s degree
+      - doctor’s degree in
+      - doctor’s degree of
+      - doctor’s program
+      - doctor’s program in
+      - doctor’s program of
+      - post graduate doctoral
+      - post graduate doctoral in
+      - post graduate doctoral of
+      - post graduate doctorate
+      - post graduate doctorate in
+      - post graduate doctorate of
+      - post graduate doctoral degree
+      - post graduate doctoral degree in
+      - post graduate doctoral degree of
+      - postgraduate doctorate
+      - postgraduate doctorate in
+      - postgraduate doctorate of
+      - postgraduate doctoral degree
+      - postgraduate doctoral degree in
+      - postgraduate doctoral degree of
+      - doctorate-level
+      - doctorate-level in
+      - doctorate-level of
+      - doctoral-level
+      - doctoral-level in
+      - doctoral-level of
+      - doctor-level
+      - doctor-level in
+      - doctor-level of
+      - doctorate qualification
+      - doctorate qualification in
+      - doctorate qualification of
+      - doctoral qualification
+      - doctoral qualification in
+      - doctoral qualification of
