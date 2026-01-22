@@ -8,26 +8,31 @@
  * @param isoDate - ISO date string (e.g., "2025-01-14" or "2025-01-14T10:30:00Z")
  * @returns Formatted date string (e.g., "14/01/2025") or empty string if invalid
  */
-export function formatDateForCSC(isoDate: string | undefined | null): string {
-  if (!isoDate) return '';
+export function formatDateForCSC(input: string | undefined | null): string {
+  if (!input) return '';
 
-  try {
-    const date = new Date(isoDate);
+  const s = String(input).trim();
 
-    // Check if date is valid
-    if (isNaN(date.getTime())) {
-      return '';
-    }
-
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const year = date.getFullYear();
-
-    return `${day}/${month}/${year}`;
-  } catch (error) {
-    console.error('Error formatting date:', error);
-    return '';
+  // ✅ Accept DD/MM/YYYY or DD-MM-YYYY as-is
+  const dmyMatch = s.match(/^(\d{2})[\/-](\d{2})[\/-](\d{4})$/);
+  if (dmyMatch) {
+    const [, dd, mm, yyyy] = dmyMatch;
+    return `${dd}/${mm}/${yyyy}`;
   }
+
+  // ✅ Accept ISO (yyyy-mm-dd or yyyy-mm-ddTHH:mm)
+  if (/^\d{4}-\d{2}-\d{2}/.test(s)) {
+    const d = new Date(s);
+    if (!isNaN(d.getTime())) {
+      const day = String(d.getDate()).padStart(2, '0');
+      const month = String(d.getMonth() + 1).padStart(2, '0');
+      const year = d.getFullYear();
+      return `${day}/${month}/${year}`;
+    }
+  }
+
+  // ❌ Anything else → reject
+  return '';
 }
 
 /**

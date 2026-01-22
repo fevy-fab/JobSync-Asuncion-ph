@@ -11,7 +11,11 @@ import type {
   EducationalBackground,
 } from '@/types/pds.types';
 
-import { personalInformationSchema, familyBackgroundSchema, educationalBackgroundSchema } from '@/lib/pds/validation';
+import {
+  personalInformationSchema,
+  familyBackgroundSchema,
+  educationalBackgroundSchema,
+} from '@/lib/pds/validation';
 
 import { PDFOverlayRenderer, type OverlayField } from '../overlay/PDFOverlayRenderer';
 import { PAGE1_STEP1_FIELDS, PDS_PAGE_ASPECT } from '../overlay/pdsOverlayConfigs';
@@ -157,7 +161,10 @@ export const Page1OverlayForm: React.FC<Props> = ({
     const kids = (familyBackground.children || []).slice(0, 12);
     incoming.children = [
       ...kids,
-      ...Array.from({ length: Math.max(0, 12 - kids.length) }).map(() => ({ fullName: '', dateOfBirth: '' })),
+      ...Array.from({ length: Math.max(0, 12 - kids.length) }).map(() => ({
+        fullName: '',
+        dateOfBirth: '',
+      })),
     ];
     familyForm.reset(incoming);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -261,9 +268,28 @@ export const Page1OverlayForm: React.FC<Props> = ({
 
   const checkboxWrap = 'w-full h-full flex items-center justify-center';
 
+  /**
+   * ✅ UPDATED: Match Page4Overlay checkbox look:
+   * - Black filled box
+   * - White thick tick
+   * - No extra border (PDF already has printed checkbox border)
+   */
   const CheckboxBox = ({ checked }: { checked: boolean }) => (
-    <div className="w-full h-full border border-gray-700 bg-white flex items-center justify-center">
-      {checked ? <div className="w-[70%] h-[70%] bg-black" /> : null}
+    <div className="w-full h-full flex items-center justify-center">
+      {checked ? (
+        <div className="w-[88%] h-[88%] bg-black flex items-center justify-center">
+          <svg viewBox="0 0 24 24" className="w-[85%] h-[85%]" aria-hidden="true">
+            <path
+              d="M20 6L9 17l-5-5"
+              fill="none"
+              stroke="white"
+              strokeWidth="3.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </div>
+      ) : null}
     </div>
   );
 
@@ -283,7 +309,9 @@ export const Page1OverlayForm: React.FC<Props> = ({
   return (
     <div className="space-y-4">
       <div>
-        <h3 className="text-xl font-semibold text-gray-900 mb-1">Step 1: Page 1 (Personal + Family + Education)</h3>
+        <h3 className="text-xl font-semibold text-gray-900 mb-1">
+          Step 1: Page 1 (Personal + Family + Education)
+        </h3>
         <p className="text-sm text-gray-600">
           Fill directly on the official PDS layout. (Single PDF page overlay)
         </p>
@@ -340,7 +368,7 @@ export const Page1OverlayForm: React.FC<Props> = ({
                         <button
                           type="button"
                           onClick={onToggle}
-                          className="w-full h-full bg-transparent"
+                          className="w-full h-full bg-transparent cursor-pointer"
                           aria-pressed={isChecked}
                         >
                           <CheckboxBox checked={isChecked} />
@@ -349,16 +377,18 @@ export const Page1OverlayForm: React.FC<Props> = ({
                     );
                   }
 
-                  // Boolean checkbox
+                  // Boolean checkbox (match Page4 look)
                   const checked = !!field.value;
                   return (
                     <div className={checkboxWrap}>
-                      <input
-                        type="checkbox"
-                        checked={checked}
-                        onChange={(e) => field.onChange(e.target.checked)}
-                        className="w-4 h-4 accent-[#22A555]"
-                      />
+                      <button
+                        type="button"
+                        onClick={() => field.onChange(!checked)}
+                        className="w-full h-full bg-transparent cursor-pointer"
+                        aria-pressed={checked}
+                      >
+                        <CheckboxBox checked={checked} />
+                      </button>
                     </div>
                   );
                 }}

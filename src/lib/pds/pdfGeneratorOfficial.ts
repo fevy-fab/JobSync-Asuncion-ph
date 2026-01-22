@@ -21,17 +21,35 @@ import {
 type PdfGenOptions = {
   includeSignature?: boolean;
   useCurrentDate?: boolean;
-  returnBytes?: boolean;
+  returnBytes?: boolean; // kept for backwards-compat (function already returns bytes)
   debugGrid?: boolean;
-  drawCheckboxes?: boolean; // optional toggle
+  drawCheckboxes?: boolean;
+
+  calibration?: {
+    enabled?: boolean;
+
+    // what to show
+    showPoints?: boolean; // PdfPoint markers
+    showRects?: boolean; // PdfRect outlines
+    showTables?: boolean; // table rows/columns
+
+    tableRows?: number; // default 3
+    onlyPages?: Array<'page1' | 'page2' | 'page3' | 'page4'>; // filter pages
+    onlyPathsPrefix?: string[]; // e.g. ['page2.workExperience', 'page1.personalInfo']
+
+    // layout
+    markerStyle?: 'numbered-dot' | 'crosshair';
+    legendPlacement?: 'right' | 'bottom';
+    legendMaxLines?: number; // default 40
+  };
 };
 
 const TEMPLATE_PATH = path.join(process.cwd(), 'public', 'templates', 'PDS_2025_Template.pdf');
 const ARIAL_NARROW_PATH = path.join(process.cwd(), 'public', 'fonts', 'ArialNarrow.ttf');
 
 // ✅ Defaults (tweak once here)
-const FONT_SIZE = 7;
-const FONT_SIZE_SMALL = 6;
+const FONT_SIZE = 7.3;
+const FONT_SIZE_SMALL = 7;
 const CHECKBOX_SIZE = 8;
 const LINE_HEIGHT = 8;
 
@@ -44,7 +62,9 @@ async function loadTemplateBytes(): Promise<Uint8Array> {
   } catch (err) {
     console.error('❌ Failed to load PDF template from:', TEMPLATE_PATH);
     console.error('Error:', err);
-    throw new Error(`Could not load PDS_2025_Template.pdf: ${err instanceof Error ? err.message : String(err)}`);
+    throw new Error(
+      `Could not load PDS_2025_Template.pdf: ${err instanceof Error ? err.message : String(err)}`
+    );
   }
 }
 
@@ -210,13 +230,7 @@ function normalizeEduLevel(raw: any): string {
   if (s.includes('secondary') || s.includes('high school') || s.includes('hs')) return 'secondary';
   if (s.includes('vocational') || s.includes('trade') || s.includes('tesda')) return 'vocational';
   if (s.includes('college') || s.includes('bachelor') || s.includes('undergraduate')) return 'college';
-  if (
-    s.includes('graduate') ||
-    s.includes('master') ||
-    s.includes('doctor') ||
-    s.includes('phd') ||
-    s.includes('post')
-  ) {
+  if (s.includes('graduate') || s.includes('master') || s.includes('doctor') || s.includes('phd') || s.includes('post')) {
     return 'graduate';
   }
 
@@ -224,15 +238,12 @@ function normalizeEduLevel(raw: any): string {
 }
 
 function inferEduLevelFromCourse(row: EduEntry): string {
-  const course = safeText(
-    row?.basicEducationDegreeCourse || row?.basicEducationDegree || row?.course || ''
-  ).toLowerCase();
+  const course = safeText(row?.basicEducationDegreeCourse || row?.basicEducationDegree || row?.course || '').toLowerCase();
   if (!course) return '';
 
   if (course.includes('doctor') || course.includes('phd') || course.includes('master')) return 'graduate';
   if (course.includes('bachelor') || course.includes('bs') || course.includes('ba')) return 'college';
-  if (course.includes('tesda') || course.includes('nc ') || course.includes('trade') || course.includes('vocational'))
-    return 'vocational';
+  if (course.includes('tesda') || course.includes('nc ') || course.includes('trade') || course.includes('vocational')) return 'vocational';
 
   return '';
 }
@@ -277,10 +288,266 @@ function placeEducationIntoFixedRows(eduArr: EduEntry[], maxRows = 5): (EduEntry
   return out;
 }
 
+/* ============================================================
+   ✅ CALIBRATION MODE (REDESIGNED)
+============================================================ */
+
+type CalItem = {
+  pageIndex: number;
+  x: number;
+  y: number; // PDF y
+  yTop: number; // top-based y
+  label: string; // full path
+  kind: 'point' | 'rect' | 'tableCol' | 'tableRow';
+  rect?: { x: number; y: number; w: number; h: number }; // for rect outlines
+};
+
+function isPdfPoint(v: any): v is { x: number; y: number } {
+  return v && typeof v === 'object' && typeof v.x === 'number' && typeof v.y === 'number';
+}
+
+function isPdfRect(v: any): v is { x: number; y: number; w: number; h: number } {
+  return v && typeof v === 'object' && typeof v.x === 'number' && typeof v.y === 'number' && typeof v.w === 'number' && typeof v.h === 'number';
+}
+
+function shortPath(p: string) {
+  return p.replace(/^page(\d)\./, 'P$1.');
+}
+
+function yTopFromPdfY(y: number, pageHeight: number) {
+  return Math.round(pageHeight - y);
+}
+
+function drawNumberedDot(page: any, x: number, y: number, n: number) {
+  const r = 5;
+  page.drawCircle({ x, y, size: r, color: rgb(1, 1, 1), borderColor: rgb(0.1, 0.1, 0.1), borderWidth: 0.8 });
+  page.drawText(String(n), { x: x - 2.2, y: y - 2.3, size: 6, color: rgb(0, 0, 0) });
+}
+
+function drawCrosshairTiny(page: any, x: number, y: number) {
+  const s = 4;
+  page.drawLine({ start: { x: x - s, y }, end: { x: x + s, y }, thickness: 0.6, color: rgb(0.1, 0.1, 0.1) });
+  page.drawLine({ start: { x, y: y - s }, end: { x, y: y + s }, thickness: 0.6, color: rgb(0.1, 0.1, 0.1) });
+}
+
+function drawRectOutline(page: any, rect: { x: number; y: number; w: number; h: number }) {
+  page.drawRectangle({
+    x: rect.x,
+    y: rect.y,
+    width: rect.w,
+    height: rect.h,
+    borderWidth: 1,
+    borderColor: rgb(0.1, 0.1, 0.1),
+    opacity: 1,
+  });
+}
+
+function looksLikeTable(obj: any): boolean {
+  if (!obj || typeof obj !== 'object') return false;
+  const keys = Object.keys(obj);
+  return keys.includes('startTop') && keys.includes('rowStep') && keys.includes('maxRows') && keys.some((k) => /X$/.test(k) && typeof obj[k] === 'number');
+}
+
+function collectCalibrationItems(
+  map: any,
+  pageHeight: number,
+  cfg: Required<NonNullable<PdfGenOptions['calibration']>>
+): CalItem[] {
+  const items: CalItem[] = [];
+  const pageKeys: Array<'page1' | 'page2' | 'page3' | 'page4'> = ['page1', 'page2', 'page3', 'page4'];
+
+  const allowedPages = cfg.onlyPages?.length ? new Set(cfg.onlyPages) : null;
+  const prefixes = cfg.onlyPathsPrefix?.length ? cfg.onlyPathsPrefix : null;
+
+  function allowedPath(pathStr: string) {
+    if (!prefixes) return true;
+    return prefixes.some((p) => pathStr.startsWith(p));
+  }
+
+  function walk(obj: any, pageIndex: number, pathStr: string) {
+    if (!obj || typeof obj !== 'object') return;
+    if (!allowedPath(pathStr)) return;
+
+    if (cfg.showPoints && isPdfPoint(obj)) {
+      items.push({
+        pageIndex,
+        x: obj.x,
+        y: obj.y,
+        yTop: yTopFromPdfY(obj.y, pageHeight),
+        label: pathStr,
+        kind: 'point',
+      });
+      return;
+    }
+
+    if (cfg.showRects && isPdfRect(obj)) {
+      // represent rect by its top-left corner in legend + store rect for outline
+      const topLeftY = obj.y + obj.h;
+      items.push({
+        pageIndex,
+        x: obj.x,
+        y: topLeftY,
+        yTop: yTopFromPdfY(topLeftY, pageHeight),
+        label: `${pathStr} (rect ${obj.w}x${obj.h})`,
+        kind: 'rect',
+        rect: { x: obj.x, y: obj.y, w: obj.w, h: obj.h },
+      });
+      return;
+    }
+
+    if (cfg.showTables && looksLikeTable(obj)) {
+      const startTop = obj.startTop;
+      const rowStep = obj.rowStep;
+      const maxRows = obj.maxRows;
+      const xKeys = Object.keys(obj).filter((k) => /X$/.test(k) && typeof obj[k] === 'number');
+
+      const rows = Math.min(cfg.tableRows, typeof maxRows === 'number' ? maxRows : cfg.tableRows);
+
+      for (let i = 0; i < rows; i++) {
+        const yTop = startTop + i * rowStep;
+        const y = yFromTop(yTop, pageHeight);
+
+        items.push({
+          pageIndex,
+          x: 30,
+          y,
+          yTop,
+          label: `${pathStr}.row[${i}]`,
+          kind: 'tableRow',
+        });
+
+        if (i === 0) {
+          for (const k of xKeys) {
+            const x = obj[k];
+            items.push({
+              pageIndex,
+              x,
+              y,
+              yTop,
+              label: `${pathStr}.${k}`,
+              kind: 'tableCol',
+            });
+          }
+        }
+      }
+      // do not return; keep walking in case nested points exist
+    }
+
+    for (const k of Object.keys(obj)) {
+      walk(obj[k], pageIndex, pathStr ? `${pathStr}.${k}` : k);
+    }
+  }
+
+  for (let i = 0; i < pageKeys.length; i++) {
+    const pk = pageKeys[i];
+    if (allowedPages && !allowedPages.has(pk)) continue;
+    walk(map[pk], i, pk);
+  }
+
+  return items;
+}
+
+function drawLegend(page: any, font: any, items: Array<{ n: number; text: string }>, placement: 'right' | 'bottom') {
+  const { width: pageW, height: pageH } = page.getSize();
+
+  const padding = 6;
+  const lineH = 8;
+  const fontSize = 6;
+
+  const box =
+    placement === 'right'
+      ? { x: Math.max(pageW - 252, 20), y: 60, w: Math.min(240, pageW - 40), h: pageH - 120 }
+      : { x: 30, y: 30, w: pageW - 60, h: 160 };
+
+  page.drawRectangle({
+    x: box.x,
+    y: box.y,
+    width: box.w,
+    height: box.h,
+    color: rgb(1, 1, 1),
+    opacity: 0.88,
+    borderWidth: 1,
+    borderColor: rgb(0.75, 0.75, 0.75),
+  });
+
+  page.drawText('CALIBRATION LEGEND', {
+    x: box.x + padding,
+    y: box.y + box.h - padding - 8,
+    size: 7,
+    font,
+    color: rgb(0, 0, 0),
+  });
+
+  let cursorY = box.y + box.h - padding - 18;
+  for (const it of items) {
+    if (cursorY < box.y + padding + 8) break;
+    page.drawText(it.text, { x: box.x + padding, y: cursorY, size: fontSize, font, color: rgb(0, 0, 0) });
+    cursorY -= lineH;
+  }
+}
+
+function drawCalibrationOverlayRedesigned(params: {
+  pdfDoc: PDFDocument;
+  font: any;
+  map: any;
+  cfg: Required<NonNullable<PdfGenOptions['calibration']>>;
+}) {
+  const { pdfDoc, font, map, cfg } = params;
+  const pages = pdfDoc.getPages();
+
+  // IMPORTANT: page sizes can differ; collector uses page0 height for yTop
+  const pageHeight = pages[0].getSize().height;
+
+  const rawItems = collectCalibrationItems(map, pageHeight, cfg);
+
+  const byPage = new Map<number, CalItem[]>();
+  for (const it of rawItems) {
+    const arr = byPage.get(it.pageIndex) || [];
+    arr.push(it);
+    byPage.set(it.pageIndex, arr);
+  }
+
+  for (const [pageIndex, items] of byPage.entries()) {
+    const page = pages[pageIndex];
+    items.sort((a, b) => b.yTop - a.yTop);
+
+    const numbered = items.map((it, idx) => ({ ...it, n: idx + 1 }));
+
+    for (const it of numbered) {
+      if (it.kind === 'rect' && it.rect) {
+        drawRectOutline(page, it.rect);
+      }
+
+      if (cfg.markerStyle === 'crosshair') {
+        drawCrosshairTiny(page, it.x, it.y);
+      } else {
+        drawNumberedDot(page, it.x, it.y, it.n);
+      }
+
+      if (it.kind === 'tableRow') {
+        const { width } = page.getSize();
+        page.drawLine({
+          start: { x: 30, y: it.y },
+          end: { x: width - 30, y: it.y },
+          thickness: 0.25,
+          color: rgb(0.8, 0.8, 0.8),
+        });
+      }
+    }
+
+    const legendLines = numbered.slice(0, cfg.legendMaxLines).map((it) => {
+      const t = shortPath(it.label);
+      const coords = `x=${Math.round(it.x)} yTop=${it.yTop}`;
+      return { n: it.n, text: `${String(it.n).padStart(2, '0')}. ${t}  (${coords})` };
+    });
+
+    drawLegend(page, font, legendLines, cfg.legendPlacement);
+  }
+}
+
 function flattenFormsIfAny(pdfDoc: PDFDocument) {
   try {
     const form = pdfDoc.getForm();
-    // If template has no forms, pdf-lib throws in some versions; hence try/catch
     form.flatten();
   } catch {
     // no-op
@@ -296,14 +563,14 @@ export async function generateOfficialPDF(
 ): Promise<Uint8Array> {
   const includeSignature = options.includeSignature ?? false;
   const useCurrentDate = options.useCurrentDate ?? false;
-  const returnBytes = options.returnBytes ?? false;
-  const debugGrid = options.debugGrid ?? false;
+  const debugGrid = options.debugGrid ?? false; //TURN OFF   AFTER RECALIBRATING
   const drawCheckboxes = options.drawCheckboxes ?? true;
 
+  // --- Load template + setup doc/font FIRST ---
   const templateBytes = await loadTemplateBytes();
   const pdfDoc = await PDFDocument.load(templateBytes);
 
-  // ✅ Flatten any form fields/widgets that can cover your signature (and other drawn content)
+  // ✅ Flatten any form fields/widgets that can cover drawn content (e.g., signature)
   flattenFormsIfAny(pdfDoc);
 
   pdfDoc.registerFontkit(fontkit);
@@ -317,11 +584,34 @@ export async function generateOfficialPDF(
     console.warn('⚠ ArialNarrow.ttf not found. Falling back to Helvetica.');
   }
 
-  if (debugGrid) drawDebugGrid(pdfDoc);
-
   const pages = pdfDoc.getPages();
   if (pages.length < 4) {
     throw new Error(`Template PDF has only ${pages.length} page(s). Expected at least 4.`);
+  }
+
+  if (debugGrid) drawDebugGrid(pdfDoc);
+
+  // ✅ Calibration overlay (must be AFTER pdfDoc + font exist)
+  const cal = options.calibration ?? {};
+  const calibrationEnabled = cal.enabled ?? false;
+  if (calibrationEnabled) {
+    drawCalibrationOverlayRedesigned({
+      pdfDoc,
+      font,
+      map: PDS_PDF_MAP,
+      cfg: {
+        enabled: true,
+        showPoints: cal.showPoints ?? true,
+        showRects: cal.showRects ?? true,
+        showTables: cal.showTables ?? true,
+        tableRows: cal.tableRows ?? 3,
+        onlyPages: cal.onlyPages ?? [],
+        onlyPathsPrefix: cal.onlyPathsPrefix ?? [],
+        markerStyle: cal.markerStyle ?? 'numbered-dot',
+        legendPlacement: cal.legendPlacement ?? 'right',
+        legendMaxLines: cal.legendMaxLines ?? 40,
+      },
+    });
   }
 
   // ==========================================================
@@ -381,10 +671,7 @@ export async function generateOfficialPDF(
 
   // Sex checkboxes ✅ FIXED (female no longer triggers male)
   if (drawCheckboxes && (m1 as any).sexMale && (m1 as any).sexFemale) {
-    const sexRaw = String(pi.sex ?? pi.gender ?? pi.sexAtBirth ?? pi.genderAtBirth ?? '')
-      .trim()
-      .toLowerCase();
-
+    const sexRaw = String(pi.sex ?? pi.gender ?? pi.sexAtBirth ?? pi.genderAtBirth ?? '').trim().toLowerCase();
     const sex = sexRaw.replace(/\./g, '');
 
     const isFemale = sex === 'female' || sex === 'f' || sex === 'woman' || sex === '2';
@@ -427,9 +714,7 @@ export async function generateOfficialPDF(
     (m1 as any).citizenshipDualByNaturalization
   ) {
     const citizenshipRaw = String(pi.citizenship || '').trim().toLowerCase();
-    const dualTypeRaw = String(pi.dualCitizenshipType || (pi as any).dualCitizenship || '')
-      .trim()
-      .toLowerCase();
+    const dualTypeRaw = String(pi.dualCitizenshipType || (pi as any).dualCitizenship || '').trim().toLowerCase();
 
     const isFilipino = citizenshipRaw === 'filipino' || citizenshipRaw.includes('filip');
 
@@ -439,10 +724,7 @@ export async function generateOfficialPDF(
 
     const isDualByBirth = isDual && (dualTypeRaw.includes('birth') || dualTypeRaw.includes('by birth'));
     const isDualByNaturalization =
-      isDual &&
-      (dualTypeRaw.includes('natural') ||
-        dualTypeRaw.includes('naturalization') ||
-        dualTypeRaw.includes('by naturalization'));
+      isDual && (dualTypeRaw.includes('natural') || dualTypeRaw.includes('naturalization') || dualTypeRaw.includes('by naturalization'));
 
     drawCheckbox(page1, font, (m1 as any).citizenshipFilipino.x, (m1 as any).citizenshipFilipino.y, isFilipino);
     drawCheckbox(page1, font, (m1 as any).citizenshipDualByBirth.x, (m1 as any).citizenshipDualByBirth.y, isDualByBirth);
@@ -901,8 +1183,18 @@ export async function generateOfficialPDF(
 
         const dateRange = formatDateRangeForCSC(row?.periodOfService?.from, row?.periodOfService?.to);
 
-        page2.drawText(fitTextToWidth(font, dateRange.from, FONT_SIZE_SMALL, 55), { x: wm.fromX, y, size: FONT_SIZE_SMALL, font });
-        page2.drawText(fitTextToWidth(font, dateRange.to, FONT_SIZE_SMALL, 55), { x: wm.toX, y, size: FONT_SIZE_SMALL, font });
+        page2.drawText(fitTextToWidth(font, dateRange.from, FONT_SIZE_SMALL, 55), {
+          x: wm.fromX,
+          y,
+          size: FONT_SIZE_SMALL,
+          font,
+        });
+        page2.drawText(fitTextToWidth(font, dateRange.to, FONT_SIZE_SMALL, 55), {
+          x: wm.toX,
+          y,
+          size: FONT_SIZE_SMALL,
+          font,
+        });
 
         page2.drawText(fitTextToWidth(font, safeText(row.positionTitle || ''), FONT_SIZE_SMALL, 150), {
           x: wm.positionTitleX,
@@ -1335,9 +1627,7 @@ export async function generateOfficialPDF(
     });
   }
 
-  // Signature embed ✅ now:
-  // 1) template form fields are flattened (so no overlay)
-  // 2) signature is padded and centered to avoid border "clipping"
+  // Signature embed
   if (includeSignature) {
     const sigDataUrl = declaration?.signatureData;
     if (sigDataUrl && typeof sigDataUrl === 'string' && sigDataUrl.startsWith('data:image')) {
@@ -1346,13 +1636,11 @@ export async function generateOfficialPDF(
         const base64 = sigDataUrl.split(',')[1];
         const bytes = Uint8Array.from(Buffer.from(base64, 'base64'));
 
-        const img =
-          mime.includes('jpeg') || mime.includes('jpg') ? await pdfDoc.embedJpg(bytes) : await pdfDoc.embedPng(bytes);
+        const img = mime.includes('jpeg') || mime.includes('jpg') ? await pdfDoc.embedJpg(bytes) : await pdfDoc.embedPng(bytes);
 
         const box = (m4 as any).signatureBox;
         const imgDims = img.scale(1);
 
-        // ✅ padding to prevent edge overlap with box borders
         const pad = 4;
         const maxW = box.w - pad * 2;
         const maxH = box.h - pad * 2;
@@ -1364,7 +1652,6 @@ export async function generateOfficialPDF(
         const x = box.x + pad + (maxW - w) / 2;
         const y = box.y + pad + (maxH - h) / 2;
 
-        // draw image (forms are already flattened so nothing should cover it)
         page4.drawImage(img, { x, y, width: w, height: h });
       } catch (e) {
         console.error('Signature embed failed:', e);
