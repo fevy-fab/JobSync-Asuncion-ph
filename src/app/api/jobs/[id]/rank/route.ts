@@ -167,55 +167,72 @@ export async function POST(
           return philippineTime;
         };
 
-        // Helper function to parse dates in multiple formats
         const parseFlexibleDate = (dateStr: string): Date | null => {
-          if (!dateStr || dateStr === 'Present') return null;
+          if (!dateStr) return null;
 
-          // Try ISO format first (YYYY-MM-DD)
-          let parsed = new Date(dateStr);
-          if (!isNaN(parsed.getTime())) return parsed;
+          const s = String(dateStr).trim();
+          if (!s) return null;
 
-          // Try MM/DD/YYYY format
-          const mmddyyyy = dateStr.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
-          if (mmddyyyy) {
-            parsed = new Date(`${mmddyyyy[3]}-${mmddyyyy[1].padStart(2, '0')}-${mmddyyyy[2].padStart(2, '0')}`);
-            if (!isNaN(parsed.getTime())) return parsed;
+          // ISO-like YYYY-MM-DD or YYYY/MM/DD
+          const iso = s.replace(/\//g, '-');
+          const isoMatch = iso.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+          if (isoMatch) {
+            const d = new Date(
+              `${isoMatch[1]}-${isoMatch[2].padStart(2, '0')}-${isoMatch[3].padStart(2, '0')}`
+            );
+            return isNaN(d.getTime()) ? null : d;
           }
 
-          // Try DD/MM/YYYY format
-          const ddmmyyyy = dateStr.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
-          if (ddmmyyyy) {
-            parsed = new Date(`${ddmmyyyy[3]}-${ddmmyyyy[2].padStart(2, '0')}-${ddmmyyyy[1].padStart(2, '0')}`);
-            if (!isNaN(parsed.getTime())) return parsed;
+          // DD-MM-YYYY or DD/MM/YYYY (also handles ambiguous 01-12-2020)
+          const dmy = s.match(/^(\d{1,2})[\/-](\d{1,2})[\/-](\d{4})$/);
+          if (dmy) {
+            const a = parseInt(dmy[1], 10);
+            const b = parseInt(dmy[2], 10);
+            const yyyy = dmy[3];
+
+            // PH default: treat as DD-MM-YYYY unless clearly impossible
+            let dd = a;
+            let mm = b;
+
+            // If a can't be month but b can → DD-MM
+            if (a > 12 && b <= 12) {
+              dd = a; mm = b;
+            }
+            // If b can't be day but a can → MM-DD (rare, but handle)
+            else if (b > 12 && a <= 12) {
+              mm = a; dd = b;
+            }
+            // else ambiguous: keep DD-MM default
+
+            const d = new Date(`${yyyy}-${String(mm).padStart(2, '0')}-${String(dd).padStart(2, '0')}`);
+            return isNaN(d.getTime()) ? null : d;
           }
 
           console.warn(`⚠️ Could not parse date: "${dateStr}"`);
           return null;
         };
 
-        if (pds?.work_experience && Array.isArray(pds.work_experience)) {
-          console.log(`📝 Processing ${pds.work_experience.length} work experience records for ${profile?.first_name} ${profile?.surname}`);
+        const workExp = (pds as any)?.work_experience ?? (pds as any)?.workExperience;
 
-          totalYears = pds.work_experience
+        if (Array.isArray(workExp)) {
+          console.log(`📝 Processing ${workExp.length} work experience records for ${profile?.first_name} ${profile?.surname}`);
+
+          totalYears = workExp
             .filter((work: any) => {
               if (!work) return false;
-              // Check for dates in nested periodOfService object first, then direct properties
               const hasFrom = work.periodOfService?.from || work.from || work.fromDate || work.dateFrom;
               const hasTo = work.periodOfService?.to || work.to || work.toDate || work.dateTo;
-              if (!hasFrom || !hasTo) {
-                console.warn(`⚠️ Work experience missing dates:`, { work });
-              }
+              if (!hasFrom || !hasTo) console.warn(`⚠️ Work experience missing dates:`, { work });
               return hasFrom && hasTo;
             })
             .reduce((total: number, work: any) => {
               try {
-                // Check multiple possible field names for dates (including nested periodOfService)
                 const fromDateStr = work.periodOfService?.from || work.from || work.fromDate || work.dateFrom;
                 const toDateStr = work.periodOfService?.to || work.to || work.toDate || work.dateTo;
 
                 const from = parseFlexibleDate(fromDateStr);
-                const to = (toDateStr === 'Present' || toDateStr === 'present')
-                  ? getPhilippineTime() // ✅ Use Philippine timezone (UTC+8) for "Present"
+                const to = (typeof toDateStr === 'string' && toDateStr.trim().toLowerCase() === 'present')
+                  ? getPhilippineTime()
                   : parseFlexibleDate(toDateStr);
 
                 if (!from || !to) {
@@ -234,9 +251,8 @@ export async function POST(
               }
             }, 0);
 
-          // Round to 1 decimal place and fix floating-point precision issues
           totalYears = Math.round(totalYears * 10) / 10;
-          totalYears = parseFloat(totalYears.toFixed(1)); // Eliminate floating-point artifacts
+          totalYears = parseFloat(totalYears.toFixed(1));
           console.log(`📊 Total work experience: ${totalYears} years`);
         } else {
           console.log(`⚠️ No work experience array found in PDS for ${profile?.first_name} ${profile?.surname}`);

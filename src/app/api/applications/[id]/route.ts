@@ -208,15 +208,29 @@ export async function PATCH(
     // 7. Validate hired status restrictions (H3: Prevent Multi-Hire)
     if (status === 'hired') {
       // Check if applicant is already hired for another job
-      const { data: otherHiredJob, error: hiredCheckError } = await supabase
-        .rpc('get_applicant_hired_job', { p_applicant_id: existingApplication.applicant_id })
+      const { data: otherHiredApp, error: hiredCheckError } = await supabase
+        .from('applications')
+        .select('job_id, jobs:job_id(title), updated_at')
+        .eq('applicant_id', existingApplication.applicant_id)
+        .eq('status', 'hired')
+        .order('updated_at', { ascending: false })
+        .limit(1)
         .maybeSingle();
 
-      if (otherHiredJob && otherHiredJob.job_id !== existingApplication.job_id) {
+      if (hiredCheckError) {
+        console.error('Error checking hired status:', hiredCheckError);
+        return NextResponse.json(
+          { success: false, error: hiredCheckError.message },
+          { status: 500 }
+        );
+      }
+
+      if (otherHiredApp && otherHiredApp.job_id !== existingApplication.job_id) {
+        const otherTitle = (otherHiredApp.jobs as any)?.title || 'another position';
         return NextResponse.json(
           {
             success: false,
-            error: `This applicant is already hired for "${otherHiredJob.job_title}". Please release their hire status before hiring for another position.`
+            error: `This applicant is already hired for "${otherTitle}". Please release their hire status before hiring for another position.`
           },
           { status: 400 }
         );
@@ -307,45 +321,63 @@ export async function PATCH(
       );
     }
 
-    // 10a. Auto-deny other pending/approved applications when hired (H3: Prevent Multi-Hire)
-    if (status === 'hired') {
-      try {
-        // Get all other pending or approved applications for this applicant
-        const { data: otherApplications, error: fetchOtherError } = await supabase
-          .from('applications')
-          .select('id, job_id, status, jobs:job_id(title)')
-          .eq('applicant_id', existingApplication.applicant_id)
-          .neq('id', id)  // Exclude current application
-          .in('status', ['pending', 'approved', 'under_review', 'shortlisted', 'interviewed']);
+      // 10a. Auto-deny other pending/approved applications when hired (H3: Prevent Multi-Hire)
+      if (status === 'hired') {
+        try {
+          // Ensure these are defined before being used in the auto-deny loop
+          const currentTimestamp = new Date().toISOString();
+          const jobTitle =
+            (existingApplication.jobs as any)?.title || 'the position';
+          // Get all other pending or approved applications for this applicant
+          const { data: otherApplications, error: fetchOtherError } = await supabase
+            .from('applications')
+            .select('id, job_id, status, jobs:job_id(title)')
+            .eq('applicant_id', existingApplication.applicant_id)
+            .neq('id', id)  // Exclude current application
+            .in('status', ['pending', 'approved', 'under_review', 'shortlisted', 'interviewed']);
 
-        if (otherApplications && otherApplications.length > 0) {
-          console.log(`Auto-denying ${otherApplications.length} pending/approved applications for hired applicant`);
+          if (fetchOtherError) {
+            console.error('Error fetching other applications for auto-deny:', fetchOtherError);
+          }
 
-          // Auto-deny each pending application
-          for (const app of otherApplications) {
-            const autoDenyReason = `Automatically denied because applicant was hired for another position (${jobTitle})`;
+          if (otherApplications && otherApplications.length > 0) {
+            console.log(`Auto-denying ${otherApplications.length} pending/approved applications for hired applicant`);
 
-            await supabase
-              .from('applications')
-              .update({
-                status: 'denied',
-                denial_reason: autoDenyReason,
-                reviewed_by: user.id,
-                reviewed_at: currentTimestamp,
-                updated_at: currentTimestamp,
-              })
-              .eq('id', app.id);
+            // Auto-deny each pending application
+            for (const app of otherApplications) {
+              const autoDenyReason = `Auto-denied because applicant was hired for another position (${jobTitle})`;
+ 
+              const { error: denyError } = await supabase
+                .from('applications')
+                .update({
+                  status: 'denied',
+                  denial_reason: autoDenyReason,
+                  reviewed_by: user.id,
+                  reviewed_at: currentTimestamp,
+                  updated_at: currentTimestamp,
+                })
+                .eq('id', app.id);
 
-            // Send notification to applicant about auto-denial
-            const deniedJobTitle = (app.jobs as any)?.title || 'a position';
-            await createNotification(existingApplication.applicant_id, {
-              type: 'application_status',
-              title: 'Application Status Update',
-              message: `Your application for "${deniedJobTitle}" has been closed because you were hired for another position. Congratulations on your new role!`,
-              related_entity_type: 'application',
-              related_entity_id: app.id,
-              link_url: '/applicant/applications',
-            });
+              if (denyError) {
+                console.error('Auto-deny update failed:', { application_id: app.id, error: denyError });
+                // If the update failed (often due to RLS), skip notification for this one
+                continue;
+              }
+
+              // Send notification to applicant about auto-denial
+              try {
+                const deniedJobTitle = (app.jobs as any)?.title || 'a position';
+                await createNotification(existingApplication.applicant_id, {
+                  type: 'application_status',
+                  title: 'Application Status Update',
+                  message: `Your application for "${deniedJobTitle}" has been closed because you were hired for another position. Congratulations on your new role!`,
+                  related_entity_type: 'application',
+                  related_entity_id: app.id,
+                  link_url: '/applicant/applications',
+                });
+              } catch (notifErr) {
+                console.error('Auto-deny notification failed:', { application_id: app.id, error: notifErr });
+              }
           }
         }
       } catch (autoDenyError) {

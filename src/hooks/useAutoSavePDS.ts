@@ -56,10 +56,17 @@ export function useAutoSavePDS(
       // VALIDATION: Ensure completion_percentage is always 0-100 (database constraint)
       const sanitizedData = {
         ...pdsData,
+
+        // ✅ Send snake_case key (and optionally remove camelCase)
+        work_experience: (pdsData as any).workExperience || (pdsData as any).work_experience || [],
+
         completionPercentage: typeof pdsData.completionPercentage === 'number'
           ? Math.max(0, Math.min(100, Math.round(pdsData.completionPercentage)))
           : 0,
       };
+
+      // Optional: prevent sending both keys
+      delete (sanitizedData as any).workExperience;
 
       const response = await fetch('/api/pds', {
         method,

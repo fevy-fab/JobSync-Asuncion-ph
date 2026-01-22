@@ -330,8 +330,13 @@ export default function AuthenticatedJobsPage() {
 
   const hasAppliedToJob = (jobId: string): boolean => {
     const application = getApplicationForJob(jobId);
-    return !!application && application.status !== 'withdrawn';
-  };
+    // Treat these as "not active" so the user can apply again:
+    // - withdrawn: user withdrew
+    // - denied: application was rejected
+    // - archived: used by "Release Hire Status" and historical records
+    if (!application) return false;
+    return !['withdrawn', 'denied', 'archived'].includes(application.status);
+   };
 
   // Combine jobs with application status
   const jobsWithApplicationStatus: JobWithApplication[] = jobs.map(job => ({
@@ -1412,7 +1417,15 @@ export default function AuthenticatedJobsPage() {
                             >
                               View History
                             </Button>
-                            {(isDenied || isWithdrawn) && (
+                            {(() => {
+                              const job = jobs.find(j => j.id === app.job_id);
+                              const jobIsActive = job?.status === 'active';
+                              const canReapplyFromHistory =
+                                isDenied || isWithdrawn || (isArchived && jobIsActive);
+
+                              if (!canReapplyFromHistory) return null;
+
+                              return (
                               <Button
                                 variant="success"
                                 size="sm"
@@ -1425,7 +1438,8 @@ export default function AuthenticatedJobsPage() {
                               >
                                 Reapply
                               </Button>
-                            )}
+                              );
+                            })()}
                           </div>
                         </div>
                       </Card>

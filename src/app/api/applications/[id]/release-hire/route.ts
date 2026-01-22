@@ -25,8 +25,14 @@ export async function POST(
   try {
     const supabase = await createClient();
     const { id } = await params;
-    const body = await request.json();
-    const { release_reason } = body; // Optional reason for releasing
+    // Body is optional; avoid throwing if request has no JSON body
+    let release_reason: string | undefined;
+    try {
+      const body = await request.json();
+      release_reason = body?.release_reason;
+    } catch {
+      release_reason = undefined;
+    }
 
     // 1. Authenticate user
     const { data: { user }, error: authError } = await supabase.auth.getUser();
@@ -68,6 +74,7 @@ export async function POST(
         applicant_id,
         job_id,
         status,
+        hr_notes,
         jobs:job_id (
           id,
           title
@@ -106,6 +113,39 @@ export async function POST(
       );
     }
 
+    // 5.5 Guard: detect multiple hired applications for this applicant
+    // This prevents DB triggers/policies that assume only 1 hired row from exploding
+    const { data: hiredApps, error: hiredAppsError } = await supabase
+      .from('applications')
+      .select('id, job_id')
+      .eq('applicant_id', application.applicant_id)
+      .eq('status', 'hired');
+
+    if (hiredAppsError) {
+      console.error('Error checking hired applications:', hiredAppsError);
+      return NextResponse.json(
+        { success: false, error: hiredAppsError.message },
+        { status: 500 }
+      );
+    }
+
+    if (hiredApps && hiredApps.length > 1) {
+      return NextResponse.json(
+        {
+          success: false,
+          error:
+            `Cannot release hire status because this applicant has multiple 'hired' applications ` +
+            `(${hiredApps.length}). This will cause DB subquery cardinality errors. ` +
+            `Please resolve duplicates first.`,
+          details: {
+            applicant_id: application.applicant_id,
+            hired_application_ids: hiredApps.map(a => a.id),
+          },
+        },
+        { status: 400 }
+      );
+    }
+
     // 6. Release hire status by changing to 'archived'
     const currentTimestamp = new Date().toISOString();
     const { data: updatedApplication, error: updateError } = await supabase
@@ -120,14 +160,28 @@ export async function POST(
           : `[${currentTimestamp}] Hire status released by ${profile.full_name}${release_reason ? `: ${release_reason}` : ''}`,
       })
       .eq('id', id)
-      .select()
-      .single();
+      .eq('status', 'hired')
+      .select('id, applicant_id, job_id, status, reviewed_by, reviewed_at, updated_at, hr_notes')
+      .maybeSingle();
 
     if (updateError) {
       console.error('Error releasing hire status:', updateError);
       return NextResponse.json(
-        { success: false, error: 'Failed to release hire status' },
+        { success: false, error: updateError.message },
         { status: 500 }
+      );
+    }
+
+    // If no row was updated, the status likely changed or update was blocked (RLS)
+    if (!updatedApplication) {
+      return NextResponse.json(
+        {
+          success: false,
+          error:
+            'Release failed: application was not updated. It may no longer be in "hired" status, ' +
+            'or you may not have permission to update it.',
+        },
+        { status: 409 }
       );
     }
 

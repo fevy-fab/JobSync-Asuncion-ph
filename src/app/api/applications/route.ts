@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
-import { createInitialStatusHistory } from '@/lib/utils/statusHistory';
+import { createInitialStatusHistory, appendStatusHistory } from '@/lib/utils/statusHistory';
 import { createNotification, notifyJobCreator, notifyAdmins } from '@/lib/notifications';
 
 /**
@@ -39,26 +39,79 @@ function extractPDSData(pds: any, profile: any) {
     }));
   }
 
-  // Calculate total years of experience from PDS work_experience
+  const getPhilippineTime = () => {
+    // If you want to be strict about PH time:
+    // return new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Manila' }));
+    // But simplest (and usually fine): just "now"
+    return new Date();
+  };
+
+  const parseFlexibleDate = (dateStr: string): Date | null => {
+    if (!dateStr) return null;
+    const s = String(dateStr).trim();
+    if (!s) return null;
+
+    const iso = s.replace(/\//g, '-');
+    const isoMatch = iso.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+    if (isoMatch) {
+      const d = new Date(
+        `${isoMatch[1]}-${isoMatch[2].padStart(2, '0')}-${isoMatch[3].padStart(2, '0')}`
+      );
+      return isNaN(d.getTime()) ? null : d;
+    }
+
+    const dmy = s.match(/^(\d{1,2})[\/-](\d{1,2})[\/-](\d{4})$/);
+    if (dmy) {
+      const a = parseInt(dmy[1], 10);
+      const b = parseInt(dmy[2], 10);
+      const yyyy = dmy[3];
+
+      let dd = a;
+      let mm = b;
+
+      if (a > 12 && b <= 12) {
+        dd = a; mm = b;
+      } else if (b > 12 && a <= 12) {
+        mm = a; dd = b;
+      }
+
+      const d = new Date(`${yyyy}-${String(mm).padStart(2, '0')}-${String(dd).padStart(2, '0')}`);
+      return isNaN(d.getTime()) ? null : d;
+    }
+
+    return null;
+  };
+
+    // Calculate total years of experience from PDS work_experience
   let totalYears = profile?.total_years_experience || 0;
-  if (pds?.work_experience && Array.isArray(pds.work_experience)) {
-    // Calculate using same logic as ranking API
-    totalYears = pds.work_experience.reduce((total: number, work: any) => {
-      const fromDateStr = work.periodOfService?.from || work.from;
-      const toDateStr = work.periodOfService?.to || work.to;
+
+  const workExp = pds?.work_experience ?? pds?.workExperience;
+
+  if (Array.isArray(workExp)) {
+    totalYears = workExp.reduce((total: number, work: any) => {
+      const fromDateStr =
+        work?.periodOfService?.from || work?.from || work?.fromDate || work?.dateFrom;
+
+      const toDateStr =
+        work?.periodOfService?.to || work?.to || work?.toDate || work?.dateTo;
 
       if (!fromDateStr || !toDateStr) return total;
 
-      const from = new Date(fromDateStr);
-      const to = toDateStr === 'Present' ? new Date() : new Date(toDateStr);
+      const from = parseFlexibleDate(fromDateStr);
+      const to =
+        (typeof toDateStr === 'string' && toDateStr.trim().toLowerCase() === 'present')
+          ? getPhilippineTime()
+          : parseFlexibleDate(toDateStr);
 
-      if (isNaN(from.getTime()) || isNaN(to.getTime())) return total;
+      if (!from || !to) return total;
 
       const years = (to.getTime() - from.getTime()) / (1000 * 60 * 60 * 24 * 365.25);
       return total + Math.max(0, years);
     }, 0);
-    totalYears = Math.round(totalYears * 10) / 10; // Round to 1 decimal place
+
+    totalYears = Math.round(totalYears * 10) / 10;
   }
+
 
   // Extract highest educational attainment from PDS educational_background
   let education = profile?.highest_educational_attainment || 'Not specified';
@@ -369,7 +422,10 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
 
     // 1. Authenticate user
-    const { data: { user }, error: authError } = await supabase.auth.getUser();
+    const {
+      data: { user },
+      error: authError,
+    } = await supabase.auth.getUser();
 
     if (authError || !user) {
       return NextResponse.json(
@@ -425,66 +481,84 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (jobError || !job) {
-      return NextResponse.json(
-        { success: false, error: 'Job not found' },
-        { status: 404 }
-      );
+      return NextResponse.json({ success: false, error: 'Job not found' }, { status: 404 });
     }
 
-    // Check job status and provide specific error messages
     if (job.status === 'closed') {
       return NextResponse.json(
-        { success: false, error: 'This job has been closed as all positions have been filled' },
+        { success: false, error: 'This job has been closed.' },
         { status: 400 }
       );
     }
 
     if (job.status === 'archived') {
       return NextResponse.json(
-        { success: false, error: 'This job posting has been archived and is no longer available' },
+        { success: false, error: 'This job posting has been archived and is no longer available.' },
         { status: 400 }
       );
     }
 
     if (job.status !== 'active') {
       return NextResponse.json(
-        { success: false, error: 'This job is no longer accepting applications' },
+        { success: false, error: 'This job is no longer accepting applications.' },
         { status: 400 }
       );
     }
 
-    // 6. Check if applicant is currently hired for another job (H3: Hired Status Restrictions)
-    const { data: hiredJob, error: hiredCheckError } = await supabase
-      .rpc('get_applicant_hired_job', { p_applicant_id: user.id })
+    // 6. Check if applicant is currently hired for another job
+    const { data: hiredApp, error: hiredCheckError } = await supabase
+      .from('applications')
+      .select('job_id, jobs:job_id(title), updated_at')
+      .eq('applicant_id', user.id)
+      .eq('status', 'hired')
+      .order('updated_at', { ascending: false })
+      .limit(1)
       .maybeSingle();
 
-    if (hiredJob) {
+    if (hiredCheckError) {
+      console.error('Error checking hired status:', hiredCheckError);
+      return NextResponse.json(
+        { success: false, error: hiredCheckError.message },
+        { status: 500 }
+      );
+    }
+
+    if (hiredApp) {
+      const hiredTitle = (hiredApp.jobs as any)?.title || 'another position';
       return NextResponse.json(
         {
           success: false,
-          error: `You have already been hired for "${hiredJob.job_title}". Please complete that position before applying to new roles.`
+          error: `You have already been hired for "${hiredTitle}". Please complete that position before applying to new roles.`,
         },
         { status: 403 }
       );
     }
 
-    // 7. Check for duplicate application (exclude withdrawn and denied applications)
+    // 7. Check for ACTIVE application (exclude withdrawn, denied, archived)
     const { data: existingApplication, error: duplicateError } = await supabase
       .from('applications')
       .select('id, status')
       .eq('job_id', job_id)
       .eq('applicant_id', user.id)
-      .not('status', 'in', '(withdrawn,denied)')  // Allow reapplication after withdrawal or denial
-      .maybeSingle();  // Returns null if no active application exists
+      .not('status', 'in', '(withdrawn,denied,archived)')
+      .maybeSingle();
+
+    if (duplicateError) {
+      console.error('Error checking duplicate application:', duplicateError);
+      return NextResponse.json(
+        { success: false, error: duplicateError.message },
+        { status: 500 }
+      );
+    }
 
     if (existingApplication) {
       return NextResponse.json(
-        { success: false, error: 'You already have an active application for this job' },
+        { success: false, error: 'You already have an active application for this job.' },
         { status: 400 }
       );
     }
 
-    // 8. Check if applicant_profile exists, create if not
+    // 8. Ensure applicant_profile exists, create if not
     let applicantProfileId: string;
 
     const { data: existingProfile, error: profileCheckError } = await supabase
@@ -493,17 +567,24 @@ export async function POST(request: NextRequest) {
       .eq('user_id', user.id)
       .single();
 
+    // If "no rows found" is returned as an error in your setup, ignore that case.
+    if (profileCheckError && (profileCheckError as any).code !== 'PGRST116') {
+      console.error('Error checking applicant profile:', profileCheckError);
+      return NextResponse.json(
+        { success: false, error: profileCheckError.message },
+        { status: 500 }
+      );
+    }
+
     if (existingProfile) {
       applicantProfileId = existingProfile.id;
     } else {
-      // Create basic applicant profile (will be populated later by OCR)
       const { data: newProfile, error: createProfileError } = await supabase
         .from('applicant_profiles')
         .insert({
           user_id: user.id,
           first_name: profile.full_name?.split(' ')[0] || '',
           surname: profile.full_name?.split(' ').slice(1).join(' ') || '',
-          // Other fields will be populated by OCR later
           ocr_processed: false,
           ai_processed: false,
         })
@@ -521,7 +602,17 @@ export async function POST(request: NextRequest) {
       applicantProfileId = newProfile.id;
     }
 
-    // 9. Create application
+    /**
+     * OPTION B (No RLS change): DO NOT UPDATE old withdrawn/denied/archived applications.
+     * Reapply is handled by INSERTING a new application row.
+     *
+     * This is already supported by the active-duplicate check above which excludes:
+     * (withdrawn, denied, archived).
+     *
+     * So: no "reopen" logic here. Always proceed to insert.
+     */
+
+    // 9. Create application (always insert)
     const currentTimestamp = new Date().toISOString();
     const insertData = {
       job_id,
@@ -555,17 +646,19 @@ export async function POST(request: NextRequest) {
     if (applicationError) {
       console.error('Error creating application:', applicationError);
       return NextResponse.json(
-        { success: false, error: applicationError.message },
+        {
+          success: false,
+          error: applicationError.message,
+          code: (applicationError as any).code,
+          details: (applicationError as any).details,
+          hint: (applicationError as any).hint,
+        },
         { status: 500 }
       );
     }
 
-    // 10. Ranking will be triggered manually by HR via "Rank Applicants" button
-    // No automatic ranking on submission - HR has full control
-
-    // 11. Send notifications to all relevant parties
+    // 10. Send notifications
     try {
-      // Notify applicant of successful submission
       await createNotification(profile.id, {
         type: 'application_status',
         title: 'Application Submitted Successfully',
@@ -575,10 +668,8 @@ export async function POST(request: NextRequest) {
         link_url: '/applicant/applications',
       });
 
-      // Notify job creator (HR) of new application
       await notifyJobCreator(job_id, profile.full_name);
 
-      // Notify ADMIN of new application for system monitoring
       await notifyAdmins({
         type: 'system',
         title: 'New Job Application Received',
@@ -588,16 +679,17 @@ export async function POST(request: NextRequest) {
         link_url: '/hr/scanned-records',
       });
     } catch (notifError) {
-      // Log error but don't fail the application submission
       console.error('Error sending notifications:', notifError);
     }
 
-    return NextResponse.json({
-      success: true,
-      data: application,
-      message: `Application submitted successfully for ${job.title}`,
-    }, { status: 201 });
-
+    return NextResponse.json(
+      {
+        success: true,
+        data: application,
+        message: `Application submitted successfully for ${job.title}`,
+      },
+      { status: 201 }
+    );
   } catch (error: any) {
     console.error('Server error in POST /api/applications:', error);
     return NextResponse.json(

@@ -225,7 +225,7 @@ export const Page2OverlayForm: React.FC<Props> = ({
                       type="checkbox"
                       checked={!!field.value}
                       onChange={(e) => field.onChange(e.target.checked)}
-                      className="w-4 h-4 accent-[#22A555]"
+                      className="w-4 h-4 accent-[#000000]"
                     />
                   </div>
                 )}

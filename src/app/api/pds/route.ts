@@ -131,7 +131,7 @@ export async function POST(request: NextRequest) {
         family_background: body.familyBackground || {},
         educational_background: body.educationalBackground || [],
         eligibility: body.eligibility || [],
-        work_experience: body.workExperience || [],
+        work_experience: body.work_experience ?? body.workExperience ?? [],
         voluntary_work: body.voluntaryWork || [],
         trainings: body.trainings || [],
         other_information: body.otherInformation || {},
@@ -190,7 +190,8 @@ export async function PUT(request: NextRequest) {
     if (body.familyBackground !== undefined) updateData.family_background = body.familyBackground;
     if (body.educationalBackground !== undefined) updateData.educational_background = body.educationalBackground;
     if (body.eligibility !== undefined) updateData.eligibility = body.eligibility;
-    if (body.workExperience !== undefined) updateData.work_experience = body.workExperience;
+    if (body.work_experience !== undefined) updateData.work_experience = body.work_experience;
+    else if (body.workExperience !== undefined) updateData.work_experience = body.workExperience;
     if (body.voluntaryWork !== undefined) updateData.voluntary_work = body.voluntaryWork;
     if (body.trainings !== undefined) updateData.trainings = body.trainings;
     if (body.otherInformation !== undefined) updateData.other_information = body.otherInformation;

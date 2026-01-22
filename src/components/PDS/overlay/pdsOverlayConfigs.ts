@@ -164,13 +164,13 @@ export const PAGE2_STEP2_FIELDS: OverlayField[] = [
   }),
 
   // ======================================================================
-  // WORK EXPERIENCE (7 rows) — formKey: 'work'
+  // WORK EXPERIENCE (28 rows) — formKey: 'work'
   // ======================================================================
   ...Array.from({ length: 28 }).flatMap((_, i) => {
     const y = 33.2 + i * 2.22; // starter spacing
     const rowFields: OverlayField[] = [
-      { key: `work_from_${i}`, name: `items.${i}.periodOfService.from`, type: 'text', xPct: 15.5, yPct: y, wPct: 6.8, hPct: 2.3, formKey: 'work' },
-      { key: `work_to_${i}`, name: `items.${i}.periodOfService.to`, type: 'text', xPct: 22, yPct: y, wPct: 6.8, hPct: 2.3, formKey: 'work' },
+      { key: `work_from_${i}`, name: `items.${i}.periodOfService.from`, type: 'date', xPct: 15.5, yPct: y, wPct: 6.8, hPct: 2.3, formKey: 'work' },
+      { key: `work_to_${i}`, name: `items.${i}.periodOfService.to`, type: 'date', xPct: 22, yPct: y, wPct: 6.8, hPct: 2.3, formKey: 'work' },
       { key: `work_pos_${i}`, name: `items.${i}.positionTitle`, type: 'text', xPct: 28.7, yPct: y, wPct: 20.8, hPct: 2.3, formKey: 'work' },
       { key: `work_agency_${i}`, name: `items.${i}.departmentAgencyOfficeCompany`, type: 'text', xPct: 49.5, yPct: y, wPct: 21.1, hPct: 2.3, formKey: 'work' },
       { key: `work_status_${i}`, name: `items.${i}.statusOfAppointment`, type: 'text', xPct: 70.7, yPct: y, wPct: 7.7, hPct: 2.3, formKey: 'work' },
