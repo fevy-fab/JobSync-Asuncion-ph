@@ -310,10 +310,10 @@ export const Page1OverlayForm: React.FC<Props> = ({
     <div className="space-y-4">
       <div>
         <h3 className="text-xl font-semibold text-gray-900 mb-1">
-          Step 1: Page 1 (Personal + Family + Education)
+          Step 1: Personal, Family & Education
         </h3>
         <p className="text-sm text-gray-600">
-          Fill directly on the official PDS layout. (Single PDF page overlay)
+          Fill directly on the official PDS Page 1.
         </p>
       </div>
 
@@ -357,7 +357,7 @@ export const Page1OverlayForm: React.FC<Props> = ({
                           setValue('dualCitizenshipType', undefined as any);
                           setValue('dualCitizenshipCountry', undefined as any);
                         }
-                        if (f.name === 'civilStatus' && checkboxValue !== 'Other/s') {
+                        if (f.name === 'civilStatus' && checkboxValue !== 'Others') {
                           setValue('civilStatusOthers', undefined as any);
                         }
                       }
@@ -399,7 +399,7 @@ export const Page1OverlayForm: React.FC<Props> = ({
           // ==========================
           // TEXT (hide conditional personal fields)
           // ==========================
-          if (f.name === 'civilStatusOthers' && civilStatus !== 'Other/s') {
+          if (f.name === 'civilStatusOthers' && civilStatus !== 'Others') {
             return null;
           }
           if (f.name === 'dualCitizenshipCountry' && citizenship !== 'Dual Citizenship') {

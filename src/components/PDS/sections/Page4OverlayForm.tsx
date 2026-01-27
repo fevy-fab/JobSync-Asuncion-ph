@@ -1,6 +1,3 @@
-/* =====================================================================================
-   FILE: Page4OverlayForm.tsx
-   ===================================================================================== */
 'use client';
 
 import React, { useEffect, useMemo, useRef, useState } from 'react';
@@ -308,16 +305,21 @@ export const Page4OverlayForm: React.FC<Props> = ({
     <div className="space-y-4">
       <div>
         <h3 className="text-xl font-semibold text-gray-900 mb-1">
-          Step 4: Page 4 (Other Information)
+          Step 4: Other Information
         </h3>
         <p className="text-sm text-gray-600">
-          Fill out Questions 34–40, References, Government ID, and sign the
+          Fill out Questions 34–40, References, Government ID, and agree to the
           declaration.
         </p>
 
         {errors?.declaration?.agreed && (
           <p className="text-xs text-red-600 mt-2">
             {errors.declaration.agreed.message}
+          </p>
+        )}
+        {errors?.declaration?.dateAccomplished && (
+          <p className="text-xs text-red-600 mt-1">
+            {errors.declaration.dateAccomplished.message}
           </p>
         )}
       </div>
@@ -331,7 +333,7 @@ export const Page4OverlayForm: React.FC<Props> = ({
 
       <div className="bg-gray-50 border border-gray-200 rounded-lg p-3">
         <p className="text-xs text-gray-700">
-          Required: <strong>Declaration</strong>, <strong>Signature</strong>, and{' '}
+          Required: <strong>Declaration</strong> and{' '}
           <strong>Date Accomplished</strong>.
         </p>
       </div>

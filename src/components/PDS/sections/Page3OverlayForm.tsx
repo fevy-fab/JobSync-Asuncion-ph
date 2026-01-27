@@ -261,8 +261,8 @@ export const Page3OverlayForm: React.FC<Props> = ({
     'border border-transparent focus:border-[#22A555] focus:bg-white/70 rounded';
 
   const smallTextInput =
-  'w-full h-full bg-transparent outline-none px-1 text-[10px] leading-none ' +
-  'border border-transparent focus:border-[#22A555] focus:bg-white/70 rounded';
+    'w-full h-full bg-transparent outline-none px-1 text-[10px] leading-none ' +
+    'border border-transparent focus:border-[#22A555] focus:bg-white/70 rounded';
 
   const checkboxWrap = 'w-full h-full flex items-center justify-center';
 
@@ -277,10 +277,10 @@ export const Page3OverlayForm: React.FC<Props> = ({
     <div className="space-y-4">
       <div>
         <h3 className="text-xl font-semibold text-gray-900 mb-1">
-          Step 3: Page 3 (Voluntary Work + Training + Other Information)
+          Step 3: Voluntary Work, Training & Other Information
         </h3>
         <p className="text-sm text-gray-600">
-          Fill directly on page 3. (This page saves Voluntary Work, Training, and Other Information.)
+          Fill directly on the official PDS Page 3.
         </p>
       </div>
 
@@ -310,13 +310,12 @@ export const Page3OverlayForm: React.FC<Props> = ({
             );
           }
 
-         return (
+          return (
             <Controller
               name={f.name as any}
               control={control}
               render={({ field }) => {
-                const isFromTo =
-                  f.name.endsWith('.from') || f.name.endsWith('.to');
+                const isFromTo = f.name.endsWith('.from') || f.name.endsWith('.to');
 
                 return (
                   <input
@@ -337,7 +336,6 @@ export const Page3OverlayForm: React.FC<Props> = ({
               }}
             />
           );
-
         }}
       />
     </div>

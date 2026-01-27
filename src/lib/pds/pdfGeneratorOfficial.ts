@@ -707,37 +707,87 @@ export async function generateOfficialPDF(
   }
 
   // Citizenship ✅ now draws ✓ using lines
-  if (
-    drawCheckboxes &&
-    (m1 as any).citizenshipFilipino &&
-    (m1 as any).citizenshipDualByBirth &&
-    (m1 as any).citizenshipDualByNaturalization
-  ) {
-    const citizenshipRaw = String(pi.citizenship || '').trim().toLowerCase();
-    const dualTypeRaw = String(pi.dualCitizenshipType || (pi as any).dualCitizenship || '').trim().toLowerCase();
+  if (drawCheckboxes) {
+    const citizenshipRaw = String(pi.citizenship || "").trim().toLowerCase();
+    const dualTypeRaw = String(
+      pi.dualCitizenshipType || (pi as any).dualCitizenship || ""
+    )
+      .trim()
+      .toLowerCase();
 
-    const isFilipino = citizenshipRaw === 'filipino' || citizenshipRaw.includes('filip');
+    const isFilipino =
+      citizenshipRaw === "filipino" || citizenshipRaw.includes("filip");
 
     const isDual =
-      citizenshipRaw.includes('dual') ||
-      (!!pi.dualCitizenshipCountry && String(pi.dualCitizenshipCountry).trim().length > 0);
+      citizenshipRaw.includes("dual") ||
+      (!!pi.dualCitizenshipCountry &&
+        String(pi.dualCitizenshipCountry).trim().length > 0);
 
-    const isDualByBirth = isDual && (dualTypeRaw.includes('birth') || dualTypeRaw.includes('by birth'));
+    const isDualByBirth =
+      isDual && (dualTypeRaw.includes("birth") || dualTypeRaw.includes("by birth"));
+
     const isDualByNaturalization =
-      isDual && (dualTypeRaw.includes('natural') || dualTypeRaw.includes('naturalization') || dualTypeRaw.includes('by naturalization'));
+      isDual &&
+      (dualTypeRaw.includes("natural") ||
+        dualTypeRaw.includes("naturalization") ||
+        dualTypeRaw.includes("by naturalization"));
 
-    drawCheckbox(page1, font, (m1 as any).citizenshipFilipino.x, (m1 as any).citizenshipFilipino.y, isFilipino);
-    drawCheckbox(page1, font, (m1 as any).citizenshipDualByBirth.x, (m1 as any).citizenshipDualByBirth.y, isDualByBirth);
-    drawCheckbox(
-      page1,
-      font,
-      (m1 as any).citizenshipDualByNaturalization.x,
-      (m1 as any).citizenshipDualByNaturalization.y,
-      isDualByNaturalization
-    );
+    // Draw each checkbox independently (so one missing mapping won't block the others)
+    if ((m1 as any).citizenshipFilipino) {
+      drawCheckbox(
+        page1,
+        font,
+        (m1 as any).citizenshipFilipino.x,
+        (m1 as any).citizenshipFilipino.y,
+        isFilipino
+      );
+    }
 
-    if (isDual && !isDualByBirth && !isDualByNaturalization) {
-      drawCheckbox(page1, font, (m1 as any).citizenshipDualByBirth.x, (m1 as any).citizenshipDualByBirth.y, true);
+    // ✅ This is the missing "Dual Citizenship" main checkbox
+    if ((m1 as any).citizenshipDual) {
+      drawCheckbox(
+        page1,
+        font,
+        (m1 as any).citizenshipDual.x,
+        (m1 as any).citizenshipDual.y,
+        isDual
+      );
+    }
+
+    if ((m1 as any).citizenshipDualByBirth) {
+      drawCheckbox(
+        page1,
+        font,
+        (m1 as any).citizenshipDualByBirth.x,
+        (m1 as any).citizenshipDualByBirth.y,
+        isDualByBirth
+      );
+    }
+
+    if ((m1 as any).citizenshipDualByNaturalization) {
+      drawCheckbox(
+        page1,
+        font,
+        (m1 as any).citizenshipDualByNaturalization.x,
+        (m1 as any).citizenshipDualByNaturalization.y,
+        isDualByNaturalization
+      );
+    }
+
+    // If dual is true but no type chosen, default to checking "By Birth"
+    if (
+      isDual &&
+      !isDualByBirth &&
+      !isDualByNaturalization &&
+      (m1 as any).citizenshipDualByBirth
+    ) {
+      drawCheckbox(
+        page1,
+        font,
+        (m1 as any).citizenshipDualByBirth.x,
+        (m1 as any).citizenshipDualByBirth.y,
+        true
+      );
     }
   }
 

@@ -26,7 +26,7 @@ const workArraySchema = z.array(workExperienceSchema);
 
 // page2 limits (match overlay rows)
 const ELIG_ROWS = 7;
-const WORK_ROWS = 7;
+const WORK_ROWS = 28;
 
 const makeEmptyEligibilityRows = (): Eligibility[] =>
   Array.from({ length: ELIG_ROWS }).map(() => ({
@@ -200,10 +200,10 @@ export const Page2OverlayForm: React.FC<Props> = ({
     <div className="space-y-4">
       <div>
         <h3 className="text-xl font-semibold text-gray-900 mb-1">
-          Step 2: Page 2 (Eligibility + Work Experience)
+          Step 2: Eligibility & Work Experience
         </h3>
         <p className="text-sm text-gray-600">
-          Fill directly on page 2. (This page saves both Eligibility and Work Experience.)
+          Fill directly on the official PDS Page 2.
         </p>
       </div>
 

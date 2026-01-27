@@ -2,13 +2,19 @@
    FILE: PDSWizard.tsx
    ===================================================================================== */
 'use client';
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Button } from '@/components/ui/Button';
 import { ProgressBar } from './ProgressBar';
 import { useToast } from '@/contexts/ToastContext';
 import { useAutoSavePDS } from '@/hooks/useAutoSavePDS';
 import { PDSData, PDSSection, PDSWizardStep } from '@/types/pds.types';
 import { ChevronLeft, ChevronRight, Save, CheckCircle, Clock, AlertCircle } from 'lucide-react';
+
+// ✅ required-field checker
+import { checkRequiredByOverlay } from './required';
+
+// ✅ overlay field definitions used for required-check
+import { PAGE1_STEP1_FIELDS, PAGE4_STEP4_FIELDS } from './overlay/pdsOverlayConfigs';
 
 // ✅ Step 1 single-page overlay form (Personal + Family + Education)
 import { Page1OverlayForm } from './sections/Page1OverlayForm';
@@ -27,9 +33,9 @@ import { ReviewSubmit } from './sections/ReviewSubmit';
 
 const WIZARD_STEPS: PDSWizardStep[] = [
   { id: 'personal-information', title: 'Page 1', description: 'Personal + Family + Education', isComplete: false },
-  { id: 'page-2', title: 'Page 2', description: 'Eligibility + Work', isComplete: false },
-  { id: 'page-3', title: 'Page 3', description: 'Voluntary + Training + Other Info', isComplete: false },
-  { id: 'page-4', title: 'Page 4', description: 'Questions + References + Signature', isComplete: false },
+  { id: 'civil-service-eligibility', title: 'Page 2', description: 'Eligibility + Work', isComplete: false },
+  { id: 'voluntary-work', title: 'Page 3', description: 'Voluntary + Training + Other Info', isComplete: false },
+  { id: 'other-information', title: 'Page 4', description: 'Questions + References + Signature', isComplete: false },
   { id: 'review', title: 'Review', description: 'Review & submit', isComplete: false },
 ];
 
@@ -74,18 +80,24 @@ export const PDSWizard: React.FC = () => {
 
   const { showToast } = useToast();
 
+  // ✅ Avoid stale closure when validating step completeness
+  const pdsRef = useRef<Partial<PDSData>>({});
+  useEffect(() => {
+    pdsRef.current = pdsData;
+  }, [pdsData]);
+
   const validateSectionData = (sectionId: PDSSection, data: any): boolean => {
     switch (sectionId) {
       case 'personal-information':
         return !!(data?.personalInfo?.surname && data?.personalInfo?.firstName && data?.personalInfo?.dateOfBirth);
 
-      case 'page-2':
+      case 'civil-service-eligibility':
         return (
           (Array.isArray(data?.eligibility) && data.eligibility.length > 0) ||
           (Array.isArray(data?.workExperience) && data.workExperience.length > 0)
         );
 
-      case 'page-3':
+      case 'voluntary-work':
         return (
           (Array.isArray(data?.voluntaryWork) && data.voluntaryWork.length > 0) ||
           (Array.isArray(data?.trainings) && data.trainings.length > 0) ||
@@ -94,9 +106,9 @@ export const PDSWizard: React.FC = () => {
           (Array.isArray(data?.otherInformation?.memberships) && data.otherInformation.memberships.length > 0)
         );
 
-      case 'page-4':
-        // Minimal completion for page4: declaration agreed + date accomplished
-        return !!(data?.declaration?.agreed && data?.declaration?.dateAccomplished);
+      case 'other-information':
+        // ✅ Correct nesting
+        return !!(data?.otherInformation?.declaration?.agreed && data?.otherInformation?.declaration?.dateAccomplished);
 
       default:
         return false;
@@ -150,16 +162,55 @@ export const PDSWizard: React.FC = () => {
     }
   };
 
+  const getSectionRequiredResult = (sectionId: PDSSection, data: Partial<PDSData>) => {
+    switch (sectionId) {
+      case 'personal-information': {
+        const merged = {
+          ...(data.personalInfo || {}),
+          ...(data.familyBackground || {}),
+          items: data.educationalBackground || [],
+        };
+        return checkRequiredByOverlay(merged, PAGE1_STEP1_FIELDS);
+      }
+
+      case 'civil-service-eligibility': {
+        const hasAtLeastOne = (data.eligibility?.length || 0) > 0 || (data.workExperience?.length || 0) > 0;
+        return {
+          ok: hasAtLeastOne,
+          missing: hasAtLeastOne ? [] : [{ path: 'eligibility/work', label: 'Eligibility or Work Experience (at least one entry)' }],
+        };
+      }
+
+      case 'voluntary-work': {
+        const ok =
+          (data.voluntaryWork?.length || 0) > 0 ||
+          (data.trainings?.length || 0) > 0 ||
+          (data.otherInformation?.skills?.length || 0) > 0 ||
+          (data.otherInformation?.recognitions?.length || 0) > 0 ||
+          (data.otherInformation?.memberships?.length || 0) > 0;
+
+        return {
+          ok,
+          missing: ok ? [] : [{ path: 'page3', label: 'Step 3 (add at least one Voluntary/Training/Skill/Recognition/Membership)' }],
+        };
+      }
+
+      case 'other-information': {
+        const merged = data.otherInformation || {};
+        return checkRequiredByOverlay(merged, PAGE4_STEP4_FIELDS);
+      }
+
+      default:
+        return { ok: false, missing: [{ path: 'unknown', label: 'Unknown section' }] };
+    }
+  };
+
   const updateStepCompletion = (data: any) => {
     const updatedSteps = [...steps];
 
-    // Step 1
     updatedSteps[0].isComplete = !!data.personal_info?.surname;
-
-    // Step 2
     updatedSteps[1].isComplete = (data.eligibility?.length || 0) > 0 || (data.work_experience?.length || 0) > 0;
 
-    // Step 3
     const hasVol = (data.voluntary_work?.length || 0) > 0;
     const hasTr = (data.trainings?.length || 0) > 0;
     const hasSkills = (data.other_information?.skills?.length || 0) > 0;
@@ -167,12 +218,10 @@ export const PDSWizard: React.FC = () => {
     const hasMem = (data.other_information?.memberships?.length || 0) > 0;
     updatedSteps[2].isComplete = hasVol || hasTr || hasSkills || hasRecog || hasMem;
 
-    // Step 4 (declaration agreed + date)
     updatedSteps[3].isComplete = !!(
       data.other_information?.declaration?.agreed && data.other_information?.declaration?.dateAccomplished
     );
 
-    // Review
     updatedSteps[4].isComplete = data.is_completed || false;
 
     setSteps(updatedSteps);
@@ -186,6 +235,25 @@ export const PDSWizard: React.FC = () => {
   };
 
   const handleNext = () => {
+    const currentSectionId = steps[currentStep]?.id as PDSSection;
+
+    if (currentSectionId && currentSectionId !== 'review') {
+      const result = getSectionRequiredResult(currentSectionId, pdsData);
+
+      if (!result.ok) {
+        showToast(
+          `Complete required fields: ${result.missing.slice(0, 4).map((m) => m.label).join(', ')}${result.missing.length > 4 ? '…' : ''}`,
+          'error'
+        );
+        setSteps((prev) => {
+          const updated = [...prev];
+          if (updated[currentStep]) updated[currentStep].isComplete = false;
+          return updated;
+        });
+        return;
+      }
+    }
+
     if (currentStep < steps.length - 1) {
       const nextStep = currentStep + 1;
       setCurrentStep(nextStep);
@@ -233,24 +301,21 @@ export const PDSWizard: React.FC = () => {
             updated.educationalBackground = data.educationalBackground;
             break;
 
-          case 'page-2':
+          case 'civil-service-eligibility':
             updated.eligibility = data.eligibility;
             updated.workExperience = data.workExperience;
             break;
 
-          case 'page-3':
+          case 'voluntary-work':
             updated.voluntaryWork = data.voluntaryWork;
             updated.trainings = data.trainings;
-
-            // ✅ merge (keep page4 fields too)
             updated.otherInformation = {
               ...(updated.otherInformation || {}),
               ...(data.otherInformation || {}),
             };
             break;
 
-          case 'page-4':
-            // Page 4 ONLY touches otherInformation
+          case 'other-information':
             updated.otherInformation = {
               ...(updated.otherInformation || {}),
               ...(data || {}),
@@ -267,11 +332,35 @@ export const PDSWizard: React.FC = () => {
       setSteps((prevSteps) => {
         const updatedSteps = [...prevSteps];
         const current = updatedSteps[currentStep];
-        if (current) current.isComplete = validateSectionData(sectionId, data);
+
+        // ✅ Validate against latest known pdsData + incoming changes
+        const base = { ...(pdsRef.current || {}) } as Partial<PDSData>;
+        const next = { ...base } as Partial<PDSData>;
+
+        if (sectionId === 'personal-information') {
+          next.personalInfo = data.personalInfo;
+          next.familyBackground = data.familyBackground;
+          next.educationalBackground = data.educationalBackground;
+        }
+        if (sectionId === 'civil-service-eligibility') {
+          next.eligibility = data.eligibility;
+          next.workExperience = data.workExperience;
+        }
+        if (sectionId === 'voluntary-work') {
+          next.voluntaryWork = data.voluntaryWork;
+          next.trainings = data.trainings;
+          next.otherInformation = { ...(next.otherInformation || {}), ...(data.otherInformation || {}) };
+        }
+        if (sectionId === 'other-information') {
+          next.otherInformation = { ...(next.otherInformation || {}), ...(data || {}) };
+        }
+
+        const req = getSectionRequiredResult(sectionId, next);
+        if (current) current.isComplete = req.ok;
         return updatedSteps;
       });
     },
-    [currentStep, steps]
+    [currentStep, calculateCompletion] // getSectionRequiredResult is stable (defined in component scope)
   );
 
   const handleSubmit = async () => {
@@ -334,19 +423,19 @@ export const PDSWizard: React.FC = () => {
           />
         );
 
-      case 'page-2':
+      case 'civil-service-eligibility':
         return (
           <Page2OverlayForm
             eligibility={pdsData.eligibility || []}
             workExperience={pdsData.workExperience || []}
             onEligibilityChange={(elig) =>
-              handleSectionChange('page-2', {
+              handleSectionChange('civil-service-eligibility', {
                 eligibility: elig,
                 workExperience: pdsData.workExperience || [],
               })
             }
             onWorkChange={(work) =>
-              handleSectionChange('page-2', {
+              handleSectionChange('civil-service-eligibility', {
                 eligibility: pdsData.eligibility || [],
                 workExperience: work,
               })
@@ -354,28 +443,28 @@ export const PDSWizard: React.FC = () => {
           />
         );
 
-      case 'page-3':
+      case 'voluntary-work':
         return (
           <Page3OverlayForm
             voluntaryWork={pdsData.voluntaryWork || []}
             trainings={pdsData.trainings || []}
             otherInformation={pdsData.otherInformation as any}
             onVoluntaryChange={(vw) =>
-              handleSectionChange('page-3', {
+              handleSectionChange('voluntary-work', {
                 voluntaryWork: vw,
                 trainings: pdsData.trainings || [],
                 otherInformation: pdsData.otherInformation,
               })
             }
             onTrainingChange={(tr) =>
-              handleSectionChange('page-3', {
+              handleSectionChange('voluntary-work', {
                 voluntaryWork: pdsData.voluntaryWork || [],
                 trainings: tr,
                 otherInformation: pdsData.otherInformation,
               })
             }
             onOtherInformationChange={(oi) =>
-              handleSectionChange('page-3', {
+              handleSectionChange('voluntary-work', {
                 voluntaryWork: pdsData.voluntaryWork || [],
                 trainings: pdsData.trainings || [],
                 otherInformation: oi,
@@ -384,11 +473,11 @@ export const PDSWizard: React.FC = () => {
           />
         );
 
-      case 'page-4':
+      case 'other-information':
         return (
           <Page4OverlayForm
             otherInformation={pdsData.otherInformation as any}
-            onOtherInformationChange={(oi) => handleSectionChange('page-4', oi)}
+            onOtherInformationChange={(oi) => handleSectionChange('other-information', oi)}
           />
         );
 

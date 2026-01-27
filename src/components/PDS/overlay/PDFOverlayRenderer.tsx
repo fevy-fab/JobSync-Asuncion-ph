@@ -1,6 +1,3 @@
-/* =====================================================================================
-   FILE: PDFOverlayRenderer.tsx
-   ===================================================================================== */
 'use client';
 
 import React from 'react';
@@ -11,6 +8,7 @@ export type OverlayField = {
   key: string; // unique id for react key
   name: string; // react-hook-form path (e.g. "surname", "children.0.fullName")
   type: OverlayFieldType;
+  required?: boolean;
 
   // Position in percentages relative to the overlay container
   xPct: number;
@@ -21,6 +19,7 @@ export type OverlayField = {
   placeholder?: string;
   options?: { label: string; value: string }[]; // for select
   className?: string;
+  requiredWhen?: (allValues: any) => boolean;
 
   /**
    * ✅ MULTI-FORM OVERLAY SUPPORT
@@ -34,6 +33,8 @@ export type OverlayField = {
    * ✅ When checkbox stores a STRING (radio-like behavior) instead of boolean.
    */
   checkboxValue?: string;
+
+  label?: string;
 };
 
 type Props = {

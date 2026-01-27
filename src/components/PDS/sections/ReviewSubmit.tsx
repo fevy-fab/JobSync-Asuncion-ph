@@ -51,9 +51,6 @@ export const ReviewSubmit: React.FC<ReviewSubmitProps> = ({
       <div className="bg-white border border-gray-200 rounded-lg p-6">
         <div className="flex items-center justify-between mb-4">
           <h4 className="text-lg font-semibold text-gray-900">I. Personal Information</h4>
-          <Button variant="secondary" size="sm" icon={Edit} onClick={() => onEdit(0)}>
-            Edit
-          </Button>
         </div>
 
         {pdsData.personalInfo ? (
@@ -95,9 +92,6 @@ export const ReviewSubmit: React.FC<ReviewSubmitProps> = ({
       <div className="bg-white border border-gray-200 rounded-lg p-6">
         <div className="flex items-center justify-between mb-4">
           <h4 className="text-lg font-semibold text-gray-900">II. Family Background</h4>
-          <Button variant="secondary" size="sm" icon={Edit} onClick={() => onEdit(1)}>
-            Edit
-          </Button>
         </div>
 
         {pdsData.familyBackground ? (
@@ -106,8 +100,8 @@ export const ReviewSubmit: React.FC<ReviewSubmitProps> = ({
               <div>
                 <span className="font-medium text-gray-700">Spouse:</span>
                 <p className="text-gray-900">
-                  {pdsData.familyBackground.spouse.surname}, {pdsData.familyBackground.spouse.firstName}{' '}
-                  {pdsData.familyBackground.spouse.middleName}
+                  {pdsData.familyBackground.spouse.surname || 'None' }, {pdsData.familyBackground.spouse.firstName || ''}{' '}
+                  {pdsData.familyBackground.spouse.middleName || ''}
                 </p>
               </div>
             )}
@@ -122,14 +116,14 @@ export const ReviewSubmit: React.FC<ReviewSubmitProps> = ({
             <div>
               <span className="font-medium text-gray-700">Father:</span>
               <p className="text-gray-900">
-                {pdsData.familyBackground.father?.surname || 'N/A'}, {pdsData.familyBackground.father?.firstName || ''}{' '}
+                {pdsData.familyBackground.father?.surname || 'None'}, {pdsData.familyBackground.father?.firstName || ''}{' '}
                 {pdsData.familyBackground.father?.middleName || ''}
               </p>
             </div>
             <div>
               <span className="font-medium text-gray-700">Mother:</span>
               <p className="text-gray-900">
-                {pdsData.familyBackground.mother?.surname || 'N/A'}, {pdsData.familyBackground.mother?.firstName || ''}{' '}
+                {pdsData.familyBackground.mother?.surname || 'None'}, {pdsData.familyBackground.mother?.firstName || ''}{' '}
                 {pdsData.familyBackground.mother?.middleName || ''}
               </p>
             </div>
@@ -143,9 +137,6 @@ export const ReviewSubmit: React.FC<ReviewSubmitProps> = ({
       <div className="bg-white border border-gray-200 rounded-lg p-6">
         <div className="flex items-center justify-between mb-4">
           <h4 className="text-lg font-semibold text-gray-900">III. Educational Background</h4>
-          <Button variant="secondary" size="sm" icon={Edit} onClick={() => onEdit(2)}>
-            Edit
-          </Button>
         </div>
 
         {pdsData.educationalBackground && pdsData.educationalBackground.length > 0 ? (
@@ -170,9 +161,6 @@ export const ReviewSubmit: React.FC<ReviewSubmitProps> = ({
       <div className="bg-white border border-gray-200 rounded-lg p-6">
         <div className="flex items-center justify-between mb-4">
           <h4 className="text-lg font-semibold text-gray-900">IV. Civil Service Eligibility</h4>
-          <Button variant="secondary" size="sm" icon={Edit} onClick={() => onEdit(3)}>
-            Edit
-          </Button>
         </div>
 
         {pdsData.eligibility && pdsData.eligibility.length > 0 ? (
@@ -195,9 +183,6 @@ export const ReviewSubmit: React.FC<ReviewSubmitProps> = ({
       <div className="bg-white border border-gray-200 rounded-lg p-6">
         <div className="flex items-center justify-between mb-4">
           <h4 className="text-lg font-semibold text-gray-900">V. Work Experience</h4>
-          <Button variant="secondary" size="sm" icon={Edit} onClick={() => onEdit(4)}>
-            Edit
-          </Button>
         </div>
 
         {pdsData.workExperience && pdsData.workExperience.length > 0 ? (
@@ -222,9 +207,6 @@ export const ReviewSubmit: React.FC<ReviewSubmitProps> = ({
       <div className="bg-white border border-gray-200 rounded-lg p-6">
         <div className="flex items-center justify-between mb-4">
           <h4 className="text-lg font-semibold text-gray-900">VI. Voluntary Work</h4>
-          <Button variant="secondary" size="sm" icon={Edit} onClick={() => onEdit(5)}>
-            Edit
-          </Button>
         </div>
 
         {pdsData.voluntaryWork && pdsData.voluntaryWork.length > 0 ? (
@@ -249,9 +231,6 @@ export const ReviewSubmit: React.FC<ReviewSubmitProps> = ({
       <div className="bg-white border border-gray-200 rounded-lg p-6">
         <div className="flex items-center justify-between mb-4">
           <h4 className="text-lg font-semibold text-gray-900">VII. Learning & Development</h4>
-          <Button variant="secondary" size="sm" icon={Edit} onClick={() => onEdit(6)}>
-            Edit
-          </Button>
         </div>
 
         {pdsData.trainings && pdsData.trainings.length > 0 ? (
@@ -277,10 +256,7 @@ export const ReviewSubmit: React.FC<ReviewSubmitProps> = ({
       <div className="bg-white border border-gray-200 rounded-lg p-6">
         <div className="flex items-center justify-between mb-4">
           <h4 className="text-lg font-semibold text-gray-900">VIII. Other Information</h4>
-          <Button variant="secondary" size="sm" icon={Edit} onClick={() => onEdit(7)}>
-            Edit
-          </Button>
-        </div>
+          </div>
 
         {pdsData.otherInformation ? (
           <div className="space-y-4 text-sm">

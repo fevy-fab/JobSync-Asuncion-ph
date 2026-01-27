@@ -73,26 +73,44 @@ export function PDSDownloadModal({ isOpen, onClose, pdsId }: PDSDownloadModalPro
         method: 'GET',
       });
 
-      if (!response.ok) throw new Error('Failed to download PDS');
+      if (!response.ok) {
+        let details = '';
+        try {
+          const data = await response.json();
+          details = data?.error ? `: ${data.error}` : '';
+        } catch {
+          // response might not be json
+        }
+        throw new Error(`Failed to download PDS (HTTP ${response.status})${details}`);
+      }
+
 
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
 
-      const contentDisposition = response.headers.get('Content-Disposition');
+      const contentDisposition = response.headers.get('Content-Disposition') || '';
       let filename = '';
-      if (contentDisposition) {
-        const match = contentDisposition.match(/filename="([^"]+)"/i);
-        if (match && match[1]) filename = match[1];
-      }
 
-      if (!filename) {
-        const dateStr = new Date().toISOString().split('T')[0];
-        filename =
-          selectedFormat === 'excel'
-            ? `PDS_${dateStr}.xlsx`
-            : `PDS_${selectedFormat.toUpperCase()}_${dateStr}.pdf`;
+      if (typeof contentDisposition === 'string' && contentDisposition) {
+        // 1) RFC 5987: filename*=UTF-8''...
+        const filenameStarMatch = contentDisposition.match(/filename\*\s*=\s*UTF-8''([^;]+)/i);
+        if (filenameStarMatch?.[1]) {
+          filename = decodeURIComponent(filenameStarMatch[1]);
+        }
+
+        // 2) filename="..."
+        if (!filename) {
+          const quotedMatch = contentDisposition.match(/filename="([^"]+)"/i);
+          if (quotedMatch?.[1]) filename = quotedMatch[1];
+        }
+
+        // 3) filename=... (unquoted)
+        if (!filename) {
+          const unquotedMatch = contentDisposition.match(/filename=([^;]+)/i);
+          if (unquotedMatch?.[1]) filename = unquotedMatch[1].trim();
+        }
       }
 
       link.download = filename;
@@ -241,7 +259,7 @@ export function PDSDownloadModal({ isOpen, onClose, pdsId }: PDSDownloadModalPro
                     />
                   </div>
                   <h4 className="font-semibold text-gray-900">Official CS PDS (Excel)</h4>
-                  <p className="text-xs text-gray-500">For government submission</p>
+                  <p className="text-xs text-gray-500">CSC Form No. 212, Revised 2025</p>
                   {selectedFormat === 'excel' && (
                     <CheckCircle2 className="absolute top-2 right-2 w-5 h-5 text-teal-500" />
                   )}
@@ -255,17 +273,7 @@ export function PDSDownloadModal({ isOpen, onClose, pdsId }: PDSDownloadModalPro
         <div>
           <h3 className="text-sm font-semibold text-gray-700 mb-3">Download Options:</h3>
           <div className="space-y-2">
-            {selectedFormat !== 'excel' && (
-              <label className="flex items-center space-x-2 cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={includeSignature}
-                  onChange={(e) => setIncludeSignature(e.target.checked)}
-                  className="w-4 h-4 text-green-600 border-gray-300 rounded focus:ring-green-500"
-                />
-                <span className="text-sm text-gray-700">Include Digital Signature</span>
-              </label>
-            )}
+            {selectedFormat !== 'excel'}
             <label className="flex items-center space-x-2 cursor-pointer">
               <input
                 type="checkbox"
@@ -293,12 +301,12 @@ export function PDSDownloadModal({ isOpen, onClose, pdsId }: PDSDownloadModalPro
           </h4>
           <p className="text-xs text-gray-600">
             {selectedFormat === 'official'
-              ? 'Official government PDF version (CS Form No. 212, Revised 2025) suitable for direct submission.'
+              ? 'Official government PDF version (CS Form No. 212, Revised 2025) for electronic records and HR submission.'
               : selectedFormat === 'csc'
               ? 'Structured traditional form with defined boxes and sections for formal submissions.'
               : selectedFormat === 'modern'
               ? 'Streamlined table layout optimized for readability and printing.'
-              : 'Official government Excel version (CS Form No. 212, Revised 2025) suitable for HR submission and electronic records.'}
+              : 'Official government Excel version'}
           </p>
         </div>
 
