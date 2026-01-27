@@ -64,18 +64,18 @@ export const PAGE1_STEP1_FIELDS: OverlayField[] = [
   { key: 'res_house', name: 'residentialAddress.houseBlockLotNo', type: 'text', xPct: 54.8, yPct: 26, wPct: 17.5, hPct: 1.4, formKey: 'personal' },
   { key: 'res_street', name: 'residentialAddress.street', type: 'text', xPct: 72.2, yPct: 26, wPct: 18, hPct: 1.4, formKey: 'personal',  },
   { key: 'res_subd', name: 'residentialAddress.subdivisionVillage', type: 'text', xPct: 54.8, yPct: 28.1, wPct: 17.5, hPct: 1.4, formKey: 'personal' },
-  { key: 'res_brgy', name: 'residentialAddress.barangay', type: 'text', xPct: 72.2, yPct: 28, wPct: 18, hPct: 1.4, formKey: 'personal', required: true },
-  { key: 'res_city', name: 'residentialAddress.cityMunicipality', type: 'text', xPct: 54.8, yPct: 30.1, wPct: 17.5, hPct: 1.4, formKey: 'personal', required: true },
-  { key: 'res_prov', name: 'residentialAddress.province', type: 'text', xPct: 72.2, yPct: 30, wPct: 18, hPct: 1.4, formKey: 'personal', required: true },
+  { key: 'res_brgy', name: 'residentialAddress.barangay', type: 'text', xPct: 72.2, yPct: 28, wPct: 18, hPct: 1.4, formKey: 'personal'},
+  { key: 'res_city', name: 'residentialAddress.cityMunicipality', type: 'text', xPct: 54.8, yPct: 30.1, wPct: 17.5, hPct: 1.4, formKey: 'personal'},
+  { key: 'res_prov', name: 'residentialAddress.province', type: 'text', xPct: 72.2, yPct: 30, wPct: 18, hPct: 1.4, formKey: 'personal'},
   { key: 'res_zip', name: 'residentialAddress.zipCode', type: 'text', xPct: 54.8, yPct: 32.48, wPct: 35.5, hPct: 1.9, formKey: 'personal' },
 
   // Permanent Address (manual entry only)
   { key: 'perm_house', name: 'permanentAddress.houseBlockLotNo', type: 'text', xPct: 54.8, yPct: 34.1, wPct: 17.5, hPct: 1.4, formKey: 'personal' },
   { key: 'perm_street', name: 'permanentAddress.street', type: 'text', xPct: 72.2, yPct: 34.1, wPct: 18, hPct: 1.4, formKey: 'personal' },
   { key: 'perm_subd', name: 'permanentAddress.subdivisionVillage', type: 'text', xPct: 54.8, yPct: 36.15, wPct: 17.5, hPct: 1.4, formKey: 'personal' },
-  { key: 'perm_brgy', name: 'permanentAddress.barangay', type: 'text', xPct: 72.2, yPct: 36.15, wPct: 18, hPct: 1.4, formKey: 'personal', required: true },
-  { key: 'perm_city', name: 'permanentAddress.cityMunicipality', type: 'text', xPct: 54.8, yPct: 38.3, wPct: 17.5, hPct: 1.4, formKey: 'personal', required: true },
-  { key: 'perm_prov', name: 'permanentAddress.province', type: 'text', xPct: 72.2, yPct: 38.3, wPct: 18, hPct: 1.4, formKey: 'personal', required: true },
+  { key: 'perm_brgy', name: 'permanentAddress.barangay', type: 'text', xPct: 72.2, yPct: 36.15, wPct: 18, hPct: 1.4, formKey: 'personal'},
+  { key: 'perm_city', name: 'permanentAddress.cityMunicipality', type: 'text', xPct: 54.8, yPct: 38.3, wPct: 17.5, hPct: 1.4, formKey: 'personal'},
+  { key: 'perm_prov', name: 'permanentAddress.province', type: 'text', xPct: 72.2, yPct: 38.3, wPct: 18, hPct: 1.4, formKey: 'personal'},
   { key: 'perm_zip', name: 'permanentAddress.zipCode', type: 'text', xPct: 54.8, yPct: 40.9, wPct: 35.5, hPct: 2.1, formKey: 'personal' },
 
   // ======================================================================
@@ -104,14 +104,14 @@ export const PAGE1_STEP1_FIELDS: OverlayField[] = [
   }),
 
   // Father
-  { key: 'fa_surname', name: 'father.surname', type: 'text', xPct: 23.9, yPct: 63.1, wPct: 31, hPct: 1.8, formKey: 'family', required: true },
-  { key: 'fa_first', name: 'father.firstName', type: 'text', xPct: 23.9, yPct: 64.9, wPct: 19.3, hPct: 1.8, formKey: 'family', required: true },
+  { key: 'fa_surname', name: 'father.surname', type: 'text', xPct: 23.9, yPct: 63.1, wPct: 31, hPct: 1.8, formKey: 'family'},
+  { key: 'fa_first', name: 'father.firstName', type: 'text', xPct: 23.9, yPct: 64.9, wPct: 19.3, hPct: 1.8, formKey: 'family'},
   { key: 'fa_ext', name: 'father.ext', type: 'text', xPct: 43, yPct: 65.2, wPct: 11.85, hPct: 1.2, formKey: 'family' },
   { key: 'fa_middle', name: 'father.middleName', type: 'text', xPct: 23.9, yPct: 66.6, wPct: 31, hPct: 1.8, formKey: 'family' },
 
   // Mother
-  { key: 'mo_surname', name: 'mother.surname', type: 'text', xPct: 23.9, yPct: 70.25, wPct: 31, hPct: 1.8, formKey: 'family', required: true },
-  { key: 'mo_first', name: 'mother.firstName', type: 'text', xPct: 23.9, yPct: 72.05, wPct: 31, hPct: 1.8, formKey: 'family', required: true },
+  { key: 'mo_surname', name: 'mother.surname', type: 'text', xPct: 23.9, yPct: 70.25, wPct: 31, hPct: 1.8, formKey: 'family'},
+  { key: 'mo_first', name: 'mother.firstName', type: 'text', xPct: 23.9, yPct: 72.05, wPct: 31, hPct: 1.8, formKey: 'family'},
   { key: 'mo_middle', name: 'mother.middleName', type: 'text', xPct: 23.9, yPct: 73.7, wPct: 31, hPct: 1.8, formKey: 'family' },
 
   // ======================================================================
@@ -121,8 +121,8 @@ export const PAGE1_STEP1_FIELDS: OverlayField[] = [
   ...Array.from({ length: 5 }).flatMap((_, i) => {
     const y = 81.28 + i * 2.42; // starter
     const rowFields: OverlayField[] = [
-      { key: `edu_school_${i}`, name: `items.${i}.nameOfSchool`, type: 'text', xPct: 23.9, yPct: y, wPct: 19.2, hPct: 2.4, formKey: 'education', required: true },
-      { key: `edu_course_${i}`, name: `items.${i}.basicEducationDegreeCourse`, type: 'text', xPct: 43, yPct: y, wPct: 17.75, hPct: 2.4, formKey: 'education', required: true },
+      { key: `edu_school_${i}`, name: `items.${i}.nameOfSchool`, type: 'text', xPct: 23.9, yPct: y, wPct: 19.2, hPct: 2.4, formKey: 'education'},
+      { key: `edu_course_${i}`, name: `items.${i}.basicEducationDegreeCourse`, type: 'text', xPct: 43, yPct: y, wPct: 17.75, hPct: 2.4, formKey: 'education'},
       { key: `edu_from_${i}`, name: `items.${i}.periodOfAttendance.from`, type: 'text', xPct: 60.6, yPct: y, wPct: 5, hPct: 2.4, formKey: 'education' },
       { key: `edu_to_${i}`, name: `items.${i}.periodOfAttendance.to`, type: 'text', xPct: 65.6  , yPct: y, wPct: 4.9, hPct: 2.4, formKey: 'education' },
       { key: `edu_units_${i}`, name: `items.${i}.highestLevelUnitsEarned`, type: 'text', xPct: 70.4, yPct: y, wPct: 7.2, hPct: 2.4, formKey: 'education' },
@@ -150,7 +150,7 @@ export const PAGE2_STEP2_FIELDS: OverlayField[] = [
   ...Array.from({ length: 7 }).flatMap((_, i) => {
     const y = 6.7 + i * 2.5; // starter spacing
     const rowFields: OverlayField[] = [
-      { key: `elig_career_${i}`, name: `items.${i}.careerService`, type: 'text', xPct: 16.5, yPct: y, wPct: 24.6, hPct: 2.6, formKey: 'eligibility', required: true },
+      { key: `elig_career_${i}`, name: `items.${i}.careerService`, type: 'text', xPct: 16.5, yPct: y, wPct: 24.6, hPct: 2.6, formKey: 'eligibility'},
       { key: `elig_rating_${i}`, name: `items.${i}.rating`, type: 'text', xPct: 41, yPct: y, wPct: 8.65, hPct: 2.6, formKey: 'eligibility' },
       { key: `elig_date_${i}`, name: `items.${i}.dateOfExaminationConferment`, type: 'text', xPct: 49.4, yPct: y, wPct: 9.2, hPct: 2.6, formKey: 'eligibility' },
       { key: `elig_place_${i}`, name: `items.${i}.placeOfExaminationConferment`, type: 'text', xPct: 58.5, yPct: y, wPct: 11.6, hPct: 2.6, formKey: 'eligibility' },
@@ -166,9 +166,9 @@ export const PAGE2_STEP2_FIELDS: OverlayField[] = [
   ...Array.from({ length: 28 }).flatMap((_, i) => {
     const y = 32.55 + i * 2.20; // starter spacing
     const rowFields: OverlayField[] = [
-      { key: `work_from_${i}`, name: `items.${i}.periodOfService.from`, type: 'date', xPct: 16.5, yPct: y, wPct: 6.5, hPct: 2.3, formKey: 'work', required: true },
-      { key: `work_to_${i}`, name: `items.${i}.periodOfService.to`, type: 'date', xPct: 22.8, yPct: y, wPct: 6.5, hPct: 2.3, formKey: 'work', required: true },
-      { key: `work_pos_${i}`, name: `items.${i}.positionTitle`, type: 'text', xPct: 29.3, yPct: y, wPct: 20.35, hPct: 2.3, formKey: 'work', required: true },
+      { key: `work_from_${i}`, name: `items.${i}.periodOfService.from`, type: 'date', xPct: 16.5, yPct: y, wPct: 6.5, hPct: 2.3, formKey: 'work'},
+      { key: `work_to_${i}`, name: `items.${i}.periodOfService.to`, type: 'date', xPct: 22.8, yPct: y, wPct: 6.5, hPct: 2.3, formKey: 'work'},
+      { key: `work_pos_${i}`, name: `items.${i}.positionTitle`, type: 'text', xPct: 29.3, yPct: y, wPct: 20.35, hPct: 2.3, formKey: 'work'},
       { key: `work_agency_${i}`, name: `items.${i}.departmentAgencyOfficeCompany`, type: 'text', xPct: 49.5, yPct: y, wPct: 20.6, hPct: 2.3, formKey: 'work' },
       { key: `work_status_${i}`, name: `items.${i}.statusOfAppointment`, type: 'text', xPct: 70.1, yPct: y, wPct: 7.7, hPct: 2.3, formKey: 'work' },
       { key: `work_gov_${i}`, name: `items.${i}.governmentService`, type: 'checkbox', xPct: 80.9, yPct: y + 0.5, wPct: 1.3, hPct: 1.3, formKey: 'work' },
@@ -215,7 +215,7 @@ export const PAGE3_STEP3_FIELDS: OverlayField[] = [
   ...Array.from({ length: 7 }).flatMap((_, i) => {
     const y = 80.68 + i * 2.05  ;
     const rowFields: OverlayField[] = [
-      { key: `oth_skill_${i}`, name: `skills.${i}`, type: 'text', xPct: 10, yPct: y, wPct: 21, hPct: 2.15, formKey: 'other', required: true },
+      { key: `oth_skill_${i}`, name: `skills.${i}`, type: 'text', xPct: 10, yPct: y, wPct: 21, hPct: 2.15, formKey: 'other'},
     ];
     return rowFields;
   }),
