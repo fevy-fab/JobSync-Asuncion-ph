@@ -4,22 +4,16 @@
  */
 
 import { z } from 'zod';
+import { normalizeDateToDDMMYYYY, normalizeDateOrPresent, isDDMMYYYY } from '@/lib/pds/dateNormalizer';
 
-// Custom validator for dates that can be either ISO date (YYYY-MM-DD) or "Present"
-const dateOrPresentSchema = z.string().refine(
-  (val) => {
-    if (val === 'Present') return true;
-    // Check if it's a valid ISO date format (YYYY-MM-DD)
-    const isoDateRegex = /^\d{4}-\d{2}-\d{2}$/;
-    if (!isoDateRegex.test(val)) return false;
-    // Verify it's an actual valid date
-    const date = new Date(val);
-    return !isNaN(date.getTime());
-  },
-  {
-    message: 'Must be a valid date (YYYY-MM-DD) or "Present"',
-  }
-);
+// Custom validator for dates that can be either ISO date (DD-MM-YYYY) or "Present"
+const dateOrPresentSchema = z
+  .string()
+  .transform((val) => normalizeDateOrPresent(val))
+  .refine(
+    (val) => val === 'Present' || isDDMMYYYY(val),
+    { message: 'Must be a valid date (dd-mm-yyyy) or "Present"' }
+  );
 
 // Section I: Personal Information Validation
 export const personalInformationSchema = z.object({
@@ -154,7 +148,10 @@ export const workExperienceSchema = z.object({
   statusOfAppointment: z.string().optional(),
   governmentService: z.boolean(),
   periodOfService: z.object({
-    from: z.string().min(1, 'Start date is required'),
+      from: z
+    .string()
+    .transform((val) => normalizeDateToDDMMYYYY(val))
+    .refine((val) => isDDMMYYYY(val), { message: 'Start date must be dd-mm-yyyy' }),
     to: dateOrPresentSchema,
   }),
 });

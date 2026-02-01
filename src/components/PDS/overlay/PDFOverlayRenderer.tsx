@@ -22,7 +22,7 @@ export type OverlayField = {
   requiredWhen?: (allValues: any) => boolean;
 
   /**
-   * ✅ MULTI-FORM OVERLAY SUPPORT
+   * MULTI-FORM OVERLAY SUPPORT
    * Page 1: personal/family/education
    * Page 2: eligibility/work
    * Page 3: voluntary/training/other
@@ -30,7 +30,7 @@ export type OverlayField = {
   formKey?: 'personal' | 'family' | 'education' | 'eligibility' | 'work' | 'voluntary' | 'training' | 'other';
 
   /**
-   * ✅ When checkbox stores a STRING (radio-like behavior) instead of boolean.
+   * When checkbox stores a STRING (radio-like behavior) instead of boolean.
    */
   checkboxValue?: string;
 

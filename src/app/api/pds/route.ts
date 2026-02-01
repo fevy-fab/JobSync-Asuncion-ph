@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { normalizeWorkExperienceDates } from '@/lib/pds/dateNormalizer';
 
 /**
  * PDS Management API Routes
@@ -56,7 +57,7 @@ export async function GET(request: NextRequest) {
         ...pds,
         educational_background: pds.educational_background || [],
         eligibility: pds.eligibility || [],
-        work_experience: pds.work_experience || [],
+        work_experience: normalizeWorkExperienceDates(pds.work_experience || []),
         voluntary_work: pds.voluntary_work || [],
         trainings: pds.trainings || [],
         // Ensure nested objects have array defaults
@@ -131,7 +132,7 @@ export async function POST(request: NextRequest) {
         family_background: body.familyBackground || {},
         educational_background: body.educationalBackground || [],
         eligibility: body.eligibility || [],
-        work_experience: body.work_experience ?? body.workExperience ?? [],
+        work_experience: normalizeWorkExperienceDates(body.work_experience ?? body.workExperience ?? []),
         voluntary_work: body.voluntaryWork || [],
         trainings: body.trainings || [],
         other_information: body.otherInformation || {},
@@ -190,8 +191,11 @@ export async function PUT(request: NextRequest) {
     if (body.familyBackground !== undefined) updateData.family_background = body.familyBackground;
     if (body.educationalBackground !== undefined) updateData.educational_background = body.educationalBackground;
     if (body.eligibility !== undefined) updateData.eligibility = body.eligibility;
-    if (body.work_experience !== undefined) updateData.work_experience = body.work_experience;
-    else if (body.workExperience !== undefined) updateData.work_experience = body.workExperience;
+    if (body.work_experience !== undefined) {
+      updateData.work_experience = normalizeWorkExperienceDates(body.work_experience);
+    } else if (body.workExperience !== undefined) {
+      updateData.work_experience = normalizeWorkExperienceDates(body.workExperience);
+    }
     if (body.voluntaryWork !== undefined) updateData.voluntary_work = body.voluntaryWork;
     if (body.trainings !== undefined) updateData.trainings = body.trainings;
     if (body.otherInformation !== undefined) updateData.other_information = body.otherInformation;

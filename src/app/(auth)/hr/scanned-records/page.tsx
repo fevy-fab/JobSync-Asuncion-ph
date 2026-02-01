@@ -244,32 +244,6 @@ export default function ScannedRecordsPage() {
       ),
     },
     {
-      header: 'Signature',
-      accessor: 'signatureUrl' as const,
-      render: (_: any, row: Application) => (
-        <div className="flex items-center gap-2">
-          {row.signatureUrl ? (
-            <div className="flex items-center gap-1.5">
-              <CheckCircle className="w-4 h-4 text-green-600" />
-              <div className="flex flex-col">
-                <span className="text-xs font-medium text-green-700">Signed</span>
-                {row.signatureUploadedAt && (
-                  <span className="text-[10px] text-gray-500">
-                    {new Date(row.signatureUploadedAt).toLocaleDateString()}
-                  </span>
-                )}
-              </div>
-            </div>
-          ) : (
-            <div className="flex items-center gap-1.5">
-              <XCircle className="w-4 h-4 text-gray-400" />
-              <span className="text-xs text-gray-500">No Signature</span>
-            </div>
-          )}
-        </div>
-      )
-    },
-    {
       header: 'Status History',
       accessor: 'id' as const,
       render: (_: any, row: Application) => {

@@ -268,6 +268,38 @@ export const Page1OverlayForm: React.FC<Props> = ({
 
   const checkboxWrap = 'w-full h-full flex items-center justify-center';
 
+  // --- PDF-safe maxLength helper ---
+  // PDS template is US Letter: 612pt wide (matches your pdfMapper.ts)
+  const PDF_WIDTH_PT = 612;
+
+  // Arial Narrow at ~7pt: conservative average character width in points.
+  // (We intentionally underestimate capacity so PDF text won't overlap.)
+  const AVG_CHAR_WIDTH_PT = 3.2;
+
+  const clamp = (n: number, min: number, max: number) =>
+    Math.max(min, Math.min(max, n));
+
+  const getFieldMaxLength = (f: Pick<OverlayField, 'type' | 'wPct'>) => {
+    if (f.type === 'date') return 10; // dd-mm-yyyy
+    if (f.type === 'number') return 18;
+
+    if (f.type !== 'text' && f.type !== 'textarea') return undefined;
+
+    const maxChars = Math.floor(
+      (PDF_WIDTH_PT * (f.wPct / 100)) / AVG_CHAR_WIDTH_PT
+    );
+
+    return clamp(maxChars, 4, 120);
+  };
+
+  const getTextareaMaxLength = (f: Pick<OverlayField, 'type' | 'wPct'>) => {
+    const base = getFieldMaxLength(f);
+    if (!base) return undefined;
+
+    // allow ~3 lines worth of content, but still bounded
+    return clamp(base * 3, 20, 360);
+  };
+
   /**
    * ✅ UPDATED: Match Page4Overlay checkbox look:
    * - Black filled box
@@ -435,6 +467,7 @@ export const Page1OverlayForm: React.FC<Props> = ({
                 render={({ field }) => (
                   <textarea
                     value={field.value || ''}
+                    maxLength={getTextareaMaxLength(f)}
                     onChange={field.onChange}
                     placeholder={f.placeholder}
                     className={inputBase + ' resize-none'}
@@ -453,6 +486,7 @@ export const Page1OverlayForm: React.FC<Props> = ({
                 <input
                   type={f.type}
                   value={(field.value ?? '') as any}
+                  maxLength={getFieldMaxLength(f)}
                   onChange={(e) => {
                     if (f.type === 'number') {
                       const n = parseFloat(e.target.value);

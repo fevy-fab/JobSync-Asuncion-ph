@@ -131,7 +131,7 @@ export const PDS_PDF_MAP = {
       toX: 144,
       positionTitleX: 182,
       departmentX: 306,
-      statusOfAppointmentX: 447,
+      statusOfAppointmentX: 431,
       govServiceX: 497,
     },
 
@@ -158,7 +158,7 @@ export const PDS_PDF_MAP = {
       fromX: 282,
       toX: 321,
       hoursX: 372,
-      typeOfLDX: 407,
+      typeOfLDX: 396,
       conductedByX: 440,
     },
 

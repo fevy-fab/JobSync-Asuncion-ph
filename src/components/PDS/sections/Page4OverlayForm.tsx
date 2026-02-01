@@ -185,6 +185,39 @@ export const Page4OverlayForm: React.FC<Props> = ({
   // =====================================================================================
   // OVERLAY FIELD RENDERER (UNCHANGED STRUCTURE)
   // =====================================================================================
+
+  // --- PDF-safe maxLength helper ---
+  // PDS template is US Letter: 612pt wide (matches your pdfMapper.ts)
+  const PDF_WIDTH_PT = 612;
+
+  // Arial Narrow at ~7pt: conservative average character width in points.
+  // (We intentionally underestimate capacity so PDF text won't overlap.)
+  const AVG_CHAR_WIDTH_PT = 3.2;
+
+  const clamp = (n: number, min: number, max: number) =>
+    Math.max(min, Math.min(max, n));
+
+  const getFieldMaxLength = (f: Pick<OverlayField, 'type' | 'wPct'>) => {
+    if (f.type === 'date') return 10; // dd-mm-yyyy
+    if (f.type === 'number') return 18;
+
+    if (f.type !== 'text' && f.type !== 'textarea') return undefined;
+
+    const maxChars = Math.floor(
+      (PDF_WIDTH_PT * (f.wPct / 100)) / AVG_CHAR_WIDTH_PT
+    );
+
+    return clamp(maxChars, 4, 120);
+  };
+
+  const getTextareaMaxLength = (f: Pick<OverlayField, 'type' | 'wPct'>) => {
+    const base = getFieldMaxLength(f);
+    if (!base) return undefined;
+
+    // allow ~3 lines worth of content, but still bounded
+    return clamp(base * 3, 20, 360);
+  };
+
   const renderField = (f: OverlayField) => {
     if (f.key === 'declaration_signature_canvas') {
       const watched = watch();
@@ -267,6 +300,7 @@ export const Page4OverlayForm: React.FC<Props> = ({
             return (
               <textarea
                 value={field.value || ''}
+                maxLength={getTextareaMaxLength(f)}
                 onChange={field.onChange}
                 onBlur={field.onBlur}
                 placeholder={f.placeholder}
@@ -285,6 +319,7 @@ export const Page4OverlayForm: React.FC<Props> = ({
                   : 'text'
               }
               value={field.value ?? ''}
+              maxLength={getFieldMaxLength(f)}
               onChange={field.onChange}
               onBlur={field.onBlur}
               placeholder={f.placeholder}

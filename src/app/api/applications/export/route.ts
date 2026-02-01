@@ -19,7 +19,10 @@ export async function GET(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams;
 
     // 1. Authenticate user
-    const { data: { user }, error: authError } = await supabase.auth.getUser();
+    const {
+      data: { user },
+      error: authError,
+    } = await supabase.auth.getUser();
 
     if (authError || !user) {
       return NextResponse.json(
@@ -84,6 +87,10 @@ export async function GET(request: NextRequest) {
           profiles:user_id (
             email
           )
+        ),
+        applicant_pds:pds_id (
+          personal_info,
+          educational_background
         )
       `)
       .order('created_at', { ascending: false });
@@ -102,56 +109,93 @@ export async function GET(request: NextRequest) {
 
     if (error) {
       console.error('Error fetching applications:', error);
-      return NextResponse.json(
-        { success: false, error: error.message },
-        { status: 500 }
-      );
+      return NextResponse.json({ success: false, error: error.message }, { status: 500 });
     }
 
     // 7. Format data for Excel
-    const excelData = applications.map((app: any) => {
-      const profile = app.applicant_profiles;
-      const fullName = `${profile?.first_name || ''} ${profile?.middle_name || ''} ${profile?.surname || ''}`.trim();
+    const excelData = (applications || []).map((app: any) => {
+      const applicantProfile = app.applicant_profiles;
+      const pds = app.applicant_pds;
 
-      // Format education
-      const education = Array.isArray(profile?.education)
-        ? profile.education.map((edu: any) =>
-            `${edu.level || ''} - ${edu.nameOfSchool || ''} (${edu.periodOfAttendance?.from || ''} - ${edu.periodOfAttendance?.to || ''})`
-          ).join('; ')
-        : 'N/A';
+      const personalInfo = pds?.personal_info;
+      const pdsEducation = pds?.educational_background;
+
+      const fullName = `${applicantProfile?.first_name || ''} ${applicantProfile?.middle_name || ''} ${applicantProfile?.surname || ''}`
+        .replace(/\s+/g, ' ')
+        .trim();
+
+      // ✅ Phone: prefer PDS values, then fallback to profile values
+      const phone =
+        personalInfo?.mobileNo ||
+        personalInfo?.telephoneNo ||
+        applicantProfile?.mobile_number ||
+        applicantProfile?.phone_number ||
+        'N/A';
+
+      // ✅ Educational Background: prefer PDS education array, else fallback to profile.education
+      const educationSource =
+        Array.isArray(pdsEducation) && pdsEducation.length > 0
+          ? pdsEducation
+          : Array.isArray(applicantProfile?.education)
+            ? applicantProfile.education
+            : [];
+
+      const education =
+        educationSource.length > 0
+          ? educationSource
+              .map((edu: any) => {
+                // PDS commonly uses nameOfSchool + periodOfAttendance
+                const level = (edu?.level ?? '').toString().trim();
+                const school = (edu?.nameOfSchool ?? edu?.schoolName ?? edu?.school ?? '').toString().trim();
+
+                const from = edu?.periodOfAttendance?.from ?? edu?.from ?? '';
+                const to = edu?.periodOfAttendance?.to ?? edu?.to ?? '';
+
+                const period =
+                  (from || to) ? ` (${String(from).trim()} - ${String(to).trim()})` : '';
+
+                const left = level ? `${level} - ` : '';
+                const right = school || 'Unknown School';
+
+                return `${left}${right}${period}`.trim();
+              })
+              .join('; ')
+          : 'N/A';
 
       // Format eligibilities
-      const eligibilities = Array.isArray(profile?.eligibilities)
-        ? profile.eligibilities.map((elig: any) => {
-            if (typeof elig === 'string') return elig;
-            return elig?.eligibilityTitle || elig?.name || String(elig);
-          }).join(', ')
+      const eligibilities = Array.isArray(applicantProfile?.eligibilities)
+        ? applicantProfile.eligibilities
+            .map((elig: any) => {
+              if (typeof elig === 'string') return elig;
+              return elig?.eligibilityTitle || elig?.name || String(elig);
+            })
+            .join(', ')
         : 'N/A';
 
       // Format skills
-      const skills = Array.isArray(profile?.skills)
-        ? profile.skills.join(', ')
+      const skills = Array.isArray(applicantProfile?.skills)
+        ? applicantProfile.skills.join(', ')
         : 'N/A';
 
       return {
-        'Application ID': app.id,
+        // 'Application ID': app.id,
         'Applicant Name': fullName || 'Unknown',
-        'Email': profile?.profiles?.email || 'N/A',
-        'Phone': profile?.phone_number || profile?.mobile_number || 'N/A',
+        'Email': applicantProfile?.profiles?.email || 'N/A',
+        'Phone': phone,
         'Applied Position': app.jobs?.title || 'Unknown',
         'Location': app.jobs?.location || 'N/A',
         'Status': app.status,
-        'Rank': app.rank || 'N/A',
+        // 'Rank': app.rank || 'N/A',
         'Match Score': app.match_score ? `${app.match_score}%` : 'N/A',
-        'Highest Educational Attainment': profile?.highest_educational_attainment || 'N/A',
+        'Highest Educational Attainment': applicantProfile?.highest_educational_attainment || 'N/A',
         'Educational Background': education,
         'Eligibilities': eligibilities,
         'Skills': skills,
-        'Total Years of Experience': profile?.total_years_experience || 0,
+        'Total Years of Experience': applicantProfile?.total_years_experience || 0,
         'Applied Date': new Date(app.created_at).toLocaleDateString('en-US', {
           year: 'numeric',
           month: 'long',
-          day: 'numeric'
+          day: 'numeric',
         }),
       };
     });
@@ -163,17 +207,17 @@ export async function GET(request: NextRequest) {
 
     // Set column widths for better readability
     const columnWidths = [
-      { wch: 30 }, // Application ID
+      // { wch: 30 }, // Application ID
       { wch: 25 }, // Applicant Name
       { wch: 30 }, // Email
-      { wch: 15 }, // Phone
+      { wch: 18 }, // Phone (slightly wider for PH mobile numbers)
       { wch: 25 }, // Applied Position
       { wch: 20 }, // Location
       { wch: 12 }, // Status
-      { wch: 8 },  // Rank
+      // { wch: 8 },  // Rank
       { wch: 12 }, // Match Score
       { wch: 30 }, // Highest Educational Attainment
-      { wch: 50 }, // Educational Background
+      { wch: 55 }, // Educational Background ✅ restored
       { wch: 40 }, // Eligibilities
       { wch: 40 }, // Skills
       { wch: 20 }, // Total Years of Experience
@@ -196,7 +240,6 @@ export async function GET(request: NextRequest) {
         'Content-Disposition': `attachment; filename="${filename}"`,
       },
     });
-
   } catch (error: any) {
     console.error('Server error in GET /api/applications/export:', error);
     return NextResponse.json(
