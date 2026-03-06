@@ -8,9 +8,13 @@ import { NextResponse, type NextRequest } from 'next/server';
  */
 export async function middleware(request: NextRequest) {
   // Early return for public paths — skip Supabase client creation entirely
-  const { pathname } = request.nextUrl;
+  const { pathname, searchParams } = request.nextUrl;
+  const hasAuthCode = searchParams.has('code');
+
+  // If root path has ?code= param, it's an auth callback (email change, etc.)
+  // Don't skip — let it exchange the code for a session below
   if (
-    pathname === '/' ||
+    (pathname === '/' && !hasAuthCode) ||
     pathname === '/login' ||
     pathname === '/register' ||
     pathname === '/role-select' ||
@@ -54,13 +58,16 @@ export async function middleware(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  // Optionally: You can add route protection logic here
-  // For example, redirect unauthenticated users to login page
-  // if (!user && !request.nextUrl.pathname.startsWith('/login')) {
-  //   const url = request.nextUrl.clone();
-  //   url.pathname = '/login';
-  //   return NextResponse.redirect(url);
-  // }
+  // Handle auth code exchange on root path (email change confirmation, etc.)
+  // After getUser() above, the code has been exchanged for a session.
+  // Redirect the user to their dashboard with a success message.
+  if (pathname === '/' && hasAuthCode && user) {
+    const url = request.nextUrl.clone();
+    url.pathname = '/applicant/settings';
+    url.searchParams.delete('code');
+    url.searchParams.set('message', 'Email updated successfully!');
+    return NextResponse.redirect(url);
+  }
 
   return supabaseResponse;
 }

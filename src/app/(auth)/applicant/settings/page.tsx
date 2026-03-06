@@ -54,6 +54,17 @@ export default function AccountSettingsPage() {
   // Image preview modal state
   const [showImagePreview, setShowImagePreview] = useState(false);
 
+  // Show success message from URL param (e.g., after email change confirmation)
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const message = params.get('message');
+    if (message) {
+      showToast(message, 'success');
+      // Clean up URL
+      window.history.replaceState({}, '', window.location.pathname);
+    }
+  }, []);
+
   // Fetch profile on mount
   useEffect(() => {
     fetchProfile();
@@ -104,7 +115,7 @@ export default function AccountSettingsPage() {
       // Check for pending email change
       const supabase = createClient();
       const { data: { user: authUser } } = await supabase.auth.getUser();
-      setPendingEmail(authUser?.user_metadata?.email_change || null);
+      setPendingEmail((authUser as any)?.email_change || null);
     } catch (error) {
       console.error('Error fetching profile:', error);
       showToast(
@@ -178,7 +189,15 @@ export default function AccountSettingsPage() {
       // Refresh auth context to update navbar
       await refreshAuth();
 
-      showToast('Profile updated successfully!', 'success');
+      if (data.emailChangeInitiated) {
+        setPendingEmail(profileForm.email);
+        showToast(
+          'Verification email sent! Check your new email to confirm the change.',
+          'info'
+        );
+      } else {
+        showToast('Profile updated successfully!', 'success');
+      }
     } catch (error) {
       console.error('Error updating profile:', error);
       showToast(
@@ -383,14 +402,28 @@ export default function AccountSettingsPage() {
                         const supabase = createClient();
                         await supabase.auth.updateUser({ email: pendingEmail });
                         setResendCooldown(60); // 60 second cooldown on success
-                        showToast('Verification emails resent successfully', 'success');
+                        showToast('Verification email resent successfully', 'success');
                       } catch (error: any) {
                         // Handle rate limit errors
                         if (error?.status === 429 || error?.code === 'over_email_send_rate_limit') {
                           setResendCooldown(300); // 5 minute cooldown on rate limit
                           showToast('Too many requests. Please wait 5 minutes before trying again.', 'error');
                         } else {
-                          showToast('Failed to resend verification emails', 'error');
+                          showToast('Failed to resend verification email', 'error');
+                        }
+                      }
+                    }}
+                    onCancel={async () => {
+                      try {
+                        const supabase = createClient();
+                        await supabase.auth.updateUser({ email: profile?.email || '' });
+                        setPendingEmail(null);
+                        showToast('Email change cancelled', 'success');
+                      } catch (error: any) {
+                        if (error?.status === 429 || error?.code === 'over_email_send_rate_limit') {
+                          showToast('Too many requests. Please wait a few minutes.', 'error');
+                        } else {
+                          showToast('Failed to cancel email change', 'error');
                         }
                       }
                     }}

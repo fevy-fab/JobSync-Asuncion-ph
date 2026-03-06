@@ -394,6 +394,21 @@ export default function HRSettingsPage() {
                         }
                       }
                     }}
+                    onCancel={async () => {
+                      try {
+                        const supabase = createClient();
+                        // Reset email change by setting email back to current
+                        await supabase.auth.updateUser({ email: profile?.email || '' });
+                        setPendingEmail(null);
+                        showToast('Email change cancelled', 'success');
+                      } catch (error: any) {
+                        if (error?.status === 429 || error?.code === 'over_email_send_rate_limit') {
+                          showToast('Too many requests. Please wait a few minutes.', 'error');
+                        } else {
+                          showToast('Failed to cancel email change', 'error');
+                        }
+                      }
+                    }}
                   />
                 </div>
               )}

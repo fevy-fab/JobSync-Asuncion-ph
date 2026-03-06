@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { logActivity } from '@/lib/supabase/activityLogger';
 
 /**
  * Auth Callback Handler
@@ -53,7 +54,35 @@ export async function GET(request: NextRequest) {
       }
 
       if (type === 'email_change') {
-        console.log('➡️ Email change: Redirecting to dashboard');
+        console.log('➡️ Email change: Syncing profiles.email and redirecting to dashboard');
+
+        // Sync profiles.email from auth.users
+        if (session.user.email) {
+          const { error: profileUpdateError } = await supabase
+            .from('profiles')
+            .update({
+              email: session.user.email,
+              updated_at: new Date().toISOString(),
+            })
+            .eq('id', session.user.id);
+
+          if (profileUpdateError) {
+            console.error('[Auth Callback] Failed to sync profiles.email:', profileUpdateError);
+          } else {
+            console.log('[Auth Callback] PKCE: Successfully synced profiles.email');
+            try {
+              await logActivity({
+                userId: session.user.id,
+                eventType: 'email_changed',
+                eventCategory: 'user_management',
+                details: `User changed their email address to ${session.user.email}`,
+                metadata: { newEmail: session.user.email, verifiedAt: new Date().toISOString() },
+              });
+            } catch (logError) {
+              console.error('[Auth Callback] Failed to log activity:', logError);
+            }
+          }
+        }
 
         // Get user profile to determine which dashboard
         const { data: profile } = await supabase
@@ -130,8 +159,36 @@ export async function GET(request: NextRequest) {
           );
 
         case 'email_change':
-          // Email change confirmation - redirect to user's dashboard
-          console.log('➡️ OTP flow: Email change confirmed, redirecting to dashboard');
+          // Email change confirmation - sync profiles.email and redirect to user's dashboard
+          console.log('➡️ OTP flow: Email change confirmed, syncing profiles.email');
+
+          // Sync profiles.email from auth.users
+          if (data.user?.email) {
+            const { error: otpProfileUpdateError } = await supabase
+              .from('profiles')
+              .update({
+                email: data.user.email,
+                updated_at: new Date().toISOString(),
+              })
+              .eq('id', data.user.id);
+
+            if (otpProfileUpdateError) {
+              console.error('[Auth Callback] OTP: Failed to sync profiles.email:', otpProfileUpdateError);
+            } else {
+              console.log('[Auth Callback] OTP: Successfully synced profiles.email');
+              try {
+                await logActivity({
+                  userId: data.user.id,
+                  eventType: 'email_changed',
+                  eventCategory: 'user_management',
+                  details: `User changed their email address to ${data.user.email}`,
+                  metadata: { newEmail: data.user.email, verifiedAt: new Date().toISOString() },
+                });
+              } catch (logError) {
+                console.error('[Auth Callback] Failed to log activity:', logError);
+              }
+            }
+          }
 
           // Get user profile to determine which dashboard
           const { data: profile } = await supabase

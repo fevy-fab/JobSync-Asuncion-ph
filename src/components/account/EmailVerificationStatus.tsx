@@ -89,13 +89,8 @@ export function EmailVerificationStatus({
             {/* Instructions */}
             <div className="mt-3 pl-6 text-sm text-gray-700 space-y-1">
               <p className="font-medium">To complete the email change:</p>
-              <ol className="list-decimal list-inside space-y-1 ml-2">
-                <li>Check your <strong>current email</strong> ({currentEmail}) for a confirmation link</li>
-                <li>Check your <strong>new email</strong> ({pendingEmail}) for a confirmation link</li>
-                <li>Click both confirmation links to verify the change</li>
-              </ol>
-              <p className="mt-2 text-xs text-gray-600 italic">
-                Both emails must be confirmed before the change takes effect.
+              <p className="ml-2">
+                Check your <strong>new email</strong> ({pendingEmail}) for a confirmation link and click it to verify the change.
               </p>
             </div>
 
@@ -112,7 +107,7 @@ export function EmailVerificationStatus({
                   icon={RefreshCw}
                   className="text-xs"
                 >
-                  {resending ? 'Resending...' : 'Resend Verification Emails'}
+                  {resending ? 'Resending...' : 'Resend Verification Email'}
                 </Button>
               )}
 
