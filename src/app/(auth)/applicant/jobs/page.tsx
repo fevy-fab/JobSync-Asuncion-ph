@@ -325,7 +325,11 @@ export default function AuthenticatedJobsPage() {
 
   // Helper functions for application status
   const getApplicationForJob = (jobId: string): Application | null => {
-    return userApplications.find(app => app.job_id === jobId) || null;
+    const apps = userApplications.filter(app => app.job_id === jobId);
+    if (apps.length === 0) return null;
+    // Prefer active application over historical ones (archived/denied/withdrawn)
+    const active = apps.find(app => !['withdrawn', 'denied', 'archived'].includes(app.status));
+    return active || apps.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())[0];
   };
 
   const hasAppliedToJob = (jobId: string): boolean => {
@@ -870,7 +874,7 @@ export default function AuthenticatedJobsPage() {
                           </div>
 
                           {/* Application Button/Status */}
-                          {job.userApplication ? (
+                          {job.userApplication && job.hasApplied ? (
                             <div className="space-y-3">
                               <ApplicationStatusBadge
                                 status={job.userApplication.status}
@@ -892,10 +896,10 @@ export default function AuthenticatedJobsPage() {
                               variant="success"
                               className="w-full shadow-md hover:shadow-lg transition-shadow"
                               size="lg"
-                              icon={CheckCircle2}
+                              icon={job.userApplication ? ArrowRight : CheckCircle2}
                               onClick={() => handleApplyClick(job)}
                             >
-                              Apply Now
+                              {job.userApplication ? 'Reapply' : 'Apply Now'}
                             </Button>
                           )}
                         </div>
