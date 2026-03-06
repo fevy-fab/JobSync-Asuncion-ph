@@ -1,8 +1,8 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
-import { supabase } from '@/lib/supabase/auth';
 import { Loader2 } from 'lucide-react';
+import { useAuth } from '@/contexts/AuthContext';
 
 interface MonthlyData {
   month: string;
@@ -10,58 +10,29 @@ interface MonthlyData {
 }
 
 export const MonthlyApplicantsChart: React.FC = () => {
+  const { isAuthenticated, isLoading: authLoading } = useAuth();
   const [data, setData] = useState<MonthlyData[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchMonthlyData();
-  }, []);
+    if (!authLoading && isAuthenticated) {
+      fetchMonthlyData();
+    }
+  }, [authLoading, isAuthenticated]);
 
   const fetchMonthlyData = async () => {
     try {
-      const { data: applications, error } = await supabase
-        .from('applications')
-        .select('created_at');
+      // Use server-side aggregation API instead of fetching all rows
+      const response = await fetch('/api/hr/dashboard/charts/monthly');
+      const result = await response.json();
 
-      if (error) {
-        // Don’t throw, just log and bail
-        console.error('Supabase error fetching monthly data:', {
-          message: error.message,
-          code: error.code,
-          details: error.details,
-          hint: error.hint,
-        });
-        setData([]);        // show “No data available”
+      if (!response.ok || !result.success) {
+        console.error('Error fetching monthly data:', result.error);
+        setData([]);
         return;
       }
 
-      const monthCounts: Record<string, number> = {};
-
-      applications?.forEach((app: any) => {
-        const date = new Date(app.created_at);
-        const monthKey = `${date.getFullYear()}-${String(
-          date.getMonth() + 1
-        ).padStart(2, '0')}`;
-        monthCounts[monthKey] = (monthCounts[monthKey] || 0) + 1;
-      });
-
-      const monthlyData = Object.entries(monthCounts)
-        .map(([monthKey, count]) => {
-          const [year, month] = monthKey.split('-');
-          const monthNames = [
-            'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
-          ];
-          return {
-            month: `${monthNames[parseInt(month) - 1]} ${year}`,
-            applications: count,
-            sortKey: monthKey,
-          };
-        })
-        .sort((a, b) => a.sortKey.localeCompare(b.sortKey))
-        .map(({ month, applications }) => ({ month, applications }));
-
-      setData(monthlyData);
+      setData(result.data || []);
     } catch (err: any) {
       console.error('Unexpected error fetching monthly data:', err?.message ?? err, err);
     } finally {

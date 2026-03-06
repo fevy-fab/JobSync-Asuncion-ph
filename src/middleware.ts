@@ -7,6 +7,18 @@ import { NextResponse, type NextRequest } from 'next/server';
  * and accessible in Server Components and API Routes
  */
 export async function middleware(request: NextRequest) {
+  // Early return for public paths — skip Supabase client creation entirely
+  const { pathname } = request.nextUrl;
+  if (
+    pathname === '/' ||
+    pathname === '/login' ||
+    pathname === '/register' ||
+    pathname === '/role-select' ||
+    pathname.startsWith('/auth/')
+  ) {
+    return NextResponse.next();
+  }
+
   let supabaseResponse = NextResponse.next({
     request,
   });

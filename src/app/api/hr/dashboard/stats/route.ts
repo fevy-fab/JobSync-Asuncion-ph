@@ -82,43 +82,47 @@ export async function GET(request: NextRequest) {
       });
     }
 
-    // Build applications query
-    let applicationsQuery = supabase
-      .from('applications')
-      .select('status');
+    // Use parallel count queries instead of fetching all rows
+    const buildCountQuery = (statuses: string[]) => {
+      let q = supabase
+        .from('applications')
+        .select('*', { count: 'exact', head: true });
+      if (!isAdmin && jobIds.length > 0) {
+        q = q.in('job_id', jobIds);
+      }
+      if (statuses.length === 1) {
+        q = q.eq('status', statuses[0]);
+      } else {
+        q = q.in('status', statuses);
+      }
+      return q;
+    };
 
-    if (!isAdmin && jobIds.length > 0) {
-      // HR: Filter to applications for their jobs only
-      applicationsQuery = applicationsQuery.in('job_id', jobIds);
-    }
+    const buildTotalCountQuery = () => {
+      let q = supabase
+        .from('applications')
+        .select('*', { count: 'exact', head: true });
+      if (!isAdmin && jobIds.length > 0) {
+        q = q.in('job_id', jobIds);
+      }
+      return q;
+    };
 
-    const { data: applications, error: appsError } = await applicationsQuery;
-
-    if (appsError) {
-      console.error('Error fetching applications:', appsError);
-      return NextResponse.json(
-        { success: false, error: 'Failed to fetch applications' },
-        { status: 500 }
-      );
-    }
-
-    // Calculate statistics
-    const totalScanned = applications?.length || 0;
-    const pendingReview = applications?.filter(app =>
-      app.status === 'pending' || app.status === 'under_review'
-    ).length || 0;
-    const inProgress = applications?.filter(app =>
-      app.status === 'shortlisted' || app.status === 'interviewed'
-    ).length || 0;
-    const approvedHired = applications?.filter(app =>
-      app.status === 'approved' || app.status === 'hired'
-    ).length || 0;
-    const deniedWithdrawn = applications?.filter(app =>
-      app.status === 'denied' || app.status === 'withdrawn'
-    ).length || 0;
-    const archived = applications?.filter(app =>
-      app.status === 'archived'
-    ).length || 0;
+    const [
+      { count: totalScanned },
+      { count: pendingReview },
+      { count: inProgress },
+      { count: approvedHired },
+      { count: deniedWithdrawn },
+      { count: archived },
+    ] = await Promise.all([
+      buildTotalCountQuery(),
+      buildCountQuery(['pending', 'under_review']),
+      buildCountQuery(['shortlisted', 'interviewed']),
+      buildCountQuery(['approved', 'hired']),
+      buildCountQuery(['denied', 'withdrawn']),
+      buildCountQuery(['archived']),
+    ]);
 
     // Count active jobs
     const activeJobs = jobs?.filter(job => job.status === 'active').length || 0;
@@ -126,12 +130,12 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({
       success: true,
       data: {
-        totalScanned,
-        pendingReview,
-        inProgress,
-        approvedHired,
-        deniedWithdrawn,
-        archived,
+        totalScanned: totalScanned || 0,
+        pendingReview: pendingReview || 0,
+        inProgress: inProgress || 0,
+        approvedHired: approvedHired || 0,
+        deniedWithdrawn: deniedWithdrawn || 0,
+        archived: archived || 0,
         activeJobs,
       }
     });

@@ -5,27 +5,44 @@ import { useAuth } from './AuthContext';
 import { useToast } from './ToastContext';
 import type { RealtimeChannel } from '@supabase/supabase-js';
 
+type ConnectionStatus = 'connecting' | 'connected' | 'disconnected' | 'reconnecting';
+
 /**
  * Real-time subscription context
  * Manages Supabase real-time subscriptions for critical data
  */
 interface RealtimeContextType {
   isConnected: boolean;
+  connectionStatus: ConnectionStatus;
   unreadNotificationsCount: number;
   refreshNotifications: () => Promise<void>;
 }
 
 const RealtimeContext = createContext<RealtimeContextType | undefined>(undefined);
 
+const MAX_RECONNECT_DELAY = 30000;
+const BASE_RECONNECT_DELAY = 1000;
+
 export function RealtimeProvider({ children }: { children: React.ReactNode }) {
   const { user, isAuthenticated, role } = useAuth();
   const { showToast } = useToast();
-  const [isConnected, setIsConnected] = useState(false);
+  const [connectionStatus, setConnectionStatus] = useState<ConnectionStatus>('disconnected');
   const [unreadNotificationsCount, setUnreadNotificationsCount] = useState(0);
+
+  // Derived for backward compat
+  const isConnected = connectionStatus === 'connected';
 
   // Track channels to prevent duplicates
   const channelsRef = useRef<RealtimeChannel[]>([]);
   const subscriptionInitialized = useRef(false);
+  const reconnectTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const reconnectAttemptRef = useRef(0);
+
+  // Store showToast in a ref to prevent it from triggering re-subscriptions
+  const showToastRef = useRef(showToast);
+  useEffect(() => {
+    showToastRef.current = showToast;
+  }, [showToast]);
 
   /**
    * Fetch unread notifications count
@@ -47,22 +64,61 @@ export function RealtimeProvider({ children }: { children: React.ReactNode }) {
   }, [user]);
 
   /**
+   * Clean up all channels and reset state
+   */
+  const cleanupChannels = useCallback(() => {
+    channelsRef.current.forEach(channel => {
+      supabase.removeChannel(channel);
+    });
+    channelsRef.current = [];
+    subscriptionInitialized.current = false;
+  }, []);
+
+  /**
+   * Handle channel status changes with reconnection logic
+   */
+  const handleChannelStatus = useCallback((status: string, err?: Error) => {
+    switch (status) {
+      case 'SUBSCRIBED':
+        setConnectionStatus('connected');
+        reconnectAttemptRef.current = 0;
+        break;
+      case 'TIMED_OUT':
+      case 'CHANNEL_ERROR':
+        console.warn(`Realtime channel ${status}:`, err);
+        setConnectionStatus('reconnecting');
+        // Schedule reconnection with exponential backoff
+        if (!reconnectTimeoutRef.current) {
+          const delay = Math.min(
+            BASE_RECONNECT_DELAY * Math.pow(2, reconnectAttemptRef.current),
+            MAX_RECONNECT_DELAY
+          );
+          reconnectAttemptRef.current += 1;
+          reconnectTimeoutRef.current = setTimeout(() => {
+            reconnectTimeoutRef.current = null;
+            // Teardown and re-initialize
+            cleanupChannels();
+          }, delay);
+        }
+        break;
+      case 'CLOSED':
+        setConnectionStatus('disconnected');
+        break;
+    }
+  }, [cleanupChannels]);
+
+  /**
    * Set up real-time subscriptions
    */
   useEffect(() => {
     // Only subscribe if authenticated and not already subscribed
-    // CRITICAL: Also check that auth is not loading to prevent race conditions
     if (!isAuthenticated || !user || subscriptionInitialized.current) {
-      console.log('⏭️ Skipping realtime setup:', {
-        isAuthenticated,
-        hasUser: !!user,
-        alreadyInitialized: subscriptionInitialized.current
-      });
       return;
     }
 
-    console.log('🔄 Setting up real-time subscriptions for user:', user.email);
+    console.log('Setting up real-time subscriptions for user:', user.email);
     subscriptionInitialized.current = true;
+    setConnectionStatus('connecting');
 
     // Generate unique channel names using timestamp
     const timestamp = Date.now();
@@ -83,25 +139,21 @@ export function RealtimeProvider({ children }: { children: React.ReactNode }) {
           filter: `user_id=eq.${user.id}`
         },
         (payload) => {
-          console.log('📬 New notification received:', payload);
+          console.log('New notification received:', payload);
           const notification = payload.new as any;
 
           // Increment unread count
           setUnreadNotificationsCount(prev => prev + 1);
 
           // Show toast for new notification
-          showToast(notification.title || 'New Notification', 'info');
+          showToastRef.current(notification.title || 'New Notification', 'info');
         }
       )
       .subscribe((status, err) => {
-        console.log(`🔔 Notifications channel status: ${status}`);
+        console.log(`Notifications channel status: ${status}`);
+        handleChannelStatus(status, err);
         if (status === 'SUBSCRIBED') {
-          setIsConnected(true);
-          // Fetch initial count
           refreshNotifications();
-        }
-        if (err) {
-          console.error('Notifications subscription error:', err);
         }
       });
 
@@ -122,12 +174,12 @@ export function RealtimeProvider({ children }: { children: React.ReactNode }) {
             filter: role === 'APPLICANT' ? `applicant_id=eq.${user.id}` : undefined
           },
           (payload) => {
-            console.log('📝 Application updated:', payload);
+            console.log('Application updated:', payload);
             const application = payload.new as any;
 
             // Show toast if status changed
             if (payload.old && (payload.old as any).status !== application.status) {
-              showToast(
+              showToastRef.current(
                 `Application ${application.status}`,
                 application.status === 'approved' ? 'success' : application.status === 'denied' ? 'error' : 'info'
               );
@@ -135,10 +187,8 @@ export function RealtimeProvider({ children }: { children: React.ReactNode }) {
           }
         )
         .subscribe((status, err) => {
-          console.log(`📄 Applications channel status: ${status}`);
-          if (err) {
-            console.error('Applications subscription error:', err);
-          }
+          console.log(`Applications channel status: ${status}`);
+          handleChannelStatus(status, err);
         });
 
       channelsRef.current.push(applicationsChannel);
@@ -160,12 +210,12 @@ export function RealtimeProvider({ children }: { children: React.ReactNode }) {
             filter: role === 'APPLICANT' ? `applicant_id=eq.${user.id}` : undefined
           },
           (payload) => {
-            console.log('🎓 Training application updated:', payload);
+            console.log('Training application updated:', payload);
             const application = payload.new as any;
 
             // Show toast if status changed
             if (payload.old && (payload.old as any).status !== application.status) {
-              showToast(
+              showToastRef.current(
                 `Training application ${application.status}`,
                 application.status === 'approved' ? 'success' : application.status === 'denied' ? 'error' : 'info'
               );
@@ -173,10 +223,8 @@ export function RealtimeProvider({ children }: { children: React.ReactNode }) {
           }
         )
         .subscribe((status, err) => {
-          console.log(`🎓 Training channel status: ${status}`);
-          if (err) {
-            console.error('Training subscription error:', err);
-          }
+          console.log(`Training channel status: ${status}`);
+          handleChannelStatus(status, err);
         });
 
       channelsRef.current.push(trainingChannel);
@@ -184,20 +232,21 @@ export function RealtimeProvider({ children }: { children: React.ReactNode }) {
 
     // Cleanup function
     return () => {
-      console.log('🧹 Cleaning up real-time subscriptions...');
-      channelsRef.current.forEach(channel => {
-        supabase.removeChannel(channel);
-      });
-      channelsRef.current = [];
-      subscriptionInitialized.current = false;
-      setIsConnected(false);
+      console.log('Cleaning up real-time subscriptions...');
+      if (reconnectTimeoutRef.current) {
+        clearTimeout(reconnectTimeoutRef.current);
+        reconnectTimeoutRef.current = null;
+      }
+      cleanupChannels();
+      setConnectionStatus('disconnected');
     };
-  }, [isAuthenticated, user, role, showToast]); // Removed refreshNotifications to prevent unnecessary re-renders
+  }, [isAuthenticated, user, role, handleChannelStatus, cleanupChannels, refreshNotifications]);
 
   return (
     <RealtimeContext.Provider
       value={{
         isConnected,
+        connectionStatus,
         unreadNotificationsCount,
         refreshNotifications
       }}

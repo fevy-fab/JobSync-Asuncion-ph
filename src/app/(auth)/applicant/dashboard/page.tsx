@@ -88,29 +88,29 @@ export default function ApplicantDashboard() {
       setLoading(true);
     }
     try {
-      // Fetch active jobs count (global stat)
-      const activeJobsResponse = await fetch('/api/jobs?status=active');
-      const activeJobsData = await activeJobsResponse.json();
+      // Fetch all data in parallel instead of sequentially (~5x faster)
+      const [activeJobsResponse, trainingResponse, announcementsResponse, jobAppsResponse, trainingAppsResponse] =
+        await Promise.all([
+          fetch('/api/jobs?status=active'),
+          fetch('/api/training/programs?status=active'),
+          fetch('/api/announcements?status=active'),
+          fetch('/api/applications'),
+          fetch('/api/training/applications'),
+        ]);
+
+      const [activeJobsData, trainingData, announcementsData, jobAppsData, trainingAppsData] =
+        await Promise.all([
+          activeJobsResponse.json(),
+          trainingResponse.json(),
+          announcementsResponse.json(),
+          jobAppsResponse.json(),
+          trainingAppsResponse.json(),
+        ]);
+
       const activeJobs = activeJobsData.count || 0;
-
-      // Fetch active training programs count (global stat)
-      const trainingResponse = await fetch('/api/training/programs?status=active');
-      const trainingData = await trainingResponse.json();
       const trainingPrograms = trainingData.count || 0;
-
-      // Fetch announcements
-      const announcementsResponse = await fetch('/api/announcements?status=active');
-      const announcementsData = await announcementsResponse.json();
       const announcements = announcementsData.data || [];
-
-      // Fetch user-specific job applications
-      const jobAppsResponse = await fetch('/api/applications');
-      const jobAppsData = await jobAppsResponse.json();
       const jobApplications = jobAppsData.data || [];
-
-      // Fetch user-specific training applications
-      const trainingAppsResponse = await fetch('/api/training/applications');
-      const trainingAppsData = await trainingAppsResponse.json();
       const trainingApplications = trainingAppsData.data || [];
 
       // Calculate stats based on user's applications

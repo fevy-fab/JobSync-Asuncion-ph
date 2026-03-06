@@ -1,8 +1,8 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, Cell } from 'recharts';
-import { supabase } from '@/lib/supabase/auth';
 import { Loader2 } from 'lucide-react';
+import { useAuth } from '@/contexts/AuthContext';
 
 interface JobData {
   jobTitle: string;
@@ -21,54 +21,29 @@ const COLORS = [
 ];
 
 export const JobMatchedChart: React.FC = () => {
+  const { isAuthenticated, isLoading: authLoading } = useAuth();
   const [data, setData] = useState<JobData[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchJobData();
-  }, []);
+    if (!authLoading && isAuthenticated) {
+      fetchJobData();
+    }
+  }, [authLoading, isAuthenticated]);
 
   const fetchJobData = async () => {
     try {
-      const { data: applications, error } = await supabase
-        .from('applications')
-        .select(`
-          job_id,
-          jobs (
-            title
-          )
-        `);
+      // Use server-side aggregation API instead of fetching all rows
+      const response = await fetch('/api/hr/dashboard/charts/matched');
+      const result = await response.json();
 
-      if (error) {
-        console.error('Supabase error fetching job data:', {
-          message: error.message,
-          code: error.code,
-          details: error.details,
-          hint: error.hint,
-        });
+      if (!response.ok || !result.success) {
+        console.error('Error fetching job data:', result.error);
         setData([]);
         return;
       }
 
-      const jobCounts: Record<string, { title: string; count: number }> = {};
-
-      applications?.forEach((app: any) => {
-        const jobTitle = app.jobs?.title || 'Unknown Job';
-        if (!jobCounts[jobTitle]) {
-          jobCounts[jobTitle] = { title: jobTitle, count: 0 };
-        }
-        jobCounts[jobTitle].count++;
-      });
-
-      const jobData = Object.values(jobCounts)
-        .map(({ title, count }) => ({
-          jobTitle: title.length > 30 ? title.substring(0, 30) + '...' : title,
-          applications: count,
-        }))
-        .sort((a, b) => b.applications - a.applications)
-        .slice(0, 8);
-
-      setData(jobData);
+      setData(result.data || []);
     } catch (err: any) {
       console.error('Unexpected error fetching job data:', err?.message ?? err, err);
     } finally {

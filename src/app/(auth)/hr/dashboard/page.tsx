@@ -1,11 +1,22 @@
 'use client';
 import React, { useState, useEffect, useCallback, useRef } from 'react';
+import dynamic from 'next/dynamic';
 import { AdminLayout } from '@/components/layout';
 import { DashboardTile, Card, Button, Container, RefreshButton } from '@/components/ui';
+import { SkeletonChart } from '@/components/ui/Skeleton';
 import { useAuth } from '@/contexts/AuthContext';
 import { useToast } from '@/contexts/ToastContext';
 import { FileText, Clock, XCircle, CheckCircle2, Briefcase, AlertCircle, Activity, Star, Archive, Loader2 } from 'lucide-react';
-import { MonthlyApplicantsChart, JobMatchedChart } from '@/components/charts';
+
+// Lazy-load heavy chart components (they include recharts which is large)
+const MonthlyApplicantsChart = dynamic(
+  () => import('@/components/charts/MonthlyApplicantsChart').then(mod => ({ default: mod.MonthlyApplicantsChart })),
+  { loading: () => <SkeletonChart />, ssr: false }
+);
+const JobMatchedChart = dynamic(
+  () => import('@/components/charts/JobMatchedChart').then(mod => ({ default: mod.JobMatchedChart })),
+  { loading: () => <SkeletonChart />, ssr: false }
+);
 
 interface DashboardStats {
   totalScanned: number;

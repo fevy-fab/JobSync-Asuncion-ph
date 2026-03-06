@@ -91,63 +91,61 @@ export default function PESODashboard() {
         return;
       }
 
-      // Fetch total training applications (only for PESO user's programs)
-      const { count: totalApplications } = await supabase
-        .from('training_applications')
-        .select('*', { count: 'exact', head: true })
-        .in('program_id', pesoProgramIds);
-
-      // Fetch pending training applications (only for PESO user's programs)
-      const { count: pendingApplications } = await supabase
-        .from('training_applications')
-        .select('*', { count: 'exact', head: true })
-        .in('program_id', pesoProgramIds)
-        .eq('status', 'pending');
-
-      // Fetch active training programs (only created by this PESO user)
-      const { count: activePrograms } = await supabase
-        .from('training_programs')
-        .select('*', { count: 'exact', head: true })
-        .eq('created_by', currentUser.id)
-        .eq('status', 'active');
-
-      // Fetch enrolled applications (only for PESO user's programs)
-      const { count: enrolledCount } = await supabase
-        .from('training_applications')
-        .select('*', { count: 'exact', head: true })
-        .in('program_id', pesoProgramIds)
-        .eq('status', 'enrolled');
-
-      // Fetch in-progress applications (only for PESO user's programs)
-      const { count: inProgressCount } = await supabase
-        .from('training_applications')
-        .select('*', { count: 'exact', head: true })
-        .in('program_id', pesoProgramIds)
-        .eq('status', 'in_progress');
-
-      // Fetch completed applications (only for PESO user's programs)
-      const { count: completedCount } = await supabase
-        .from('training_applications')
-        .select('*', { count: 'exact', head: true })
-        .in('program_id', pesoProgramIds)
-        .eq('status', 'completed');
-
-      // Fetch recent applications (last 5, only for PESO user's programs)
-      const { data: applications, error } = await supabase
-        .from('training_applications')
-        .select(`
-          id,
-          full_name,
-          program_id,
-          status,
-          submitted_at,
-          training_programs (
-            title
-          )
-        `)
-        .in('program_id', pesoProgramIds)
-        .order('submitted_at', { ascending: false })
-        .limit(5);
+      // Run all 6 count queries + 1 data query in parallel (~6x faster)
+      const [
+        { count: totalApplications },
+        { count: pendingApplications },
+        { count: activePrograms },
+        { count: enrolledCount },
+        { count: inProgressCount },
+        { count: completedCount },
+        { data: applications, error },
+      ] = await Promise.all([
+        supabase
+          .from('training_applications')
+          .select('*', { count: 'exact', head: true })
+          .in('program_id', pesoProgramIds),
+        supabase
+          .from('training_applications')
+          .select('*', { count: 'exact', head: true })
+          .in('program_id', pesoProgramIds)
+          .eq('status', 'pending'),
+        supabase
+          .from('training_programs')
+          .select('*', { count: 'exact', head: true })
+          .eq('created_by', currentUser.id)
+          .eq('status', 'active'),
+        supabase
+          .from('training_applications')
+          .select('*', { count: 'exact', head: true })
+          .in('program_id', pesoProgramIds)
+          .eq('status', 'enrolled'),
+        supabase
+          .from('training_applications')
+          .select('*', { count: 'exact', head: true })
+          .in('program_id', pesoProgramIds)
+          .eq('status', 'in_progress'),
+        supabase
+          .from('training_applications')
+          .select('*', { count: 'exact', head: true })
+          .in('program_id', pesoProgramIds)
+          .eq('status', 'completed'),
+        supabase
+          .from('training_applications')
+          .select(`
+            id,
+            full_name,
+            program_id,
+            status,
+            submitted_at,
+            training_programs (
+              title
+            )
+          `)
+          .in('program_id', pesoProgramIds)
+          .order('submitted_at', { ascending: false })
+          .limit(5),
+      ]);
 
       if (error) {
         console.error('Error fetching recent applications:', error);

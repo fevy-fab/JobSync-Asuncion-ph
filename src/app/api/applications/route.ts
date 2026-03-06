@@ -237,11 +237,33 @@ export async function GET(request: NextRequest) {
     const jobId = searchParams.get('job_id');
     const applicantId = searchParams.get('applicant_id');
     const status = searchParams.get('status'); // pending, approved, denied
+    const fields = searchParams.get('fields'); // 'summary' for lightweight select
+    const page = parseInt(searchParams.get('page') || '1', 10);
+    const limit = parseInt(searchParams.get('limit') || '0', 10); // 0 = no limit (backwards compatible)
 
     // 4. Build query based on role
-    let query = supabase
-      .from('applications')
-      .select(`
+    // Use lightweight select for list views, full select for detail views
+    const summarySelect = `
+      id,
+      job_id,
+      applicant_id,
+      status,
+      rank,
+      match_score,
+      created_at,
+      jobs:job_id (
+        id,
+        title,
+        status
+      ),
+      applicant_profiles:applicant_profile_id (
+        id,
+        first_name,
+        surname
+      )
+    `;
+
+    const fullSelect = `
         id,
         job_id,
         applicant_id,
@@ -313,7 +335,13 @@ export async function GET(request: NextRequest) {
           eligibility,
           other_information
         )
-      `)
+    `;
+
+    const selectQuery = fields === 'summary' ? summarySelect : fullSelect;
+
+    let query = supabase
+      .from('applications')
+      .select(selectQuery, { count: 'exact' })
       .order('created_at', { ascending: false });
 
     // 5. Apply role-based filtering
@@ -374,8 +402,15 @@ export async function GET(request: NextRequest) {
       query = query.eq('status', status);
     }
 
-    // 7. Execute query
-    const { data: applications, error } = await query;
+    // 7. Apply pagination if limit is specified
+    if (limit > 0) {
+      const from = (page - 1) * limit;
+      const to = from + limit - 1;
+      query = query.range(from, to);
+    }
+
+    // 8. Execute query
+    const { data: applications, error, count: totalCount } = await query;
 
     if (error) {
       console.error('Error fetching applications:', error);
@@ -385,26 +420,33 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // 8. Process each application to extract PDS data
-    const processedApplications = applications?.map((app: any) => {
-      const pds = app.applicant_pds;
-      const profile = app.applicant_profiles;
+    // 9. Process each application to extract PDS data (skip for summary mode)
+    const processedApplications = fields === 'summary'
+      ? applications || []
+      : (applications?.map((app: any) => {
+          const pds = app.applicant_pds;
+          const profile = app.applicant_profiles;
+          const extracted = extractPDSData(pds, profile);
+          return { ...app, _extracted: extracted };
+        }) || []);
 
-      // Extract data from PDS with fallback to profile
-      const extracted = extractPDSData(pds, profile);
-
-      return {
-        ...app,
-        // Add extracted fields for frontend consumption
-        _extracted: extracted,
-      };
-    }) || [];
-
-    return NextResponse.json({
+    const responseData: any = {
       success: true,
       data: processedApplications,
-      count: processedApplications?.length || 0,
-    });
+      count: processedApplications.length,
+    };
+
+    // Include pagination metadata when limit is specified
+    if (limit > 0 && totalCount !== null) {
+      responseData.pagination = {
+        page,
+        limit,
+        total: totalCount,
+        totalPages: Math.ceil(totalCount / limit),
+      };
+    }
+
+    return NextResponse.json(responseData);
 
   } catch (error: any) {
     console.error('Server error in GET /api/applications:', error);
