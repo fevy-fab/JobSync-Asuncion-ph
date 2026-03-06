@@ -26,13 +26,13 @@ import {
   GraduationCap,
   CheckCircle2,
   X,
-  Loader2,
   AlertCircle,
   Eye,
   Archive,
   Filter,
   Lock,
 } from 'lucide-react';
+import { SkeletonTable, SkeletonTile } from '@/components/ui/Skeleton';
 import { JobStatusBadge } from '@/components/JobStatusBadge';
 
 interface Job {
@@ -461,7 +461,7 @@ Employment Type: ${formData.employment_type}
   // Fetch application count for a job
   const fetchApplicationCount = async (jobId: string) => {
     try {
-      const response = await fetch(`/api/applications?job_id=${jobId}`);
+      const response = await fetch(`/api/applications?job_id=${jobId}&fields=summary&limit=0`);
       const result = await response.json();
       if (result.success) {
         setApplicationCount(result.count || 0);
@@ -697,6 +697,11 @@ Employment Type: ${formData.employment_type}
           </div>
 
           {/* Summary Stats */}
+          {loading ? (
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+              {Array.from({ length: 5 }).map((_, i) => <SkeletonTile key={i} />)}
+            </div>
+          ) : (
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
             {/* Active Jobs */}
             <Card
@@ -778,6 +783,7 @@ Employment Type: ${formData.employment_type}
               </div>
             </Card>
           </div>
+          )}
 
           {/* Status Filter Tabs */}
           <div className="flex gap-2 flex-wrap">
@@ -841,10 +847,7 @@ Employment Type: ${formData.employment_type}
           {/* Job Postings Table */}
           <Card title="JOB POSTINGS" headerColor="bg-[#D4F4DD]">
             {loading ? (
-              <div className="flex items-center justify-center py-12">
-                <Loader2 className="w-8 h-8 text-[#22A555] animate-spin" />
-                <span className="ml-3 text-gray-600">Loading jobs...</span>
-              </div>
+              <SkeletonTable rows={5} cols={5} />
             ) : filteredJobs.length === 0 ? (
               <div className="text-center py-16">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 mb-4">

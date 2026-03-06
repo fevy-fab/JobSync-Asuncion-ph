@@ -2,7 +2,8 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { AdminLayout } from '@/components/layout';
 import { Card, Container, Badge, RefreshButton, EventIcon, EventBadge } from '@/components/ui';
-import { Users, Shield, Building2, UserCheck, Activity, Clock, UserPlus, Loader2 } from 'lucide-react';
+import { SkeletonTile, SkeletonTable } from '@/components/ui/Skeleton';
+import { Users, Shield, Building2, UserCheck, Activity, Clock, UserPlus } from 'lucide-react';
 import { supabase } from '@/lib/supabase/auth';
 import { useAuth } from '@/contexts/AuthContext';
 import { getEventConfig, formatEventType } from '@/lib/activityEventConfig';
@@ -224,33 +225,38 @@ export default function AdminDashboard() {
           </div>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {statsData.map((stat, index) => {
-              const Icon = stat.icon;
-              return (
-                <Card key={index} variant="elevated" className="hover:shadow-xl transition-all duration-300">
-                  <div className="flex items-center justify-between mb-4">
-                    <div>
-                      <p className="text-sm text-gray-600 mb-1">{stat.title}</p>
-                      <p className="text-4xl font-bold text-gray-900">{stat.value}</p>
+          {loading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {Array.from({ length: 4 }).map((_, i) => (
+                <SkeletonTile key={i} />
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {statsData.map((stat, index) => {
+                const Icon = stat.icon;
+                return (
+                  <Card key={index} variant="elevated" className="hover:shadow-xl transition-all duration-300">
+                    <div className="flex items-center justify-between mb-4">
+                      <div>
+                        <p className="text-sm text-gray-600 mb-1">{stat.title}</p>
+                        <p className="text-4xl font-bold text-gray-900">{stat.value}</p>
+                      </div>
+                      <div className={`w-16 h-16 bg-gradient-to-br ${stat.color} rounded-xl flex items-center justify-center shadow-lg`}>
+                        <Icon className="w-8 h-8 text-white" />
+                      </div>
                     </div>
-                    <div className={`w-16 h-16 bg-gradient-to-br ${stat.color} rounded-xl flex items-center justify-center shadow-lg`}>
-                      <Icon className="w-8 h-8 text-white" />
-                    </div>
-                  </div>
-                  <p className="text-xs text-gray-500">{stat.change}</p>
-                </Card>
-              );
-            })}
-          </div>
+                    <p className="text-xs text-gray-500">{stat.change}</p>
+                  </Card>
+                );
+              })}
+            </div>
+          )}
 
           {/* Recent Activity */}
           <Card title="RECENT SYSTEM ACTIVITY" headerColor="bg-[#D4F4DD]" variant="elevated">
             {loading ? (
-              <div className="flex items-center justify-center py-12">
-                <Loader2 className="w-8 h-8 animate-spin text-[#22A555]" />
-                <span className="ml-3 text-gray-600">Loading activities...</span>
-              </div>
+              <SkeletonTable rows={5} cols={3} />
             ) : recentActivities.length === 0 ? (
               <div className="text-center py-12 text-gray-500">
                 <Activity className="w-12 h-12 mx-auto mb-3 text-gray-400" />

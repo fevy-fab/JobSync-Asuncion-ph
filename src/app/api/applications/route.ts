@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { createClient, createAdminClient } from '@/lib/supabase/server';
 import { createInitialStatusHistory, appendStatusHistory } from '@/lib/utils/statusHistory';
 import { createNotification, notifyJobCreator, notifyAdmins } from '@/lib/notifications';
 
@@ -239,7 +239,8 @@ export async function GET(request: NextRequest) {
     const status = searchParams.get('status'); // pending, approved, denied
     const fields = searchParams.get('fields'); // 'summary' for lightweight select
     const page = parseInt(searchParams.get('page') || '1', 10);
-    const limit = parseInt(searchParams.get('limit') || '0', 10); // 0 = no limit (backwards compatible)
+    const limit = parseInt(searchParams.get('limit') || '50', 10); // default 50 for server-side pagination
+    const statuses = searchParams.get('statuses'); // comma-separated statuses for multi-status filters
 
     // 4. Build query based on role
     // Use lightweight select for list views, full select for detail views
@@ -261,6 +262,66 @@ export async function GET(request: NextRequest) {
         first_name,
         surname
       )
+    `;
+
+    // Medium-weight select for paginated list views (tables)
+    // Drops heavy JSONB: applicant_pds.educational_background/work_experience/eligibility/other_information
+    // and applicant_profiles.education/work_experience (large JSONB arrays)
+    const listSelect = `
+        id,
+        job_id,
+        applicant_id,
+        applicant_profile_id,
+        pds_id,
+        status,
+        status_history,
+        rank,
+        match_score,
+        education_score,
+        experience_score,
+        skills_score,
+        eligibility_score,
+        algorithm_used,
+        ranking_reasoning,
+        algorithm_details,
+        reviewed_by,
+        reviewed_at,
+        notification_sent,
+        hr_notes,
+        created_at,
+        updated_at,
+        matched_skills_count,
+        matched_eligibilities_count,
+        jobs:job_id (
+          id,
+          title,
+          degree_requirement,
+          eligibilities,
+          skills,
+          years_of_experience,
+          status
+        ),
+        applicant_profiles:applicant_profile_id (
+          id,
+          user_id,
+          surname,
+          first_name,
+          middle_name,
+          eligibilities,
+          skills,
+          total_years_experience,
+          highest_educational_attainment,
+          ocr_processed,
+          profiles:user_id (
+            email,
+            profile_image_url
+          )
+        ),
+        applicant_pds:pds_id (
+          id,
+          signature_url,
+          signature_uploaded_at
+        )
     `;
 
     const fullSelect = `
@@ -337,20 +398,12 @@ export async function GET(request: NextRequest) {
         )
     `;
 
-    const selectQuery = fields === 'summary' ? summarySelect : fullSelect;
+    const selectQuery = fields === 'summary' ? summarySelect : fields === 'list' ? listSelect : fullSelect;
 
-    let query = supabase
-      .from('applications')
-      .select(selectQuery, { count: 'exact' })
-      .order('created_at', { ascending: false });
+    // 5. Determine role-based filters first (shared between data + count queries)
+    let hrJobIds: string[] | null = null;
 
-    // 5. Apply role-based filtering
-    if (profile.role === 'APPLICANT') {
-      // Applicants can only see their own applications
-      query = query.eq('applicant_id', user.id);
-    } else if (profile.role === 'HR') {
-      // HR can ONLY see applications for jobs they created
-      // First, get job IDs created by this HR user
+    if (profile.role === 'HR') {
       const { data: hrJobs, error: hrJobsError } = await supabase
         .from('jobs')
         .select('id')
@@ -363,54 +416,138 @@ export async function GET(request: NextRequest) {
           { status: 500 }
         );
       }
+      hrJobIds = hrJobs?.map(job => job.id) || [];
+    }
 
-      const hrJobIds = hrJobs?.map(job => job.id) || [];
-
-      if (hrJobIds.length > 0) {
-        // Filter applications to only jobs created by this HR
-        query = query.in('job_id', hrJobIds);
+    // Helper: apply shared filters to any query builder
+    const applyFilters = (q: any) => {
+      if (profile.role === 'APPLICANT') {
+        q = q.eq('applicant_id', user.id);
+      } else if (profile.role === 'HR') {
+        if (hrJobIds && hrJobIds.length > 0) {
+          q = q.in('job_id', hrJobIds);
+        } else {
+          q = q.eq('job_id', '00000000-0000-0000-0000-000000000000');
+        }
+        if (jobId && hrJobIds?.includes(jobId)) {
+          q = q.eq('job_id', jobId);
+        }
+        if (applicantId) {
+          q = q.eq('applicant_id', applicantId);
+        }
+      } else if (profile.role === 'ADMIN') {
+        if (jobId) q = q.eq('job_id', jobId);
+        if (applicantId) q = q.eq('applicant_id', applicantId);
       } else {
-        // HR has no jobs, return empty array by using impossible condition
-        query = query.eq('job_id', '00000000-0000-0000-0000-000000000000');
+        return null; // invalid role
       }
 
-      // Apply optional filters (only if job belongs to this HR)
-      if (jobId && hrJobIds.includes(jobId)) {
-        query = query.eq('job_id', jobId);
+      // Status filters
+      if (statuses) {
+        q = q.in('status', statuses.split(','));
+      } else if (status) {
+        q = q.eq('status', status);
       }
-      if (applicantId) {
-        query = query.eq('applicant_id', applicantId);
+
+      return q;
+    };
+
+    // Helper: apply shared filters WITHOUT status (for cross-status counts)
+    const applyBaseFilters = (q: any) => {
+      if (profile.role === 'APPLICANT') {
+        q = q.eq('applicant_id', user.id);
+      } else if (profile.role === 'HR') {
+        if (hrJobIds && hrJobIds.length > 0) {
+          q = q.in('job_id', hrJobIds);
+        } else {
+          q = q.eq('job_id', '00000000-0000-0000-0000-000000000000');
+        }
+        if (jobId && hrJobIds?.includes(jobId)) {
+          q = q.eq('job_id', jobId);
+        }
+        if (applicantId) {
+          q = q.eq('applicant_id', applicantId);
+        }
+      } else if (profile.role === 'ADMIN') {
+        if (jobId) q = q.eq('job_id', jobId);
+        if (applicantId) q = q.eq('applicant_id', applicantId);
+      } else {
+        return null;
       }
-    } else if (profile.role === 'ADMIN') {
-      // ADMIN can see ALL applications across all HRs
-      // Apply optional filters
-      if (jobId) {
-        query = query.eq('job_id', jobId);
-      }
-      if (applicantId) {
-        query = query.eq('applicant_id', applicantId);
-      }
-    } else {
+      // No status filter applied — intentional for cross-status counts
+      return q;
+    };
+
+    // 6. Build data query (no count — joins make count slow)
+    let dataQuery = supabase
+      .from('applications')
+      .select(selectQuery)
+      .order('created_at', { ascending: false });
+
+    dataQuery = applyFilters(dataQuery);
+    if (!dataQuery) {
       return NextResponse.json(
         { success: false, error: 'Forbidden - Invalid role' },
         { status: 403 }
       );
     }
 
-    // 6. Apply status filter (available to all roles)
-    if (status) {
-      query = query.eq('status', status);
-    }
-
     // 7. Apply pagination if limit is specified
     if (limit > 0) {
       const from = (page - 1) * limit;
       const to = from + limit - 1;
-      query = query.range(from, to);
+      dataQuery = dataQuery.range(from, to);
     }
 
-    // 8. Execute query
-    const { data: applications, error, count: totalCount } = await query;
+    // 8. Separate lightweight count query (head:true = COUNT only, no body)
+    let countQuery = supabase
+      .from('applications')
+      .select('id', { count: 'exact', head: true });
+    countQuery = applyBaseFilters(countQuery);
+
+    // Build 4 lightweight status count queries (no joins, uses composite index)
+    const statusGroups: Record<string, string[]> = {
+      needsAction: ['pending'],
+      inProgress: ['under_review', 'shortlisted', 'interviewed'],
+      approved: ['approved', 'hired'],
+      denied: ['denied'],
+    };
+
+    const statusCountQueries = Object.entries(statusGroups).map(([, statuses]) => {
+      let q = supabase
+        .from('applications')
+        .select('id', { count: 'exact', head: true })
+        .in('status', statuses);
+      q = applyBaseFilters(q);
+      return q ? q : Promise.resolve({ count: 0, error: null, data: null });
+    });
+
+    // Execute all in parallel: data + total count + 4 status counts
+    const [dataResult, countResult, ...statusCountResults] = await Promise.all([
+      dataQuery,
+      countQuery ? countQuery : Promise.resolve({ count: null, error: null, data: null }),
+      ...statusCountQueries,
+    ]);
+
+    const { data: applications, error } = dataResult;
+    if (countResult?.error) {
+      console.error('Error in count query:', countResult.error);
+    }
+    let totalCount = countResult?.count ?? 0;
+
+    console.log('[applications/GET] Count debug:', {
+      role: profile.role,
+      userId: user.id,
+      hrJobIdsLength: hrJobIds?.length ?? 'N/A',
+      countResult: countResult?.count,
+      countError: countResult?.error?.message ?? null,
+      statusCounts: statusCountResults.map((r: any, i: number) => ({
+        group: Object.keys(statusGroups)[i],
+        count: r?.count,
+        error: r?.error?.message ?? null,
+      })),
+      dataLength: dataResult?.data?.length ?? 0,
+    });
 
     if (error) {
       console.error('Error fetching applications:', error);
@@ -420,8 +557,8 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // 9. Process each application to extract PDS data (skip for summary mode)
-    const processedApplications = fields === 'summary'
+    // 9. Process each application to extract PDS data (skip for summary/list mode)
+    const processedApplications = (fields === 'summary' || fields === 'list')
       ? applications || []
       : (applications?.map((app: any) => {
           const pds = app.applicant_pds;
@@ -430,10 +567,60 @@ export async function GET(request: NextRequest) {
           return { ...app, _extracted: extracted };
         }) || []);
 
+    // Build statusCounts from parallel query results
+    const statusCountKeys = Object.keys(statusGroups);
+    const statusCounts: Record<string, number> = {};
+    statusCountKeys.forEach((key, i) => {
+      statusCounts[key] = (statusCountResults[i] as any)?.count ?? 0;
+    });
+
+    // Fallback: if counts are 0 but data exists, use admin client to bypass RLS
+    const allCountsZero = totalCount === 0 && Object.values(statusCounts).every(v => v === 0);
+    if (processedApplications.length > 0 && allCountsZero) {
+      console.warn('[applications/GET] Count queries returned 0 but data exists. Using admin fallback.');
+      try {
+        const adminSupabase = createAdminClient();
+
+        const buildAdminBaseFilter = (q: any) => {
+          if (profile.role === 'HR' && hrJobIds && hrJobIds.length > 0) {
+            q = q.in('job_id', hrJobIds);
+          }
+          if (jobId) q = q.eq('job_id', jobId);
+          if (applicantId) q = q.eq('applicant_id', applicantId);
+          return q;
+        };
+
+        // Total count
+        const adminCountResult = await buildAdminBaseFilter(
+          adminSupabase.from('applications').select('id', { count: 'exact', head: true })
+        );
+        if (adminCountResult.count !== null && adminCountResult.count > 0) {
+          totalCount = adminCountResult.count;
+        }
+
+        // Status counts
+        const adminStatusResults = await Promise.all(
+          Object.entries(statusGroups).map(([, statuses]) =>
+            buildAdminBaseFilter(
+              adminSupabase.from('applications').select('id', { count: 'exact', head: true }).in('status', statuses)
+            )
+          )
+        );
+        Object.keys(statusGroups).forEach((key, i) => {
+          if (adminStatusResults[i]?.count != null) {
+            statusCounts[key] = adminStatusResults[i].count;
+          }
+        });
+      } catch (e) {
+        console.error('[applications/GET] Admin count fallback failed:', e);
+      }
+    }
+
     const responseData: any = {
       success: true,
       data: processedApplications,
       count: processedApplications.length,
+      statusCounts,
     };
 
     // Include pagination metadata when limit is specified

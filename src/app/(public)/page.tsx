@@ -4,7 +4,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Button, Card } from '@/components/ui';
 import Image from 'next/image';
-import { Briefcase, GraduationCap, Sparkles, Target, BarChart3, Zap, Bell, FileText, MapPin, Phone, Clock, Loader2 } from 'lucide-react';
+import { Briefcase, GraduationCap, Sparkles, Target, BarChart3, Zap, Bell, FileText, MapPin, Phone, Clock } from 'lucide-react';
+import { Skeleton } from '@/components/ui/Skeleton';
 import { useAuth } from '@/contexts/AuthContext';
 
 export default function Home() {
@@ -26,13 +27,14 @@ export default function Home() {
     }
   }, [isAuthenticated, role, isLoading, router]);
 
-  // Show loading spinner while checking auth
+  // Show skeleton while checking auth
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-center">
-          <Loader2 className="w-12 h-12 animate-spin text-[#22A555] mx-auto mb-4" />
-          <p className="text-gray-600">Loading...</p>
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="space-y-4 w-64">
+          <Skeleton className="h-8 w-full" />
+          <Skeleton className="h-4 w-3/4" />
+          <Skeleton className="h-4 w-1/2" />
         </div>
       </div>
     );

@@ -3,10 +3,10 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import { AdminLayout } from '@/components/layout';
 import { DashboardTile, Card, Button, Container, RefreshButton } from '@/components/ui';
-import { SkeletonChart } from '@/components/ui/Skeleton';
+import { SkeletonChart, SkeletonTile } from '@/components/ui/Skeleton';
 import { useAuth } from '@/contexts/AuthContext';
 import { useToast } from '@/contexts/ToastContext';
-import { FileText, Clock, XCircle, CheckCircle2, Briefcase, AlertCircle, Activity, Star, Archive, Loader2 } from 'lucide-react';
+import { FileText, Clock, XCircle, CheckCircle2, Briefcase, AlertCircle, Activity, Star, Archive } from 'lucide-react';
 
 // Lazy-load heavy chart components (they include recharts which is large)
 const MonthlyApplicantsChart = dynamic(
@@ -157,45 +157,47 @@ export default function HRDashboard() {
           </div>
 
           {/* Dashboard Tiles */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {tiles.map((tile, index) => {
-              const Icon = tile.icon;
-              const bgGradient = tile.color.includes('blue') ? 'from-blue-50 to-blue-100 border-blue-500' :
-                               tile.color.includes('orange') ? 'from-orange-50 to-orange-100 border-orange-500' :
-                               tile.color.includes('purple') ? 'from-purple-50 to-purple-100 border-purple-500' :
-                               tile.color.includes('green') ? 'from-green-50 to-green-100 border-green-500' :
-                               tile.color.includes('red') ? 'from-red-50 to-red-100 border-red-500' :
-                               tile.color.includes('gray') ? 'from-gray-50 to-gray-100 border-gray-500' :
-                               'from-teal-50 to-teal-100 border-teal-500';
-              const iconBg = tile.color.includes('blue') ? 'bg-blue-500' :
-                            tile.color.includes('orange') ? 'bg-orange-500' :
-                            tile.color.includes('purple') ? 'bg-purple-500' :
-                            tile.color.includes('green') ? 'bg-[#22A555]' :
-                            tile.color.includes('red') ? 'bg-red-500' :
-                            tile.color.includes('gray') ? 'bg-gray-500' :
-                            'bg-teal-500';
+          {loading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {Array.from({ length: 7 }).map((_, i) => (
+                <SkeletonTile key={i} />
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {tiles.map((tile, index) => {
+                const Icon = tile.icon;
+                const bgGradient = tile.color.includes('blue') ? 'from-blue-50 to-blue-100 border-blue-500' :
+                                 tile.color.includes('orange') ? 'from-orange-50 to-orange-100 border-orange-500' :
+                                 tile.color.includes('purple') ? 'from-purple-50 to-purple-100 border-purple-500' :
+                                 tile.color.includes('green') ? 'from-green-50 to-green-100 border-green-500' :
+                                 tile.color.includes('red') ? 'from-red-50 to-red-100 border-red-500' :
+                                 tile.color.includes('gray') ? 'from-gray-50 to-gray-100 border-gray-500' :
+                                 'from-teal-50 to-teal-100 border-teal-500';
+                const iconBg = tile.color.includes('blue') ? 'bg-blue-500' :
+                              tile.color.includes('orange') ? 'bg-orange-500' :
+                              tile.color.includes('purple') ? 'bg-purple-500' :
+                              tile.color.includes('green') ? 'bg-[#22A555]' :
+                              tile.color.includes('red') ? 'bg-red-500' :
+                              tile.color.includes('gray') ? 'bg-gray-500' :
+                              'bg-teal-500';
 
-              return (
-                <Card key={index} variant="flat" className={`bg-gradient-to-br ${bgGradient} border-l-4 hover:shadow-xl transition-all duration-300`}>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-sm text-gray-600 mb-1">{tile.title}</p>
-                      <p className="text-3xl font-bold text-gray-900">
-                        {loading ? (
-                          <Loader2 className="w-8 h-8 animate-spin text-gray-400" />
-                        ) : (
-                          tile.value
-                        )}
-                      </p>
+                return (
+                  <Card key={index} variant="flat" className={`bg-gradient-to-br ${bgGradient} border-l-4 hover:shadow-xl transition-all duration-300`}>
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="text-sm text-gray-600 mb-1">{tile.title}</p>
+                        <p className="text-3xl font-bold text-gray-900">{tile.value}</p>
+                      </div>
+                      <div className={`w-12 h-12 ${iconBg} rounded-xl flex items-center justify-center shadow-lg`}>
+                        <Icon className="w-6 h-6 text-white" />
+                      </div>
                     </div>
-                    <div className={`w-12 h-12 ${iconBg} rounded-xl flex items-center justify-center shadow-lg`}>
-                      <Icon className="w-6 h-6 text-white" />
-                    </div>
-                  </div>
-                </Card>
-              );
-            })}
-          </div>
+                  </Card>
+                );
+              })}
+            </div>
+          )}
 
           {/* Charts Row */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

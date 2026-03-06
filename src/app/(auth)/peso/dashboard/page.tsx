@@ -2,9 +2,10 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { AdminLayout } from '@/components/layout';
 import { Card, Container, Badge, RefreshButton } from '@/components/ui';
+import { SkeletonTile, SkeletonTable } from '@/components/ui/Skeleton';
 import { useAuth } from '@/contexts/AuthContext';
 import { useToast } from '@/contexts/ToastContext';
-import { GraduationCap, Clock, User, Loader2, UserCheck, Play, CheckCircle, Award } from 'lucide-react';
+import { GraduationCap, Clock, User, UserCheck, Play, CheckCircle, Award } from 'lucide-react';
 import { supabase } from '@/lib/supabase/auth';
 import { getStatusConfig } from '@/lib/config/statusConfig';
 
@@ -264,41 +265,38 @@ export default function PESODashboard() {
           </div>
 
           {/* Dashboard Tiles */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {tiles.map((tile, index) => {
-              const Icon = tile.icon;
+          {loading ? (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {Array.from({ length: 6 }).map((_, i) => (
+                <SkeletonTile key={i} />
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {tiles.map((tile, index) => {
+                const Icon = tile.icon;
 
-              return (
-                <Card key={index} variant="flat" className={`bg-gradient-to-br ${tile.bgColor} border-l-4 hover:shadow-xl transition-all duration-300`}>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-sm text-gray-600 mb-1">{tile.title}</p>
-                      <p className="text-3xl font-bold text-gray-900">
-                        {loading ? (
-                          <Loader2 className="w-8 h-8 animate-spin text-gray-400" />
-                        ) : (
-                          tile.value
-                        )}
-                      </p>
+                return (
+                  <Card key={index} variant="flat" className={`bg-gradient-to-br ${tile.bgColor} border-l-4 hover:shadow-xl transition-all duration-300`}>
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="text-sm text-gray-600 mb-1">{tile.title}</p>
+                        <p className="text-3xl font-bold text-gray-900">{tile.value}</p>
+                      </div>
+                      <div className={`w-12 h-12 ${tile.iconBg} rounded-xl flex items-center justify-center shadow-lg`}>
+                        <Icon className="w-6 h-6 text-white" />
+                      </div>
                     </div>
-                    <div className={`w-12 h-12 ${tile.iconBg} rounded-xl flex items-center justify-center shadow-lg`}>
-                      <Icon className="w-6 h-6 text-white" />
-                    </div>
-                  </div>
-                </Card>
-              );
-            })}
-          </div>
+                  </Card>
+                );
+              })}
+            </div>
+          )}
 
           {/* Recent Applications */}
           <Card title="RECENT APPLICATIONS" headerColor="bg-[#D4F4DD]" variant="elevated" className="hover:shadow-xl transition-shadow">
             {loading ? (
-              <div className="flex items-center justify-center h-40">
-                <div className="text-center">
-                  <Loader2 className="w-12 h-12 animate-spin text-[#22A555] mx-auto mb-3" />
-                  <p className="text-sm text-gray-600">Loading applications...</p>
-                </div>
-              </div>
+              <SkeletonTable rows={5} cols={3} />
             ) : recentApplications.length === 0 ? (
               <div className="text-center py-12 text-gray-500">
                 <User className="w-16 h-16 mx-auto mb-4 text-gray-300" />

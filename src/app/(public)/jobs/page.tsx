@@ -9,6 +9,7 @@ import { Badge } from '@/components/ui/Badge';
 import { Input } from '@/components/ui/Input';
 import { JobCard } from '@/components/public/JobCard';
 import { JobDetailsModal } from '@/components/public/JobDetailsModal';
+import { SkeletonCard } from '@/components/ui/Skeleton';
 import {
   Briefcase,
   MapPin,
@@ -17,7 +18,6 @@ import {
   Award,
   Users,
   Search,
-  Loader2,
   Calendar,
   Building2,
   Home
@@ -228,9 +228,10 @@ export default function PublicJobsPage() {
 
         {/* Job Listings */}
         {loading ? (
-          <div className="flex items-center justify-center py-20">
-            <Loader2 className="w-8 h-8 animate-spin text-[#22A555]" />
-            <span className="ml-3 text-gray-600">Loading jobs...</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <SkeletonCard key={i} />
+            ))}
           </div>
         ) : filteredJobs.length === 0 ? (
           <div className="text-center py-20">

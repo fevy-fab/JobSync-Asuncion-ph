@@ -6,12 +6,12 @@ import { Container } from '@/components/ui/Container';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { ModernModal } from '@/components/ui/ModernModal';
+import { SkeletonCard } from '@/components/ui/Skeleton';
 import {
   Megaphone,
   Calendar,
   Tag,
   ImageIcon,
-  Loader2,
   Users,
   Filter,
   Building2,
@@ -188,9 +188,10 @@ export default function PublicAnnouncementsPage() {
 
         {/* Announcements Grid */}
         {loading ? (
-          <div className="flex items-center justify-center py-20">
-            <Loader2 className="w-8 h-8 animate-spin text-[#22A555]" />
-            <span className="ml-3 text-gray-600">Loading announcements...</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <SkeletonCard key={i} />
+            ))}
           </div>
         ) : filteredAnnouncements.length === 0 ? (
           <div className="text-center py-20">

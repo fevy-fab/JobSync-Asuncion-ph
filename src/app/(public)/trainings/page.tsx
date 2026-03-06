@@ -9,6 +9,7 @@ import { Badge } from '@/components/ui/Badge';
 import { Input } from '@/components/ui/Input';
 import { TrainingCard } from '@/components/public/TrainingCard';
 import { TrainingDetailsModal } from '@/components/public/TrainingDetailsModal';
+import { SkeletonCard } from '@/components/ui/Skeleton';
 import {
   GraduationCap,
   Clock,
@@ -16,7 +17,6 @@ import {
   MapPin,
   Users,
   Search,
-  Loader2,
   Award,
   Filter,
   Laptop,
@@ -283,9 +283,10 @@ export default function PublicTrainingsPage() {
 
         {/* Training Programs Listing */}
         {loading ? (
-          <div className="flex items-center justify-center py-20">
-            <Loader2 className="w-8 h-8 animate-spin text-[#22A555]" />
-            <span className="ml-3 text-gray-600">Loading programs...</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <SkeletonCard key={i} />
+            ))}
           </div>
         ) : filteredPrograms.length === 0 ? (
           <div className="text-center py-20">

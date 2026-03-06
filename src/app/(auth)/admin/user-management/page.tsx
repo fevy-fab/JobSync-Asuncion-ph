@@ -11,9 +11,10 @@ import { useAuth } from '@/contexts/AuthContext';
 // import { useTableRealtime } from '@/hooks/useTableRealtime'; // REMOVED: Realtime disabled
 import { supabase } from '@/lib/supabase/auth';
 import { getErrorMessage } from '@/lib/utils/errorMessages';
+import { SkeletonTable, SkeletonTile } from '@/components/ui/Skeleton';
 import {
   UserPlus, UserX, Trash2, User as UserIcon, Mail, Shield, Calendar, X,
-  CheckCircle2, AlertCircle, Eye, Loader2, Briefcase, Building, Clock, Activity
+  CheckCircle2, AlertCircle, Eye, Briefcase, Building, Clock, Activity
 } from 'lucide-react';
 import { getEventConfig, type EventCategory } from '@/lib/activityEventConfig';
 import type { User, CreateUserRequest } from '@/types/users';
@@ -518,6 +519,11 @@ export default function UserManagementPage() {
       <Container size="xl">
         <div className="space-y-6">
           {/* Summary Stats */}
+          {isLoading ? (
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              {Array.from({ length: 4 }).map((_, i) => <SkeletonTile key={i} />)}
+            </div>
+          ) : (
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <Card variant="flat" className="bg-gradient-to-br from-blue-50 to-blue-100 border-l-4 border-blue-500">
               <div className="flex items-center justify-between">
@@ -567,6 +573,7 @@ export default function UserManagementPage() {
               </div>
             </Card>
           </div>
+          )}
 
           {/* Action Buttons and Filters */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
@@ -605,12 +612,7 @@ export default function UserManagementPage() {
           {/* Users Table */}
           <Card title={`USER ACCOUNTS (${filteredUsers.length})`} headerColor="bg-[#D4F4DD]">
             {isLoading ? (
-              <div className="flex items-center justify-center py-12">
-                <div className="flex flex-col items-center gap-3">
-                  <Loader2 className="w-8 h-8 animate-spin text-[#22A555]" />
-                  <p className="text-sm text-gray-500">Loading users...</p>
-                </div>
-              </div>
+              <SkeletonTable rows={5} cols={5} />
             ) : (
               <EnhancedTable
                 columns={columns}

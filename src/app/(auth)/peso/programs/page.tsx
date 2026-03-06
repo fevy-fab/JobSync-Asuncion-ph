@@ -9,7 +9,8 @@ import { useToast } from '@/contexts/ToastContext';
 import { getErrorMessage } from '@/lib/utils/errorMessages';
 import { useAuth } from '@/contexts/AuthContext';
 import { getValidTransitions, type TrainingProgramStatus } from '@/lib/utils/statusTransitions';
-import { Plus, Edit, Trash2, GraduationCap, Clock, Users, CheckCircle2, Archive, Loader2, Filter, Undo2, Search, Briefcase, MoreVertical, ArrowRight, PlayCircle, Award, UserCheck } from 'lucide-react';
+import { Plus, Edit, Trash2, GraduationCap, Clock, Users, CheckCircle2, Archive, Filter, Undo2, Search, Briefcase, MoreVertical, ArrowRight, PlayCircle, Award, UserCheck } from 'lucide-react';
+import { SkeletonCard, SkeletonTile } from '@/components/ui/Skeleton';
 
 interface TrainingProgram {
   id: string;
@@ -439,12 +440,17 @@ export default function PESOProgramsPage() {
         </div>
 
         {/* Stats Tiles */}
+        {loading ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-6">
+            {Array.from({ length: 5 }).map((_, i) => <SkeletonTile key={i} />)}
+          </div>
+        ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-6">
           <Card variant="flat" className="bg-gradient-to-br from-blue-50 to-blue-100 border-l-4 border-blue-500 hover:shadow-xl transition-all duration-300">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-600 mb-1">Total Programs</p>
-                <p className="text-3xl font-bold text-gray-900">{loading ? '...' : stats.total}</p>
+                <p className="text-3xl font-bold text-gray-900">{stats.total}</p>
               </div>
               <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center shadow-lg">
                 <GraduationCap className="w-6 h-6 text-white" />
@@ -456,7 +462,7 @@ export default function PESOProgramsPage() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-600 mb-1">Accepting Enrollment</p>
-                <p className="text-3xl font-bold text-gray-900">{loading ? '...' : stats.active + stats.upcoming}</p>
+                <p className="text-3xl font-bold text-gray-900">{stats.active + stats.upcoming}</p>
               </div>
               <div className="w-12 h-12 bg-[#22A555] rounded-xl flex items-center justify-center shadow-lg">
                 <UserCheck className="w-6 h-6 text-white" />
@@ -468,7 +474,7 @@ export default function PESOProgramsPage() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-600 mb-1">Ongoing</p>
-                <p className="text-3xl font-bold text-gray-900">{loading ? '...' : stats.ongoing}</p>
+                <p className="text-3xl font-bold text-gray-900">{stats.ongoing}</p>
               </div>
               <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center shadow-lg">
                 <PlayCircle className="w-6 h-6 text-white" />
@@ -480,7 +486,7 @@ export default function PESOProgramsPage() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-600 mb-1">Completed</p>
-                <p className="text-3xl font-bold text-gray-900">{loading ? '...' : stats.completed}</p>
+                <p className="text-3xl font-bold text-gray-900">{stats.completed}</p>
               </div>
               <div className="w-12 h-12 bg-teal-500 rounded-xl flex items-center justify-center shadow-lg">
                 <Award className="w-6 h-6 text-white" />
@@ -492,7 +498,7 @@ export default function PESOProgramsPage() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-600 mb-1">Total Enrolled</p>
-                <p className="text-3xl font-bold text-gray-900">{loading ? '...' : stats.totalEnrolled}</p>
+                <p className="text-3xl font-bold text-gray-900">{stats.totalEnrolled}</p>
               </div>
               <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center shadow-lg">
                 <Users className="w-6 h-6 text-white" />
@@ -500,6 +506,7 @@ export default function PESOProgramsPage() {
             </div>
           </Card>
         </div>
+        )}
 
         {/* Status Filter */}
         <div className="flex items-center gap-3 mb-6">
@@ -589,9 +596,10 @@ export default function PESOProgramsPage() {
 
         {/* Programs Grid */}
         {loading ? (
-          <div className="flex items-center justify-center py-20">
-            <Loader2 className="w-8 h-8 animate-spin text-[#22A555]" />
-            <span className="ml-3 text-gray-600">Loading programs...</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <SkeletonCard key={i} />
+            ))}
           </div>
         ) : filteredPrograms.length === 0 ? (
           <div className="text-center py-20 bg-white rounded-lg shadow-sm">

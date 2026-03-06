@@ -3,10 +3,11 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button, Card, Container, RefreshButton, EnhancedTable, Badge } from '@/components/ui';
+import { SkeletonTile, SkeletonTable, SkeletonCard } from '@/components/ui/Skeleton';
 import { AdminLayout } from '@/components/layout';
 import { useAuth } from '@/contexts/AuthContext';
 import { useToast } from '@/contexts/ToastContext';
-import { Briefcase, Download, Calendar, Users, GraduationCap, Megaphone, Loader2, CheckCircle2, Clock, FileText, Tag, ImageIcon, Eye, Star, XCircle, AlertCircle, Archive, History, X } from 'lucide-react';
+import { Briefcase, Download, Calendar, Users, GraduationCap, Megaphone, CheckCircle2, Clock, FileText, Tag, ImageIcon, Eye, Star, XCircle, AlertCircle, Archive, History, X } from 'lucide-react';
 import { supabase } from '@/lib/supabase/auth';
 import { AnnouncementViewModal } from '@/components/applicant/AnnouncementViewModal';
 import { StatusTimeline } from '@/components/hr/StatusTimeline';
@@ -311,85 +312,80 @@ export default function ApplicantDashboard() {
           </div>
 
           {/* Summary Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-            <Card variant="flat" className="bg-gradient-to-br from-blue-50 to-blue-100 border-l-4 border-blue-500">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-gray-600 mb-1">Available Jobs</p>
-                  <p className="text-3xl font-bold text-gray-900">
-                    {loading ? '...' : stats.activeJobs}
-                  </p>
+          {loading ? (
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <SkeletonTile key={i} />
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+              <Card variant="flat" className="bg-gradient-to-br from-blue-50 to-blue-100 border-l-4 border-blue-500">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm text-gray-600 mb-1">Available Jobs</p>
+                    <p className="text-3xl font-bold text-gray-900">{stats.activeJobs}</p>
+                  </div>
+                  <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center shadow-lg">
+                    <Briefcase className="w-6 h-6 text-white" />
+                  </div>
                 </div>
-                <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center shadow-lg">
-                  <Briefcase className="w-6 h-6 text-white" />
-                </div>
-              </div>
-            </Card>
+              </Card>
 
-            <Card variant="flat" className="bg-gradient-to-br from-purple-50 to-purple-100 border-l-4 border-purple-500">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-gray-600 mb-1">Training Programs</p>
-                  <p className="text-3xl font-bold text-gray-900">
-                    {loading ? '...' : stats.trainingPrograms}
-                  </p>
+              <Card variant="flat" className="bg-gradient-to-br from-purple-50 to-purple-100 border-l-4 border-purple-500">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm text-gray-600 mb-1">Training Programs</p>
+                    <p className="text-3xl font-bold text-gray-900">{stats.trainingPrograms}</p>
+                  </div>
+                  <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center shadow-lg">
+                    <GraduationCap className="w-6 h-6 text-white" />
+                  </div>
                 </div>
-                <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center shadow-lg">
-                  <GraduationCap className="w-6 h-6 text-white" />
-                </div>
-              </div>
-            </Card>
+              </Card>
 
-            <Card variant="flat" className="bg-gradient-to-br from-gray-50 to-gray-100 border-l-4 border-gray-500">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-gray-600 mb-1">Total Applications</p>
-                  <p className="text-3xl font-bold text-gray-900">
-                    {loading ? '...' : stats.totalApplications}
-                  </p>
+              <Card variant="flat" className="bg-gradient-to-br from-gray-50 to-gray-100 border-l-4 border-gray-500">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm text-gray-600 mb-1">Total Applications</p>
+                    <p className="text-3xl font-bold text-gray-900">{stats.totalApplications}</p>
+                  </div>
+                  <div className="w-12 h-12 bg-gray-500 rounded-xl flex items-center justify-center shadow-lg">
+                    <FileText className="w-6 h-6 text-white" />
+                  </div>
                 </div>
-                <div className="w-12 h-12 bg-gray-500 rounded-xl flex items-center justify-center shadow-lg">
-                  <FileText className="w-6 h-6 text-white" />
-                </div>
-              </div>
-            </Card>
+              </Card>
 
-            <Card variant="flat" className="bg-gradient-to-br from-orange-50 to-orange-100 border-l-4 border-orange-500">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-gray-600 mb-1">Pending</p>
-                  <p className="text-3xl font-bold text-gray-900">
-                    {loading ? '...' : stats.pendingApplications}
-                  </p>
+              <Card variant="flat" className="bg-gradient-to-br from-orange-50 to-orange-100 border-l-4 border-orange-500">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm text-gray-600 mb-1">Pending</p>
+                    <p className="text-3xl font-bold text-gray-900">{stats.pendingApplications}</p>
+                  </div>
+                  <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center shadow-lg">
+                    <Clock className="w-6 h-6 text-white" />
+                  </div>
                 </div>
-                <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center shadow-lg">
-                  <Clock className="w-6 h-6 text-white" />
-                </div>
-              </div>
-            </Card>
+              </Card>
 
-            <Card variant="flat" className="bg-gradient-to-br from-green-50 to-green-100 border-l-4 border-green-500">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-gray-600 mb-1">Approved</p>
-                  <p className="text-3xl font-bold text-gray-900">
-                    {loading ? '...' : stats.approvedApplications}
-                  </p>
+              <Card variant="flat" className="bg-gradient-to-br from-green-50 to-green-100 border-l-4 border-green-500">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm text-gray-600 mb-1">Approved</p>
+                    <p className="text-3xl font-bold text-gray-900">{stats.approvedApplications}</p>
+                  </div>
+                  <div className="w-12 h-12 bg-[#22A555] rounded-xl flex items-center justify-center shadow-lg">
+                    <CheckCircle2 className="w-6 h-6 text-white" />
+                  </div>
                 </div>
-                <div className="w-12 h-12 bg-[#22A555] rounded-xl flex items-center justify-center shadow-lg">
-                  <CheckCircle2 className="w-6 h-6 text-white" />
-                </div>
-              </div>
-            </Card>
-          </div>
+              </Card>
+            </div>
+          )}
 
           {/* Recent Applications Table */}
           <Card title="RECENT APPLICATIONS" headerColor="bg-[#D4F4DD]">
             {loading ? (
-              <div className="flex items-center justify-center py-12">
-                <Loader2 className="w-8 h-8 text-[#22A555] animate-spin" />
-                <span className="ml-3 text-gray-600">Loading applications...</span>
-              </div>
+              <SkeletonTable rows={5} cols={4} />
             ) : recentApplications.length === 0 ? (
               <div className="text-center py-12">
                 <FileText className="w-16 h-16 mx-auto mb-4 text-gray-300" />
@@ -420,9 +416,10 @@ export default function ApplicantDashboard() {
           {/* Latest Announcements */}
           <Card title="LATEST ANNOUNCEMENTS" headerColor="bg-[#D4F4DD]">
             {loading ? (
-              <div className="flex items-center justify-center py-12">
-                <Loader2 className="w-8 h-8 text-[#22A555] animate-spin" />
-                <span className="ml-3 text-gray-600">Loading announcements...</span>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {Array.from({ length: 3 }).map((_, i) => (
+                  <SkeletonCard key={i} />
+                ))}
               </div>
             ) : announcements.length === 0 ? (
               <div className="text-center py-12">

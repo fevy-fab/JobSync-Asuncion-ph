@@ -11,7 +11,8 @@ import { formatPhilippinePhone } from '@/lib/utils/phoneFormatter';
 // import { useTableRealtime } from '@/hooks/useTableRealtime'; // REMOVED: Realtime disabled
 import { AdminLayout } from '@/components/layout';
 import { StatusTimeline } from '@/components/peso/StatusTimeline';
-import { GraduationCap, Clock, Calendar, Users, MapPin, CheckCircle2, Upload, Filter, Loader2, Award, Star, TrendingUp, User, Laptop, Briefcase, BarChart3, Palette, Wrench, BookOpen, Code, Lightbulb, Eye, XCircle, UserCheck, Play, Ban, AlertCircle, Archive, Download, FileText, History, X, ArrowRight } from 'lucide-react';
+import { GraduationCap, Clock, Calendar, Users, MapPin, CheckCircle2, Upload, Filter, Award, Star, TrendingUp, User, Laptop, Briefcase, BarChart3, Palette, Wrench, BookOpen, Code, Lightbulb, Eye, XCircle, UserCheck, Play, Ban, AlertCircle, Archive, Download, FileText, History, X, ArrowRight } from 'lucide-react';
+import { SkeletonTable, SkeletonTile } from '@/components/ui/Skeleton';
 import { FileUploadWithProgress } from '@/components/ui';
 import { formatShortDate, formatRelativeDate, getCreatorTooltip } from '@/lib/utils/dateFormatters';
 import { getStatusConfig } from '@/lib/config/statusConfig';
@@ -667,14 +668,17 @@ export default function TrainingsPage() {
           </div>
 
           {/* Summary Stats */}
+          {loading ? (
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              {Array.from({ length: 4 }).map((_, i) => <SkeletonTile key={i} />)}
+            </div>
+          ) : (
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <Card variant="flat" className="bg-gradient-to-br from-purple-50 to-purple-100 border-l-4 border-purple-500">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600 mb-1">Total Programs</p>
-                  <p className="text-3xl font-bold text-gray-900">
-                    {loading ? '...' : stats.totalPrograms}
-                  </p>
+                  <p className="text-3xl font-bold text-gray-900">{stats.totalPrograms}</p>
                 </div>
                 <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center shadow-lg">
                   <GraduationCap className="w-6 h-6 text-white" />
@@ -686,9 +690,7 @@ export default function TrainingsPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600 mb-1">My Applications</p>
-                  <p className="text-3xl font-bold text-gray-900">
-                    {loading ? '...' : stats.myApplications}
-                  </p>
+                  <p className="text-3xl font-bold text-gray-900">{stats.myApplications}</p>
                 </div>
                 <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center shadow-lg">
                   <FileText className="w-6 h-6 text-white" />
@@ -700,9 +702,7 @@ export default function TrainingsPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600 mb-1">Active Trainings</p>
-                  <p className="text-3xl font-bold text-gray-900">
-                    {loading ? '...' : stats.activeTrainings}
-                  </p>
+                  <p className="text-3xl font-bold text-gray-900">{stats.activeTrainings}</p>
                 </div>
                 <div className="w-12 h-12 bg-[#22A555] rounded-xl flex items-center justify-center shadow-lg">
                   <Play className="w-6 h-6 text-white" />
@@ -714,9 +714,7 @@ export default function TrainingsPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600 mb-1">Pending</p>
-                  <p className="text-3xl font-bold text-gray-900">
-                    {loading ? '...' : stats.pendingApplications}
-                  </p>
+                  <p className="text-3xl font-bold text-gray-900">{stats.pendingApplications}</p>
                 </div>
                 <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center shadow-lg">
                   <Clock className="w-6 h-6 text-white" />
@@ -724,6 +722,7 @@ export default function TrainingsPage() {
               </div>
             </Card>
           </div>
+          )}
 
           {/* Tab Navigation */}
           <div className="border-b border-gray-200">
@@ -855,10 +854,7 @@ export default function TrainingsPage() {
             </div>
 
             {loading ? (
-              <div className="flex items-center justify-center py-12">
-                <Loader2 className="w-8 h-8 text-[#22A555] animate-spin" />
-                <span className="ml-3 text-gray-600">Loading programs...</span>
-              </div>
+              <SkeletonTable rows={5} cols={4} />
             ) : filteredPrograms.length === 0 ? (
               <Card className="text-center py-16">
                 <GraduationCap className="w-16 h-16 mx-auto mb-4 text-gray-300" />
@@ -1187,10 +1183,7 @@ export default function TrainingsPage() {
           </div>
 
           {loading ? (
-            <div className="flex items-center justify-center py-12">
-              <Loader2 className="w-8 h-8 text-[#22A555] animate-spin" />
-              <span className="ml-3 text-gray-600">Loading enrollments...</span>
-            </div>
+            <SkeletonTable rows={3} cols={3} />
           ) : enrolledApplications.length === 0 ? (
             <Card className="text-center py-16">
               <Play className="w-16 h-16 mx-auto mb-4 text-gray-300" />
@@ -1419,10 +1412,7 @@ export default function TrainingsPage() {
           </div>
 
           {loading ? (
-            <div className="flex items-center justify-center py-12">
-              <Loader2 className="w-8 h-8 text-[#22A555] animate-spin" />
-              <span className="ml-3 text-gray-600">Loading certificates...</span>
-            </div>
+            <SkeletonTable rows={3} cols={3} />
           ) : completedApplications.length === 0 ? (
             <Card className="text-center py-16">
               <Award className="w-16 h-16 mx-auto mb-4 text-gray-300" />

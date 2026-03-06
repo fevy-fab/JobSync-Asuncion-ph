@@ -4,11 +4,12 @@ import { AdminLayout } from '@/components/layout';
 import { Avatar, Card, EnhancedTable, Container, Badge, RefreshButton, Modal, ImagePreviewModal } from '@/components/ui';
 import { useToast } from '@/contexts/ToastContext';
 import { getErrorMessage } from '@/lib/utils/errorMessages';
+import { SkeletonTable, SkeletonTile } from '@/components/ui/Skeleton';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/lib/supabase/auth';
 import {
   FileText, Database, User, Clock, AlertTriangle, Eye, EyeOff,
-  Plus, Edit, Trash2, FileCheck, Loader2
+  Plus, Edit, Trash2, FileCheck
 } from 'lucide-react';
 
 interface AuditRecord {
@@ -315,6 +316,11 @@ export default function AuditTrailPage() {
           </div>
 
           {/* Summary Stats */}
+          {isLoading ? (
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              {Array.from({ length: 4 }).map((_, i) => <SkeletonTile key={i} />)}
+            </div>
+          ) : (
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <Card variant="flat" className="bg-gradient-to-br from-blue-50 to-blue-100 border-l-4 border-blue-500">
               <div className="flex items-center justify-between">
@@ -364,14 +370,12 @@ export default function AuditTrailPage() {
               </div>
             </Card>
           </div>
+          )}
 
           {/* Audit Trail Table */}
           <Card title="AUDIT TRAIL RECORDS" headerColor="bg-[#D4F4DD]">
             {isLoading ? (
-              <div className="flex items-center justify-center py-12">
-                <Loader2 className="w-8 h-8 text-[#22A555] animate-spin" />
-                <span className="ml-3 text-gray-600">Loading audit trail...</span>
-              </div>
+              <SkeletonTable rows={5} cols={5} />
             ) : filteredRecords.length === 0 ? (
               <div className="text-center py-12 text-gray-500">
                 No audit records found

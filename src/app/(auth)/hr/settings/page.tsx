@@ -6,7 +6,8 @@ import { ProfilePictureUpload } from '@/components/applicant/ProfilePictureUploa
 import { EmailVerificationStatus } from '@/components/account/EmailVerificationStatus';
 import { useAuth } from '@/contexts/AuthContext';
 import { useToast } from '@/contexts/ToastContext';
-import { Save, Lock, Loader2, User, Mail, Phone, CheckCircle, AlertCircle, Edit as EditIcon, X } from 'lucide-react';
+import { Save, Lock, User, Mail, Phone, CheckCircle, AlertCircle, Edit as EditIcon, X } from 'lucide-react';
+import { Skeleton, SkeletonText } from '@/components/ui/Skeleton';
 import { updateProfileSchema, changePasswordSchema } from '@/lib/validation/profileSchema';
 import { formatPhilippinePhone } from '@/lib/utils/phoneFormatter';
 import { createClient } from '@/lib/supabase/client';
@@ -317,8 +318,12 @@ export default function HRSettingsPage() {
         pageDescription="Loading..."
       >
         <Container size="lg">
-          <div className="flex items-center justify-center h-64">
-            <Loader2 className="w-8 h-8 animate-spin text-teal-600" />
+          <div className="space-y-6">
+            <SkeletonText className="w-1/3" />
+            <SkeletonText className="w-1/4" />
+            <Skeleton className="h-24 w-full" />
+            <SkeletonText className="w-1/3" />
+            <SkeletonText className="w-1/4" />
           </div>
         </Container>
       </AdminLayout>

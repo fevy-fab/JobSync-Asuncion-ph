@@ -3,7 +3,8 @@ import React, { useState, useCallback, useEffect } from 'react';
 import Image from 'next/image';
 import { Card, Container, Badge, RefreshButton, Button } from '@/components/ui';
 import { AdminLayout } from '@/components/layout';
-import { Megaphone, Calendar, Tag, ImageIcon, Loader2, Users, Filter } from 'lucide-react';
+import { Megaphone, Calendar, Tag, ImageIcon, Users, Filter } from 'lucide-react';
+import { SkeletonCard } from '@/components/ui/Skeleton';
 import { useToast } from '@/contexts/ToastContext';
 import { useAuth } from '@/contexts/AuthContext';
 import { AnnouncementViewModal } from '@/components/applicant/AnnouncementViewModal';
@@ -143,9 +144,10 @@ export default function AnnouncementsPage() {
         {/* Announcements Grid */}
         <Card title={`${selectedCategory === 'all' ? 'All' : formatCategory(selectedCategory)} Announcements (${filteredAnnouncements.length})`} headerColor="bg-[#D4F4DD]">
           {loading ? (
-            <div className="flex items-center justify-center py-20">
-              <Loader2 className="w-10 h-10 text-[#22A555] animate-spin" />
-              <span className="ml-3 text-gray-600 font-medium">Loading announcements...</span>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[...Array(6)].map((_, i) => (
+                <SkeletonCard key={i} />
+              ))}
             </div>
           ) : filteredAnnouncements.length === 0 ? (
             <div className="text-center py-20">

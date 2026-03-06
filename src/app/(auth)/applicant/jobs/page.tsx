@@ -12,7 +12,8 @@ import { useAuth } from '@/contexts/AuthContext';
 import { getErrorMessage } from '@/lib/utils/errorMessages';
 import { getStatusConfig } from '@/lib/config/statusConfig';
 // import { useTableRealtime } from '@/hooks/useTableRealtime'; // REMOVED: Realtime disabled
-import { Briefcase, MapPin, Clock, CheckCircle2, GraduationCap, Building, FileText, Filter, Loader2, Star, Award, Calendar, TrendingUp, User, CheckCircle, Eye, History, X, Ban, AlertCircle, Search, Mail, Phone, Archive, ArrowRight } from 'lucide-react';
+import { Briefcase, MapPin, Clock, CheckCircle2, GraduationCap, Building, FileText, Filter, Star, Award, Calendar, TrendingUp, User, CheckCircle, Eye, History, X, Ban, AlertCircle, Search, Mail, Phone, Archive, ArrowRight } from 'lucide-react';
+import { SkeletonTable, SkeletonTile } from '@/components/ui/Skeleton';
 import { formatShortDate, formatRelativeDate, getCreatorTooltip } from '@/lib/utils/dateFormatters';
 
 interface Job {
@@ -495,14 +496,17 @@ export default function AuthenticatedJobsPage() {
           </div>
 
           {/* Summary Stats */}
+          {(loading || loadingApplications) ? (
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+              {Array.from({ length: 5 }).map((_, i) => <SkeletonTile key={i} />)}
+            </div>
+          ) : (
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
             <Card variant="flat" className="bg-gradient-to-br from-blue-50 to-blue-100 border-l-4 border-blue-500">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600 mb-1">Total Jobs</p>
-                  <p className="text-3xl font-bold text-gray-900">
-                    {loading ? '...' : stats.totalJobs}
-                  </p>
+                  <p className="text-3xl font-bold text-gray-900">{stats.totalJobs}</p>
                 </div>
                 <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center shadow-lg">
                   <Briefcase className="w-6 h-6 text-white" />
@@ -514,9 +518,7 @@ export default function AuthenticatedJobsPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600 mb-1">My Applications</p>
-                  <p className="text-3xl font-bold text-gray-900">
-                    {loadingApplications ? '...' : stats.myApplications}
-                  </p>
+                  <p className="text-3xl font-bold text-gray-900">{stats.myApplications}</p>
                 </div>
                 <div className="w-12 h-12 bg-teal-500 rounded-xl flex items-center justify-center shadow-lg">
                   <FileText className="w-6 h-6 text-white" />
@@ -528,9 +530,7 @@ export default function AuthenticatedJobsPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600 mb-1">Active</p>
-                  <p className="text-3xl font-bold text-gray-900">
-                    {loadingApplications ? '...' : stats.activeApplications}
-                  </p>
+                  <p className="text-3xl font-bold text-gray-900">{stats.activeApplications}</p>
                 </div>
                 <div className="w-12 h-12 bg-[#22A555] rounded-xl flex items-center justify-center shadow-lg">
                   <CheckCircle className="w-6 h-6 text-white" />
@@ -542,9 +542,7 @@ export default function AuthenticatedJobsPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600 mb-1">Pending Review</p>
-                  <p className="text-3xl font-bold text-gray-900">
-                    {loadingApplications ? '...' : stats.pendingReview}
-                  </p>
+                  <p className="text-3xl font-bold text-gray-900">{stats.pendingReview}</p>
                 </div>
                 <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center shadow-lg">
                   <Clock className="w-6 h-6 text-white" />
@@ -556,9 +554,7 @@ export default function AuthenticatedJobsPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600 mb-1">Shortlisted</p>
-                  <p className="text-3xl font-bold text-gray-900">
-                    {loadingApplications ? '...' : stats.shortlisted}
-                  </p>
+                  <p className="text-3xl font-bold text-gray-900">{stats.shortlisted}</p>
                 </div>
                 <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center shadow-lg">
                   <Star className="w-6 h-6 text-white" />
@@ -566,6 +562,7 @@ export default function AuthenticatedJobsPage() {
               </div>
             </Card>
           </div>
+          )}
 
           {/* Tab Navigation */}
           <div className="border-b border-gray-200">
@@ -696,10 +693,7 @@ export default function AuthenticatedJobsPage() {
                 </div>
 
                 {loading ? (
-                  <div className="flex items-center justify-center py-12">
-                    <Loader2 className="w-8 h-8 text-[#22A555] animate-spin" />
-                    <span className="ml-3 text-gray-600">Loading jobs...</span>
-                  </div>
+                  <SkeletonTable rows={5} cols={4} />
                 ) : filteredJobs.length === 0 ? (
                   <Card className="text-center py-16">
                     <Briefcase className="w-16 h-16 mx-auto mb-4 text-gray-300" />
@@ -988,10 +982,7 @@ export default function AuthenticatedJobsPage() {
               </div>
 
               {loadingApplications ? (
-                <div className="flex items-center justify-center py-12">
-                  <Loader2 className="w-8 h-8 text-[#22A555] animate-spin" />
-                  <span className="ml-3 text-gray-600">Loading applications...</span>
-                </div>
+                <SkeletonTable rows={3} cols={3} />
               ) : activeApplications.length === 0 ? (
                 <Card className="text-center py-16">
                   <FileText className="w-16 h-16 mx-auto mb-4 text-gray-300" />
@@ -1225,10 +1216,7 @@ export default function AuthenticatedJobsPage() {
               </div>
 
               {loadingApplications ? (
-                <div className="flex items-center justify-center py-12">
-                  <Loader2 className="w-8 h-8 text-[#22A555] animate-spin" />
-                  <span className="ml-3 text-gray-600">Loading history...</span>
-                </div>
+                <SkeletonTable rows={3} cols={3} />
               ) : historyApplications.length === 0 ? (
                 <Card className="text-center py-16">
                   <History className="w-16 h-16 mx-auto mb-4 text-gray-300" />
@@ -1582,10 +1570,7 @@ export default function AuthenticatedJobsPage() {
               </div>
 
               {loadingHistory ? (
-                <div className="flex items-center justify-center py-12">
-                  <Loader2 className="w-8 h-8 text-blue-600 animate-spin" />
-                  <span className="ml-3 text-gray-600">Loading status history...</span>
-                </div>
+                <SkeletonTable rows={3} cols={2} />
               ) : selectedApplicationForHistory.status_history && selectedApplicationForHistory.status_history.length > 0 ? (
                 <div className="bg-white border border-gray-200 rounded-xl p-6 overflow-visible">
                   <StatusTimeline

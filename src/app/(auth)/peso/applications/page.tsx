@@ -17,6 +17,7 @@ import CertificateTemplateModal from '@/components/peso/CertificateTemplateModal
 import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
 // import { useTableRealtime } from '@/hooks/useTableRealtime'; // REMOVED: Realtime disabled
 import { Eye, CheckCircle, XCircle, User, Mail, Phone, MapPin, GraduationCap, Briefcase, Clock, Download, Image as ImageIcon, Filter, Loader2, History, UserCheck, Play, Award, CheckCircle2, AlertCircle, FileText, Users, ExternalLink, CheckSquare, Square, FileCheck } from 'lucide-react';
+import { SkeletonTile, SkeletonTable } from '@/components/ui/Skeleton';
 
 interface TrainingProgram {
   id: string;
@@ -1183,6 +1184,13 @@ export default function PESOApplicationsPage() {
           </div>
 
           {/* Summary Stats */}
+          {loading ? (
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              {Array.from({ length: 8 }).map((_, i) => (
+                <SkeletonTile key={i} />
+              ))}
+            </div>
+          ) : (
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {/* Row 1: Application Status */}
             <Card variant="flat" className="bg-gradient-to-br from-blue-50 to-blue-100 border-l-4 border-blue-500 hover:shadow-xl transition-all duration-300">
@@ -1190,7 +1198,7 @@ export default function PESOApplicationsPage() {
                 <div>
                   <p className="text-sm text-gray-600 mb-1">Total Applications</p>
                   <p className="text-3xl font-bold text-gray-900">
-                    {loading ? <Loader2 className="w-8 h-8 animate-spin text-gray-400" /> : applications.length}
+                    {applications.length}
                   </p>
                 </div>
                 <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center shadow-lg">
@@ -1204,7 +1212,7 @@ export default function PESOApplicationsPage() {
                 <div>
                   <p className="text-sm text-gray-600 mb-1">Pending Review</p>
                   <p className="text-3xl font-bold text-gray-900">
-                    {loading ? <Loader2 className="w-8 h-8 animate-spin text-gray-400" /> : applications.filter(a => ['pending', 'under_review'].includes(a.status)).length}
+                    {applications.filter(a => ['pending', 'under_review'].includes(a.status)).length}
                   </p>
                 </div>
                 <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center shadow-lg">
@@ -1218,7 +1226,7 @@ export default function PESOApplicationsPage() {
                 <div>
                   <p className="text-sm text-gray-600 mb-1">Approved</p>
                   <p className="text-3xl font-bold text-gray-900">
-                    {loading ? <Loader2 className="w-8 h-8 animate-spin text-gray-400" /> : applications.filter(a => a.status === 'approved').length}
+                    {applications.filter(a => a.status === 'approved').length}
                   </p>
                 </div>
                 <div className="w-12 h-12 bg-[#22A555] rounded-xl flex items-center justify-center shadow-lg">
@@ -1232,7 +1240,7 @@ export default function PESOApplicationsPage() {
                 <div>
                   <p className="text-sm text-gray-600 mb-1">Denied</p>
                   <p className="text-3xl font-bold text-gray-900">
-                    {loading ? <Loader2 className="w-8 h-8 animate-spin text-gray-400" /> : applications.filter(a => a.status === 'denied').length}
+                    {applications.filter(a => a.status === 'denied').length}
                   </p>
                 </div>
                 <div className="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center shadow-lg">
@@ -1247,7 +1255,7 @@ export default function PESOApplicationsPage() {
                 <div>
                   <p className="text-sm text-gray-600 mb-1">Enrolled</p>
                   <p className="text-3xl font-bold text-gray-900">
-                    {loading ? <Loader2 className="w-8 h-8 animate-spin text-gray-400" /> : applications.filter(a => a.status === 'enrolled').length}
+                    {applications.filter(a => a.status === 'enrolled').length}
                   </p>
                 </div>
                 <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center shadow-lg">
@@ -1261,7 +1269,7 @@ export default function PESOApplicationsPage() {
                 <div>
                   <p className="text-sm text-gray-600 mb-1">In Progress</p>
                   <p className="text-3xl font-bold text-gray-900">
-                    {loading ? <Loader2 className="w-8 h-8 animate-spin text-gray-400" /> : applications.filter(a => a.status === 'in_progress').length}
+                    {applications.filter(a => a.status === 'in_progress').length}
                   </p>
                 </div>
                 <div className="w-12 h-12 bg-teal-500 rounded-xl flex items-center justify-center shadow-lg">
@@ -1275,7 +1283,7 @@ export default function PESOApplicationsPage() {
                 <div>
                   <p className="text-sm text-gray-600 mb-1">Completed</p>
                   <p className="text-3xl font-bold text-gray-900">
-                    {loading ? <Loader2 className="w-8 h-8 animate-spin text-gray-400" /> : applications.filter(a => a.status === 'completed').length}
+                    {applications.filter(a => a.status === 'completed').length}
                   </p>
                 </div>
                 <div className="w-12 h-12 bg-gray-500 rounded-xl flex items-center justify-center shadow-lg">
@@ -1289,7 +1297,7 @@ export default function PESOApplicationsPage() {
                 <div>
                   <p className="text-sm text-gray-600 mb-1">Certified</p>
                   <p className="text-3xl font-bold text-gray-900">
-                    {loading ? <Loader2 className="w-8 h-8 animate-spin text-gray-400" /> : applications.filter(a => a.status === 'certified').length}
+                    {applications.filter(a => a.status === 'certified').length}
                   </p>
                 </div>
                 <div className="w-12 h-12 bg-yellow-500 rounded-xl flex items-center justify-center shadow-lg">
@@ -1298,6 +1306,7 @@ export default function PESOApplicationsPage() {
               </div>
             </Card>
           </div>
+          )}
 
           {/* Program Filter */}
           {uniquePrograms.length > 0 && (
@@ -1515,10 +1524,7 @@ export default function PESOApplicationsPage() {
           {/* Applications Table */}
           <Card title="TRAINING APPLICATION LIST" headerColor="bg-[#D4F4DD]" variant="elevated" className="hover:shadow-xl transition-shadow">
             {loading ? (
-              <div className="flex items-center justify-center py-20">
-                <Loader2 className="w-8 h-8 animate-spin text-[#22A555]" />
-                <span className="ml-3 text-gray-600">Loading applications...</span>
-              </div>
+              <SkeletonTable rows={5} cols={5} />
             ) : (
               <EnhancedTable
                 columns={columns}

@@ -1,7 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
-import { Loader2 } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 
 interface MonthlyData {
@@ -42,11 +41,14 @@ export const MonthlyApplicantsChart: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="h-64 flex items-center justify-center">
-        <div className="text-center">
-          <Loader2 className="w-12 h-12 animate-spin text-[#22A555] mx-auto mb-3" />
-          <p className="text-sm text-gray-600">Loading chart data...</p>
-        </div>
+      <div className="h-64 flex items-end gap-2 px-4">
+        {[40, 65, 45, 80, 55, 70, 50, 85, 60, 75, 45, 90].map((h, i) => (
+          <div
+            key={i}
+            className="animate-pulse bg-gray-200 rounded-t flex-1"
+            style={{ height: `${h}%` }}
+          />
+        ))}
       </div>
     );
   }

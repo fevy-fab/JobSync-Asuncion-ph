@@ -36,7 +36,6 @@ import {
   Briefcase,
   CheckCircle,
   XCircle,
-  Loader2,
   FileText,
   Eye,
   Bell,
@@ -55,6 +54,7 @@ import {
   Unlock,
   ArrowRightLeft,
 } from 'lucide-react';
+import { SkeletonTable, SkeletonTile } from '@/components/ui/Skeleton';
 import { StatusTimeline } from '@/components/hr/StatusTimeline';
 
 interface StatusHistoryItem {
@@ -93,6 +93,11 @@ export default function RankedRecordsPage() {
   const [jobs, setJobs] = useState<any[]>([]);
   const [statusFilter, setStatusFilter] = useState<string>('all');
   const [quickFilter, setQuickFilter] = useState<string>('all');
+  const [page, setPage] = useState(1);
+  const [pageSize] = useState(20);
+  const [totalCount, setTotalCount] = useState(0);
+  const [totalPages, setTotalPages] = useState(1);
+  const [statusCounts, setStatusCounts] = useState({ needsAction: 0, inProgress: 0, approved: 0, denied: 0 });
   const [dateRangeFilter, setDateRangeFilter] = useState<string>(() => {
     if (typeof window !== 'undefined') {
       return localStorage.getItem('hr-ranked-records-date') || 'all';
@@ -162,11 +167,28 @@ export default function RankedRecordsPage() {
   const [previewImageUrl, setPreviewImageUrl] = useState<string | null>(null);
   const [previewUserName, setPreviewUserName] = useState<string>('');
 
-  // Fetch applications
+  // Fetch applications with server-side pagination and filtering
   const fetchApplications = useCallback(async () => {
     try {
       setLoading(true);
-      const response = await fetch('/api/applications');
+      const params = new URLSearchParams();
+      params.set('fields', 'list');
+      params.set('limit', String(pageSize));
+      params.set('page', String(page));
+      if (selectedJob !== 'all') params.set('job_id', selectedJob);
+
+      // Map quickFilter to server-side status params
+      if (quickFilter === 'needsAction') {
+        params.set('status', 'pending');
+      } else if (quickFilter === 'inProgress') {
+        params.set('statuses', 'under_review,shortlisted,interviewed');
+      } else if (quickFilter === 'approved') {
+        params.set('statuses', 'approved,hired');
+      } else if (quickFilter === 'denied') {
+        params.set('status', 'denied');
+      }
+
+      const response = await fetch(`/api/applications?${params.toString()}`);
       const result = await response.json();
 
       if (result.success) {
@@ -197,17 +219,25 @@ export default function RankedRecordsPage() {
           }))
         );
 
-        // Extract unique jobs for filter
-        const uniqueJobs = Array.from(
-          new Set(result.data.map((app: any) => app.jobs?.id).filter(Boolean))
-        ).map((jobId) => {
-          const app = result.data.find((a: any) => a.jobs?.id === jobId);
-          return {
-            id: jobId,
-            title: app?.jobs?.title || 'Unknown',
-          };
-        });
-        setJobs(uniqueJobs);
+        // Update pagination metadata
+        if (result.pagination) {
+          setTotalCount(result.pagination.total);
+          setTotalPages(result.pagination.totalPages);
+        } else {
+          setTotalCount(result.count || 0);
+          setTotalPages(1);
+        }
+
+        // Extra safeguard: if we got data but totalCount is still 0, use data length
+        const resolvedTotal = result.pagination?.total ?? result.count ?? 0;
+        if (result.data?.length > 0 && resolvedTotal === 0) {
+          setTotalCount(result.data.length);
+        }
+
+        // Update server-side status counts
+        if (result.statusCounts) {
+          setStatusCounts(result.statusCounts);
+        }
       } else {
         showToast(getErrorMessage(result.error), 'error');
       }
@@ -217,11 +247,27 @@ export default function RankedRecordsPage() {
     } finally {
       setLoading(false);
     }
-  }, [showToast, user]);
+  }, [showToast, user, page, pageSize, selectedJob, quickFilter]);
 
   useEffect(() => {
     fetchApplications();
   }, [fetchApplications]);
+
+  // Fetch jobs list separately for the dropdown (so it stays populated across pages)
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const response = await fetch('/api/jobs');
+        const result = await response.json();
+        if (result.success && result.data) {
+          setJobs(result.data.map((job: any) => ({ id: job.id, title: job.title })));
+        }
+      } catch (error) {
+        console.error('Error fetching jobs:', error);
+      }
+    };
+    fetchJobs();
+  }, []);
 
   // Handle avatar click to show image preview
   const handleAvatarClick = (imageUrl: string | null, userName: string) => {
@@ -1371,34 +1417,20 @@ export default function RankedRecordsPage() {
     },
   ];
 
-  // Filter applications by selected job, status, and date range
+  // Filter applications client-side for date range and status dropdown only
+  // (job filter and quick filter are now handled server-side)
   const filteredApplications = applications.filter((app) => {
-    // Job filter
-    const matchesJob = selectedJob === 'all' || app._raw.job_id === selectedJob;
-
-    // Status filter (from dropdown)
+    // Status filter (from dropdown) - kept client-side for additional granularity
     const matchesStatus = statusFilter === 'all' || app.status === statusFilter;
 
-    // Quick filter (from pills)
-    let matchesQuickFilter = true;
-    if (quickFilter !== 'all') {
-      const quickFilterMap: Record<string, string[]> = {
-        needsAction: ['pending'],
-        inProgress: ['under_review', 'shortlisted', 'interviewed'],
-        approved: ['approved', 'hired'],
-        denied: ['denied'],
-      };
-      matchesQuickFilter = quickFilterMap[quickFilter]?.includes(app.status) || false;
-    }
-
-    // Date range filter
+    // Date range filter - kept client-side
     const matchesDateRange = isDateInRange(
       app._raw.created_at,
       dateRangeFilter,
       DEFAULT_DATE_RANGE_OPTIONS
     );
 
-    return matchesJob && matchesStatus && matchesQuickFilter && matchesDateRange;
+    return matchesStatus && matchesDateRange;
   });
 
   // Sort applications based on selected sort order
@@ -1445,13 +1477,8 @@ export default function RankedRecordsPage() {
     ? rankedApps.reduce((sum, app) => sum + (app.matchScore || 0), 0) / rankedApps.length
     : 0;
 
-  // Quick filter counts
-  const quickFilterCounts = {
-    needsAction: applications.filter((a) => a.status === 'pending').length,
-    inProgress: applications.filter((a) => ['under_review', 'shortlisted', 'interviewed'].includes(a.status)).length,
-    approved: applications.filter((a) => ['approved', 'hired'].includes(a.status)).length,
-    denied: applications.filter((a) => a.status === 'denied').length,
-  };
+  // Quick filter counts (server-side, accurate across all pages)
+  const quickFilterCounts = statusCounts;
 
   // Handler for opening application details drawer
   const handleViewApplicationDetails = (application: Application) => {
@@ -1475,7 +1502,7 @@ export default function RankedRecordsPage() {
               <div className="flex gap-3">
                 <select
                   value={selectedJob}
-                  onChange={(e) => setSelectedJob(e.target.value)}
+                  onChange={(e) => { setSelectedJob(e.target.value); setPage(1); }}
                   className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#22A555]"
                 >
                   <option value="all">All Positions</option>
@@ -1564,12 +1591,17 @@ export default function RankedRecordsPage() {
           </div>
 
           {/* Summary Stats - Complementary Metrics (Non-Redundant with Quick Filters) */}
+          {loading ? (
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              {Array.from({ length: 4 }).map((_, i) => <SkeletonTile key={i} />)}
+            </div>
+          ) : (
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <Card variant="flat" className="bg-gradient-to-br from-blue-50 to-blue-100 border-l-4 border-blue-500">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600 mb-1">Total Applications</p>
-                  <p className="text-3xl font-bold text-gray-900">{applications.length}</p>
+                  <p className="text-3xl font-bold text-gray-900">{totalCount}</p>
                 </div>
                 <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center shadow-lg">
                   <User className="w-6 h-6 text-white" />
@@ -1616,26 +1648,24 @@ export default function RankedRecordsPage() {
               </div>
             </Card>
           </div>
+          )}
 
           {/* Quick Filters */}
           <div className="flex items-center justify-between">
             <QuickFilters
               activeFilter={quickFilter}
-              onChange={setQuickFilter}
+              onChange={(val: string) => { setQuickFilter(val); setPage(1); }}
               counts={quickFilterCounts}
             />
             <div className="text-sm text-gray-600">
-              Showing <span className="font-semibold text-gray-900">{filteredApplications.length}</span> of {applications.length} applications
+              Showing <span className="font-semibold text-gray-900">{totalCount > 0 ? `${(page - 1) * pageSize + 1}–${Math.min(page * pageSize, totalCount)}` : '0'}</span> of {totalCount} applications
             </div>
           </div>
 
           {/* Applications Table */}
           <Card title="APPLICANT RANKINGS" headerColor="bg-[#D4F4DD]">
             {loading ? (
-              <div className="flex items-center justify-center py-12">
-                <Loader2 className="w-8 h-8 text-[#22A555] animate-spin" />
-                <span className="ml-3 text-gray-600">Loading applications...</span>
-              </div>
+              <SkeletonTable rows={5} cols={5} />
             ) : sortedApplications.length === 0 ? (
               <div className="text-center py-12 text-gray-500">
                 No applications found
@@ -1646,12 +1676,38 @@ export default function RankedRecordsPage() {
                 columns={columns}
                 data={sortedApplications}
                 searchable
-                paginated={true}
-                pageSize={10}
+                paginated={false}
                 searchPlaceholder="Search by name, email, or position..."
               />
             )}
           </Card>
+
+          {/* Server-side Pagination Controls */}
+          {totalPages > 1 && (
+            <div className="flex items-center justify-between px-4 py-3 bg-white rounded-lg border border-gray-200">
+              <span className="text-sm text-gray-600">
+                Page {page} of {totalPages} ({totalCount} total applications)
+              </span>
+              <div className="flex gap-2">
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  disabled={page <= 1}
+                  onClick={() => setPage(p => p - 1)}
+                >
+                  Previous
+                </Button>
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  disabled={page >= totalPages}
+                  onClick={() => setPage(p => p + 1)}
+                >
+                  Next
+                </Button>
+              </div>
+            </div>
+          )}
         </div>
       </Container>
 

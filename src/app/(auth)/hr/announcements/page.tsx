@@ -6,7 +6,8 @@ import { Card, Button, Input, Textarea, FileUploadWithProgress, Container, Badge
 import { useToast } from '@/contexts/ToastContext';
 import { getErrorMessage } from '@/lib/utils/errorMessages';
 import { useAuth } from '@/contexts/AuthContext';
-import { Trash2, Calendar, Image as ImageIcon, Send, Megaphone, Loader2, Plus, Edit, TrendingUp, Briefcase, GraduationCap, Bell, FileText, X, Archive, Eye, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { Trash2, Calendar, Image as ImageIcon, Send, Megaphone, Plus, Edit, TrendingUp, Briefcase, GraduationCap, Bell, FileText, X, Archive, Eye, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { SkeletonCard, SkeletonTile } from '@/components/ui/Skeleton';
 import { AnnouncementPreviewModal } from '@/components/hr/AnnouncementPreviewModal';
 
 interface Announcement {
@@ -333,6 +334,11 @@ export default function AnnouncementsPage() {
         </div>
 
         {/* Stats Cards */}
+        {loading ? (
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            {Array.from({ length: 4 }).map((_, i) => <SkeletonTile key={i} />)}
+          </div>
+        ) : (
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <Card variant="flat" className="bg-gradient-to-br from-blue-50 to-blue-100 border-l-4 border-blue-500">
             <div className="flex items-center justify-between p-5">
@@ -382,6 +388,7 @@ export default function AnnouncementsPage() {
             </div>
           </Card>
         </div>
+        )}
 
         {/* Status Filter Tabs */}
         <div className="flex gap-2 flex-wrap">
@@ -477,9 +484,10 @@ export default function AnnouncementsPage() {
         {/* Announcements Grid */}
         <Card title="ANNOUNCEMENTS" headerColor="bg-[#D4F4DD]">
           {loading ? (
-            <div className="flex items-center justify-center py-12">
-              <Loader2 className="w-8 h-8 text-[#22A555] animate-spin" />
-              <span className="ml-3 text-gray-600">Loading announcements...</span>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {Array.from({ length: 6 }).map((_, i) => (
+                <SkeletonCard key={i} />
+              ))}
             </div>
           ) : filteredAnnouncements.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">

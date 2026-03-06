@@ -7,6 +7,7 @@ import { useToast } from '@/contexts/ToastContext';
 import { getErrorMessage } from '@/lib/utils/errorMessages';
 import SignatureCanvas from 'react-signature-canvas';
 import { User, Pen, Trash2, CheckCircle, Loader2, AlertCircle } from 'lucide-react';
+import { Skeleton, SkeletonText } from '@/components/ui/Skeleton';
 
 export default function PESODigitalSignaturePage() {
   const { user } = useAuth();
@@ -230,9 +231,10 @@ export default function PESODigitalSignaturePage() {
             </div>
 
             {loading ? (
-              <div className="flex items-center justify-center py-12">
-                <Loader2 className="w-8 h-8 text-blue-500 animate-spin" />
-                <span className="ml-3 text-gray-600">Loading signature...</span>
+              <div className="space-y-4 py-6">
+                <Skeleton className="h-48 w-full" />
+                <SkeletonText className="w-3/4" />
+                <SkeletonText className="w-1/2" />
               </div>
             ) : (
               <div className="space-y-6">

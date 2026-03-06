@@ -15,6 +15,7 @@ import {
   formatEventType, getCategoryIcon
 } from '@/lib/activityEventConfig';
 import { Activity, Clock, User, AlertTriangle, CheckCircle2, AlertCircle, Filter } from 'lucide-react';
+import { SkeletonTile } from '@/components/ui/Skeleton';
 
 interface ActivityLog {
   id: string;
@@ -301,6 +302,11 @@ export default function ActivityLogsPage() {
           </div>
 
           {/* Summary Stats */}
+          {isLoading ? (
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              {Array.from({ length: 4 }).map((_, i) => <SkeletonTile key={i} />)}
+            </div>
+          ) : (
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <Card variant="flat" className="bg-gradient-to-br from-blue-50 to-blue-100 border-l-4 border-blue-500">
               <div className="flex items-center justify-between">
@@ -350,6 +356,7 @@ export default function ActivityLogsPage() {
               </div>
             </Card>
           </div>
+          )}
 
           {/* Filters */}
           <Card variant="flat" className="bg-white">
