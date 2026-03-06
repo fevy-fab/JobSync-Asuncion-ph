@@ -314,7 +314,7 @@ export default function AccountSettingsPage() {
       <AdminLayout
         role="Applicant"
         userName={user?.fullName || 'User'}
-        pageTitle="Account Settings"
+        pageTitle="Profile"
         pageDescription="Loading..."
       >
         <Container size="lg">
@@ -334,11 +334,11 @@ export default function AccountSettingsPage() {
     <AdminLayout
       role="Applicant"
       userName={user?.fullName || 'User'}
-      pageTitle="Account Settings"
+      pageTitle="Profile"
       pageDescription="Manage your profile information and security settings"
     >
       <Container size="lg">
-        <div className="space-y-6" role="main" aria-label="Account settings">
+        <div className="space-y-6" role="main" aria-label="Profile">
           {/* Profile Information Section */}
           <section aria-labelledby="profile-section">
             <h2 id="profile-section" className="sr-only">Profile Information Section</h2>

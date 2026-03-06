@@ -7,7 +7,7 @@ import {
   Briefcase,
   ClipboardList,
   FileText,
-  Settings,
+  UserCircle,
   Megaphone,
   GraduationCap,
   BarChart3,
@@ -30,6 +30,7 @@ const ADMIN_MENU_ITEMS = [
   { label: 'User Management', href: '/admin/user-management', icon: Users },
   { label: 'Activity Logs', href: '/admin/activity-logs', icon: Activity },
   { label: 'Audit Trail', href: '/admin/audit-trail', icon: Database },
+  { label: 'Profile', href: '/admin/settings', icon: UserCircle },
 ];
 
 const HR_MENU_ITEMS = [
@@ -38,6 +39,7 @@ const HR_MENU_ITEMS = [
   { label: 'Scanned PDS Records Management', href: '/hr/scanned-records', icon: FileText },
   { label: 'Job Management', href: '/hr/job-management', icon: Briefcase },
   { label: 'Announcements', href: '/hr/announcements', icon: Megaphone },
+  { label: 'Profile', href: '/hr/settings', icon: UserCircle },
 ];
 
 const PESO_MENU_ITEMS = [
@@ -45,6 +47,7 @@ const PESO_MENU_ITEMS = [
   { label: 'Training Applications', href: '/peso/applications', icon: ClipboardList },
   { label: 'Training Programs', href: '/peso/programs', icon: GraduationCap },
   { label: 'Digital Signature', href: '/peso/digital-signature', icon: Pen },
+  { label: 'Profile', href: '/peso/settings', icon: UserCircle },
 ];
 
 const APPLICANT_MENU_ITEMS = [
@@ -52,6 +55,7 @@ const APPLICANT_MENU_ITEMS = [
   { label: 'Jobs', href: '/applicant/jobs', icon: Briefcase },
   { label: 'Trainings', href: '/applicant/trainings', icon: GraduationCap },
   { label: 'Announcements', href: '/applicant/announcements', icon: Megaphone },
+  { label: 'Profile', href: '/applicant/settings', icon: UserCircle },
 ];
 
 export const AdminLayout: React.FC<AdminLayoutProps> = ({
