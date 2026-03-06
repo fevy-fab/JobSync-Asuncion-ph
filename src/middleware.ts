@@ -62,11 +62,22 @@ export async function middleware(request: NextRequest) {
   // After getUser() above, the code has been exchanged for a session.
   // Redirect the user to their dashboard with a success message.
   if (pathname === '/' && hasAuthCode && user) {
+    // Sync profiles.email with the confirmed auth email
+    await supabase
+      .from('profiles')
+      .update({ email: user.email, updated_at: new Date().toISOString() })
+      .eq('id', user.id);
+
     const url = request.nextUrl.clone();
     url.pathname = '/applicant/settings';
     url.searchParams.delete('code');
     url.searchParams.set('message', 'Email updated successfully!');
-    return NextResponse.redirect(url);
+    const redirectResponse = NextResponse.redirect(url);
+    // Copy full Set-Cookie headers to preserve options (path, httpOnly, secure, sameSite, maxAge)
+    supabaseResponse.headers.getSetCookie().forEach(cookie => {
+      redirectResponse.headers.append('Set-Cookie', cookie);
+    });
+    return redirectResponse;
   }
 
   return supabaseResponse;

@@ -109,7 +109,7 @@ export async function GET(request: NextRequest) {
 
       // Redirect to success page or specified next URL
       const redirectUrl = type === 'email_change'
-        ? '/account/settings?email_verified=true'
+        ? '/applicant/settings?email_verified=true'
         : next;
 
       return NextResponse.redirect(new URL(redirectUrl, request.url));

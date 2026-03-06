@@ -58,9 +58,15 @@ export default function AccountSettingsPage() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const message = params.get('message');
+    const emailVerified = params.get('email_verified');
     if (message) {
       showToast(message, 'success');
-      // Clean up URL
+      window.history.replaceState({}, '', window.location.pathname);
+    }
+    if (emailVerified === 'true') {
+      showToast('Email updated successfully!', 'success');
+      fetchProfile();
+      refreshAuth();
       window.history.replaceState({}, '', window.location.pathname);
     }
   }, []);
@@ -115,7 +121,7 @@ export default function AccountSettingsPage() {
       // Check for pending email change
       const supabase = createClient();
       const { data: { user: authUser } } = await supabase.auth.getUser();
-      setPendingEmail((authUser as any)?.email_change || null);
+      setPendingEmail(authUser?.user_metadata?.email_change || null);
     } catch (error) {
       console.error('Error fetching profile:', error);
       showToast(
