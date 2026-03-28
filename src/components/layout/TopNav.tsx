@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useToast } from '@/contexts/ToastContext';
 import { useAuth } from '@/contexts/AuthContext';
 import { createClient } from '@/lib/supabase/client';
-import { Bell, LogOut, CheckCircle, XCircle, Clock, ChevronDown, Trash2, FileText } from 'lucide-react';
+import { Bell, LogOut, CheckCircle, ChevronDown, Trash2, FileText } from 'lucide-react';
 
 interface Notification {
   id: string;
@@ -42,6 +42,25 @@ export const TopNav: React.FC<TopNavProps> = ({
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [unreadCount, setUnreadCount] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [expandedNotifications, setExpandedNotifications] = useState<Record<string, boolean>>({});
+
+  const NOTIFICATION_PREVIEW_LIMIT = 90;
+
+  const isLongNotification = (message: string) => {
+    return message.length > NOTIFICATION_PREVIEW_LIMIT;
+  };
+
+  const getNotificationPreview = (message: string) => {
+    if (!isLongNotification(message)) return message;
+    return `${message.slice(0, NOTIFICATION_PREVIEW_LIMIT).trim()}...`;
+  };
+
+  const toggleNotificationExpansion = (notificationId: string) => {
+    setExpandedNotifications(prev => ({
+      ...prev,
+      [notificationId]: !prev[notificationId],
+    }));
+  };
 
   // Fetch notifications
   const fetchNotifications = useCallback(async () => {
@@ -137,6 +156,7 @@ export const TopNav: React.FC<TopNavProps> = ({
       if (result.success) {
         setNotifications([]);
         setUnreadCount(0);
+        setExpandedNotifications({});
         showToast('All notifications cleared', 'success');
       } else {
         showToast('Failed to clear notifications', 'error');
@@ -209,6 +229,11 @@ export const TopNav: React.FC<TopNavProps> = ({
             } else if (payload.eventType === 'DELETE') {
               const deletedNotif = payload.old as Notification;
               setNotifications(prev => prev.filter(n => n.id !== deletedNotif.id));
+              setExpandedNotifications(prev => {
+                const updated = { ...prev };
+                delete updated[deletedNotif.id];
+                return updated;
+              });
               if (!deletedNotif.is_read) {
                 setUnreadCount(prev => Math.max(0, prev - 1));
               }
@@ -305,29 +330,52 @@ export const TopNav: React.FC<TopNavProps> = ({
                         <p className="text-sm">Loading notifications...</p>
                       </div>
                     ) : notifications.length > 0 ? (
-                      notifications.map((notif) => (
-                        <div
-                          key={notif.id}
-                          className={`p-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer transition-colors ${
-                            !notif.is_read ? 'bg-blue-50' : ''
-                          }`}
-                          onClick={() => handleNotificationClick(notif)}
-                        >
-                          <div className="flex items-start gap-3">
-                            <div className="mt-0.5">{getNotificationIcon(notif.type)}</div>
-                            <div className="flex-1">
-                              <div className="flex items-start justify-between gap-2">
-                                <p className="text-sm font-medium text-gray-900">{notif.title}</p>
-                                {!notif.is_read && (
-                                  <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0 mt-1.5"></div>
-                                )}
+                      notifications.map((notif) => {
+                        const isExpanded = expandedNotifications[notif.id];
+                        const shouldTruncate = isLongNotification(notif.message);
+
+                        return (
+                          <div
+                            key={notif.id}
+                            className={`p-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer transition-colors ${
+                              !notif.is_read ? 'bg-blue-50' : ''
+                            }`}
+                            onClick={() => handleNotificationClick(notif)}
+                          >
+                            <div className="flex items-start gap-3">
+                              <div className="mt-0.5">{getNotificationIcon(notif.type)}</div>
+                              <div className="flex-1">
+                                <div className="flex items-start justify-between gap-2">
+                                  <p className="text-sm font-medium text-gray-900">{notif.title}</p>
+                                  {!notif.is_read && (
+                                    <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0 mt-1.5"></div>
+                                  )}
+                                </div>
+
+                                <p className="text-xs text-gray-600 mt-1">
+                                  {isExpanded || !shouldTruncate
+                                    ? notif.message
+                                    : getNotificationPreview(notif.message)}{' '}
+                                  {shouldTruncate && (
+                                    <button
+                                      type="button"
+                                      className="text-[#22A555] hover:text-[#1A7F3E] font-medium ml-1"
+                                      onClick={(e) => {
+                                        e.stopPropagation();
+                                        toggleNotificationExpansion(notif.id);
+                                      }}
+                                    >
+                                      {isExpanded ? 'See less' : 'See more'}
+                                    </button>
+                                  )}
+                                </p>
+
+                                <p className="text-xs text-gray-500 mt-1">{formatTimeAgo(notif.created_at)}</p>
                               </div>
-                              <p className="text-xs text-gray-600 mt-1">{notif.message}</p>
-                              <p className="text-xs text-gray-500 mt-1">{formatTimeAgo(notif.created_at)}</p>
                             </div>
                           </div>
-                        </div>
-                      ))
+                        );
+                      })
                     ) : (
                       <div className="p-8 text-center text-gray-500">
                         <Bell className="w-12 h-12 mx-auto mb-2 text-gray-300" />

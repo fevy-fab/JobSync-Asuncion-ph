@@ -150,9 +150,36 @@ export default function PESOApplicationsPage() {
   };
 
   // Handle view details
-  const handleView = (application: TrainingApplication) => {
-    setSelectedApplication(application);
-    setViewModalOpen(true);
+  const handleView = async (application: TrainingApplication) => {
+    try {
+      setActionLoading(true);
+
+      const response = await fetch(`/api/training/applications/${application.id}`);
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to fetch application details');
+      }
+
+      console.log('👁️ [VIEW MODAL] Fresh application details:', {
+        id: result.data?.id,
+        id_image_url: result.data?.id_image_url || null,
+        has_id_image_url: !!result.data?.id_image_url,
+        is_signed_url:
+          !!result.data?.id_image_url &&
+          (result.data.id_image_url.startsWith('http://') ||
+            result.data.id_image_url.startsWith('https://')),
+        profile_image_url: result.data?.profiles?.profile_image_url || null,
+      });
+
+      setSelectedApplication(result.data);
+      setViewModalOpen(true);
+    } catch (error: any) {
+      console.error('Error fetching application details:', error);
+      showToast(getErrorMessage(error), 'error');
+    } finally {
+      setActionLoading(false);
+    }
   };
 
   // Handle view status history
@@ -1552,128 +1579,192 @@ export default function PESOApplicationsPage() {
             icon={FileText}
             size="lg"
           >
-          {selectedApplication && (
-            <div className="space-y-6">
-              {/* Applicant Information */}
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                  <User className="w-5 h-5 text-teal-600" />
-                  Applicant Information
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-sm font-medium text-gray-600">Full Name</label>
-                    <p className="text-gray-900 font-medium">{selectedApplication.full_name}</p>
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium text-gray-600">Email</label>
-                    <p className="text-gray-900">{selectedApplication.email}</p>
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium text-gray-600">Phone</label>
-                    <p className="text-gray-900">{selectedApplication.phone}</p>
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium text-gray-600">Address</label>
-                    <p className="text-gray-900">{selectedApplication.address}</p>
-                  </div>
-                  <div className="md:col-span-2">
-                    <label className="text-sm font-medium text-gray-600">Highest Educational Attainment</label>
-                    <p className="text-gray-900">{selectedApplication.highest_education}</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Training Program Information */}
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                  <Briefcase className="w-5 h-5 text-teal-600" />
-                  Applied Training Program
-                </h3>
-                <div className="bg-gray-50 rounded-lg p-4">
-                  <p className="text-lg font-semibold text-gray-900 mb-2">
-                    {selectedApplication.training_programs?.title || 'N/A'}
-                  </p>
-                  <div className="flex gap-4 text-sm text-gray-600">
-                    <span>Duration: {selectedApplication.training_programs?.duration || 'N/A'}</span>
-                    <span>Start Date: {selectedApplication.training_programs?.start_date
-                      ? new Date(selectedApplication.training_programs.start_date).toLocaleDateString()
-                      : 'N/A'}
-                    </span>
+            {selectedApplication && (
+              <div className="space-y-6">
+                {/* Applicant Information */}
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                    <User className="w-5 h-5 text-teal-600" />
+                    Applicant Information
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-sm font-medium text-gray-600">Full Name</label>
+                      <p className="text-gray-900 font-medium">{selectedApplication.full_name}</p>
+                    </div>
+                    <div>
+                      <label className="text-sm font-medium text-gray-600">Email</label>
+                      <p className="text-gray-900">{selectedApplication.email}</p>
+                    </div>
+                    <div>
+                      <label className="text-sm font-medium text-gray-600">Phone</label>
+                      <p className="text-gray-900">{selectedApplication.phone}</p>
+                    </div>
+                    <div>
+                      <label className="text-sm font-medium text-gray-600">Address</label>
+                      <p className="text-gray-900">{selectedApplication.address}</p>
+                    </div>
+                    <div className="md:col-span-2">
+                      <label className="text-sm font-medium text-gray-600">Highest Educational Attainment</label>
+                      <p className="text-gray-900">{selectedApplication.highest_education}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* ID Image */}
-              {selectedApplication.id_image_url && (
+                {/* Training Program Information */}
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                    <Briefcase className="w-5 h-5 text-teal-600" />
+                    Applied Training Program
+                  </h3>
+                  <div className="bg-gray-50 rounded-lg p-4">
+                    <p className="text-lg font-semibold text-gray-900 mb-2">
+                      {selectedApplication.training_programs?.title || 'N/A'}
+                    </p>
+                    <div className="flex gap-4 text-sm text-gray-600 flex-wrap">
+                      <span>Duration: {selectedApplication.training_programs?.duration || 'N/A'}</span>
+                      <span>
+                        Start Date:{' '}
+                        {selectedApplication.training_programs?.start_date
+                          ? new Date(selectedApplication.training_programs.start_date).toLocaleDateString()
+                          : 'N/A'}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Submitted ID */}
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
                     <ImageIcon className="w-5 h-5 text-teal-600" />
                     Submitted ID
                   </h3>
-                  <div className="border rounded-lg overflow-hidden">
-                    <img
-                      src={selectedApplication.id_image_url}
-                      alt="Applicant ID"
-                      className="w-full h-auto max-h-96 object-contain bg-gray-50"
-                    />
-                  </div>
-                  <div className="mt-2 flex justify-end">
-                    <Button
-                      variant="secondary"
-                      size="sm"
-                      icon={Download}
-                      onClick={() => window.open(selectedApplication.id_image_url, '_blank')}
-                    >
-                      Download ID
-                    </Button>
-                  </div>
-                </div>
-              )}
 
-              {/* Application Status */}
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                  <Clock className="w-5 h-5 text-teal-600" />
-                  Application Status
-                </h3>
-                <div className="bg-gray-50 rounded-lg p-4">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="text-sm font-medium text-gray-600">Status</label>
-                      <div className="mt-1">
-                        {(() => {
-                          const statusBadge = getStatusBadge(selectedApplication.status);
-                          return (
-                            <Badge
-                              variant={statusBadge.variant as any}
-                              icon={statusBadge.icon}
-                            >
-                              {statusBadge.label}
-                            </Badge>
-                          );
-                        })()}
+                  {selectedApplication.id_image_url ? (
+                    <>
+                      <div className="border rounded-lg overflow-hidden bg-gray-50">
+                        <img
+                          src={selectedApplication.id_image_url}
+                          alt="Submitted ID"
+                          className="w-full h-auto max-h-96 object-contain"
+                          onLoad={() => {
+                            console.log('✅ [ID IMAGE RENDERED]', {
+                              application_id: selectedApplication.id,
+                              src: selectedApplication.id_image_url,
+                            });
+                          }}
+                          onError={(e) => {
+                            console.error('❌ [ID IMAGE FAILED TO RENDER]', {
+                              application_id: selectedApplication.id,
+                              src: selectedApplication.id_image_url,
+                              currentSrc: (e.target as HTMLImageElement).currentSrc,
+                            });
+                          }}
+                        />
                       </div>
+
+                      <div className="mt-3 flex items-center justify-between gap-3 flex-wrap">
+                        <p className="text-xs text-gray-500 break-all">
+                        </p>
+
+                        <div className="flex gap-2 flex-wrap">
+                          <Button
+                          variant="secondary"
+                          size="sm"
+                          icon={Download}
+                          onClick={async () => {
+                            try {
+                              console.log('⬇️ [DOWNLOAD ID CLICK]', {
+                                application_id: selectedApplication.id,
+                                url: selectedApplication.id_image_url,
+                              });
+
+                              const response = await fetch(selectedApplication.id_image_url, {
+                                method: 'GET',
+                              });
+
+                              if (!response.ok) {
+                                throw new Error(`Failed to download file: ${response.status} ${response.statusText}`);
+                              }
+
+                              const blob = await response.blob();
+                              const blobUrl = window.URL.createObjectURL(blob);
+
+                              const fileName =
+                                selectedApplication.id_image_name ||
+                                `submitted-id-${selectedApplication.id}`;
+
+                              const link = document.createElement('a');
+                              link.href = blobUrl;
+                              link.download = fileName;
+                              document.body.appendChild(link);
+                              link.click();
+                              document.body.removeChild(link);
+
+                              setTimeout(() => window.URL.revokeObjectURL(blobUrl), 1000);
+                            } catch (error) {
+                              console.error('❌ [DOWNLOAD ID FAILED]', error);
+                              showToast('Failed to download submitted ID', 'error');
+                            }
+                          }}
+                        >
+                          Download ID
+                        </Button>
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <div className="border rounded-lg bg-gray-50 p-6 text-center text-sm text-gray-500">
+                      No submitted ID available for this application.
                     </div>
-                    <div>
-                      <label className="text-sm font-medium text-gray-600">Submitted At</label>
-                      <p className="text-gray-900">
-                        {new Date(selectedApplication.submitted_at).toLocaleString()}
-                      </p>
-                    </div>
-                    {selectedApplication.reviewed_at && (
-                      <div className="md:col-span-2">
-                        <label className="text-sm font-medium text-gray-600">Reviewed At</label>
+                  )}
+                </div>
+
+                {/* Application Status */}
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                    <Clock className="w-5 h-5 text-teal-600" />
+                    Application Status
+                  </h3>
+                  <div className="bg-gray-50 rounded-lg p-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label className="text-sm font-medium text-gray-600">Status</label>
+                        <div className="mt-1">
+                          {(() => {
+                            const statusBadge = getStatusBadge(selectedApplication.status);
+                            return (
+                              <Badge
+                                variant={statusBadge.variant as any}
+                                icon={statusBadge.icon}
+                              >
+                                {statusBadge.label}
+                              </Badge>
+                            );
+                          })()}
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="text-sm font-medium text-gray-600">Submitted At</label>
                         <p className="text-gray-900">
-                          {new Date(selectedApplication.reviewed_at).toLocaleString()}
+                          {new Date(selectedApplication.submitted_at).toLocaleString()}
                         </p>
                       </div>
-                    )}
+
+                      {selectedApplication.reviewed_at && (
+                        <div className="md:col-span-2">
+                          <label className="text-sm font-medium text-gray-600">Reviewed At</label>
+                          <p className="text-gray-900">
+                            {new Date(selectedApplication.reviewed_at).toLocaleString()}
+                          </p>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          )}
+            )}
           </ModernModal>
         )}
 

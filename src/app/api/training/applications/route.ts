@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
-import { getViewableUrl } from '@/lib/supabase/storage';
+import { createClient, createAdminClient } from '@/lib/supabase/server';
 import { createInitialStatusHistory } from '@/lib/utils/statusHistory';
 import { createNotification, notifyAdmins } from '@/lib/notifications';
 
@@ -21,6 +20,7 @@ import { createNotification, notifyAdmins } from '@/lib/notifications';
 export async function GET(request: NextRequest) {
   try {
     const supabase = await createClient();
+    const adminSupabase = createAdminClient();
     const searchParams = request.nextUrl.searchParams;
 
     // 1. Authenticate user
@@ -192,18 +192,56 @@ export async function GET(request: NextRequest) {
     // Generate signed URLs for ID images
     const applicationsWithSignedUrls = await Promise.all(
       (applications || []).map(async (app) => {
-        if (app.id_image_url) {
-          try {
-            // Generate a signed URL that expires in 1 hour
-            const signedUrl = await getViewableUrl('id-images', app.id_image_url, 3600);
-            return { ...app, id_image_url: signedUrl };
-          } catch (error) {
-            console.error(`Failed to generate signed URL for application ${app.id}:`, error);
-            // Return app with original path if signing fails
+        if (!app.id_image_url) return app;
+
+        try {
+          const isFullUrl =
+            app.id_image_url.startsWith('http://') ||
+            app.id_image_url.startsWith('https://');
+
+          if (isFullUrl) return app;
+
+          console.log('🖼️ [SIGNING] Attempting to sign ID image:', {
+            application_id: app.id,
+            path: app.id_image_url,
+            bucket: 'id-images',
+          });
+
+          const { data, error } = await adminSupabase.storage
+            .from('id-images')
+            .createSignedUrl(app.id_image_url, 3600);
+
+          if (error) {
+            console.error('❌ [SIGNING ERROR]', {
+              application_id: app.id,
+              path: app.id_image_url,
+              message: error.message,
+              error,
+            });
             return app;
           }
+
+          if (!data?.signedUrl) {
+            console.error('❌ [SIGNING ERROR] No signed URL returned', {
+              application_id: app.id,
+              path: app.id_image_url,
+            });
+            return app;
+          }
+
+          console.log('✅ [SIGNED OK]', {
+            application_id: app.id,
+            path: app.id_image_url,
+          });
+
+          return {
+            ...app,
+            id_image_url: data.signedUrl,
+          };
+        } catch (error) {
+          console.error(`❌ Failed to generate signed URL for application ${app.id}:`, error);
+          return app;
         }
-        return app;
       })
     );
 

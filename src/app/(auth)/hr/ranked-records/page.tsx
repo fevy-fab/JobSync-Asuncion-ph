@@ -1,10 +1,8 @@
 'use client';
-import React, { useState, useCallback, useEffect, useMemo } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { AdminLayout } from '@/components/layout';
 import Image from 'next/image';
 import { Avatar, Card, EnhancedTable, Button, Container, Badge, RefreshButton, DropdownMenu, type DropdownMenuItem, StatusFilter, QuickFilters, ImagePreviewModal } from '@/components/ui';
-import { DateRangeFilter, DEFAULT_DATE_RANGE_OPTIONS, isDateInRange } from '@/components/ui/DateRangeFilter';
-import { SortDropdown } from '@/components/ui/SortDropdown';
 import { ApplicationStatusBadge } from '@/components/ApplicationStatusBadge';
 import { PDSViewModal } from '@/components/ui/PDSViewModal';
 import { RankingDetailsModal } from '@/components/hr/RankingDetailsModal';
@@ -14,12 +12,9 @@ import { ShortlistModal } from '@/components/hr/ShortlistModal';
 import { ScheduleInterviewModal } from '@/components/hr/ScheduleInterviewModal';
 import { ApproveModal } from '@/components/hr/ApproveModal';
 import { MarkAsHiredModal } from '@/components/hr/MarkAsHiredModal';
-import { ReleaseHireModal } from '@/components/hr/ReleaseHireModal';
 import { UnderReviewModal } from '@/components/hr/UnderReviewModal';
 import { ReverseToPendingModal } from '@/components/hr/ReverseToPendingModal';
 import { ArchiveModal } from '@/components/hr/ArchiveModal';
-import { AutoDenyModal } from '@/components/hr/AutoDenyModal';
-import { ReRoutingConfirmModal } from '@/components/hr/ReRoutingConfirmModal';
 import { ApplicationDrawer } from '@/components/hr/ApplicationDrawer';
 import { useToast } from '@/contexts/ToastContext';
 import { getErrorMessage } from '@/lib/utils/errorMessages';
@@ -36,6 +31,7 @@ import {
   Briefcase,
   CheckCircle,
   XCircle,
+  Loader2,
   FileText,
   Eye,
   Bell,
@@ -51,10 +47,7 @@ import {
   Archive,
   Target,
   History,
-  Unlock,
-  ArrowRightLeft,
 } from 'lucide-react';
-import { SkeletonTable, SkeletonTile } from '@/components/ui/Skeleton';
 import { StatusTimeline } from '@/components/hr/StatusTimeline';
 
 interface StatusHistoryItem {
@@ -93,33 +86,6 @@ export default function RankedRecordsPage() {
   const [jobs, setJobs] = useState<any[]>([]);
   const [statusFilter, setStatusFilter] = useState<string>('all');
   const [quickFilter, setQuickFilter] = useState<string>('all');
-  const [page, setPage] = useState(1);
-  const [pageSize] = useState(20);
-  const [totalCount, setTotalCount] = useState(0);
-  const [totalPages, setTotalPages] = useState(1);
-  const [statusCounts, setStatusCounts] = useState({ needsAction: 0, inProgress: 0, approved: 0, denied: 0 });
-  const [dateRangeFilter, setDateRangeFilter] = useState<string>(() => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('hr-ranked-records-date') || 'all';
-    }
-    return 'all';
-  });
-  const [sortOrder, setSortOrder] = useState<string>(() => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('hr-ranked-records-sort') || 'highest_rank';
-    }
-    return 'highest_rank';
-  });
-
-  // Save date range filter to localStorage
-  useEffect(() => {
-    localStorage.setItem('hr-ranked-records-date', dateRangeFilter);
-  }, [dateRangeFilter]);
-
-  // Save sort order to localStorage
-  useEffect(() => {
-    localStorage.setItem('hr-ranked-records-sort', sortOrder);
-  }, [sortOrder]);
   const [selectedApplicationForDrawer, setSelectedApplicationForDrawer] = useState<Application | null>(null);
   const [showApplicationDrawer, setShowApplicationDrawer] = useState(false);
   const [isRanking, setIsRanking] = useState(false);
@@ -150,12 +116,9 @@ export default function RankedRecordsPage() {
   const [showScheduleInterviewModal, setShowScheduleInterviewModal] = useState(false);
   const [showApproveModal, setShowApproveModal] = useState(false);
   const [showMarkAsHiredModal, setShowMarkAsHiredModal] = useState(false);
-  const [showReleaseHireModal, setShowReleaseHireModal] = useState(false);
   const [showUnderReviewModal, setShowUnderReviewModal] = useState(false);
   const [showReverseToPendingModal, setShowReverseToPendingModal] = useState(false);
   const [showArchiveModal, setShowArchiveModal] = useState(false);
-  const [showAutoDenyModal, setShowAutoDenyModal] = useState(false);
-  const [showReRoutingModal, setShowReRoutingModal] = useState(false);
   const [selectedApplicationForAction, setSelectedApplicationForAction] = useState<Application | null>(null);
 
   // Status History Modal
@@ -167,28 +130,11 @@ export default function RankedRecordsPage() {
   const [previewImageUrl, setPreviewImageUrl] = useState<string | null>(null);
   const [previewUserName, setPreviewUserName] = useState<string>('');
 
-  // Fetch applications with server-side pagination and filtering
+  // Fetch applications
   const fetchApplications = useCallback(async () => {
     try {
       setLoading(true);
-      const params = new URLSearchParams();
-      params.set('fields', 'list');
-      params.set('limit', String(pageSize));
-      params.set('page', String(page));
-      if (selectedJob !== 'all') params.set('job_id', selectedJob);
-
-      // Map quickFilter to server-side status params
-      if (quickFilter === 'needsAction') {
-        params.set('status', 'pending');
-      } else if (quickFilter === 'inProgress') {
-        params.set('statuses', 'under_review,shortlisted,interviewed');
-      } else if (quickFilter === 'approved') {
-        params.set('statuses', 'approved,hired');
-      } else if (quickFilter === 'denied') {
-        params.set('status', 'denied');
-      }
-
-      const response = await fetch(`/api/applications?${params.toString()}`);
+      const response = await fetch('/api/applications');
       const result = await response.json();
 
       if (result.success) {
@@ -219,25 +165,17 @@ export default function RankedRecordsPage() {
           }))
         );
 
-        // Update pagination metadata
-        if (result.pagination) {
-          setTotalCount(result.pagination.total);
-          setTotalPages(result.pagination.totalPages);
-        } else {
-          setTotalCount(result.count || 0);
-          setTotalPages(1);
-        }
-
-        // Extra safeguard: if we got data but totalCount is still 0, use data length
-        const resolvedTotal = result.pagination?.total ?? result.count ?? 0;
-        if (result.data?.length > 0 && resolvedTotal === 0) {
-          setTotalCount(result.data.length);
-        }
-
-        // Update server-side status counts
-        if (result.statusCounts) {
-          setStatusCounts(result.statusCounts);
-        }
+        // Extract unique jobs for filter
+        const uniqueJobs = Array.from(
+          new Set(result.data.map((app: any) => app.jobs?.id).filter(Boolean))
+        ).map((jobId) => {
+          const app = result.data.find((a: any) => a.jobs?.id === jobId);
+          return {
+            id: jobId,
+            title: app?.jobs?.title || 'Unknown',
+          };
+        });
+        setJobs(uniqueJobs);
       } else {
         showToast(getErrorMessage(result.error), 'error');
       }
@@ -247,27 +185,11 @@ export default function RankedRecordsPage() {
     } finally {
       setLoading(false);
     }
-  }, [showToast, user, page, pageSize, selectedJob, quickFilter]);
+  }, [showToast, user]);
 
   useEffect(() => {
     fetchApplications();
   }, [fetchApplications]);
-
-  // Fetch jobs list separately for the dropdown (so it stays populated across pages)
-  useEffect(() => {
-    const fetchJobs = async () => {
-      try {
-        const response = await fetch('/api/jobs');
-        const result = await response.json();
-        if (result.success && result.data) {
-          setJobs(result.data.map((job: any) => ({ id: job.id, title: job.title })));
-        }
-      } catch (error) {
-        console.error('Error fetching jobs:', error);
-      }
-    };
-    fetchJobs();
-  }, []);
 
   // Handle avatar click to show image preview
   const handleAvatarClick = (imageUrl: string | null, userName: string) => {
@@ -539,75 +461,6 @@ export default function RankedRecordsPage() {
     }
   };
 
-  // Handle Auto-Deny Remaining Applicants
-  const handleAutoDenyConfirm = async (reason: string) => {
-    if (selectedJob === 'all') {
-      showToast('Please select a specific job first', 'error');
-      return;
-    }
-
-    try {
-      setSubmitting(true);
-      const response = await fetch(`/api/jobs/${selectedJob}/auto-deny-remaining`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ reason }),
-      });
-
-      const result = await response.json();
-
-      if (result.success) {
-        showToast(result.message, 'success');
-        setShowAutoDenyModal(false);
-        fetchApplications(); // Refresh to show updated statuses
-      } else {
-        showToast(getErrorMessage(result.error), 'error');
-      }
-    } catch (error) {
-      console.error('Error auto-denying remaining applicants:', error);
-      showToast('Failed to close job and deny remaining applicants', 'error');
-    } finally {
-      setSubmitting(false);
-    }
-  };
-
-  // Handle Re-route Remaining Applicants
-  const handleReRoutingConfirm = async (customReason?: string) => {
-    if (selectedJob === 'all') {
-      showToast('Please select a specific job first', 'error');
-      return;
-    }
-
-    try {
-      setSubmitting(true);
-      const response = await fetch(`/api/jobs/${selectedJob}/re-route-remaining`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ customReason }),
-      });
-
-      const result = await response.json();
-
-      if (result.success) {
-        const summary = `Successfully re-routed ${result.reRoutedCount} applicant(s)${
-          result.deniedCount > 0 ? `, denied ${result.deniedCount} (no alternatives found)` : ''
-        }${
-          result.skippedCount > 0 ? `, skipped ${result.skippedCount} (re-routing limit reached)` : ''
-        }`;
-        showToast(summary, 'success');
-        setShowReRoutingModal(false);
-        fetchApplications(); // Refresh to show updated statuses
-      } else {
-        showToast(getErrorMessage(result.error), 'error');
-      }
-    } catch (error) {
-      console.error('Error re-routing remaining applicants:', error);
-      showToast('Failed to re-route remaining applicants', 'error');
-    } finally {
-      setSubmitting(false);
-    }
-  };
-
   // Handle Mark as Hired
   const handleMarkAsHired = (application: Application) => {
     setSelectedApplicationForAction(application);
@@ -642,43 +495,6 @@ export default function RankedRecordsPage() {
     } catch (error) {
       console.error('Error marking as hired:', error);
       showToast('Failed to mark as hired', 'error');
-    } finally {
-      setSubmitting(false);
-    }
-  };
-
-  // Handle Release Hire Status
-  const handleReleaseHire = (application: Application) => {
-    setSelectedApplicationForAction(application);
-    setShowReleaseHireModal(true);
-  };
-
-  const handleReleaseHireConfirm = async (release_reason: string) => {
-    if (!selectedApplicationForAction) return;
-
-    try {
-      setSubmitting(true);
-      const response = await fetch(`/api/applications/${selectedApplicationForAction.id}/release-hire`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          release_reason,
-        }),
-      });
-
-      const result = await response.json();
-
-      if (result.success) {
-        showToast(`Hire status released for ${selectedApplicationForAction.applicantName}`, 'success');
-        setShowReleaseHireModal(false);
-        setSelectedApplicationForAction(null);
-        fetchApplications();
-      } else {
-        showToast(getErrorMessage(result.error), 'error');
-      }
-    } catch (error) {
-      console.error('Error releasing hire status:', error);
-      showToast('Failed to release hire status', 'error');
     } finally {
       setSubmitting(false);
     }
@@ -862,7 +678,7 @@ export default function RankedRecordsPage() {
 
       if (result.success) {
         showToast(
-          `Successfully ranked ${result.totalApplicants} applicant${result.totalApplicants !== 1 ? 's' : ''} for ${result.jobTitle}! Rankings are now visible below.`,
+          `✨ Successfully ranked ${result.totalApplicants} applicant${result.totalApplicants !== 1 ? 's' : ''} for ${result.jobTitle}! Rankings are now visible below.`,
           'success'
         );
 
@@ -977,55 +793,15 @@ export default function RankedRecordsPage() {
       percentiles,
       topPerformers,
       totalApplicants: jobApplicants.length,
-      hr_notes: raw?.hr_notes || null,
     };
 
-    // Extract job requirements from the raw data (using freshest job fields)
-    const jobRequirements = (() => {
-      if (!raw?.jobs) return null;
-
-      const job = raw.jobs;
-
-      // Handle multiple possible shapes for eligibilities
-      let eligibilities: string[] = [];
-
-      if (Array.isArray(job.eligibilities)) {
-        eligibilities = job.eligibilities;
-      } else if (typeof job.eligibilities === 'string' && job.eligibilities.trim().length > 0) {
-        // If backend stores as comma-separated string
-        eligibilities = job.eligibilities
-          .split(',')
-          .map((e: string) => e.trim())
-          .filter(Boolean);
-      } else if (Array.isArray(job.required_eligibilities)) {
-        // Alternative field name, if you use this in jobs table
-        eligibilities = job.required_eligibilities;
-      }
-
-      // Same idea for skills – handle array OR comma string
-      let skills: string[] = [];
-      if (Array.isArray(job.skills)) {
-        skills = job.skills;
-      } else if (typeof job.skills === 'string' && job.skills.trim().length > 0) {
-        skills = job.skills
-          .split(',')
-          .map((s: string) => s.trim())
-          .filter(Boolean);
-      }
-
-      return {
-        degreeRequirement:
-          job.degree_requirement ||
-          job.degreeRequirement ||
-          'Not specified',
-        eligibilities,
-        skills,
-        yearsOfExperience:
-          job.years_of_experience ??
-          job.yearsOfExperience ??
-          0,
-      };
-    })();
+    // Extract job requirements from the raw data
+    const jobRequirements = raw?.jobs ? {
+      degreeRequirement: raw.jobs.degree_requirement || 'Not specified',
+      eligibilities: raw.jobs.eligibilities || [],
+      skills: raw.jobs.skills || [],
+      yearsOfExperience: raw.jobs.years_of_experience || 0,
+    } : null;
 
     console.log('✅ Setting applicant data with statistics:', applicantData);
     console.log('✅ Setting job requirements:', jobRequirements);
@@ -1161,6 +937,32 @@ export default function RankedRecordsPage() {
     {
       header: 'Applied',
       accessor: 'appliedDate' as const,
+    },
+    {
+      header: 'Signature',
+      accessor: 'signatureUrl' as const,
+      render: (_: any, row: Application) => (
+        <div className="flex items-center gap-2">
+          {row.signatureUrl ? (
+            <div className="flex items-center gap-1.5">
+              <CheckCircle className="w-4 h-4 text-green-600" />
+              <div className="flex flex-col">
+                <span className="text-xs font-medium text-green-700">Signed</span>
+                {row.signatureUploadedAt && (
+                  <span className="text-[10px] text-gray-500">
+                    {new Date(row.signatureUploadedAt).toLocaleDateString()}
+                  </span>
+                )}
+              </div>
+            </div>
+          ) : (
+            <div className="flex items-center gap-1.5">
+              <XCircle className="w-4 h-4 text-gray-400" />
+              <span className="text-xs text-gray-500">No Signature</span>
+            </div>
+          )}
+        </div>
+      )
     },
     {
       header: 'Status History',
@@ -1374,13 +1176,6 @@ export default function RankedRecordsPage() {
           case 'hired':
             menuItems.push(
               {
-                label: 'Release Hire Status',
-                icon: Unlock,
-                onClick: () => handleReleaseHire(row),
-                variant: 'success',
-                disabled: submitting,
-              },
-              {
                 label: 'Archive',
                 icon: Archive,
                 onClick: () => handleArchive(row),
@@ -1417,54 +1212,35 @@ export default function RankedRecordsPage() {
     },
   ];
 
-  // Filter applications client-side for date range and status dropdown only
-  // (job filter and quick filter are now handled server-side)
+  // Filter applications by selected job and status
   const filteredApplications = applications.filter((app) => {
-    // Status filter (from dropdown) - kept client-side for additional granularity
+    // Job filter
+    const matchesJob = selectedJob === 'all' || app._raw.job_id === selectedJob;
+
+    // Status filter (from dropdown)
     const matchesStatus = statusFilter === 'all' || app.status === statusFilter;
 
-    // Date range filter - kept client-side
-    const matchesDateRange = isDateInRange(
-      app._raw.created_at,
-      dateRangeFilter,
-      DEFAULT_DATE_RANGE_OPTIONS
-    );
+    // Quick filter (from pills)
+    let matchesQuickFilter = true;
+    if (quickFilter !== 'all') {
+      const quickFilterMap: Record<string, string[]> = {
+        needsAction: ['pending'],
+        inProgress: ['under_review', 'shortlisted', 'interviewed'],
+        approved: ['approved', 'hired'],
+        denied: ['denied'],
+      };
+      matchesQuickFilter = quickFilterMap[quickFilter]?.includes(app.status) || false;
+    }
 
-    return matchesStatus && matchesDateRange;
+    return matchesJob && matchesStatus && matchesQuickFilter;
   });
 
-  // Sort applications based on selected sort order
+  // Sort by rank (nulls last), then by match score
   const sortedApplications = [...filteredApplications].sort((a, b) => {
-    switch (sortOrder) {
-      case 'highest_rank':
-        // Rank 1 is highest (best), nulls last
-        if (a.rank === null && b.rank === null) return 0;
-        if (a.rank === null) return 1;
-        if (b.rank === null) return -1;
-        return a.rank - b.rank;
-
-      case 'lowest_rank':
-        // Reverse order - higher rank numbers first, nulls last
-        if (a.rank === null && b.rank === null) return 0;
-        if (a.rank === null) return 1;
-        if (b.rank === null) return -1;
-        return b.rank - a.rank;
-
-      case 'newest':
-        // Most recent applications first
-        return new Date(b._raw.created_at).getTime() - new Date(a._raw.created_at).getTime();
-
-      case 'oldest':
-        // Oldest applications first
-        return new Date(a._raw.created_at).getTime() - new Date(b._raw.created_at).getTime();
-
-      default:
-        // Default to highest rank
-        if (a.rank === null && b.rank === null) return 0;
-        if (a.rank === null) return 1;
-        if (b.rank === null) return -1;
-        return a.rank - b.rank;
-    }
+    if (a.rank === null && b.rank === null) return 0;
+    if (a.rank === null) return 1;
+    if (b.rank === null) return -1;
+    return a.rank - b.rank;
   });
 
   // Calculate complementary metrics (not redundant with Quick Filters)
@@ -1477,8 +1253,13 @@ export default function RankedRecordsPage() {
     ? rankedApps.reduce((sum, app) => sum + (app.matchScore || 0), 0) / rankedApps.length
     : 0;
 
-  // Quick filter counts (server-side, accurate across all pages)
-  const quickFilterCounts = statusCounts;
+  // Quick filter counts
+  const quickFilterCounts = {
+    needsAction: applications.filter((a) => a.status === 'pending').length,
+    inProgress: applications.filter((a) => ['under_review', 'shortlisted', 'interviewed'].includes(a.status)).length,
+    approved: applications.filter((a) => ['approved', 'hired'].includes(a.status)).length,
+    denied: applications.filter((a) => a.status === 'denied').length,
+  };
 
   // Handler for opening application details drawer
   const handleViewApplicationDetails = (application: Application) => {
@@ -1496,51 +1277,26 @@ export default function RankedRecordsPage() {
       <Container size="xl">
         <div className="space-y-6">
           {/* Header Actions */}
-          <div className="space-y-4">
-            {/* Row 1: Filters and Refresh */}
-            <div className="flex justify-between items-center">
-              <div className="flex gap-3">
-                <select
-                  value={selectedJob}
-                  onChange={(e) => { setSelectedJob(e.target.value); setPage(1); }}
-                  className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#22A555]"
-                >
-                  <option value="all">All Positions</option>
-                  {jobs.map((job) => (
-                    <option key={job.id} value={job.id}>
-                      {job.title}
-                    </option>
-                  ))}
-                </select>
+          <div className="flex justify-between items-center">
+            <div className="flex gap-3">
+              <select
+                value={selectedJob}
+                onChange={(e) => setSelectedJob(e.target.value)}
+                className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#22A555]"
+              >
+                <option value="all">All Positions</option>
+                {jobs.map((job) => (
+                  <option key={job.id} value={job.id}>
+                    {job.title}
+                  </option>
+                ))}
+              </select>
 
-                <SortDropdown
-                  value={sortOrder}
-                  onChange={setSortOrder}
-                  options={[
-                    { value: 'highest_rank', label: 'Highest Rank' },
-                    { value: 'lowest_rank', label: 'Lowest Rank' },
-                    { value: 'newest', label: 'Newest First' },
-                    { value: 'oldest', label: 'Oldest First' },
-                  ]}
-                />
-
-                <DateRangeFilter
-                  value={dateRangeFilter}
-                  onChange={setDateRangeFilter}
-                  options={DEFAULT_DATE_RANGE_OPTIONS}
-                  label="Date applied"
-                />
-              </div>
-
-              <RefreshButton
-                onRefresh={fetchApplications}
-                label="Refresh Applications"
-                showLastRefresh={true}
+              <StatusFilter
+                value={statusFilter}
+                onChange={setStatusFilter}
               />
-            </div>
 
-            {/* Row 2: Action Buttons */}
-            <div className="flex justify-end gap-3">
               <Button
                 variant="primary"
                 icon={Award}
@@ -1550,20 +1306,6 @@ export default function RankedRecordsPage() {
                 className="whitespace-nowrap"
               >
                 {isRanking ? 'Ranking with AI...' : 'Rank Applicants'}
-              </Button>
-
-              <Button
-                variant="danger"
-                icon={XCircle}
-                onClick={() => setShowAutoDenyModal(true)}
-                disabled={selectedJob === 'all'}
-                className="whitespace-nowrap"
-              >
-                Close Job & Deny Remaining {selectedJob !== 'all' && applications.filter(app =>
-                  app._raw?.job_id === selectedJob && app.status === 'pending'
-                ).length > 0 && `(${applications.filter(app =>
-                  app._raw?.job_id === selectedJob && app.status === 'pending'
-                ).length})`}
               </Button>
 
               <Button
@@ -1588,20 +1330,20 @@ export default function RankedRecordsPage() {
                 Export to Excel
               </Button>
             </div>
+            <RefreshButton
+              onRefresh={fetchApplications}
+              label="Refresh Applications"
+              showLastRefresh={true}
+            />
           </div>
 
           {/* Summary Stats - Complementary Metrics (Non-Redundant with Quick Filters) */}
-          {loading ? (
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-              {Array.from({ length: 4 }).map((_, i) => <SkeletonTile key={i} />)}
-            </div>
-          ) : (
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <Card variant="flat" className="bg-gradient-to-br from-blue-50 to-blue-100 border-l-4 border-blue-500">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600 mb-1">Total Applications</p>
-                  <p className="text-3xl font-bold text-gray-900">{totalCount}</p>
+                  <p className="text-3xl font-bold text-gray-900">{applications.length}</p>
                 </div>
                 <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center shadow-lg">
                   <User className="w-6 h-6 text-white" />
@@ -1648,24 +1390,26 @@ export default function RankedRecordsPage() {
               </div>
             </Card>
           </div>
-          )}
 
           {/* Quick Filters */}
           <div className="flex items-center justify-between">
             <QuickFilters
               activeFilter={quickFilter}
-              onChange={(val: string) => { setQuickFilter(val); setPage(1); }}
+              onChange={setQuickFilter}
               counts={quickFilterCounts}
             />
             <div className="text-sm text-gray-600">
-              Showing <span className="font-semibold text-gray-900">{totalCount > 0 ? `${(page - 1) * pageSize + 1}–${Math.min(page * pageSize, totalCount)}` : '0'}</span> of {totalCount} applications
+              Showing <span className="font-semibold text-gray-900">{filteredApplications.length}</span> of {applications.length} applications
             </div>
           </div>
 
           {/* Applications Table */}
           <Card title="APPLICANT RANKINGS" headerColor="bg-[#D4F4DD]">
             {loading ? (
-              <SkeletonTable rows={5} cols={5} />
+              <div className="flex items-center justify-center py-12">
+                <Loader2 className="w-8 h-8 text-[#22A555] animate-spin" />
+                <span className="ml-3 text-gray-600">Loading applications...</span>
+              </div>
             ) : sortedApplications.length === 0 ? (
               <div className="text-center py-12 text-gray-500">
                 No applications found
@@ -1676,38 +1420,12 @@ export default function RankedRecordsPage() {
                 columns={columns}
                 data={sortedApplications}
                 searchable
-                paginated={false}
+                paginated={true}
+                pageSize={10}
                 searchPlaceholder="Search by name, email, or position..."
               />
             )}
           </Card>
-
-          {/* Server-side Pagination Controls */}
-          {totalPages > 1 && (
-            <div className="flex items-center justify-between px-4 py-3 bg-white rounded-lg border border-gray-200">
-              <span className="text-sm text-gray-600">
-                Page {page} of {totalPages} ({totalCount} total applications)
-              </span>
-              <div className="flex gap-2">
-                <Button
-                  variant="secondary"
-                  size="sm"
-                  disabled={page <= 1}
-                  onClick={() => setPage(p => p - 1)}
-                >
-                  Previous
-                </Button>
-                <Button
-                  variant="secondary"
-                  size="sm"
-                  disabled={page >= totalPages}
-                  onClick={() => setPage(p => p + 1)}
-                >
-                  Next
-                </Button>
-              </div>
-            </div>
-          )}
         </div>
       </Container>
 
@@ -1731,7 +1449,8 @@ export default function RankedRecordsPage() {
                     <Image src="/JS-logo.png" alt="JobSync" width={40} height={40} className="rounded-lg object-cover" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white">Rank Applicants with AI</h3>
+                    <h3 className="text-xl font-bold text-white">Rank Applicants with Gemini AI</h3>
+                    <p className="text-sm text-white/90">AI-powered intelligent ranking</p>
                   </div>
                 </div>
                 <button
@@ -1754,9 +1473,9 @@ export default function RankedRecordsPage() {
                 <div className="flex items-start gap-3">
                   <Sparkles className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-semibold text-blue-800 mb-1">Ranking Process</p>
+                    <p className="font-semibold text-blue-800 mb-1">AI Ranking Process</p>
                     <p className="text-sm text-blue-700">
-                      AI-assisted Scoring Algorithms will analyze and rank all pending applicants.
+                      Gemini AI will analyze and rank all pending applicants using advanced algorithms.
                     </p>
                   </div>
                 </div>
@@ -1773,7 +1492,7 @@ export default function RankedRecordsPage() {
                   <div className="flex items-center gap-2">
                     <Users className="w-4 h-4 text-gray-400" />
                     <span className="text-sm text-gray-700">
-                      All pending applicants will be ranked.
+                      All pending applicants will be ranked
                     </span>
                   </div>
                 </div>
@@ -1786,10 +1505,11 @@ export default function RankedRecordsPage() {
                   <p className="text-sm font-semibold text-blue-900">What Happens Next:</p>
                 </div>
                 <ul className="text-sm text-blue-800 space-y-1 ml-6 list-disc">
-                  <li>Analyzes education, experience, skills, and eligibilities.</li>
-                  <li>Calculates match scores (0-100%) for each applicant.</li>
-                  <li>Ranks applicants from best to least match.</li>
-                  <li>Uses 3 AI algorithms with ensemble method.</li>
+                  <li>Analyzes education, experience, skills, and eligibilities</li>
+                  <li>Calculates match scores (0-100%) for each applicant</li>
+                  <li>Ranks applicants from best to least match</li>
+                  <li>Uses 3 AI algorithms with ensemble method</li>
+                  <li>Provides detailed reasoning for each score</li>
                 </ul>
               </div>
 
@@ -2114,20 +1834,6 @@ export default function RankedRecordsPage() {
         submitting={submitting}
       />
 
-      {/* Release Hire Modal */}
-      <ReleaseHireModal
-        isOpen={showReleaseHireModal}
-        onClose={() => {
-          setShowReleaseHireModal(false);
-          setSelectedApplicationForAction(null);
-        }}
-        applicantName={selectedApplicationForAction?.applicantName || ''}
-        jobTitle={selectedApplicationForAction?.jobTitle || ''}
-        applicationId={selectedApplicationForAction?.id || ''}
-        onConfirm={handleReleaseHireConfirm}
-        submitting={submitting}
-      />
-
       {/* Under Review Modal */}
       <UnderReviewModal
         isOpen={showUnderReviewModal}
@@ -2161,32 +1867,6 @@ export default function RankedRecordsPage() {
         }}
         application={selectedApplicationForAction}
         onConfirm={handleArchiveConfirm}
-        submitting={submitting}
-      />
-
-      {/* Auto-Deny Remaining Applicants Modal */}
-      <AutoDenyModal
-        isOpen={showAutoDenyModal}
-        onClose={() => setShowAutoDenyModal(false)}
-        jobTitle={jobs.find(j => j.id === selectedJob)?.title || 'Unknown Job'}
-        jobId={selectedJob}
-        pendingCount={applications.filter(app =>
-          app._raw?.job_id === selectedJob && app.status === 'pending'
-        ).length}
-        onConfirm={handleAutoDenyConfirm}
-        submitting={submitting}
-      />
-
-      {/* Re-routing Remaining Applicants Modal */}
-      <ReRoutingConfirmModal
-        isOpen={showReRoutingModal}
-        onClose={() => setShowReRoutingModal(false)}
-        jobTitle={jobs.find(j => j.id === selectedJob)?.title || 'Unknown Job'}
-        jobId={selectedJob}
-        pendingCount={applications.filter(app =>
-          app._raw?.job_id === selectedJob && (app.status === 'pending' || app.status === 'under_review')
-        ).length}
-        onConfirm={handleReRoutingConfirm}
         submitting={submitting}
       />
 

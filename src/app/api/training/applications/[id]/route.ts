@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
-import { getViewableUrl } from '@/lib/supabase/storage';
+import { createClient, createAdminClient } from '@/lib/supabase/server';
 
 /**
  * Training Application Management API - Individual Application Operations
@@ -17,10 +16,26 @@ export async function GET(
 ) {
   try {
     const supabase = await createClient();
+    const adminSupabase = createAdminClient();
     const { id } = await params;
 
+    console.log('📥 [GET /api/training/applications/[id]] Request received:', {
+      application_id: id,
+      pathname: request.nextUrl.pathname,
+    });
+
     // 1. Authenticate user
-    const { data: { user }, error: authError } = await supabase.auth.getUser();
+    const {
+      data: { user },
+      error: authError,
+    } = await supabase.auth.getUser();
+
+    console.log('🔐 [AUTH] User lookup result:', {
+      has_user: !!user,
+      user_id: user?.id || null,
+      email: user?.email || null,
+      auth_error: authError?.message || null,
+    });
 
     if (authError || !user) {
       return NextResponse.json(
@@ -35,6 +50,12 @@ export async function GET(
       .select('id, role')
       .eq('id', user.id)
       .single();
+
+    console.log('👤 [PROFILE] Profile lookup result:', {
+      user_id: user.id,
+      role: profile?.role || null,
+      profile_error: profileError?.message || null,
+    });
 
     if (profileError || !profile) {
       return NextResponse.json(
@@ -53,6 +74,14 @@ export async function GET(
       .eq('id', id)
       .single();
 
+    console.log('📄 [APPLICATION] Fetch result:', {
+      application_found: !!application,
+      fetch_error: error?.message || null,
+      applicant_id: application?.applicant_id || null,
+      stored_id_image_url: application?.id_image_url || null,
+      program_id: application?.program_id || null,
+    });
+
     if (error) {
       if (error.code === 'PGRST116') {
         return NextResponse.json(
@@ -66,24 +95,132 @@ export async function GET(
       );
     }
 
-    // 4. Check authorization (applicant can only view their own, PESO/Admin can view all)
+    // 4. Check authorization
     if (profile.role === 'APPLICANT' && application.applicant_id !== user.id) {
+      console.warn('⛔ [AUTHZ] Applicant attempted to access another user application:', {
+        requester_id: user.id,
+        application_id: id,
+        owner_id: application.applicant_id,
+      });
+
       return NextResponse.json(
         { success: false, error: 'Forbidden - You can only view your own applications' },
         { status: 403 }
       );
     }
 
+    console.log('✅ [AUTHZ] Access granted:', {
+      requester_id: user.id,
+      role: profile.role,
+      application_id: id,
+    });
+
     // 5. Generate signed URL for ID image if it exists
     if (application.id_image_url) {
       try {
-        const signedUrl = await getViewableUrl('id-images', application.id_image_url, 3600);
-        application.id_image_url = signedUrl;
-      } catch (error) {
-        console.error(`Failed to generate signed URL for application ${id}:`, error);
-        // Keep original path if signing fails
+        const rawPath = application.id_image_url;
+        const isFullUrl =
+          rawPath.startsWith('http://') ||
+          rawPath.startsWith('https://');
+
+        console.log('🖼️ [ID IMAGE] Starting signing check:', {
+          application_id: id,
+          raw_value: rawPath,
+          is_full_url: isFullUrl,
+          bucket: 'id-images',
+        });
+
+        if (!isFullUrl) {
+          // Optional existence check first
+          const { data: fileCheck, error: fileCheckError } = await adminSupabase.storage
+            .from('id-images')
+            .list(rawPath.split('/').slice(0, -1).join('/'), {
+              limit: 100,
+            });
+
+          console.log('📂 [STORAGE CHECK] Folder listing result:', {
+            application_id: id,
+            raw_path: rawPath,
+            folder: rawPath.split('/').slice(0, -1).join('/'),
+            filename: rawPath.split('/').pop(),
+            file_check_error: fileCheckError?.message || null,
+            files_found:
+              fileCheck?.map((f: any) => ({
+                name: f.name,
+                id: f.id,
+                metadata: f.metadata || null,
+              })) || [],
+          });
+
+          const { data, error } = await adminSupabase.storage
+            .from('id-images')
+            .createSignedUrl(rawPath, 3600);
+
+          if (error) {
+            console.error('❌ [SIGNED URL ERROR] Supabase failed to create signed URL:', {
+              application_id: id,
+              bucket: 'id-images',
+              raw_path: rawPath,
+              error_message: error.message,
+              error_name: (error as any)?.name || null,
+              error_status: (error as any)?.status || null,
+              error_details: (error as any)?.details || null,
+              error_hint: (error as any)?.hint || null,
+              full_error: error,
+            });
+          } else {
+            console.log('🧾 [SIGNED URL RAW RESPONSE]:', {
+              application_id: id,
+              raw_path: rawPath,
+              data,
+            });
+          }
+
+          if (error || !data?.signedUrl) {
+            console.error('❌ [SIGNED URL FAILURE] Returning original path because signing failed:', {
+              application_id: id,
+              raw_path: rawPath,
+              has_data: !!data,
+              signed_url_present: !!data?.signedUrl,
+            });
+          } else {
+            application.id_image_url = data.signedUrl;
+
+            console.log('✅ [SIGNED URL SUCCESS]:', {
+              application_id: id,
+              raw_path: rawPath,
+              signed_url_preview: data.signedUrl.substring(0, 120) + '...',
+            });
+          }
+        } else {
+          console.log('ℹ️ [ID IMAGE] Value is already a full URL, skipping signing:', {
+            application_id: id,
+            url_preview: rawPath.substring(0, 120) + '...',
+          });
+        }
+      } catch (signingError: any) {
+        console.error('❌ [ID IMAGE EXCEPTION] Unexpected exception while signing ID image:', {
+          application_id: id,
+          raw_path: application.id_image_url,
+          message: signingError?.message || null,
+          stack: signingError?.stack || null,
+          full_error: signingError,
+        });
       }
+    } else {
+      console.warn('⚠️ [ID IMAGE] No id_image_url stored for this application:', {
+        application_id: id,
+      });
     }
+
+    console.log('📤 [RESPONSE] Final application payload summary:', {
+      application_id: id,
+      final_id_image_url: application.id_image_url || null,
+      is_signed_url:
+        !!application.id_image_url &&
+        (application.id_image_url.startsWith('http://') ||
+          application.id_image_url.startsWith('https://')),
+    });
 
     return NextResponse.json({
       success: true,
@@ -91,7 +228,12 @@ export async function GET(
     });
 
   } catch (error: any) {
-    console.error('Server error in GET /api/training/applications/[id]:', error);
+    console.error('💥 [SERVER ERROR] GET /api/training/applications/[id]:', {
+      message: error?.message || 'Unknown error',
+      stack: error?.stack || null,
+      full_error: error,
+    });
+
     return NextResponse.json(
       { success: false, error: error.message || 'Internal server error' },
       { status: 500 }
@@ -138,9 +280,6 @@ export async function PATCH(
 
     // 4. Authorization checks based on role
     if (profile.role === 'APPLICANT') {
-      // Applicants can only withdraw their own applications
-
-      // Get the application to check ownership
       const { data: application, error: appError } = await supabase
         .from('training_applications')
         .select('applicant_id, status')
@@ -154,7 +293,6 @@ export async function PATCH(
         );
       }
 
-      // Check if applicant owns this application
       if (application.applicant_id !== user.id) {
         return NextResponse.json(
           { success: false, error: 'Forbidden - You can only withdraw your own applications' },
@@ -162,7 +300,6 @@ export async function PATCH(
         );
       }
 
-      // Applicants can only withdraw
       if (status !== 'withdrawn') {
         return NextResponse.json(
           { success: false, error: 'Forbidden - Applicants can only withdraw applications' },
@@ -170,9 +307,6 @@ export async function PATCH(
         );
       }
 
-      // Can only withdraw if training hasn't started yet
-      // Allow: pending, under_review, approved, enrolled
-      // Block: in_progress, completed, certified (training started/finished)
       if (!['pending', 'under_review', 'approved', 'enrolled'].includes(application.status)) {
         return NextResponse.json(
           { success: false, error: `Cannot withdraw application with status: ${application.status}. You can only withdraw before training starts.` },
@@ -180,7 +314,6 @@ export async function PATCH(
         );
       }
     } else if (profile.role !== 'PESO' && profile.role !== 'ADMIN') {
-      // Only PESO, ADMIN, and APPLICANT (for withdrawal) can update applications
       return NextResponse.json(
         { success: false, error: 'Forbidden - Only PESO and Admin can update training applications' },
         { status: 403 }
@@ -208,7 +341,6 @@ export async function PATCH(
       );
     }
 
-    // 5. Get existing application
     const { data: existingApplication, error: fetchError } = await supabase
       .from('training_applications')
       .select(`
@@ -240,12 +372,9 @@ export async function PATCH(
       );
     }
 
-    // 6. Check if program is full (if changing to enrolled status)
-    // These statuses count towards enrollment: approved, enrolled, in_progress
     if (['approved', 'enrolled', 'in_progress'].includes(status)) {
       const currentlyEnrolled = ['approved', 'enrolled', 'in_progress'].includes(existingApplication.status);
 
-      // Only check capacity if transitioning FROM a non-enrolled status TO an enrolled status
       if (!currentlyEnrolled && existingApplication.training_programs) {
         const program = existingApplication.training_programs as any;
         if (program.enrolled_count >= program.capacity) {
@@ -261,7 +390,6 @@ export async function PATCH(
       }
     }
 
-    // 7. Build status history entry
     const currentHistory = existingApplication.status_history || [];
     const newHistoryEntry = {
       from: existingApplication.status,
@@ -271,7 +399,6 @@ export async function PATCH(
     };
     const updatedHistory = [...currentHistory, newHistoryEntry];
 
-    // 8. Build update object
     const updateData: any = {
       status,
       status_history: updatedHistory,
@@ -280,17 +407,14 @@ export async function PATCH(
       updated_at: new Date().toISOString(),
     };
 
-    // Add optional fields
     if (next_steps) updateData.next_steps = next_steps;
     if (denial_reason) updateData.denial_reason = denial_reason;
 
-    // Add timestamp fields based on status
     if (status === 'enrolled') updateData.enrollment_confirmed_at = new Date().toISOString();
     if (status === 'in_progress') updateData.training_started_at = new Date().toISOString();
     if (status === 'completed') updateData.training_completed_at = new Date().toISOString();
     if (status === 'certified') updateData.certificate_issued_at = new Date().toISOString();
 
-    // 9. Update application status
     const { data: updatedApplication, error: updateError } = await supabase
       .from('training_applications')
       .update(updateData)
@@ -309,15 +433,8 @@ export async function PATCH(
       );
     }
 
-    // NOTE: enrolled_count is automatically managed by the database trigger
-    // 'update_training_enrolled_count_trigger' which increments/decrements the count
-    // when application status changes to/from 'approved', 'enrolled', or 'in_progress'.
-    // DO NOT manually update enrolled_count here to avoid double counting.
-
-    // 8. Create notifications with user-friendly messages
     const program = updatedApplication.training_programs as any;
 
-    // Generate status-specific notification title and message
     let notificationTitle = 'Training Application Status Updated';
     let notificationMessage = '';
 
@@ -372,7 +489,6 @@ export async function PATCH(
         notificationMessage = `Your application status for "${program?.title}" has been updated by ${profile.full_name} (${profile.role}). Please check your application details for more information.`;
     }
 
-    // Generate user-friendly action verb for PESO notification
     let actionVerb = '';
     switch (status) {
       case 'pending':
@@ -412,7 +528,6 @@ export async function PATCH(
         actionVerb = `updated (${status})`;
     }
 
-    // Notify PESO user (confirmation of their own action)
     const { error: pesoNotificationError } = await supabase
       .from('notifications')
       .insert({
@@ -430,7 +545,6 @@ export async function PATCH(
       console.error('Error creating PESO notification:', pesoNotificationError);
     }
 
-    // Notify applicant - Direct insert (matches HR pattern)
     const { error: applicantNotificationError } = await supabase
       .from('notifications')
       .insert({
@@ -446,16 +560,13 @@ export async function PATCH(
 
     if (applicantNotificationError) {
       console.error('Error creating applicant notification:', applicantNotificationError);
-      // Don't fail the request if notifications fail
     }
 
-    // 11. Mark notification as sent
     await supabase
       .from('training_applications')
       .update({ notification_sent: true })
       .eq('id', id);
 
-    // 12. Log activity
     try {
       await supabase.rpc('log_training_application_status_changed', {
         p_user_id: user.id,
@@ -470,10 +581,8 @@ export async function PATCH(
       });
     } catch (logError) {
       console.error('Error logging status change:', logError);
-      // Don't fail the request if logging fails
     }
 
-    // Generate user-friendly success message for API response
     let successMessage = '';
     switch (status) {
       case 'pending':
@@ -526,4 +635,4 @@ export async function PATCH(
       { status: 500 }
     );
   }
-}
+} 
