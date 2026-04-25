@@ -239,8 +239,9 @@ export async function GET(request: NextRequest) {
     const status = searchParams.get('status'); // pending, approved, denied
     const fields = searchParams.get('fields'); // 'summary' for lightweight select
     const page = parseInt(searchParams.get('page') || '1', 10);
-    const limit = parseInt(searchParams.get('limit') || '50', 10); // default 50 for server-side pagination
+    const limit = parseInt(searchParams.get('limit') || '300', 10); // default for server-side pagination
     const statuses = searchParams.get('statuses'); // comma-separated statuses for multi-status filters
+    const includeCounts = searchParams.get('includeCounts') !== 'false';
 
     // 4. Build query based on role
     // Use lightweight select for list views, full select for detail views
@@ -499,13 +500,6 @@ export async function GET(request: NextRequest) {
       dataQuery = dataQuery.range(from, to);
     }
 
-    // 8. Separate lightweight count query (head:true = COUNT only, no body)
-    let countQuery = supabase
-      .from('applications')
-      .select('id', { count: 'exact', head: true });
-    countQuery = applyBaseFilters(countQuery);
-
-    // Build 4 lightweight status count queries (no joins, uses composite index)
     const statusGroups: Record<string, string[]> = {
       needsAction: ['pending'],
       inProgress: ['under_review', 'shortlisted', 'interviewed'],
@@ -513,19 +507,32 @@ export async function GET(request: NextRequest) {
       denied: ['denied'],
     };
 
-    const statusCountQueries = Object.entries(statusGroups).map(([, statuses]) => {
-      let q = supabase
-        .from('applications')
-        .select('id', { count: 'exact', head: true })
-        .in('status', statuses);
-      q = applyBaseFilters(q);
-      return q ? q : Promise.resolve({ count: 0, error: null, data: null });
-    });
+    let countQuery: any = null;
+    let statusCountQueries: any[] = [];
 
-    // Execute all in parallel: data + total count + 4 status counts
+    if (includeCounts) {
+      countQuery = supabase
+        .from('applications')
+        .select('id', { count: 'exact', head: true });
+
+      countQuery = applyFilters(countQuery);
+
+      statusCountQueries = Object.entries(statusGroups).map(([, groupStatuses]) => {
+        let q = supabase
+          .from('applications')
+          .select('id', { count: 'exact', head: true })
+          .in('status', groupStatuses);
+
+        q = applyBaseFilters(q);
+        return q ? q : Promise.resolve({ count: 0, error: null, data: null });
+      });
+    }
+
     const [dataResult, countResult, ...statusCountResults] = await Promise.all([
       dataQuery,
-      countQuery ? countQuery : Promise.resolve({ count: null, error: null, data: null }),
+      includeCounts && countQuery
+        ? countQuery
+        : Promise.resolve({ count: null, error: null, data: null }),
       ...statusCountQueries,
     ]);
 
@@ -569,14 +576,24 @@ export async function GET(request: NextRequest) {
 
     // Build statusCounts from parallel query results
     const statusCountKeys = Object.keys(statusGroups);
-    const statusCounts: Record<string, number> = {};
-    statusCountKeys.forEach((key, i) => {
-      statusCounts[key] = (statusCountResults[i] as any)?.count ?? 0;
-    });
+    const statusCounts: Record<string, number> = {
+      needsAction: 0,
+      inProgress: 0,
+      approved: 0,
+      denied: 0,
+    };
+
+    if (includeCounts) {
+      const statusCountKeys = Object.keys(statusGroups);
+
+      statusCountKeys.forEach((key, i) => {
+        statusCounts[key] = (statusCountResults[i] as any)?.count ?? 0;
+      });
+    }
 
     // Fallback: if counts are 0 but data exists, use admin client to bypass RLS
     const allCountsZero = totalCount === 0 && Object.values(statusCounts).every(v => v === 0);
-    if (processedApplications.length > 0 && allCountsZero) {
+    if (includeCounts && processedApplications.length > 0 && allCountsZero) {
       console.warn('[applications/GET] Count queries returned 0 but data exists. Using admin fallback.');
       try {
         const adminSupabase = createAdminClient();

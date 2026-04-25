@@ -134,7 +134,29 @@ export default function RankedRecordsPage() {
   const fetchApplications = useCallback(async () => {
     try {
       setLoading(true);
-      const response = await fetch('/api/applications');
+      const params = new URLSearchParams();
+      params.set('fields', 'list');
+      params.set('page', '1');
+      params.set('limit', '300');
+      params.set('includeCounts', 'false');
+      
+      if (selectedJob !== 'all') {
+        params.set('job_id', selectedJob);
+      }
+
+      if (quickFilter === 'needsAction') {
+        params.set('status', 'pending');
+      } else if (quickFilter === 'inProgress') {
+        params.set('statuses', 'under_review,shortlisted,interviewed');
+      } else if (quickFilter === 'approved') {
+        params.set('statuses', 'approved,hired');
+      } else if (quickFilter === 'denied') {
+        params.set('status', 'denied');
+      } else if (statusFilter !== 'all') {
+        params.set('status', statusFilter);
+      }
+
+      const response = await fetch(`/api/applications?${params.toString()}`);
       const result = await response.json();
 
       if (result.success) {
@@ -164,18 +186,6 @@ export default function RankedRecordsPage() {
             _raw: app,
           }))
         );
-
-        // Extract unique jobs for filter
-        const uniqueJobs = Array.from(
-          new Set(result.data.map((app: any) => app.jobs?.id).filter(Boolean))
-        ).map((jobId) => {
-          const app = result.data.find((a: any) => a.jobs?.id === jobId);
-          return {
-            id: jobId,
-            title: app?.jobs?.title || 'Unknown',
-          };
-        });
-        setJobs(uniqueJobs);
       } else {
         showToast(getErrorMessage(result.error), 'error');
       }
@@ -185,7 +195,24 @@ export default function RankedRecordsPage() {
     } finally {
       setLoading(false);
     }
-  }, [showToast, user]);
+  }, [showToast, user, selectedJob, quickFilter, statusFilter]);
+
+  const fetchJobs = useCallback(async () => {
+  try {
+    const response = await fetch('/api/jobs');
+    const result = await response.json();
+
+    if (result.success) {
+      setJobs(result.data || []);
+    }
+  } catch (error) {
+    console.error('Error fetching jobs:', error);
+  }
+  }, []);
+
+  useEffect(() => {
+    fetchJobs();
+  }, [fetchJobs]);
 
   useEffect(() => {
     fetchApplications();
@@ -937,32 +964,6 @@ export default function RankedRecordsPage() {
     {
       header: 'Applied',
       accessor: 'appliedDate' as const,
-    },
-    {
-      header: 'Signature',
-      accessor: 'signatureUrl' as const,
-      render: (_: any, row: Application) => (
-        <div className="flex items-center gap-2">
-          {row.signatureUrl ? (
-            <div className="flex items-center gap-1.5">
-              <CheckCircle className="w-4 h-4 text-green-600" />
-              <div className="flex flex-col">
-                <span className="text-xs font-medium text-green-700">Signed</span>
-                {row.signatureUploadedAt && (
-                  <span className="text-[10px] text-gray-500">
-                    {new Date(row.signatureUploadedAt).toLocaleDateString()}
-                  </span>
-                )}
-              </div>
-            </div>
-          ) : (
-            <div className="flex items-center gap-1.5">
-              <XCircle className="w-4 h-4 text-gray-400" />
-              <span className="text-xs text-gray-500">No Signature</span>
-            </div>
-          )}
-        </div>
-      )
     },
     {
       header: 'Status History',
