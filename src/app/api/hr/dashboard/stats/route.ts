@@ -1,17 +1,23 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { createClient, createAdminClient } from '@/lib/supabase/server';
 
 /**
  * GET /api/hr/dashboard/stats
- * Returns dashboard statistics filtered to current HR user's jobs only
- * Ensures multi-tenancy: HR users only see stats for jobs they created
+ * Returns dashboard statistics.
+ *
+ * ADMIN: sees all applications/jobs.
+ * HR: sees only applications attached to jobs created by that HR user.
  */
 export async function GET(request: NextRequest) {
   try {
     const supabase = await createClient();
+    const adminSupabase = createAdminClient();
 
-    // Verify authentication
-    const { data: { user }, error: authError } = await supabase.auth.getUser();
+    const {
+      data: { user },
+      error: authError,
+    } = await supabase.auth.getUser();
+
     if (authError || !user) {
       return NextResponse.json(
         { success: false, error: 'Unauthorized' },
@@ -19,7 +25,6 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Get user profile and verify HR role
     const { data: profile, error: profileError } = await supabase
       .from('profiles')
       .select('role')
@@ -40,17 +45,13 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // For ADMIN, show all stats (system-wide)
-    // For HR, show only stats for jobs they created
     const isAdmin = profile.role === 'ADMIN';
 
-    // Get jobs for this HR user (or all jobs if ADMIN)
-    let jobsQuery = supabase
+    let jobsQuery = adminSupabase
       .from('jobs')
       .select('id, status');
 
     if (!isAdmin) {
-      // HR: Filter to only jobs they created
       jobsQuery = jobsQuery.eq('created_by', user.id);
     }
 
@@ -64,9 +65,8 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const jobIds = jobs?.map(job => job.id) || [];
+    const jobIds = jobs?.map((job) => job.id) || [];
 
-    // If HR user has no jobs, return zero stats
     if (!isAdmin && jobIds.length === 0) {
       return NextResponse.json({
         success: true,
@@ -78,45 +78,43 @@ export async function GET(request: NextRequest) {
           deniedWithdrawn: 0,
           archived: 0,
           activeJobs: 0,
-        }
+        },
       });
     }
 
-    // Use parallel count queries instead of fetching all rows
-    const buildCountQuery = (statuses: string[]) => {
-      let q = supabase
-        .from('applications')
-        .select('*', { count: 'exact', head: true });
-      if (!isAdmin && jobIds.length > 0) {
-        q = q.in('job_id', jobIds);
+    const applyHrScope = (q: any) => {
+      if (!isAdmin) {
+        return q.in('job_id', jobIds);
       }
-      if (statuses.length === 1) {
-        q = q.eq('status', statuses[0]);
-      } else {
-        q = q.in('status', statuses);
-      }
+
       return q;
     };
 
-    const buildTotalCountQuery = () => {
-      let q = supabase
+    const buildCountQuery = (statuses?: string[]) => {
+      let q = adminSupabase
         .from('applications')
         .select('*', { count: 'exact', head: true });
-      if (!isAdmin && jobIds.length > 0) {
-        q = q.in('job_id', jobIds);
+
+      q = applyHrScope(q);
+
+      if (statuses && statuses.length === 1) {
+        q = q.eq('status', statuses[0]);
+      } else if (statuses && statuses.length > 1) {
+        q = q.in('status', statuses);
       }
+
       return q;
     };
 
     const [
-      { count: totalScanned },
-      { count: pendingReview },
-      { count: inProgress },
-      { count: approvedHired },
-      { count: deniedWithdrawn },
-      { count: archived },
+      { count: totalScanned, error: totalError },
+      { count: pendingReview, error: pendingError },
+      { count: inProgress, error: progressError },
+      { count: approvedHired, error: approvedError },
+      { count: deniedWithdrawn, error: deniedError },
+      { count: archived, error: archivedError },
     ] = await Promise.all([
-      buildTotalCountQuery(),
+      buildCountQuery(),
       buildCountQuery(['pending', 'under_review']),
       buildCountQuery(['shortlisted', 'interviewed']),
       buildCountQuery(['approved', 'hired']),
@@ -124,8 +122,24 @@ export async function GET(request: NextRequest) {
       buildCountQuery(['archived']),
     ]);
 
-    // Count active jobs
-    const activeJobs = jobs?.filter(job => job.status === 'active').length || 0;
+    const queryError =
+      totalError ||
+      pendingError ||
+      progressError ||
+      approvedError ||
+      deniedError ||
+      archivedError;
+
+    if (queryError) {
+      console.error('Error fetching dashboard stats:', queryError);
+      return NextResponse.json(
+        { success: false, error: 'Failed to fetch dashboard stats' },
+        { status: 500 }
+      );
+    }
+
+    const activeJobs =
+      jobs?.filter((job) => job.status === 'active').length || 0;
 
     return NextResponse.json({
       success: true,
@@ -137,9 +151,8 @@ export async function GET(request: NextRequest) {
         deniedWithdrawn: deniedWithdrawn || 0,
         archived: archived || 0,
         activeJobs,
-      }
+      },
     });
-
   } catch (error: any) {
     console.error('Error in HR dashboard stats API:', error);
     return NextResponse.json(
