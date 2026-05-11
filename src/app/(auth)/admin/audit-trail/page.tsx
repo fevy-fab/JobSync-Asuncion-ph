@@ -1,15 +1,33 @@
 'use client';
+
 import React, { useState, useCallback, useEffect } from 'react';
 import { AdminLayout } from '@/components/layout';
-import { Avatar, Card, EnhancedTable, Container, Badge, RefreshButton, Modal, ImagePreviewModal } from '@/components/ui';
+import {
+  Avatar,
+  Card,
+  EnhancedTable,
+  Container,
+  Badge,
+  RefreshButton,
+  Modal,
+  ImagePreviewModal,
+} from '@/components/ui';
 import { useToast } from '@/contexts/ToastContext';
 import { getErrorMessage } from '@/lib/utils/errorMessages';
 import { SkeletonTable, SkeletonTile } from '@/components/ui/Skeleton';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/lib/supabase/auth';
 import {
-  FileText, Database, User, Clock, AlertTriangle, Eye, EyeOff,
-  Plus, Edit, Trash2, FileCheck
+  FileText,
+  Database,
+  User,
+  Clock,
+  AlertTriangle,
+  Eye,
+  Plus,
+  Edit,
+  Trash2,
+  FileCheck,
 } from 'lucide-react';
 
 interface AuditRecord {
@@ -30,61 +48,263 @@ interface AuditRecord {
   };
 }
 
+const PAGE_SIZE = 50;
+const FILTER_OPTIONS_PAGE_SIZE = 1000;
+
+const getThreeMonthsAgoIso = () => {
+  const threeMonthsAgo = new Date();
+  threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() - 3);
+  threeMonthsAgo.setHours(0, 0, 0, 0);
+  return threeMonthsAgo.toISOString();
+};
+
+const sanitizeSearchTerm = (value: string) => {
+  return value.trim().replace(/[%_,]/g, '');
+};
+
 export default function AuditTrailPage() {
   const { showToast } = useToast();
   const { user } = useAuth();
+
   const [auditRecords, setAuditRecords] = useState<AuditRecord[]>([]);
-  const [filteredRecords, setFilteredRecords] = useState<AuditRecord[]>([]);
+  const [tableNameOptions, setTableNameOptions] = useState<string[]>([]);
+  const [userEmailOptions, setUserEmailOptions] = useState<(string | null)[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedRecord, setSelectedRecord] = useState<AuditRecord | null>(null);
+
+  // Server-side pagination states
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalCount, setTotalCount] = useState(0);
+
+  // Stats states
+  const [insertCount, setInsertCount] = useState(0);
+  const [updateCount, setUpdateCount] = useState(0);
+  const [deleteCount, setDeleteCount] = useState(0);
 
   // Filter states
   const [tableFilter, setTableFilter] = useState<string>('all');
   const [operationFilter, setOperationFilter] = useState<string>('all');
   const [userFilter, setUserFilter] = useState<string>('all');
 
+  // Search states
+  const [searchTerm, setSearchTerm] = useState('');
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
+
   // Image Preview Modal
   const [showImagePreview, setShowImagePreview] = useState(false);
   const [previewImageUrl, setPreviewImageUrl] = useState<string | null>(null);
   const [previewUserName, setPreviewUserName] = useState<string>('');
 
-  // Fetch audit trail
-  const fetchAuditTrail = useCallback(async () => {
-    try {
-      setIsLoading(true);
-      const { data, error } = await supabase
-        .from('audit_trail')
-        .select(`
-          *,
-          profiles:user_id (
-            full_name,
-            profile_image_url
-          )
-        `)
-        .order('timestamp', { ascending: false })
-        .limit(200);
+  // Debounce search so it does not query the database on every key press
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setCurrentPage(1);
+      setDebouncedSearchTerm(searchTerm);
+    }, 400);
 
-      if (error) {
-        console.error('Error fetching audit trail:', error);
-        throw error;
+    return () => clearTimeout(timeout);
+  }, [searchTerm]);
+
+  const applyFiltersToQuery = useCallback((query: any, threeMonthsAgoIso: string) => {
+    let filteredQuery = query.gte('timestamp', threeMonthsAgoIso);
+
+    if (tableFilter !== 'all') {
+      filteredQuery = filteredQuery.eq('table_name', tableFilter);
+    }
+
+    if (operationFilter !== 'all') {
+      filteredQuery = filteredQuery.eq('operation', operationFilter);
+    }
+
+    if (userFilter !== 'all') {
+      if (userFilter === 'system') {
+        filteredQuery = filteredQuery.is('user_email', null);
+      } else {
+        filteredQuery = filteredQuery.eq('user_email', userFilter);
+      }
+    }
+
+    const safeSearchTerm = sanitizeSearchTerm(debouncedSearchTerm);
+
+    if (safeSearchTerm) {
+      filteredQuery = filteredQuery.or(
+        `table_name.ilike.%${safeSearchTerm}%,record_id.ilike.%${safeSearchTerm}%,user_email.ilike.%${safeSearchTerm}%`
+      );
+    }
+
+    return filteredQuery;
+  }, [tableFilter, operationFilter, userFilter, debouncedSearchTerm]);
+
+  // Fetch table/user filter options from all audit records within the last 3 months.
+  // This fetches only table_name and user_email, not the heavy JSON values.
+  const fetchAuditFilterOptions = useCallback(async () => {
+    try {
+      const threeMonthsAgoIso = getThreeMonthsAgoIso();
+
+      let from = 0;
+      let hasMore = true;
+
+      const tableNameSet = new Set<string>();
+      const emailSet = new Set<string | null>();
+
+      while (hasMore) {
+        const to = from + FILTER_OPTIONS_PAGE_SIZE - 1;
+
+        const { data, error } = await supabase
+          .from('audit_trail')
+          .select('table_name, user_email')
+          .gte('timestamp', threeMonthsAgoIso)
+          .order('timestamp', { ascending: false })
+          .range(from, to);
+
+        if (error) {
+          console.error('Error fetching audit filter options:', error);
+          throw error;
+        }
+
+        const batch = (data || []) as Array<{
+          table_name: string;
+          user_email: string | null;
+        }>;
+
+        batch.forEach((record) => {
+          if (record.table_name) {
+            tableNameSet.add(record.table_name);
+          }
+
+          emailSet.add(record.user_email || null);
+        });
+
+        hasMore = batch.length === FILTER_OPTIONS_PAGE_SIZE;
+        from += FILTER_OPTIONS_PAGE_SIZE;
       }
 
-      setAuditRecords((data || []) as AuditRecord[]);
-      showToast('Audit trail refreshed', 'success');
+      const sortedTables = Array.from(tableNameSet).sort();
+
+      const sortedEmails = Array.from(emailSet).sort((a, b) => {
+        if (a === null) return 1;
+        if (b === null) return -1;
+        return a.localeCompare(b);
+      });
+
+      setTableNameOptions(sortedTables);
+      setUserEmailOptions(sortedEmails);
     } catch (error: any) {
-      console.error('Failed to fetch audit trail:', error);
+      console.error('Failed to fetch audit filter options:', error);
       showToast(getErrorMessage(error), 'error');
-    } finally {
-      setIsLoading(false);
     }
   }, [showToast]);
 
+  // Fetch operation counts without loading thousands of rows
+  const fetchAuditStats = useCallback(async () => {
+    const threeMonthsAgoIso = getThreeMonthsAgoIso();
+
+    const createCountQuery = (operation: 'INSERT' | 'UPDATE' | 'DELETE') => {
+      const query = supabase
+        .from('audit_trail')
+        .select('id', { count: 'exact', head: true })
+        .eq('operation', operation);
+
+      return applyFiltersToQuery(query, threeMonthsAgoIso);
+    };
+
+    const [insertResult, updateResult, deleteResult] = await Promise.all([
+      createCountQuery('INSERT'),
+      createCountQuery('UPDATE'),
+      createCountQuery('DELETE'),
+    ]);
+
+    if (insertResult.error) throw insertResult.error;
+    if (updateResult.error) throw updateResult.error;
+    if (deleteResult.error) throw deleteResult.error;
+
+    setInsertCount(insertResult.count || 0);
+    setUpdateCount(updateResult.count || 0);
+    setDeleteCount(deleteResult.count || 0);
+  }, [applyFiltersToQuery]);
+
+  // Fetch audit trail using server-side pagination
+  const fetchAuditTrail = useCallback(
+    async (showSuccessMessage = false) => {
+      try {
+        setIsLoading(true);
+
+        const threeMonthsAgoIso = getThreeMonthsAgoIso();
+        const from = (currentPage - 1) * PAGE_SIZE;
+        const to = from + PAGE_SIZE - 1;
+
+        let query = supabase
+          .from('audit_trail')
+          .select(
+            `
+            *,
+            profiles:user_id (
+              full_name,
+              profile_image_url
+            )
+          `,
+            { count: 'exact' }
+          )
+          .order('timestamp', { ascending: false });
+
+        query = applyFiltersToQuery(query, threeMonthsAgoIso);
+
+        const { data, error, count } = await query.range(from, to);
+
+        if (error) {
+          console.error('Error fetching audit trail:', error);
+          throw error;
+        }
+
+        setAuditRecords((data || []) as AuditRecord[]);
+        setTotalCount(count || 0);
+
+        await fetchAuditStats();
+
+        if (showSuccessMessage) {
+          showToast('Audit trail refreshed', 'success');
+        }
+      } catch (error: any) {
+        console.error('Failed to fetch audit trail:', error);
+        showToast(getErrorMessage(error), 'error');
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [
+      currentPage,
+      applyFiltersToQuery,
+      fetchAuditStats,
+      showToast,
+    ]
+  );
+
   useEffect(() => {
-    fetchAuditTrail();
+    fetchAuditFilterOptions();
+  }, [fetchAuditFilterOptions]);
+
+  useEffect(() => {
+    fetchAuditTrail(false);
   }, [fetchAuditTrail]);
 
+  // Reset page when filters change
+  const handleTableFilterChange = (value: string) => {
+    setCurrentPage(1);
+    setTableFilter(value);
+  };
+
+  const handleOperationFilterChange = (value: string) => {
+    setCurrentPage(1);
+    setOperationFilter(value);
+  };
+
+  const handleUserFilterChange = (value: string) => {
+    setCurrentPage(1);
+    setUserFilter(value);
+  };
+
   // Handle avatar click to show image preview
-  const handleAvatarClick = (imageUrl: string | null, userName: string) => {
+  const handleAvatarClick = (imageUrl: string | null | undefined, userName: string) => {
     if (imageUrl) {
       setPreviewImageUrl(imageUrl);
       setPreviewUserName(userName);
@@ -92,28 +312,12 @@ export default function AuditTrailPage() {
     }
   };
 
-  // Apply filters
-  useEffect(() => {
-    let filtered = [...auditRecords];
+  const uniqueTables = tableNameOptions;
+  const uniqueUsers = userEmailOptions;
 
-    if (tableFilter !== 'all') {
-      filtered = filtered.filter(record => record.table_name === tableFilter);
-    }
-
-    if (operationFilter !== 'all') {
-      filtered = filtered.filter(record => record.operation === operationFilter);
-    }
-
-    if (userFilter !== 'all') {
-      filtered = filtered.filter(record => record.user_email === userFilter);
-    }
-
-    setFilteredRecords(filtered);
-  }, [auditRecords, tableFilter, operationFilter, userFilter]);
-
-  // Get unique values for filters
-  const uniqueTables = Array.from(new Set(auditRecords.map(r => r.table_name))).sort();
-  const uniqueUsers = Array.from(new Set(auditRecords.map(r => r.user_email))).sort();
+  const totalPages = Math.max(1, Math.ceil(totalCount / PAGE_SIZE));
+  const showingFrom = totalCount === 0 ? 0 : (currentPage - 1) * PAGE_SIZE + 1;
+  const showingTo = Math.min(currentPage * PAGE_SIZE, totalCount);
 
   const getOperationBadge = (operation: string) => {
     switch (operation) {
@@ -167,7 +371,9 @@ export default function AuditTrailPage() {
       render: (value: string) => (
         <div className="flex items-center gap-2">
           {getTableIcon(value)}
-          <span className="font-mono text-sm font-semibold text-gray-900">{value}</span>
+          <span className="font-mono text-sm font-semibold text-gray-900">
+            {value}
+          </span>
         </div>
       ),
     },
@@ -189,7 +395,10 @@ export default function AuditTrailPage() {
       header: 'Changed Fields',
       accessor: 'changed_fields' as const,
       render: (value: string[] | null) => {
-        if (!value || value.length === 0) return <span className="text-gray-400">-</span>;
+        if (!value || value.length === 0) {
+          return <span className="text-gray-400">-</span>;
+        }
+
         return (
           <div className="flex flex-wrap gap-1">
             {value.slice(0, 3).map((field, idx) => (
@@ -198,7 +407,9 @@ export default function AuditTrailPage() {
               </Badge>
             ))}
             {value.length > 3 && (
-              <span className="text-xs text-gray-500">+{value.length - 3} more</span>
+              <span className="text-xs text-gray-500">
+                +{value.length - 3} more
+              </span>
             )}
           </div>
         );
@@ -213,7 +424,12 @@ export default function AuditTrailPage() {
             imageUrl={row.profiles?.profile_image_url}
             userName={row.profiles?.full_name || value || 'System'}
             size="sm"
-            onClick={() => handleAvatarClick(row.profiles?.profile_image_url, row.profiles?.full_name || value || 'System')}
+            onClick={() =>
+              handleAvatarClick(
+                row.profiles?.profile_image_url,
+                row.profiles?.full_name || value || 'System'
+              )
+            }
             clickable
           />
           <div className="flex flex-col">
@@ -249,10 +465,10 @@ export default function AuditTrailPage() {
   ];
 
   const stats = {
-    total: auditRecords.length,
-    inserts: auditRecords.filter(r => r.operation === 'INSERT').length,
-    updates: auditRecords.filter(r => r.operation === 'UPDATE').length,
-    deletes: auditRecords.filter(r => r.operation === 'DELETE').length,
+    total: totalCount,
+    inserts: insertCount,
+    updates: updateCount,
+    deletes: deleteCount,
   };
 
   return (
@@ -265,12 +481,21 @@ export default function AuditTrailPage() {
       <Container size="xl">
         <div className="space-y-6">
           {/* Header Actions */}
-          <div className="flex justify-between items-center">
-            <div className="flex gap-3">
+          <div className="flex flex-col gap-4 lg:flex-row lg:justify-between lg:items-center">
+            <div className="flex flex-col gap-3 md:flex-row md:flex-wrap">
+              {/* Search */}
+              <input
+                type="text"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                placeholder="Search table, user, or record ID..."
+                className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#22A555] min-w-[260px]"
+              />
+
               {/* Table Filter */}
               <select
                 value={tableFilter}
-                onChange={(e) => setTableFilter(e.target.value)}
+                onChange={(e) => handleTableFilterChange(e.target.value)}
                 className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#22A555]"
               >
                 <option value="all">All Tables</option>
@@ -284,7 +509,7 @@ export default function AuditTrailPage() {
               {/* Operation Filter */}
               <select
                 value={operationFilter}
-                onChange={(e) => setOperationFilter(e.target.value)}
+                onChange={(e) => handleOperationFilterChange(e.target.value)}
                 className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#22A555]"
               >
                 <option value="all">All Operations</option>
@@ -296,12 +521,12 @@ export default function AuditTrailPage() {
               {/* User Filter */}
               <select
                 value={userFilter}
-                onChange={(e) => setUserFilter(e.target.value)}
+                onChange={(e) => handleUserFilterChange(e.target.value)}
                 className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#22A555]"
               >
                 <option value="all">All Users</option>
                 {uniqueUsers.map((userEmail) => (
-                  <option key={userEmail || 'system'} value={userEmail || ''}>
+                  <option key={userEmail || 'system'} value={userEmail || 'system'}>
                     {userEmail || '(System)'}
                   </option>
                 ))}
@@ -309,7 +534,12 @@ export default function AuditTrailPage() {
             </div>
 
             <RefreshButton
-              onRefresh={fetchAuditTrail}
+              onRefresh={async () => {
+                await Promise.all([
+                  fetchAuditTrail(true),
+                  fetchAuditFilterOptions(),
+                ]);
+              }}
               label="Refresh Audit Trail"
               showLastRefresh={true}
             />
@@ -321,74 +551,115 @@ export default function AuditTrailPage() {
               {Array.from({ length: 4 }).map((_, i) => <SkeletonTile key={i} />)}
             </div>
           ) : (
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <Card variant="flat" className="bg-gradient-to-br from-blue-50 to-blue-100 border-l-4 border-blue-500">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-gray-600 mb-1">Total Changes</p>
-                  <p className="text-3xl font-bold text-gray-900">{stats.total}</p>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              <Card variant="flat" className="bg-gradient-to-br from-blue-50 to-blue-100 border-l-4 border-blue-500">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm text-gray-600 mb-1">Total Changes</p>
+                    <p className="text-3xl font-bold text-gray-900">{stats.total}</p>
+                  </div>
+                  <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center shadow-lg">
+                    <Database className="w-6 h-6 text-white" />
+                  </div>
                 </div>
-                <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center shadow-lg">
-                  <Database className="w-6 h-6 text-white" />
-                </div>
-              </div>
-            </Card>
+              </Card>
 
-            <Card variant="flat" className="bg-gradient-to-br from-green-50 to-green-100 border-l-4 border-green-500">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-gray-600 mb-1">Inserts</p>
-                  <p className="text-3xl font-bold text-gray-900">{stats.inserts}</p>
+              <Card variant="flat" className="bg-gradient-to-br from-green-50 to-green-100 border-l-4 border-green-500">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm text-gray-600 mb-1">Inserts</p>
+                    <p className="text-3xl font-bold text-gray-900">{stats.inserts}</p>
+                  </div>
+                  <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center shadow-lg">
+                    <Plus className="w-6 h-6 text-white" />
+                  </div>
                 </div>
-                <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center shadow-lg">
-                  <Plus className="w-6 h-6 text-white" />
-                </div>
-              </div>
-            </Card>
+              </Card>
 
-            <Card variant="flat" className="bg-gradient-to-br from-yellow-50 to-yellow-100 border-l-4 border-yellow-500">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-gray-600 mb-1">Updates</p>
-                  <p className="text-3xl font-bold text-gray-900">{stats.updates}</p>
+              <Card variant="flat" className="bg-gradient-to-br from-yellow-50 to-yellow-100 border-l-4 border-yellow-500">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm text-gray-600 mb-1">Updates</p>
+                    <p className="text-3xl font-bold text-gray-900">{stats.updates}</p>
+                  </div>
+                  <div className="w-12 h-12 bg-yellow-500 rounded-xl flex items-center justify-center shadow-lg">
+                    <Edit className="w-6 h-6 text-white" />
+                  </div>
                 </div>
-                <div className="w-12 h-12 bg-yellow-500 rounded-xl flex items-center justify-center shadow-lg">
-                  <Edit className="w-6 h-6 text-white" />
-                </div>
-              </div>
-            </Card>
+              </Card>
 
-            <Card variant="flat" className="bg-gradient-to-br from-red-50 to-red-100 border-l-4 border-red-500">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-gray-600 mb-1">Deletes</p>
-                  <p className="text-3xl font-bold text-gray-900">{stats.deletes}</p>
+              <Card variant="flat" className="bg-gradient-to-br from-red-50 to-red-100 border-l-4 border-red-500">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm text-gray-600 mb-1">Deletes</p>
+                    <p className="text-3xl font-bold text-gray-900">{stats.deletes}</p>
+                  </div>
+                  <div className="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center shadow-lg">
+                    <Trash2 className="w-6 h-6 text-white" />
+                  </div>
                 </div>
-                <div className="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center shadow-lg">
-                  <Trash2 className="w-6 h-6 text-white" />
-                </div>
-              </div>
-            </Card>
-          </div>
+              </Card>
+            </div>
           )}
 
           {/* Audit Trail Table */}
           <Card title="AUDIT TRAIL RECORDS" headerColor="bg-[#D4F4DD]">
             {isLoading ? (
               <SkeletonTable rows={5} cols={5} />
-            ) : filteredRecords.length === 0 ? (
+            ) : auditRecords.length === 0 ? (
               <div className="text-center py-12 text-gray-500">
-                No audit records found
+                No audit records found from the last 3 months
               </div>
             ) : (
-              <EnhancedTable
-                columns={columns}
-                data={filteredRecords}
-                searchable
-                paginated
-                pageSize={50}
-                searchPlaceholder="Search by table, user, or record ID..."
-              />
+              <div className="space-y-4">
+                <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between text-sm text-gray-700">
+                  <p>
+                    Showing{' '}
+                    <span className="font-semibold">{showingFrom}</span>
+                    {' '}to{' '}
+                    <span className="font-semibold">{showingTo}</span>
+                    {' '}of{' '}
+                    <span className="font-semibold">{totalCount}</span>
+                    {' '}audit record(s) from the last 3 months
+                  </p>
+
+                  <p>
+                    Page {currentPage} of {totalPages}
+                  </p>
+                </div>
+
+                <EnhancedTable
+                  columns={columns}
+                  data={auditRecords}
+                  searchable={false}
+                  paginated={false}
+                  pageSize={PAGE_SIZE}
+                />
+
+                {totalPages > 1 && (
+                  <div className="flex items-center justify-between pt-4">
+                    <button
+                      onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+                      disabled={currentPage === 1 || isLoading}
+                      className="px-4 py-2 border border-gray-300 rounded-lg text-sm disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
+                    >
+                      Previous
+                    </button>
+
+                    <span className="text-sm text-gray-700">
+                      Page {currentPage} of {totalPages}
+                    </span>
+
+                    <button
+                      onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
+                      disabled={currentPage >= totalPages || isLoading}
+                      className="px-4 py-2 border border-gray-300 rounded-lg text-sm disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
+                    >
+                      Next
+                    </button>
+                  </div>
+                )}
+              </div>
             )}
           </Card>
         </div>
@@ -411,24 +682,34 @@ export default function AuditTrailPage() {
                   <span className="font-semibold text-gray-700">Table:</span>
                   <div className="flex items-center gap-2 mt-1">
                     {getTableIcon(selectedRecord.table_name)}
-                    <span className="font-mono font-semibold text-gray-900">{selectedRecord.table_name}</span>
+                    <span className="font-mono font-semibold text-gray-900">
+                      {selectedRecord.table_name}
+                    </span>
                   </div>
                 </div>
+
                 <div>
                   <span className="font-semibold text-gray-700">Operation:</span>
                   <div className="mt-1">{getOperationBadge(selectedRecord.operation)}</div>
                 </div>
+
                 <div>
                   <span className="font-semibold text-gray-700">Record ID:</span>
-                  <p className="font-mono text-xs text-gray-600 mt-1">{selectedRecord.record_id}</p>
+                  <p className="font-mono text-xs text-gray-600 mt-1">
+                    {selectedRecord.record_id}
+                  </p>
                 </div>
+
                 <div>
                   <span className="font-semibold text-gray-700">Timestamp:</span>
                   <div className="flex items-center gap-2 mt-1">
                     <Clock className="w-4 h-4 text-gray-400" />
-                    <span className="text-gray-900">{new Date(selectedRecord.timestamp).toLocaleString()}</span>
+                    <span className="text-gray-900">
+                      {new Date(selectedRecord.timestamp).toLocaleString()}
+                    </span>
                   </div>
                 </div>
+
                 <div className="col-span-2">
                   <span className="font-semibold text-gray-700">User:</span>
                   <div className="flex items-center gap-2 mt-1">
@@ -447,6 +728,7 @@ export default function AuditTrailPage() {
                     )}
                   </div>
                 </div>
+
                 {selectedRecord.changed_fields && selectedRecord.changed_fields.length > 0 && (
                   <div className="col-span-2">
                     <span className="font-semibold text-gray-700">Changed Fields:</span>
@@ -491,7 +773,7 @@ export default function AuditTrailPage() {
               )}
             </div>
 
-            {/* Single Column for INSERT/DELETE operations */}
+            {/* Empty State */}
             {!selectedRecord.old_values && !selectedRecord.new_values && (
               <div className="text-center py-8 text-gray-500">
                 No before/after data available for this operation
@@ -511,4 +793,4 @@ export default function AuditTrailPage() {
       />
     </AdminLayout>
   );
-}
+} 

@@ -8,6 +8,7 @@ import { PDSViewModal } from '@/components/ui/PDSViewModal';
 import { RankingDetailsModal } from '@/components/hr/RankingDetailsModal';
 import { PDSViewerModal } from '@/components/hr/PDSViewerModal';
 import { DenyModal } from '@/components/hr/DenyModal';
+import { AutoDenyModal } from '@/components/hr/AutoDenyModal';
 import { ShortlistModal } from '@/components/hr/ShortlistModal';
 import { ScheduleInterviewModal } from '@/components/hr/ScheduleInterviewModal';
 import { ApproveModal } from '@/components/hr/ApproveModal';
@@ -112,6 +113,12 @@ export default function RankedRecordsPage() {
 
   // New workflow modals state
   const [showDenyModal, setShowDenyModal] = useState(false);
+  const [showAutoDenyModal, setShowAutoDenyModal] = useState(false);
+    const [jobToAutoDeny, setJobToAutoDeny] = useState<{
+      id: string;
+      title: string;
+      pendingCount: number;
+    } | null>(null);
   const [showShortlistModal, setShowShortlistModal] = useState(false);
   const [showScheduleInterviewModal, setShowScheduleInterviewModal] = useState(false);
   const [showApproveModal, setShowApproveModal] = useState(false);
@@ -483,6 +490,88 @@ export default function RankedRecordsPage() {
     } catch (error) {
       console.error('Error denying application:', error);
       showToast('Failed to deny application', 'error');
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+    // Handle Deny All for a selected job
+  const getPendingApplicationsForSelectedJob = () => {
+    if (selectedJob === 'all') return [];
+
+    return applications.filter(
+      (app) => app._raw?.job_id === selectedJob && app.status === 'pending'
+    );
+  };
+
+  const handleOpenAutoDenyModal = () => {
+    if (selectedJob === 'all') {
+      showToast('Please select a specific job position before using Deny All', 'warning');
+      return;
+    }
+
+    const job = jobs.find((j) => j.id === selectedJob);
+
+    if (!job) {
+      showToast('Selected job was not found', 'error');
+      return;
+    }
+
+    const pendingCount = getPendingApplicationsForSelectedJob().length;
+
+    if (pendingCount === 0) {
+      showToast('No pending applications to deny for this position', 'warning');
+      return;
+    }
+
+    setJobToAutoDeny({
+      id: job.id,
+      title: job.title,
+      pendingCount,
+    });
+
+    setShowAutoDenyModal(true);
+  };
+
+  const handleAutoDenyConfirm = async (reason: string) => {
+    if (!jobToAutoDeny) return;
+
+    try {
+      setSubmitting(true);
+
+      const response = await fetch(
+        `/api/jobs/${jobToAutoDeny.id}/auto-deny-remaining`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ reason }),
+        }
+      );
+
+      const result = await response.json();
+
+      if (result.success) {
+        showToast(
+          result.message ||
+            `Denied ${result.deniedCount || 0} pending application${
+              (result.deniedCount || 0) === 1 ? '' : 's'
+            }`,
+          'success'
+        );
+
+        setShowAutoDenyModal(false);
+        setJobToAutoDeny(null);
+
+        await fetchApplications();
+        await fetchJobs();
+      } else {
+        showToast(getErrorMessage(result.error || result.message), 'error');
+      }
+    } catch (error) {
+      console.error('Error auto-denying applications:', error);
+      showToast('Failed to deny all pending applications', 'error');
     } finally {
       setSubmitting(false);
     }
@@ -1262,6 +1351,13 @@ export default function RankedRecordsPage() {
     denied: applications.filter((a) => a.status === 'denied').length,
   };
 
+  const pendingForSelectedJob =
+  selectedJob === 'all'
+    ? 0
+    : applications.filter(
+        (a) => a._raw?.job_id === selectedJob && a.status === 'pending'
+      ).length;
+
   // Handler for opening application details drawer
   const handleViewApplicationDetails = (application: Application) => {
     setSelectedApplicationForDrawer(application);
@@ -1308,7 +1404,17 @@ export default function RankedRecordsPage() {
               >
                 {isRanking ? 'Ranking with AI...' : 'Rank Applicants'}
               </Button>
-
+              <Button
+                variant="danger"
+                icon={XCircle}
+                loading={submitting && showAutoDenyModal}
+                onClick={handleOpenAutoDenyModal}
+                disabled={selectedJob === 'all' || pendingForSelectedJob === 0 || submitting}
+                className="whitespace-nowrap"
+                title={selectedJob === 'all' ? 'Select a specific job position first' : undefined}
+              >
+                Deny All{selectedJob !== 'all' ? ` (${pendingForSelectedJob})` : ''}
+              </Button>
               <Button
                 variant="success"
                 icon={Download}
@@ -1774,6 +1880,22 @@ export default function RankedRecordsPage() {
       />
 
       {/* NEW WORKFLOW MODALS */}
+        
+      {/* Deny All Modal */}
+      {jobToAutoDeny && (
+        <AutoDenyModal
+          isOpen={showAutoDenyModal}
+          onClose={() => {
+            setShowAutoDenyModal(false);
+            setJobToAutoDeny(null);
+          }}
+          jobTitle={jobToAutoDeny.title}
+          jobId={jobToAutoDeny.id}
+          pendingCount={jobToAutoDeny.pendingCount}
+          onConfirm={handleAutoDenyConfirm}
+          submitting={submitting}
+        />
+      )}
 
       {/* Deny Modal with Reason */}
       <DenyModal

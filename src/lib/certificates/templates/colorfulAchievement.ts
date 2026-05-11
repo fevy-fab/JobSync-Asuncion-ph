@@ -61,13 +61,33 @@ export async function generateColorfulAchievementCertificate(
   doc.rect(13, 13, pageWidth - 26, pageHeight - 26, 'S');
 
   // ===== CORNER DECORATIONS (Subtle) =====
-  // Top corners - small gold ornaments
-  doc.setFontSize(12);
-  doc.setTextColor(201, 168, 106); // Gold
-  doc.text('❖', 18, 20);
-  doc.text('❖', pageWidth - 22, 20);
-  doc.text('❖', 18, pageHeight - 15);
-  doc.text('❖', pageWidth - 22, pageHeight - 15);
+  // // Top corners - small gold ornaments
+  // doc.setFontSize(12);
+  // doc.setTextColor(201, 168, 106); // Gold
+  // doc.text('❖', 18, 20);
+  // doc.text('❖', pageWidth - 22, 20);
+  // doc.text('❖', 18, pageHeight - 15);
+  // doc.text('❖', pageWidth - 22, pageHeight - 15); 
+
+  // ===== CORNER DECORATIONS (Safe Version) =====
+  doc.setDrawColor(201, 168, 106);
+  doc.setLineWidth(0.4);
+
+  // top-left
+  doc.line(18, 18, 22, 18);
+  doc.line(18, 18, 18, 22);
+
+  // top-right
+  doc.line(pageWidth - 18, 18, pageWidth - 22, 18);
+  doc.line(pageWidth - 18, 18, pageWidth - 18, 22);
+
+  // bottom-left
+  doc.line(18, pageHeight - 18, 22, pageHeight - 18);
+  doc.line(18, pageHeight - 18, 18, pageHeight - 22);
+
+  // bottom-right
+  doc.line(pageWidth - 18, pageHeight - 18, pageWidth - 22, pageHeight - 18);
+  doc.line(pageWidth - 18, pageHeight - 18, pageWidth - 18, pageHeight - 22);
 
   // ===== LOGOS (Top, Centered) =====
   let currentY = 14;
